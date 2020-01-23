@@ -1,3 +1,3 @@
 # miniRT
 
-Project in which I discover the basic of raytracing.
+Project in which I discover the basics of raytracing.
