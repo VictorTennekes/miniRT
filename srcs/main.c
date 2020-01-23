@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/23 12:46:47 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/23 16:56:31 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/23 17:20:22 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,40 @@ void            my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
     dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
     *(unsigned int*)dst = color;
+}
+
+void			my_square(t_data img, int og_x, int og_y, int size, int color)
+{
+	int x = og_x;
+	int y = og_y;
+	while (x <= (og_x + size))
+	{
+		y = og_y;
+		while (y <= (og_y + size))
+		{
+			my_mlx_pixel_put(&img, x, y, color);
+			y++;
+		}
+		x++;
+	}
+}
+
+void			my_triangle(t_data img, int og_x, int og_y, int size, int color)
+{
+	int x = (og_x);
+	int y = (og_y + size);
+	int counter = 0;
+
+	while (x <= (og_x + size))
+	{
+		y = 0;
+		while (y < counter)
+		{
+			my_mlx_pixel_put(&img, x, y, color);
+			y++;
+		}
+		x++;
+	}
 }
 
 void			my_grid_put_center(t_data img, int x, int y, int color, int screen_x, int screen_y, int gap_size)
@@ -89,6 +123,8 @@ int             main(void)
     img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
                                  &img.endian);
 	my_grid_put_center(img, x, y, 0xFFFFFF, screen_x, screen_y, 20);
+	my_square(img, 50, 50, 75, 0xFFFFFF);
+	my_triangle(img, 1000, 1000, 75, 0xFFFFFF);
     mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
     mlx_loop(mlx);
 }
