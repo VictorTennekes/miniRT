@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:08:29 by vtenneke       #+#    #+#                 #
-#    Updated: 2019/11/11 14:26:25 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/24 16:01:08 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS		=	ft_atoi ft_isalnum ft_isalpha ft_isascii\
 	ft_putstr_fd ft_putendl_fd ft_putnbr_fd
 B_SRCS		=	ft_lstnew_bonus ft_lstadd_front_bonus ft_lstsize_bonus\
 	ft_lstlast_bonus ft_lstadd_back_bonus ft_lstdelone_bonus ft_lstclear_bonus\
-	ft_lstiter_bonus ft_lstmap_bonus
+	ft_lstiter_bonus ft_lstmap_bonus get_next_line_bonus get_next_line_utils_bonus
 CFILES		=	$(SRCS:%=srcs/%.c)
 OFILES		=	$(CFILES:.c=.o)
 BFILES		=	$(B_SRCS:%=b_srcs/%.c)
@@ -41,32 +41,23 @@ RESET	= \x1b[0m
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	@echo "$(YELLOW)Linking the library..."
-	@ar rc $(NAME) $(OFILES)
-	@ranlib $(NAME)
-	@echo "$(GREEN)Done!"
+	ar rc $(NAME) $(OFILES)
+	ranlib $(NAME)
 
 %.o: %.c
-	@echo "$(CYAN)Compiling:	$(WHITE)$<"
-	@gcc -o $@ -c $< $(FLAGS) -I $(INCLUDES)
+	gcc -o $@ -c $< $(FLAGS) -I $(INCLUDES)
 
 clean: clean_b
-	@echo "$(YELLOW)Cleaning..."
-	@echo "$(GREEN)Done cleaning!"
 
 fclean: clean_b
-	@echo "$(RED)Full cleaning..."
-	@rm -f $(NAME)
-	@echo "$(GREEN)Done cleaning!"
+	rm -f $(NAME)
 
 clean_b:
-	@rm -f $(BOFILES)
-	@rm -f $(OFILES)
+	rm -f $(BOFILES)
+	rm -f $(OFILES)
 
 re: fclean all
 
 bonus: $(OFILES) $(BOFILES)
-	@echo "$(YELLOW)Linking the bonusses into the library..."
-	@ar rc $(NAME) $(OFILES) $(BOFILES)
-	@ranlib $(NAME)
-	@echo "$(GREEN)Done!"
+	ar rc $(NAME) $(OFILES) $(BOFILES)
+	ranlib $(NAME)

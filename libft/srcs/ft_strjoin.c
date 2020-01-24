@@ -6,38 +6,37 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/01 09:46:05 by vtenneke       #+#    #+#                */
-/*   Updated: 2019/12/04 12:46:34 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/24 14:46:31 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <get_next_line_bonus.h>
 #include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*dest;
-	size_t	i;
-	size_t	k;
+	char	*res;
+	int		l1;
+	int		l2;
+	int		i;
 
-	k = 0;
-	if (s1 == 0)
+	if (!s1 || !s2)
 		return (NULL);
-	i = ft_strlen(s1) + ft_strlen(s2);
-	dest = (char*)malloc(i + 1);
-	if (!(dest))
+	l1 = ft_strchr_gnl(s1, '\0');
+	l2 = ft_strchr_gnl(s2, '\0');
+	res = (char*)malloc(sizeof(char) * (l1 + l2 + 1));
+	if (!res)
 		return (NULL);
-	while (*s1)
+	res[l1 + l2] = '\0';
+	i = 0;
+	while (i < l1 || i < l2)
 	{
-		dest[k] = *s1;
-		s1++;
-		k++;
+		if (i < l1)
+			res[i] = s1[i];
+		if (i < l2)
+			res[i + l1] = s2[i];
+		i++;
 	}
-	while (*s2)
-	{
-		dest[k] = *s2;
-		s2++;
-		k++;
-	}
-	dest[k] = '\0';
-	return (dest);
+	return (res);
 }

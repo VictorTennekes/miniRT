@@ -6,15 +6,15 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/23 15:50:51 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/24 17:01:20 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	minirt
-SRCS			=	main.c
+SRCS			=	main.c error.c
 CFILES			=	$(SRCS:%=srcs/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -Wno-unused-parameter
 
 # COLORS
 WHITE   = \x1b[37;01m
@@ -30,22 +30,28 @@ RESET   = \x1b[0m
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	@echo "$(WHITE)/-----		mlx		-----\\ $(RESET)"
+	@echo "$(WHITE)/-----		Compiling mlx		-----\\ $(RESET)"
 	make -C mlx
-	@echo "$(WHITE)/-----		libft		-----\\ $(RESET)"
-	make -C libft
-	@$(CC) -Lmlx -lmlx -Llibft -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
+	@echo "$(WHITE)/-----		Compiling libft		-----\\ $(RESET)"
+	make bonus -C libft
+	@echo "$(WHITE)/-----		Compiling miniRT	-----\\ $(RESET)"
+	$(CC) -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
 
 %.o: %.c
-	@printf "$(WHITE)Compiling	$(RESET)$<\n"
-	@gcc -Wall -Wextra -Werror -Imlx -Ilibft -c $< -o $@
+	gcc $(CFLAGS) -Imlx -Ilibft/includes -Iincludes -c $< -o $@
 	
 clean:
-	@echo "$(WHITE)Cleaning:$(RESET)"
+	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
+	make clean -C mlx
+	@echo "$(WHITE)/-----		Cleaning libft		-----\\ $(RESET)"
+	make clean -C libft
+	@echo "$(WHITE)/-----		Cleaning miniRT		-----\\ $(RESET)"
 	rm -f $(OFILES)
 
 fclean: clean
-	@echo "$(WHITE)Cleaning:$(RESET)"
+	@echo "$(WHITE)/-----		Fcleaning libft		-----\\ $(RESET)"
+	make fclean -C libft
+	@echo "$(WHITE)/-----		Fcleaning miniRT	-----\\ $(RESET)"
 	rm -f $(NAME)
 
 re: fclean all
