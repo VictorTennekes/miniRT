@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/27 09:29:16 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/27 12:15:40 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,10 @@ SRCS			=	main.c error.c
 CFILES			=	$(SRCS:%=srcs/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -Wno-unused-parameter
+
+# LIB LOCATIONS
+MLX_LOC			=	lib/mlx
+LIBFT_LOC		=	lib/libft
 
 # COLORS
 WHITE   = \x1b[37;01m
@@ -31,26 +35,26 @@ all: $(NAME)
 
 $(NAME): $(OFILES)
 	@echo "$(WHITE)/-----		Compiling mlx		-----\\ $(RESET)"
-	make -C mlx
+	make -C $(MLX_LOC)
 	@echo "$(WHITE)/-----		Compiling libft		-----\\ $(RESET)"
-	make bonus -C libft
-	@echo "$(WHITE)/-----		Compiling miniRT P2	-----\\ $(RESET)"
-	$(CC) -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
+	make bonus -C $(LIBFT_LOC)
+	@echo "$(WHITE)/-----		Compiling miniRT	-----\\ $(RESET)"
+	$(CC) -L$(MLX_LOC) -lmlx -L$(LIBFT_LOC) -lft -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
 
 %.o: %.c
-	gcc $(CFLAGS) -Imlx -Ilibft/includes -Iincludes -c $< -o $@
+	gcc $(CFLAGS) -Imlx -I$(LIBFT_LOC)/includes -Iincludes -c $< -o $@
 	
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
-	make clean -C mlx
+	make clean -C $(MLX_LOC)
 	@echo "$(WHITE)/-----		Cleaning libft		-----\\ $(RESET)"
-	make clean -C libft
+	make clean -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Cleaning miniRT		-----\\ $(RESET)"
 	rm -f $(OFILES)
 
 fclean: clean
 	@echo "$(WHITE)/-----		Fcleaning libft		-----\\ $(RESET)"
-	make fclean -C libft
+	make fclean -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Fcleaning miniRT	-----\\ $(RESET)"
 	rm -f $(NAME)
 
