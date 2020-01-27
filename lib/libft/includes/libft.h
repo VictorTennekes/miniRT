@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 10:36:56 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/24 14:32:48 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/27 13:32:29 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define LIBFT_H
 # include <stddef.h>
 
-typedef	struct		s_list
+# ifndef NOLIST
+typedef struct		s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+# endif
 
+# ifndef NOLIST
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void*));
@@ -30,6 +33,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void*),
 					void (*del)(void*));
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
+# endif
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);

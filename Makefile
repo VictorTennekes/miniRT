@@ -6,19 +6,28 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/27 12:15:40 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/27 13:43:39 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	minirt
-SRCS			=	main.c error.c
+SRCS			=	main.c\
+					error.c
 CFILES			=	$(SRCS:%=srcs/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror -Wno-unused-parameter
+CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter
+INCLUDES		=	-I includes\
+					-I lib/mlx\
+					-I lib/libft/includes\
+					-I lib/liblist
+LIBS			=	-L lib/mlx -lmlx\
+					-L lib/libft -lft\
+					-L lib/liblist -llist
 
 # LIB LOCATIONS
 MLX_LOC			=	lib/mlx
 LIBFT_LOC		=	lib/libft
+LIBLIST_LOC		=	lib/liblist
 
 # COLORS
 WHITE   = \x1b[37;01m
@@ -38,23 +47,29 @@ $(NAME): $(OFILES)
 	make -C $(MLX_LOC)
 	@echo "$(WHITE)/-----		Compiling libft		-----\\ $(RESET)"
 	make bonus -C $(LIBFT_LOC)
+	@echo "$(WHITE)/-----		Compiling liblist	-----\\ $(RESET)"
+	make -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Compiling miniRT	-----\\ $(RESET)"
-	$(CC) -L$(MLX_LOC) -lmlx -L$(LIBFT_LOC) -lft -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
+	$(CC) $(LIBS) -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
 
 %.o: %.c
-	gcc $(CFLAGS) -Imlx -I$(LIBFT_LOC)/includes -Iincludes -c $< -o $@
+	gcc $(CFLAGS) $(INCLUDES) -c $< -o $@
 	
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
 	make clean -C $(MLX_LOC)
 	@echo "$(WHITE)/-----		Cleaning libft		-----\\ $(RESET)"
 	make clean -C $(LIBFT_LOC)
+	@echo "$(WHITE)/-----		Cleaning liblist	-----\\ $(RESET)"
+	make clean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Cleaning miniRT		-----\\ $(RESET)"
 	rm -f $(OFILES)
 
 fclean: clean
 	@echo "$(WHITE)/-----		Fcleaning libft		-----\\ $(RESET)"
 	make fclean -C $(LIBFT_LOC)
+	@echo "$(WHITE)/-----		Fcleaning liblist	-----\\ $(RESET)"
+	make fclean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Fcleaning miniRT	-----\\ $(RESET)"
 	rm -f $(NAME)
 
