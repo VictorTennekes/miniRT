@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/24 17:01:20 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/27 09:29:16 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(NAME): $(OFILES)
 	make -C mlx
 	@echo "$(WHITE)/-----		Compiling libft		-----\\ $(RESET)"
 	make bonus -C libft
-	@echo "$(WHITE)/-----		Compiling miniRT	-----\\ $(RESET)"
+	@echo "$(WHITE)/-----		Compiling miniRT P2	-----\\ $(RESET)"
 	$(CC) -Lmlx -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
 
 %.o: %.c
