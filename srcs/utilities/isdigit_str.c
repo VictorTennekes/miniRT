@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   error.c                                            :+:    :+:            */
+/*   isdigit_str.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
+/*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/24 16:56:02 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/28 12:39:32 by victor        ########   odam.nl         */
+/*   Created: 2020/01/28 12:24:50 by victor         #+#    #+#                */
+/*   Updated: 2020/01/28 12:55:01 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdlib.h>
+#include <mlx.h>
 
-void print_error(char *error)
+int		isdigit_str(char *str)
 {
-	ft_putstr_fd("Error: ", 1);
-	ft_putstr_fd(error, 1);
-	ft_putstr_fd("\n", 1);
-	exit(1);
+	while (*str)
+	{
+		if (!(ft_isdigit(*str)))
+			return (0);
+		str++;
+	}
+	return (1);
 }

@@ -6,14 +6,17 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/27 13:43:39 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/28 12:54:20 by victor        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	minirt
 SRCS			=	main.c\
 					error/error.c\
-					parsing/parser.c
+					parsing/parser.c\
+					parsing/parse_resolution.c\
+					utilities/char_arrlen.c\
+					utilities/isdigit_str.c
 CFILES			=	$(SRCS:%=srcs/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter
