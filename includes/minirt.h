@@ -13,6 +13,7 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
+# include <stdint.h>
 # include <stdbool.h>
 
 typedef enum		e_object_type
@@ -50,7 +51,13 @@ typedef struct		s_data
 	t_map_info		mapinfo;
 }					t_data;
 
-
+// error
 void print_error(char *error);
+
+// parsing
+void	parse_file(char *file, t_data *data);
+void	parse_line(char *line, t_data *data);
+int		verify_filename(char *filename);
+
 
 # endif

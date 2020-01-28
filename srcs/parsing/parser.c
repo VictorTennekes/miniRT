@@ -24,7 +24,7 @@ int		verify_filename(char *filename)
 	i = 0;
 	while (filename[i])
 		i++;
-	if (filename[i-2] == "." && filename[i-1] == "r" && filename[i] == "t")
+	if (filename[i-2] == '.' && filename[i-1] == 'r' && filename[i] == 't')
 		return (1);
 	return (0);
 }
@@ -38,23 +38,23 @@ void	parse_line(char *line, t_data *data)
 		print_error("Memory allocation failed\n");
 	if (!info[0])
 		return ;
-	if (info[0] == "R")
+	if (!(ft_strncmp(info[0], "R", 1)))
 		printf("parse resolution");
-	if (info[0] == "A")
+	if (!(ft_strncmp(info[0], "A", 1)))
 		printf("parse ambient lighting");
-	if (info[0] == "c")
+	if (!(ft_strncmp(info[0], "c", 1)))
 		printf("parse camera");
-	if (info[0] == "l")
+	if (!(ft_strncmp(info[0], "l", 1)))
 		printf("parse light");
-	if (info[0] == "pl")
+	if (!(ft_strncmp(info[0], "pl", 2)))
 		printf("parse plane");
-	if (info[0] == "sp")
+	if (!(ft_strncmp(info[0], "sp", 2)))
 		printf("parse sphere");
-	if (info[0] == "sq")
+	if (!(ft_strncmp(info[0], "sq", 2)))
 		printf("parse square");
-	if (info[0] == "cy")
+	if (!(ft_strncmp(info[0], "cy", 2)))
 		printf("parse cylinder");
-	if (info[0] == "tr")
+	if (!(ft_strncmp(info[0], "tr", 2)))
 		printf("parse triangle");
 }
 
@@ -63,7 +63,7 @@ void	parse_file(char *file, t_data *data)
 	int		fd;
 	char 	*line;
 
-	if (!(verify_filename))
+	if (!(verify_filename(file)))
 		print_error("Invalid file extention\n");
 	fd = open(file, O_RDONLY);
 	if (fd < 0)

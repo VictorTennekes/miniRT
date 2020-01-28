@@ -12,7 +12,8 @@
 
 NAME			=	minirt
 SRCS			=	main.c\
-					error.c
+					error/error.c\
+					parsing/parser.c
 CFILES			=	$(SRCS:%=srcs/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter
