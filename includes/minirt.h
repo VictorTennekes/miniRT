@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/28 12:58:04 by victor        ########   odam.nl         */
+/*   Updated: 2020/01/28 15:23:23 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdint.h>
 # include <stdbool.h>
 # include <stddef.h>
+# include <liblist.h>
 
 typedef enum		e_object_type
 {
@@ -51,11 +52,15 @@ typedef struct		s_window
 typedef struct		s_map_info
 {
 	bool			save;
+	float			amb_ratio;
+	t_color			amb_color;
+	bool			amb_set;
+
 }					t_map_info;
 
 typedef struct		s_data
 {
-	t_object		object;
+	t_list			*object;
 	t_window		window;
 	t_map_info		mapinfo;
 }					t_data;
@@ -74,6 +79,10 @@ void	parse_resolution(char **info, t_data *data);
 size_t	char_arrlen(char **array);
 
 int		isdigit_str(char *str);
+
+float	parse_float(char *str);
+
+void	parse_ambient(char **info, t_data *data);
 
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:59 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/28 12:53:10 by victor        ########   odam.nl         */
+/*   Updated: 2020/01/28 15:13:14 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int main(int ac, char **av)
 	}
 	parse_file(av[1], &data);
 	printf("x:%i\ny:%i\n", data.window.x, data.window.y);
+	printf("ambient ratio:%f", data.mapinfo.amb_ratio);
 	return (0);
 }
