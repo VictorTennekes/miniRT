@@ -42,9 +42,18 @@
 
 int main(int ac, char **av)
 {
+	t_data data;
+
 	if (ac != 2 && ac != 3)
 		print_error("Invalid amount of arguments.\n");
-	else
-		printf("myes\n");
+	ft_bzero(&data, sizeof(t_data));
+	if (ac == 3)
+	{
+		if (!(ft_strncmp(av[2], "--save",)))
+			data.mapinfo.save = true;
+		else
+			print_error("Invalid argument.\n");
+	}
+	parse_file(av[1], &data);
 	return (0);
 }
