@@ -6,12 +6,14 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/28 14:53:33 by victor         #+#    #+#                */
-/*   Updated: 2020/01/28 15:47:48 by victor        ########   odam.nl         */
+/*   Updated: 2020/01/29 10:03:13 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <math.h>
+
+#include <stdlib.h>
 
 #include <errno.h>
 #include <stdio.h>
