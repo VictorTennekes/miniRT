@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:59 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/29 17:25:30 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/27 17:10:41 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,34 @@
 #include <get_next_line_bonus.h>
 #include <minirt.h>
 
+// int main(int ac, char **av)
+// {
+// 	int		fd;
+// 	char	*line;
+// 	int		ret;
+
+// 	if (ac == 2)
+// 	{
+// 		fd = open(av[1], O_RDONLY);
+// 		if (fd == -1)
+// 			return (-1);
+// 		ret = 1;
+// 		while (ret > 0)
+// 		{
+// 			ret = get_next_line(fd, &line);
+// 			if (ret < 0)
+// 				return (-1);
+// 			printf("line: %s\n", line);
+// 		}
+// 	}
+// 	return (0);
+// }
+
 int main(int ac, char **av)
 {
-	t_data	data;
-
 	if (ac != 2 && ac != 3)
-		print_error("Invalid amount of arguments.");
-	ft_bzero(&data, sizeof(t_data));
-	if (ac == 3)
-	{
-		if (!(ft_strncmp(av[2], "--save", 6)))
-			data.mapinfo.save = true;
-		else
-			print_error("Invalid argument.");
-	}
-	parse_file(av[1], &data);
-	printf("screen res x:%i\nscreen res y:%i\n", data.window.x, data.window.y);
-	printf("ambient ratio:%f\n", data.mapinfo.amb_ratio);
-	printf("	r:%u\n	g:%u\n	b:%u\n", data.mapinfo.amb_color.r, \
-		data.mapinfo.amb_color.g, data.mapinfo.amb_color.b);
+		print_error("Invalid amount of arguments.\n");
+	else
+		printf("myes\n");
 	return (0);
 }

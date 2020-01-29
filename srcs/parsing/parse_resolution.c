@@ -6,11 +6,12 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/28 12:03:43 by victor         #+#    #+#                */
-/*   Updated: 2020/01/28 12:59:10 by victor        ########   odam.nl         */
+/*   Updated: 2020/01/29 17:24:47 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
+#include <stdbool.h>
 #include <libft.h>
 
 void	parse_resolution(char **info, t_data *data)
