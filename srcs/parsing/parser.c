@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 11:29:47 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 14:51:57 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,17 @@ void	parse_line(char *line, t_data *data)
 		printf("parse triangle\n");
 }
 
+void	loop_cameras(t_data *data)
+{
+	t_camera *tmp;
+
+	tmp = data->cameras->content;
+	printf("camera fov: %i\n", tmp->fov);
+	printf("camera pos_x: %f\n", tmp->pos.x);
+	printf("camera pos_y: %f\n", tmp->pos.y);
+	printf("camera pos_z: %f\n", tmp->pos.z);
+}
+
 // Parsing the file so i can analyze the individual lines
 void	parse_file(char *file, t_data *data)
 {
@@ -83,4 +94,5 @@ void	parse_file(char *file, t_data *data)
 		free(line);
 	}
 	close (fd);
+	// loop_cameras(data);
 }

@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 11:23:35 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 13:50:07 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct		s_camera
 {
 	t_coord			pos;
 	t_coord			vector;
-	uint8_t			fov;
+	int				fov;
 }					t_camera;
 
 
