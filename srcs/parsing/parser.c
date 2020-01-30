@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 16:40:13 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 17:08:14 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	parse_line(char *line, t_data *data)
 	else if (!(ft_strncmp(info[0], "pl", 2)))
 		printf("parse plane\n");
 	else if (!(ft_strncmp(info[0], "sp", 2)))
-		printf("parse sphere\n");
+		parse_sphere(info, data);
 	else if (!(ft_strncmp(info[0], "sq", 2)))
 		printf("parse square\n");
 	else if (!(ft_strncmp(info[0], "cy", 2)))
@@ -64,9 +64,11 @@ void	loop_list_data(t_data *data)
 {
 	t_camera *camera;
 	t_light	*light;
+	t_object *sphere;
 
 	camera = data->cameras->content;
 	light = data->lights->content;
+	sphere = data->objects->content;
 	printf("camera fov: %i\n", camera->fov);
 	printf("camera pos_x: %f\n", camera->pos.x);
 	printf("camera pos_y: %f\n", camera->pos.y);
@@ -76,6 +78,18 @@ void	loop_list_data(t_data *data)
 	printf("light pos_x: %f\n", light->pos.x);
 	printf("light pos_y: %f\n", light->pos.y);
 	printf("light pos_z: %f\n", light->pos.z);
+	printf("light color_r: %u\n", light->color.r);
+	printf("light color_g: %u\n", light->color.g);
+	printf("light color_b: %u\n", light->color.b);
+	printf("\n");
+	printf("sphere size: %f\n", sphere->size);
+	printf("sphere pos_x: %f\n", sphere->pos.x);
+	printf("sphere pos_y: %f\n", sphere->pos.y);
+	printf("sphere pos_z: %f\n", sphere->pos.z);
+	printf("sphere color_r: %u\n", sphere->color.r);
+	printf("sphere color_g: %u\n", sphere->color.g);
+	printf("sphere color_b: %u\n", sphere->color.b);
+	printf("\n");
 }
 
 // Parsing the file so i can analyze the individual lines

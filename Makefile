@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/30 16:39:31 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/30 17:04:19 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS			=	main.c\
 					parsing/parse_ambient.c\
 					parsing/parse_camera.c\
 					parsing/parse_light.c\
+					parsing/parse_sphere.c\
 					utilities/char_arrlen.c\
 					utilities/isdigit_str.c\
 					utilities/parse_float.c\
