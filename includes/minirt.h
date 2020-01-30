@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 17:04:01 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 17:27:53 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct		s_object
 {
 	t_object_type	type;
 	t_coord			pos;
+	t_coord			vector;
 	t_color			color;
 	float			size;
 	float			height;
@@ -111,5 +112,6 @@ void	parse_ambient(char **info, t_data *data);
 void	parse_camera(char **info, t_data *data);
 void	parse_light(char **info, t_data *data);
 void	parse_sphere(char **info, t_data *data);
+void	parse_plane(char **info, t_data *data);
 
 # endif

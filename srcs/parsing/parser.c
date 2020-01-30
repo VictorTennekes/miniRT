@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 17:08:14 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 17:34:14 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,17 @@ void	parse_line(char *line, t_data *data)
 
 void	loop_list_data(t_data *data)
 {
-	t_camera *camera;
-	t_light	*light;
-	t_object *sphere;
+	t_camera	*camera;
+	t_light		*light;
+	t_object	*sphere;
+	t_object	*plane;
 
 	camera = data->cameras->content;
 	light = data->lights->content;
 	sphere = data->objects->content;
+	data->objects = data->objects->next;
+	// * segfaulting down here
+	plane = data->objects->content;
 	printf("camera fov: %i\n", camera->fov);
 	printf("camera pos_x: %f\n", camera->pos.x);
 	printf("camera pos_y: %f\n", camera->pos.y);
@@ -89,6 +93,16 @@ void	loop_list_data(t_data *data)
 	printf("sphere color_r: %u\n", sphere->color.r);
 	printf("sphere color_g: %u\n", sphere->color.g);
 	printf("sphere color_b: %u\n", sphere->color.b);
+	printf("\n");
+	printf("plane pos_x: %f\n", plane->pos.x);
+	printf("plane pos_y: %f\n", plane->pos.y);
+	printf("plane pos_z: %f\n", plane->pos.z);
+	printf("plane vector_x: %f\n", plane->vector.x);
+	printf("plane vector_y: %f\n", plane->vector.y);
+	printf("plane vector_z: %f\n", plane->vector.z);
+	printf("plane color_r: %u\n", plane->color.r);
+	printf("plane color_g: %u\n", plane->color.g);
+	printf("plane color_b: %u\n", plane->color.b);
 	printf("\n");
 }
 
