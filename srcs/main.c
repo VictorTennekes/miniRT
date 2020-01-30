@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:59 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 09:44:42 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 16:45:05 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include <fcntl.h>
 #include <get_next_line_bonus.h>
 #include <minirt.h>
+
+// TODO: parse plane
+// TODO: parse sphere
+// TODO: parse square
+// TODO: parse cylinder
+// TODO: parse triangle
 
 int main(int ac, char **av)
 {

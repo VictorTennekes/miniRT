@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/28 14:42:27 by victor         #+#    #+#                */
-/*   Updated: 2020/01/30 12:43:41 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 16:23:38 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ void	parse_ambient(char **info, t_data *data)
 	if (char_arrlen(info) != 3)
 		print_error("Wrong number of values given for ambient lighting.");
 	data->mapinfo.amb_ratio = parse_float(info[1]);
-	printf("ambient ratio in prase float: %f\n", parse_float(info[1]));
-	printf("info[1]: %s\n", info[1]);
-	printf("ambient ratio in func: %f\n", data->mapinfo.amb_ratio);
 	data->mapinfo.amb_color = parse_color(info[2]);
 	if (data->mapinfo.amb_ratio > 1 || data->mapinfo.amb_ratio < 0)
 		print_error("Invalid value given for ambient lighting.");

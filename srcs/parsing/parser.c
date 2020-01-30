@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 14:51:57 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 16:40:13 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	parse_line(char *line, t_data *data)
 	else if (!(ft_strncmp(info[0], "c", 2)))
 		parse_camera(info, data);
 	else if (!(ft_strncmp(info[0], "l", 2)))
-		printf("parse light\n");
+		parse_light(info, data);
 	else if (!(ft_strncmp(info[0], "pl", 2)))
 		printf("parse plane\n");
 	else if (!(ft_strncmp(info[0], "sp", 2)))
@@ -60,15 +60,22 @@ void	parse_line(char *line, t_data *data)
 		printf("parse triangle\n");
 }
 
-void	loop_cameras(t_data *data)
+void	loop_list_data(t_data *data)
 {
-	t_camera *tmp;
+	t_camera *camera;
+	t_light	*light;
 
-	tmp = data->cameras->content;
-	printf("camera fov: %i\n", tmp->fov);
-	printf("camera pos_x: %f\n", tmp->pos.x);
-	printf("camera pos_y: %f\n", tmp->pos.y);
-	printf("camera pos_z: %f\n", tmp->pos.z);
+	camera = data->cameras->content;
+	light = data->lights->content;
+	printf("camera fov: %i\n", camera->fov);
+	printf("camera pos_x: %f\n", camera->pos.x);
+	printf("camera pos_y: %f\n", camera->pos.y);
+	printf("camera pos_z: %f\n", camera->pos.z);
+	printf("\n");
+	printf("light ratio: %f\n", light->ratio);
+	printf("light pos_x: %f\n", light->pos.x);
+	printf("light pos_y: %f\n", light->pos.y);
+	printf("light pos_z: %f\n", light->pos.z);
 }
 
 // Parsing the file so i can analyze the individual lines
@@ -94,5 +101,5 @@ void	parse_file(char *file, t_data *data)
 		free(line);
 	}
 	close (fd);
-	// loop_cameras(data);
+	loop_list_data(data);
 }

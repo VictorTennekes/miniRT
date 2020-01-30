@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 13:50:07 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 16:39:41 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct		s_coord
 	float			z;
 }					t_coord;
 
-
 typedef struct		s_object
 {
 	t_object_type	type;
@@ -57,12 +56,18 @@ typedef struct		s_camera
 	int				fov;
 }					t_camera;
 
+typedef struct		s_light
+{
+	t_coord			pos;
+	float			ratio;
+	t_color			color;
+}					t_light;
 
 typedef struct		s_window
 {
-	uint16_t			x;
-	uint16_t			y;
-	bool				res_set;
+	uint16_t		x;
+	uint16_t		y;
+	bool			res_set;
 }					t_window;
 
 typedef struct		s_map_info
@@ -78,6 +83,7 @@ typedef struct		s_data
 {
 	t_list			*object;
 	t_list			*cameras;
+	t_list			*lights;
 	t_window		window;
 	t_map_info		mapinfo;
 }					t_data;
@@ -102,5 +108,6 @@ void	*free_machine(char **array);
 void	parse_resolution(char **info, t_data *data);
 void	parse_ambient(char **info, t_data *data);
 void	parse_camera(char **info, t_data *data);
+void	parse_light(char **info, t_data *data);
 
 # endif
