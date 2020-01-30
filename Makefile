@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/29 17:13:42 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/30 11:28:38 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,13 @@ SRCS			=	main.c\
 					parsing/parser.c\
 					parsing/parse_resolution.c\
 					parsing/parse_ambient.c\
+					parsing/parse_camera.c\
 					utilities/char_arrlen.c\
 					utilities/isdigit_str.c\
 					utilities/parse_float.c\
-					utilities/parse_color.c
+					utilities/parse_color.c\
+					utilities/parse_coords.c\
+					utilities/free_machine.c
 CFILES			=	$(SRCS:%=srcs/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter

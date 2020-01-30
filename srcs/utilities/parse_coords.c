@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   parse_coords.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 14:38:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 12:20:14 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/01/30 11:14:15 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/01/30 12:46:48 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <minirt.h>
 #include <libft.h>
+#include <stdio.h>
 
-int		ft_isdigit(int c)
+t_coord		parse_coord(char *str)
 {
-	if ((c >= 48 && c <= 57))
-		return (1);
-	return (0);
+	t_coord	coord;
+	char	**values;
+
+	values = ft_split(str, ',');
+	coord.x = parse_float(values[0]);
+	coord.y = parse_float(values[1]);
+	coord.z = parse_float(values[2]);
+	free_machine(values);
+	return (coord);
 }

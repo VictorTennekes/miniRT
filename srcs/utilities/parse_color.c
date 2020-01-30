@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/29 17:09:09 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/29 17:53:42 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/30 11:20:57 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ t_color		parse_color(char *str)
 	color.r = r;
 	color.g = g;
 	color.b = b;
-	free(rgb);
+	free_machine(rgb);
 	return (color);
 }

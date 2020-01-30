@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/28 15:10:23 by victor        ########   odam.nl         */
+/*   Updated: 2020/01/30 11:29:47 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	parse_line(char *line, t_data *data)
 	else if (!(ft_strncmp(info[0], "A", 1)))
 		parse_ambient(info, data);
 	else if (!(ft_strncmp(info[0], "c", 2)))
-		printf("parse camera\n");
+		parse_camera(info, data);
 	else if (!(ft_strncmp(info[0], "l", 2)))
 		printf("parse light\n");
 	else if (!(ft_strncmp(info[0], "pl", 2)))

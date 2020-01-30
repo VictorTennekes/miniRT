@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   parse_camera.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 14:38:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 12:20:14 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/01/30 11:04:38 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/01/30 12:45:39 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <minirt.h>
 #include <libft.h>
 
-int		ft_isdigit(int c)
+void	parse_camera(char **info, t_data *data)
 {
-	if ((c >= 48 && c <= 57))
-		return (1);
-	return (0);
+	t_camera camera;
+	
+	if (char_arrlen(info) != 4)
+		print_error("Wrong number of values given for camera");
+	camera.pos = parse_coord(info[1]);
 }

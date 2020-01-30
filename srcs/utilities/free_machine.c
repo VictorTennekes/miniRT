@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   free_machine.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 14:38:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 12:20:14 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/01/30 11:19:21 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/01/30 11:29:25 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <stdlib.h>
 
-int		ft_isdigit(int c)
+void	*free_machine(char **array)
 {
-	if ((c >= 48 && c <= 57))
-		return (1);
-	return (0);
+	int i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	return (NULL);
 }
