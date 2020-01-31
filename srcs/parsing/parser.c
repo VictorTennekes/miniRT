@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 13:58:44 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 15:26:17 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	parse_line(char *line, t_data *data)
 	else if (!(ft_strncmp(info[0], "sq", 2)))
 		parse_square(info, data);
 	else if (!(ft_strncmp(info[0], "cy", 2)))
-		printf("parse cylinder\n");
+		parse_cylinder(info, data);
 	else if (!(ft_strncmp(info[0], "tr", 2)))
 		printf("parse triangle\n");
 }
@@ -67,6 +67,7 @@ void	loop_list_data(t_data *data)
 	t_object	*sphere;
 	t_object	*plane;
 	t_object	*square;
+	t_object	*cylinder;
 
 	camera = data->cameras->content;
 	light = data->lights->content;
@@ -80,6 +81,25 @@ void	loop_list_data(t_data *data)
 	data->objects = data->objects->next;
 	square = data->objects->content;
 
+	// * Cylinder
+	while (data->objects->next)
+		data->objects = data->objects->next;
+	
+	cylinder = data->objects->content;
+
+	printf("screen res_x: %u\n", data->window.x);
+	printf("screen res_y: %u\n", data->window.y);
+	printf("res_set: %s\n", data->window.res_set?"true":"false");
+	printf("\n");
+
+	printf("map save: %s\n", data->mapinfo.save?"true":"false");
+	printf("map amb_ratio: %f\n", data->mapinfo.amb_ratio);
+	printf("map amb_color_r: %u\n", data->mapinfo.amb_color.r);
+	printf("map amb_color_g: %u\n", data->mapinfo.amb_color.g);
+	printf("map amb_color_b: %u\n", data->mapinfo.amb_color.b);
+	printf("map amb_set: %s\n", data->mapinfo.amb_set?"true":"false");
+	printf("\n");
+	
 	printf("camera fov: %i\n", camera->fov);
 	printf("camera pos_x: %f\n", camera->pos.x);
 	printf("camera pos_y: %f\n", camera->pos.y);
@@ -125,6 +145,19 @@ void	loop_list_data(t_data *data)
 	printf("square color_r: %u\n", square->color.r);
 	printf("square color_g: %u\n", square->color.g);
 	printf("square color_b: %u\n", square->color.b);
+	printf("\n");
+
+	printf("cylinder pos_x: %f\n", cylinder->pos.x);
+	printf("cylinder pos_y: %f\n", cylinder->pos.y);
+	printf("cylinder pos_z: %f\n", cylinder->pos.z);
+	printf("cylinder vector_x: %f\n", cylinder->vector.x);
+	printf("cylinder vector_y: %f\n", cylinder->vector.y);
+	printf("cylinder vector_z: %f\n", cylinder->vector.z);
+	printf("cylinder size: %f\n", cylinder->size);
+	printf("cylinder height: %f\n", cylinder->height);
+	printf("cylinder color_r: %u\n", cylinder->color.r);
+	printf("cylinder color_g: %u\n", cylinder->color.g);
+	printf("cylinder color_b: %u\n", cylinder->color.b);
 	printf("\n");
 }
 
