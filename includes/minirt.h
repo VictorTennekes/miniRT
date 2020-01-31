@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 17:27:53 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 12:10:26 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,6 @@ void	parse_camera(char **info, t_data *data);
 void	parse_light(char **info, t_data *data);
 void	parse_sphere(char **info, t_data *data);
 void	parse_plane(char **info, t_data *data);
+void	parse_square(char **info, t_data *data);
 
 # endif
