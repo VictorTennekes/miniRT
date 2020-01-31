@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 17:34:14 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 12:10:39 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	parse_line(char *line, t_data *data)
 	else if (!(ft_strncmp(info[0], "l", 2)))
 		parse_light(info, data);
 	else if (!(ft_strncmp(info[0], "pl", 2)))
-		printf("parse plane\n");
+		parse_plane(info, data);
 	else if (!(ft_strncmp(info[0], "sp", 2)))
 		parse_sphere(info, data);
 	else if (!(ft_strncmp(info[0], "sq", 2)))
-		printf("parse square\n");
+		parse_square(info, data);
 	else if (!(ft_strncmp(info[0], "cy", 2)))
 		printf("parse cylinder\n");
 	else if (!(ft_strncmp(info[0], "tr", 2)))
