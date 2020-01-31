@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 12:10:39 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 13:58:44 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,26 @@ void	loop_list_data(t_data *data)
 	t_light		*light;
 	t_object	*sphere;
 	t_object	*plane;
+	t_object	*square;
 
 	camera = data->cameras->content;
 	light = data->lights->content;
 	sphere = data->objects->content;
+	
+	// * Plane
 	data->objects = data->objects->next;
-	// * segfaulting down here
 	plane = data->objects->content;
+	
+	// * Square
+	data->objects = data->objects->next;
+	square = data->objects->content;
+
 	printf("camera fov: %i\n", camera->fov);
 	printf("camera pos_x: %f\n", camera->pos.x);
 	printf("camera pos_y: %f\n", camera->pos.y);
 	printf("camera pos_z: %f\n", camera->pos.z);
 	printf("\n");
+
 	printf("light ratio: %f\n", light->ratio);
 	printf("light pos_x: %f\n", light->pos.x);
 	printf("light pos_y: %f\n", light->pos.y);
@@ -86,6 +94,7 @@ void	loop_list_data(t_data *data)
 	printf("light color_g: %u\n", light->color.g);
 	printf("light color_b: %u\n", light->color.b);
 	printf("\n");
+
 	printf("sphere size: %f\n", sphere->size);
 	printf("sphere pos_x: %f\n", sphere->pos.x);
 	printf("sphere pos_y: %f\n", sphere->pos.y);
@@ -94,6 +103,7 @@ void	loop_list_data(t_data *data)
 	printf("sphere color_g: %u\n", sphere->color.g);
 	printf("sphere color_b: %u\n", sphere->color.b);
 	printf("\n");
+
 	printf("plane pos_x: %f\n", plane->pos.x);
 	printf("plane pos_y: %f\n", plane->pos.y);
 	printf("plane pos_z: %f\n", plane->pos.z);
@@ -103,6 +113,18 @@ void	loop_list_data(t_data *data)
 	printf("plane color_r: %u\n", plane->color.r);
 	printf("plane color_g: %u\n", plane->color.g);
 	printf("plane color_b: %u\n", plane->color.b);
+	printf("\n");
+
+	printf("square pos_x: %f\n", square->pos.x);
+	printf("square pos_y: %f\n", square->pos.y);
+	printf("square pos_z: %f\n", square->pos.z);
+	printf("square vector_x: %f\n", square->vector.x);
+	printf("square vector_y: %f\n", square->vector.y);
+	printf("square vector_z: %f\n", square->vector.z);
+	printf("square size: %f\n", square->size);
+	printf("square color_r: %u\n", square->color.r);
+	printf("square color_g: %u\n", square->color.g);
+	printf("square color_b: %u\n", square->color.b);
 	printf("\n");
 }
 
