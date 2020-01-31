@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 16:18:02 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 16:31:01 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	parse_line(char *line, t_data *data)
 	else if (!(ft_strncmp(info[0], "cy", 2)))
 		parse_cylinder(info, data);
 	else if (!(ft_strncmp(info[0], "tr", 2)))
-		printf("parse triangle\n");
+		parse_triangle(info, data);
 }
 
 void	loop_list_data(t_data *data)
@@ -68,6 +68,7 @@ void	loop_list_data(t_data *data)
 	t_object	*plane;
 	t_object	*square;
 	t_object	*cylinder;
+	t_object	*triangle;
 
 	camera = data->cameras->content;
 	light = data->lights->content;
@@ -84,6 +85,10 @@ void	loop_list_data(t_data *data)
 	// * Cylinder
 	data->objects = data->objects->next;
 	cylinder = data->objects->content;
+
+	// * Triangle
+	data->objects = data->objects->next;
+	triangle = data->objects->content;
 
 	printf("screen res_x: %u\n", data->window.x);
 	printf("screen res_y: %u\n", data->window.y);
@@ -156,6 +161,20 @@ void	loop_list_data(t_data *data)
 	printf("cylinder color_r: %u\n", cylinder->color.r);
 	printf("cylinder color_g: %u\n", cylinder->color.g);
 	printf("cylinder color_b: %u\n", cylinder->color.b);
+	printf("\n");
+
+	printf("triangle pos_x: %f\n", triangle->pos.x);
+	printf("triangle pos_y: %f\n", triangle->pos.y);
+	printf("triangle pos_z: %f\n", triangle->pos.z);
+	// printf("triangle pos2: %f\n", triangle->pos2.x);
+	// printf("triangle pos2: %f\n", triangle->pos2.y);
+	// printf("triangle pos2: %f\n", triangle->pos2.z);
+	// printf("triangle pos3: %f\n", triangle->pos3.x);
+	// printf("triangle pos3: %f\n", triangle->pos3.y);
+	// printf("triangle pos3: %f\n", triangle->pos3.z);
+	printf("triangle color_r: %u\n", triangle->color.r);
+	printf("triangle color_g: %u\n", triangle->color.g);
+	printf("triangle color_b: %u\n", triangle->color.b);
 }
 
 // Parsing the file so i can analyze the individual lines

@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/31 14:48:22 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/01/31 16:24:53 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS			=	main.c\
 					parsing/parse_plane.c\
 					parsing/parse_square.c\
 					parsing/parse_cylinder.c\
+					parsing/parse_triangle.c\
 					utilities/char_arrlen.c\
 					utilities/isdigit_str.c\
 					utilities/parse_float.c\
