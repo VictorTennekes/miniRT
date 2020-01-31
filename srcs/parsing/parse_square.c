@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/31 11:55:39 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 14:45:27 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 15:50:30 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	parse_square(char **info, t_data *data)
 	if (object->vector.z > 1 || object->vector.z < -1)
 		print_error("Wrong z value for square vector.");
 	if (!lst_new_back(&(data->objects), object))
-		print_error("Allocation failed in parse_square");
+		print_error("Allocation failed in parse_square");	
 }

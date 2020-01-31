@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 17:18:57 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 15:00:43 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 15:56:18 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	parse_plane(char **info, t_data *data)
 		print_error("Wrong y value for plane vector.");
 	if (object->vector.z > 1 || object->vector.z < -1)
 		print_error("Wrong z value for plane vector.");
-	
+	if (!lst_new_back(&(data->objects), object))
+		print_error("Allocation failed in parse_plane");	
 }
