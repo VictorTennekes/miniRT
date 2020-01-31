@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 16:25:10 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 16:34:56 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct		s_object
 {
 	t_object_type	type;
 	t_coord			pos;
-	t_coord			pos2;
-	t_coord			pos3;
+	// t_coord			pos2;
+	// t_coord			pos3;
 	t_coord			vector;
 	t_color			color;
 	float			size;

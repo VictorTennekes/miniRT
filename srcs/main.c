@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:59 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 16:02:12 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 16:41:42 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,10 @@ int main(int ac, char **av)
 			print_error("Invalid argument.");
 	}
 	parse_file(av[1], &data);
+	int i = 1;
+	while (i == 1)
+	{
+		
+	}
 	return (0);
 }
