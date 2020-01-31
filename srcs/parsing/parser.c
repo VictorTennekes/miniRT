@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 16:07:06 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 16:18:02 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	parse_line(char *line, t_data *data)
 	else if (!(ft_strncmp(info[0], "sq", 2)))
 		parse_square(info, data);
 	else if (!(ft_strncmp(info[0], "cy", 2)))
-		parse_square(info, data);
+		parse_cylinder(info, data);
 	else if (!(ft_strncmp(info[0], "tr", 2)))
 		printf("parse triangle\n");
 }
@@ -82,8 +82,7 @@ void	loop_list_data(t_data *data)
 	square = data->objects->content;
 
 	// * Cylinder
-	// data->objects = data->objects->next;
-	perror("true");
+	data->objects = data->objects->next;
 	cylinder = data->objects->content;
 
 	printf("screen res_x: %u\n", data->window.x);

@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/31 14:40:06 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 16:00:40 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/01/31 16:14:11 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 void	parse_cylinder(char **info, t_data *data)
 {
-	t_object *object;
+	t_object	*object;
 
 	if (char_arrlen(info) != 6)
-		print_error("Wrong value of arguments fiven for cylinder");
+		print_error("Wrong value of arguments given for cylinder");
 	object = (t_object *)malloc(sizeof(t_object));
 	if (!object)
 		print_error("Malloc failed in parse_cylinder");
