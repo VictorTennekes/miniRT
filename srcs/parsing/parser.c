@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 16:40:14 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/01 17:34:31 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	parse_line(char *line, t_data *data)
 		parse_cylinder(info, data);
 	else if (!(ft_strncmp(info[0], "tr", 2)))
 		parse_triangle(info, data);
+	free (info);
 }
 
 void	loop_list_data(t_data *data)
