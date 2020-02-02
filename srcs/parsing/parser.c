@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/01 17:54:21 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/02 22:51:50 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,12 +167,12 @@ void	loop_list_data(t_data *data)
 	printf("triangle pos_x: %f\n", triangle->pos.x);
 	printf("triangle pos_y: %f\n", triangle->pos.y);
 	printf("triangle pos_z: %f\n", triangle->pos.z);
-	// printf("triangle pos2: %f\n", triangle->pos2.x);
-	// printf("triangle pos2: %f\n", triangle->pos2.y);
-	// printf("triangle pos2: %f\n", triangle->pos2.z);
-	// printf("triangle pos3: %f\n", triangle->pos3.x);
-	// printf("triangle pos3: %f\n", triangle->pos3.y);
-	// printf("triangle pos3: %f\n", triangle->pos3.z);
+	printf("triangle pos2: %f\n", triangle->pos2.x);
+	printf("triangle pos2: %f\n", triangle->pos2.y);
+	printf("triangle pos2: %f\n", triangle->pos2.z);
+	printf("triangle pos3: %f\n", triangle->pos3.x);
+	printf("triangle pos3: %f\n", triangle->pos3.y);
+	printf("triangle pos3: %f\n", triangle->pos3.z);
 	printf("triangle color_r: %u\n", triangle->color.r);
 	printf("triangle color_g: %u\n", triangle->color.g);
 	printf("triangle color_b: %u\n", triangle->color.b);
