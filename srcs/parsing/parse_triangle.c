@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/31 16:18:44 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/02 22:52:34 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/03 14:24:31 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	parse_triangle(char **info, t_data * data)
 
 	if (char_arrlen(info) != 5)
 		print_error("Wrong value of arguments given for cylinder");
-	object = (t_object *)malloc(sizeof(t_object));
+	object = (t_object *)malloc(sizeof(t_object) + 1);
 	if (!object)
 		print_error("Malloc failed in parse_triangle");
 	object->type = TR;

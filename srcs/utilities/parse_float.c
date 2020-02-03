@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/28 14:53:33 by victor         #+#    #+#                */
-/*   Updated: 2020/02/03 11:23:44 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/03 11:38:42 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <stdlib.h>
 
 
-float	parse_float(char *str)
+double	parse_float(char *str)
 {
-	float	res;
+	double	res;
 	int		count;
 	bool	is_neg;
 

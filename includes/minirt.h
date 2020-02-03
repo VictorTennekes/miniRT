@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/02 22:52:16 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/03 16:18:30 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct		s_color
 
 typedef struct		s_coord
 {
-	float			x;
-	float			y;
-	float			z;
+	double			x;
+	double			y;
+	double			z;
 }					t_coord;
 
 typedef struct		s_object
@@ -49,8 +49,8 @@ typedef struct		s_object
 	t_coord			pos3;
 	t_coord			vector;
 	t_color			color;
-	float			size;
-	float			height;
+	double			size;
+	double			height;
 }					t_object;
 
 typedef struct		s_camera
@@ -63,7 +63,7 @@ typedef struct		s_camera
 typedef struct		s_light
 {
 	t_coord			pos;
-	float			ratio;
+	double			ratio;
 	t_color			color;
 }					t_light;
 
@@ -77,7 +77,7 @@ typedef struct		s_window
 typedef struct		s_map_info
 {
 	bool			save;
-	float			amb_ratio;
+	double			amb_ratio;
 	t_color			amb_color;
 	bool			amb_set;
 
@@ -103,10 +103,11 @@ int		verify_filename(char *filename);
 // utils
 size_t	char_arrlen(char **array);
 int		isdigit_str(char *str);
-float	parse_float(char *str);
+double	parse_float(char *str);
 t_color	parse_color(char *str);
 t_coord	parse_coord(char *str);
 void	*free_machine(char **array);
+bool	check_line(char *str);
 
 //  parsing
 void	parse_resolution(char **info, t_data *data);

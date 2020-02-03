@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   free_machine.c                                     :+:    :+:            */
+/*   check_line.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/30 11:19:21 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/03 16:34:17 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/03 16:12:12 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/03 16:19:17 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <stdbool.h>
+#include <libft.h>
 
-void	*free_machine(char **array)
+bool	check_line(char *str)
 {
-	int i;
-
-	i = 0;
-	while (array[i])
+	while (*str != '\n')
 	{
-		printf("stuff: [%s]\n", array[i]);
-		printf("index: [%i]\n", i);
-		free(array[i]);
-		i++;
+		if (ft_isascii(*str))
+			return (false);
+		str++;
 	}
-	free(array);
-	return (NULL);
+	return (true);
 }

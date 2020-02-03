@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/31 16:35:16 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/02/03 16:18:52 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRCS			=	main.c\
 					utilities/parse_float.c\
 					utilities/parse_color.c\
 					utilities/parse_coords.c\
-					utilities/free_machine.c
+					utilities/free_machine.c\
+					utilities/check_line.c
 CFILES			=	$(SRCS:%=srcs/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter
@@ -39,7 +40,8 @@ INCLUDES		=	-I includes\
 LIBS			=	-L lib/mlx -lmlx\
 					-L lib/libft -lft\
 					-L lib/liblist -llist
-
+FRAMEWORK		=	-framework OpenGl\
+					-framework AppKit
 # LIB LOCATIONS
 MLX_LOC			=	lib/mlx
 LIBFT_LOC		=	lib/libft
@@ -66,7 +68,7 @@ $(NAME): $(OFILES)
 	@echo "$(WHITE)/-----		Compiling liblist	-----\\ $(RESET)"
 	make -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Compiling miniRT	-----\\ $(RESET)"
-	$(CC) $(LIBS) -framework OpenGL -framework AppKit -o $(NAME) $(OFILES)
+	$(CC) $(LIBS) $(FRAMEWORK) -o $(NAME) $(OFILES)
 
 %.o: %.c
 	gcc $(CFLAGS) $(INCLUDES) -c $< -o $@

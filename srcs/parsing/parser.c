@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/02 22:51:50 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/03 16:36:58 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void	parse_line(char *line, t_data *data)
 	if (info == NULL)
 		print_error("Memory allocation failed.");
 	if (!info[0])
+	{
+		free(info);
 		return ;
+	}
 	if (!(ft_strncmp(info[0], "R", 1)))
 		parse_resolution(info, data);
 	else if (!(ft_strncmp(info[0], "A", 1)))
@@ -176,6 +179,17 @@ void	loop_list_data(t_data *data)
 	printf("triangle color_r: %u\n", triangle->color.r);
 	printf("triangle color_g: %u\n", triangle->color.g);
 	printf("triangle color_b: %u\n", triangle->color.b);
+	printf("\n");
+
+	printf("pointers:\n");
+	printf("pointer t_data: %p\n", data);
+	printf("pointer t_camera: %p\n", camera);
+	printf("pointer t_light: %p\n", light);
+	printf("pointer t_sphere: %p\n", sphere);
+	printf("pointer t_plane: %p\n", plane);
+	printf("pointer t_square: %p\n", square);
+	printf("pointer t_cylinder: %p\n", cylinder);
+	printf("pointer t_triangle: %p\n", triangle);
 }
 
 // Parsing the file so i can analyze the individual lines
@@ -196,9 +210,12 @@ void	parse_file(char *file, t_data *data)
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
 			print_error("Error while getting line.");
-		if (*line != '#')
+		if (check_line(line) == false)
 			parse_line(line, data);
+		// 	break;	
+		// if (*line != '#')
 		free(line);
+		line = NULL;
 	}
 	close (fd);
 	loop_list_data(data);
