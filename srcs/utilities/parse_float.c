@@ -6,49 +6,40 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/28 14:53:33 by victor         #+#    #+#                */
-/*   Updated: 2020/02/01 17:52:23 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/03 11:23:44 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <minirt.h>
 #include <libft.h>
 #include <math.h>
-#include <minirt.h>
-
 #include <stdlib.h>
 
-#include <errno.h>
-#include <stdio.h>
 
 float	parse_float(char *str)
 {
-	int		pow_len;
-	char	**numbers;
-	char	*if_minus;
-	int		sign;
 	float	res;
+	int		count;
+	bool	is_neg;
 
-	sign = 1;
-	numbers = ft_split(str, '.');
-	if (!ft_strncmp(&numbers[0][0], "-", 1))
+	res = ft_atoi(str);
+	is_neg = false;
+	if (res < 0 || *str == '-')
 	{
-		sign = -1;
-		if_minus = ft_strtrim(numbers[0], "-");
-		numbers[0] = if_minus;
+		str++;
+		is_neg = true;
 	}
-	if (char_arrlen(numbers) != 2)
+	while (ft_isdigit(*str))
+		str++;
+	count = 1;
+	if (*str != '.')
+		return (res);
+	str++;
+	while (ft_isdigit(*str))
 	{
-		if (!isdigit_str(numbers[0]))
-			print_error("Invalid value specified");
-		res = ft_atoi(numbers[0]);
-		free_machine(numbers);
-		return (res * sign);
+		res += (((int)(*str - '0')) / pow(10, count) * (is_neg ? -1 : 1));
+		count++;
+		str++;
 	}
-	if (!isdigit_str(numbers[0]) || !isdigit_str(numbers[1]))
-	print_error("Invalid value specified.");
-	pow_len = ft_strlen(numbers[1]);
-	res = ft_atoi(numbers[1]);
-	res /= pow(10, pow_len);
-	res += ft_atoi(numbers[0]);
-	free_machine(numbers);
-	return (res * sign);
+	return(res);
 }
