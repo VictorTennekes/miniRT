@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 11:19:21 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/03 16:34:17 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/03 16:51:02 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*free_machine(char **array)
 	i = 0;
 	while (array[i])
 	{
-		printf("stuff: [%s]\n", array[i]);
-		printf("index: [%i]\n", i);
+		// printf("stuff: [%s]\n", array[i]);
+		// printf("index: [%i]\n", i);
 		free(array[i]);
 		i++;
 	}

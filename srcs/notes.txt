@@ -1,5 +1,0 @@
-pl = plane (3 params, 3 params, 3 params) (3 blocks)
-sp = sphere (3 params, 1 param, 3 params) (3 blocks)
-sq = square (3 params, 3 params, 1 param) (3 blocks)
-cy = cylinder (3 params, 3 params, 1 param, 1 param, 3 params) (5 blocks)
-tr = triangle (3 params, 3 params, 3 params, 3 params) (4 blocks)

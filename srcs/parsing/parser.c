@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/03 16:36:58 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/03 16:52:09 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,16 +200,16 @@ void	parse_file(char *file, t_data *data)
 	int		ret;
 
 	if (verify_filename(file))
-		print_error("Invalid file extention.");
+		print_error("Invalid file extention");
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		print_error("Can't open file.");
+		print_error("Can't open file");
 	ret = 1;
 	while (ret > 0)
 	{
 		ret = get_next_line(fd, &line);
 		if (ret < 0)
-			print_error("Error while getting line.");
+			print_error("Can't retrieve line");
 		if (check_line(line) == false)
 			parse_line(line, data);
 		// 	break;	
