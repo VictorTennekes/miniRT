@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 11:04:38 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/01 18:02:15 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/04 09:47:30 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ void	parse_camera(char **info, t_data *data)
 	t_camera *camera;
 	
 	if (char_arrlen(info) != 4)
-		print_error("Wrong number of values given for camera");
+		print_error("Wrong amount of values given for camera");
 	camera = (t_camera *)malloc(sizeof(t_camera));
 	if (!camera)
-		print_error("Malloc failed in parse_camera.");
+		print_error("Malloc failed for camera");
 	camera->pos = parse_coord(info[1]);
 	camera->vector = parse_coord(info[2]);
 	camera->fov	= ft_atoi(info[3]);
 	if (camera->fov < 0 || camera->fov > 180)
-		print_error("Invalid value given for FOV.");
+		print_error("Invalid value given for FOV");
 	if (!lst_new_back(&(data->cameras), camera))
-		print_error("Allocation failed in parse_camera.");
+		print_error("Allocation failed for camera");
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parse_sphere.c                                     :+:    :+:            */
+/*   parse_sphere.c                                     :+:      :+:    :+:   */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 16:55:45 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/31 10:56:09 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/04 11:28:43 by vtenneke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	parse_sphere(char **info, t_data *data)
 	t_object *object;
 
 	if (char_arrlen(info) != 4)
-		print_error("Wrong number of values given for sphere.");
+		print_error("Wrong amount of values given for sphere");
 	object = (t_object *)malloc(sizeof(t_object));
 	if (!object)
-		print_error("Malloc failed in parse_sphere.");
+		print_error("Malloc failed for sphere");
 	object->type = SP;
 	object->pos = parse_coord(info[1]);
 	object->size = parse_float(info[2]);
 	object->color = parse_color(info[3]);
 	if (!lst_new_back(&(data->objects), object))
-		print_error("Allocation failed in parse_sphere");
+		print_error("Allocation failed for sphere");
 }
