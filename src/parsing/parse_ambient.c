@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/28 14:42:27 by victor         #+#    #+#                */
-/*   Updated: 2020/02/04 09:46:41 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/04 15:14:59 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	parse_ambient(char **info, t_data *data)
 {
 	if (data->mapinfo.amb_set == true)
-		print_error("Multiple ambient lighting specifications");
+		print_error("Multiple ambient ligh specifications");
 	if (char_arrlen(info) != 3)
 		print_error("Wrong amount of values given for ambient lighting");
 	data->mapinfo.amb_ratio = parse_float(info[1]);

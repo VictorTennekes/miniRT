@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:08:29 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/01/24 16:01:08 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/02/04 17:44:01 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ SRCS		=	ft_atoi ft_isalnum ft_isalpha ft_isascii\
 B_SRCS		=	ft_lstnew_bonus ft_lstadd_front_bonus ft_lstsize_bonus\
 	ft_lstlast_bonus ft_lstadd_back_bonus ft_lstdelone_bonus ft_lstclear_bonus\
 	ft_lstiter_bonus ft_lstmap_bonus get_next_line_bonus get_next_line_utils_bonus
-CFILES		=	$(SRCS:%=srcs/%.c)
+CFILES		=	$(SRCS:%=src/%.c)
 OFILES		=	$(CFILES:.c=.o)
-BFILES		=	$(B_SRCS:%=b_srcs/%.c)
+BFILES		=	$(B_SRCS:%=b_src/%.c)
 BOFILES		=	$(BFILES:.c=.o)
-INCLUDES	=	./includes
+INCLUDES	=	./include
 FLAGS		=	-Wall -Werror -Wextra
 
 # COLORS

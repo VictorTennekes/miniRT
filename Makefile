@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/02/03 16:18:52 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/02/04 17:50:49 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,16 @@ SRCS			=	main.c\
 					utilities/parse_coords.c\
 					utilities/free_machine.c\
 					utilities/check_line.c
-CFILES			=	$(SRCS:%=srcs/%)
+CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter
-INCLUDES		=	-I includes\
-					-I lib/mlx\
-					-I lib/libft/includes\
-					-I lib/liblist
-LIBS			=	-L lib/mlx -lmlx\
-					-L lib/libft -lft\
-					-L lib/liblist -llist
+INCLUDES		=	-I include\
+					-I $(MLX_LOC)\
+					-I $(LIBFT_LOC)/include\
+					-I $(LIBLIST_LOC)
+LIBS			=	-L $(MLX_LOC) -lmlx\
+					-L $(LIBFT_LOC) -lft\
+					-L $(LIBLIST_LOC) -llist
 FRAMEWORK		=	-framework OpenGl\
 					-framework AppKit
 # LIB LOCATIONS
