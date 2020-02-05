@@ -1,14 +1,15 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: aaugusti <aaugusti@student.codam.nl>         +#+                      #
+#    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/10/29 11:05:37 by aaugusti       #+#    #+#                 #
-#    Updated: 2020/01/27 11:07:09 by aaugusti         ###   ########.fr        #
+#    Created: 2020/02/05 13:53:29 by vtenneke       #+#    #+#                 #
+#    Updated: 2020/02/05 13:53:30 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME			=	liblist.a
 
