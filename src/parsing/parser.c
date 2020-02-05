@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/04 16:00:52 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/05 19:28:56 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	parse_line(char *line, t_data *data)
 		print_error("Memory allocation failed.");
 	if (!info[0])
 	{
-		free(info);
+		free_machine(info);
 		return ;
 	}
 	if (!(ft_strncmp(info[0], "R", 1)))
