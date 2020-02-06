@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/06 11:38:41 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/06 13:27:26 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int		verify_filename(char *filename);
 // utils
 size_t	char_arrlen(char **array);
 int		isdigit_str(char *str);
-double	parse_float(char *str);
+double	parse_double(char *str);
 t_color	parse_color(char *str);
 t_coord	parse_coord(char *str);
 void	*free_machine(char **array);
@@ -122,10 +122,10 @@ void	parse_cylinder(char **info, t_data *data);
 void	parse_triangle(char **info, t_data * data);
 
 // calculations
-float	calc_square(t_object *object, t_data *data);
+double	calc_square(t_object *object, t_data *data);
 
 void	calc_fov(t_data *data);
 
-float	calc_distance_points(t_coord *pos1, t_coord *pos2);
+double	calc_distance_points(t_coord *pos1, t_coord *pos2);
 
 # endif

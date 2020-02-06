@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parse_float.c                                      :+:    :+:            */
+/*   parse_double.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/28 14:53:33 by victor         #+#    #+#                */
-/*   Updated: 2020/02/03 11:38:42 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/06 13:29:28 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/06 13:29:29 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 
 
-double	parse_float(char *str)
+double	parse_double(char *str)
 {
 	double	res;
 	int		count;

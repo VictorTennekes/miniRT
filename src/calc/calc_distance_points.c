@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 11:16:57 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/06 11:36:41 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/06 13:27:45 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 #include <stdio.h>
 
-float	calc_distance_points(t_coord *pos1, t_coord *pos2)
+double	calc_distance_points(t_coord *pos1, t_coord *pos2)
 {
-	float	x;
-	float	y;
-	float	z;
-	float	distance;
+	double	x;
+	double	y;
+	double	z;
+	double	distance;
 
 	x = pos1->x - pos2->x;
 	y = pos1->y - pos2->y;

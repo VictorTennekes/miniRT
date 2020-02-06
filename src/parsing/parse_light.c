@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parse_light.c                                      :+:      :+:    :+:   */
+/*   parse_light.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 15:12:18 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/04 11:24:32 by vtenneke         ###   ########.fr       */
+/*   Updated: 2020/02/06 13:28:25 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	parse_light(char **info, t_data *data)
 	if (!light)
 		print_error("Malloc failed for light");
 	light->pos	= parse_coord(info[1]);
-	light->ratio = parse_float(info[2]);
+	light->ratio = parse_double(info[2]);
 	light->color = parse_color(info[3]);
 	if (light->ratio > 1 || light->ratio < 0)
 		print_error("Wrong value given for light ratio");

@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 11:14:15 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/01/30 12:46:48 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/06 13:28:47 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_coord		parse_coord(char *str)
 	char	**values;
 
 	values = ft_split(str, ',');
-	coord.x = parse_float(values[0]);
-	coord.y = parse_float(values[1]);
-	coord.z = parse_float(values[2]);
+	coord.x = parse_double(values[0]);
+	coord.y = parse_double(values[1]);
+	coord.z = parse_double(values[2]);
 	free_machine(values);
 	return (coord);
 }

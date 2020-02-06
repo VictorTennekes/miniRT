@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parse_cylinder.c                                   :+:      :+:    :+:   */
+/*   parse_cylinder.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/31 14:40:06 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/04 11:24:22 by vtenneke         ###   ########.fr       */
+/*   Updated: 2020/02/06 13:28:18 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	parse_cylinder(char **info, t_data *data)
 	object->type = CY;
 	object->pos = parse_coord(info[1]);
 	object->vector = parse_coord(info[2]);
-	object->size = parse_float(info[3]);
-	object->height = parse_float(info[4]);
+	object->size = parse_double(info[3]);
+	object->height = parse_double(info[4]);
 	object->color = parse_color(info[5]);
 	if (object->vector.x > 1 || object->vector.x < -1)
 		print_error("Wrong value given for cylinder vector x");
