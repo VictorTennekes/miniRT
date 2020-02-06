@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/03 16:18:30 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/06 11:38:41 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ typedef struct		s_camera
 {
 	t_coord			pos;
 	t_coord			vector;
-	int				fov;
+	uint8_t			fov;
+	double			distance;
 }					t_camera;
 
 typedef struct		s_light
@@ -119,5 +120,12 @@ void	parse_plane(char **info, t_data *data);
 void	parse_square(char **info, t_data *data);
 void	parse_cylinder(char **info, t_data *data);
 void	parse_triangle(char **info, t_data * data);
+
+// calculations
+float	calc_square(t_object *object, t_data *data);
+
+void	calc_fov(t_data *data);
+
+float	calc_distance_points(t_coord *pos1, t_coord *pos2);
 
 # endif

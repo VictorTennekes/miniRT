@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/05 19:28:56 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/06 11:38:30 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void	loop_list_data(t_data *data)
 	printf("camera pos_x:		%f\n", camera->pos.x);
 	printf("camera pos_y:		%f\n", camera->pos.y);
 	printf("camera pos_z:		%f\n", camera->pos.z);
+	calc_fov(data);
 	printf("\n");
 
 	// settings list to next camera
@@ -121,6 +122,7 @@ void	loop_list_data(t_data *data)
 	printf("camera_2 pos_x:		%f\n", camera->pos.x);
 	printf("camera_2 pos_y:		%f\n", camera->pos.y);
 	printf("camera_2 pos_z:		%f\n", camera->pos.z);
+	calc_fov(data);
 	printf("\n");
 
 	printf("light ratio:		%f\n", light->ratio);
@@ -162,6 +164,7 @@ void	loop_list_data(t_data *data)
 	printf("square color_r:		%u\n", square->color.r);
 	printf("square color_g:		%u\n", square->color.g);
 	printf("square color_b:		%u\n", square->color.b);
+	printf("square dis t p:		%f\n", calc_square(square, data));
 	printf("\n");
 
 	printf("cylinder pos_x:		%f\n", cylinder->pos.x);

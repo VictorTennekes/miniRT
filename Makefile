@@ -6,7 +6,7 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/02/04 17:50:49 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/02/06 11:23:44 by vtenneke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,10 @@ SRCS			=	main.c\
 					utilities/parse_color.c\
 					utilities/parse_coords.c\
 					utilities/free_machine.c\
-					utilities/check_line.c
+					utilities/check_line.c\
+					calc/calc_square.c\
+					calc/calc_fov.c\
+					calc/calc_distance_points.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter
