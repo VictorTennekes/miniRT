@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/06 13:27:26 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/06 14:13:35 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,9 @@ double	calc_square(t_object *object, t_data *data);
 void	calc_fov(t_data *data);
 
 double	calc_distance_points(t_coord *pos1, t_coord *pos2);
+
+t_coord	normalize_coords(t_coord coord, t_data *data);
+
+t_coord normalize_vector(t_coord coord);
 
 # endif

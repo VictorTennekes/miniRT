@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/31 11:55:39 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/06 13:28:39 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/06 14:14:04 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	parse_square(char **info, t_data *data)
 	object->vector = parse_coord(info[2]);
 	object->size = parse_double(info[3]);
 	object->color = parse_color(info[4]);
+	object->pos = normalize_coords(object->pos, data);
+	object->vector = normalize_vector(object->vector);
 	if (object->vector.x > 1 || object->vector.x < -1)
 		print_error("Wrong value given for square vector x");
 	if (object->vector.y > 1 || object->vector.y < -1)
