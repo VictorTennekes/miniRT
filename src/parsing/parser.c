@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 14:13:01 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/06 11:38:30 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/07 14:29:14 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,9 @@ void	loop_list_data(t_data *data)
 
 	printf("map save:		%s\n", data->mapinfo.save?"true":"false");
 	printf("map amb_ratio:		%f\n", data->mapinfo.amb_ratio);
-	printf("map amb_color_r:	%u\n", data->mapinfo.amb_color.r);
-	printf("map amb_color_g:	%u\n", data->mapinfo.amb_color.g);
-	printf("map amb_color_b:	%u\n", data->mapinfo.amb_color.b);
+	printf("map amb_color_r:	%f\n", data->mapinfo.amb_color.r);
+	printf("map amb_color_g:	%f\n", data->mapinfo.amb_color.g);
+	printf("map amb_color_b:	%f\n", data->mapinfo.amb_color.b);
 	printf("map amb_set:		%s\n", data->mapinfo.amb_set?"true":"false");
 	printf("\n");
 	
@@ -129,18 +129,18 @@ void	loop_list_data(t_data *data)
 	printf("light pos_x:		%f\n", light->pos.x);
 	printf("light pos_y:		%f\n", light->pos.y);
 	printf("light pos_z:		%f\n", light->pos.z);
-	printf("light color_r:		%u\n", light->color.r);
-	printf("light color_g:		%u\n", light->color.g);
-	printf("light color_b:		%u\n", light->color.b);
+	printf("light color_r:		%f\n", light->color.r);
+	printf("light color_g:		%f\n", light->color.g);
+	printf("light color_b:		%f\n", light->color.b);
 	printf("\n");
 
 	printf("sphere size:		%f\n", sphere->size);
 	printf("sphere pos_x:		%f\n", sphere->pos.x);
 	printf("sphere pos_y:		%f\n", sphere->pos.y);
 	printf("sphere pos_z:		%f\n", sphere->pos.z);
-	printf("sphere color_r:		%u\n", sphere->color.r);
-	printf("sphere color_g:		%u\n", sphere->color.g);
-	printf("sphere color_b:		%u\n", sphere->color.b);
+	printf("sphere color_r:		%f\n", sphere->color.r);
+	printf("sphere color_g:		%f\n", sphere->color.g);
+	printf("sphere color_b:		%f\n", sphere->color.b);
 	printf("\n");
 
 	printf("plane pos_x:		%f\n", plane->pos.x);
@@ -149,9 +149,9 @@ void	loop_list_data(t_data *data)
 	printf("plane vector_x:		%f\n", plane->vector.x);
 	printf("plane vector_y:		%f\n", plane->vector.y);
 	printf("plane vector_z:		%f\n", plane->vector.z);
-	printf("plane color_r:		%u\n", plane->color.r);
-	printf("plane color_g:		%u\n", plane->color.g);
-	printf("plane color_b:		%u\n", plane->color.b);
+	printf("plane color_r:		%f\n", plane->color.r);
+	printf("plane color_g:		%f\n", plane->color.g);
+	printf("plane color_b:		%f\n", plane->color.b);
 	printf("\n");
 
 	printf("square pos_x:		%f\n", square->pos.x);
@@ -161,9 +161,9 @@ void	loop_list_data(t_data *data)
 	printf("square vector_y:	%f\n", square->vector.y);
 	printf("square vector_z:	%f\n", square->vector.z);
 	printf("square size:		%f\n", square->size);
-	printf("square color_r:		%u\n", square->color.r);
-	printf("square color_g:		%u\n", square->color.g);
-	printf("square color_b:		%u\n", square->color.b);
+	printf("square color_r:		%f\n", square->color.r);
+	printf("square color_g:		%f\n", square->color.g);
+	printf("square color_b:		%f\n", square->color.b);
 	printf("square dis t p:		%f\n", calc_square(square, data));
 	printf("\n");
 
@@ -175,9 +175,9 @@ void	loop_list_data(t_data *data)
 	printf("cylinder vector_z:	%f\n", cylinder->vector.z);
 	printf("cylinder size:		%f\n", cylinder->size);
 	printf("cylinder height:	%f\n", cylinder->height);
-	printf("cylinder color_r:	%u\n", cylinder->color.r);
-	printf("cylinder color_g:	%u\n", cylinder->color.g);
-	printf("cylinder color_b:	%u\n", cylinder->color.b);
+	printf("cylinder color_r:	%f\n", cylinder->color.r);
+	printf("cylinder color_g:	%f\n", cylinder->color.g);
+	printf("cylinder color_b:	%f\n", cylinder->color.b);
 	printf("\n");
 
 	printf("triangle pos_x:		%f\n", triangle->pos.x);
@@ -189,9 +189,9 @@ void	loop_list_data(t_data *data)
 	printf("triangle pos3:		%f\n", triangle->pos3.x);
 	printf("triangle pos3:		%f\n", triangle->pos3.y);
 	printf("triangle pos3:		%f\n", triangle->pos3.z);
-	printf("triangle color_r:	%u\n", triangle->color.r);
-	printf("triangle color_g:	%u\n", triangle->color.g);
-	printf("triangle color_b:	%u\n", triangle->color.b);
+	printf("triangle color_r:	%f\n", triangle->color.r);
+	printf("triangle color_g:	%f\n", triangle->color.g);
+	printf("triangle color_b:	%f\n", triangle->color.b);
 	printf("\n");
 
 	printf("pointers:\n");

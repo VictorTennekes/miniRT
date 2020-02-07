@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/07 12:11:23 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/07 14:29:56 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ typedef enum		e_object_type
 
 typedef struct		s_color
 {
-	uint8_t			r;
-	uint8_t			g;
-	uint8_t 		b;
+	double			r;
+	double			g;
+	double 		b;
 }					t_color;
 
 typedef struct		s_coord
@@ -41,10 +41,21 @@ typedef struct		s_coord
 	double			z;
 }					t_coord;
 
+typedef struct		s_mlx_data
+{
+	void			*img;
+    char			*addr;
+    int				bits_per_pixel;
+    int				line_length;
+    int				endian;
+}					t_mlx_data;
+
+
 typedef struct		s_mlxinfo
 {
 	void			*mlx;
 	void			*mlx_win;
+	t_mlx_data		mlx_data;
 }					t_mlxinfo;
 
 typedef struct		s_object

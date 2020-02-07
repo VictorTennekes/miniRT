@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parse_plane.c                                      :+:      :+:    :+:   */
+/*   parse_plane.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 17:18:57 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/04 11:26:18 by vtenneke         ###   ########.fr       */
+/*   Updated: 2020/02/07 13:25:37 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	parse_plane(char **info, t_data *data)
 	object->pos = parse_coord(info[1]);
 	object->vector = parse_coord(info[2]);
 	object->color = parse_color(info[3]);
+	object->vector = normalize_vector(object->vector);
 	if (object->vector.x > 1 || object->vector.x < -1)
 		print_error("Wrong value given for cylinder vector x");
 	if (object->vector.y > 1 || object->vector.y < -1)
