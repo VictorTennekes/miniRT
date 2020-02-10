@@ -1,3 +1,3 @@
 # miniRT
 
-Project in which I discover the basics of raytracing.
+In this project I'm coding a humble but functional raytracer in C
