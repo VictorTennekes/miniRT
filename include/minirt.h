@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/07 14:29:56 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/10 15:49:46 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ typedef struct		s_coord
 	double			y;
 	double			z;
 }					t_coord;
+
+typedef struct		s_ray
+{
+	t_coord			origin;
+	t_coord			direction;
+}					t_ray;
+
 
 typedef struct		s_mlx_data
 {

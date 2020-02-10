@@ -24,3 +24,23 @@ PixelScreeny = 2 * PixelNDCy - 1
 
 PixelCamerax = (2 * PixelScreenx- 1) * ImageAspectRatio
 PixelCameray = (1 - 2 * PixelScreeny)
+
+sphere
+	(x -c)^2 = r^2
+	c = center
+	r = radius
+
+line:
+	x = o +td
+	o = origin
+	d = direction
+	t = parameter
+
+intersection:
+	(o -c -+td)^2 = r^2
+
+	v = o - c
+
+	v^2 + 2(v.d)t + d^2t^2 = r^2
+
+
