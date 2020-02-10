@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/10 15:49:46 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/10 21:13:22 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,27 @@
 # include <stddef.h>
 # include <liblist.h>
 
+// Vectors and rays
+typedef struct		s_vec3d
+{
+	double			x;
+	double			y;
+	double			z;
+}					t_vec3d;
+
+typedef struct		s_vec2ui
+{
+	uint16_t		x;
+	uint16_t		y;
+}					t_vec2ui;
+
+typedef struct		s_ray
+{
+	t_vec3d			origin;
+	t_vec3d			direction;
+}					t_ray;
+
+// General stuff
 typedef enum		e_object_type
 {
 	PL,
@@ -33,20 +54,6 @@ typedef struct		s_color
 	double			g;
 	double 		b;
 }					t_color;
-
-typedef struct		s_coord
-{
-	double			x;
-	double			y;
-	double			z;
-}					t_coord;
-
-typedef struct		s_ray
-{
-	t_coord			origin;
-	t_coord			direction;
-}					t_ray;
-
 
 typedef struct		s_mlx_data
 {
@@ -68,10 +75,10 @@ typedef struct		s_mlxinfo
 typedef struct		s_object
 {
 	t_object_type	type;
-	t_coord			pos;
-	t_coord			pos2;
-	t_coord			pos3;
-	t_coord			vector;
+	t_vec3d			pos;
+	t_vec3d			pos2;
+	t_vec3d			pos3;
+	t_vec3d			vector;
 	t_color			color;
 	double			size;
 	double			height;
@@ -79,15 +86,15 @@ typedef struct		s_object
 
 typedef struct		s_camera
 {
-	t_coord			pos;
-	t_coord			vector;
+	t_vec3d			pos;
+	t_vec3d			vector;
 	uint8_t			fov;
 	double			distance;
 }					t_camera;
 
 typedef struct		s_light
 {
-	t_coord			pos;
+	t_vec3d			pos;
 	double			ratio;
 	t_color			color;
 }					t_light;
@@ -131,7 +138,7 @@ size_t	char_arrlen(char **array);
 int		isdigit_str(char *str);
 double	parse_double(char *str);
 t_color	parse_color(char *str);
-t_coord	parse_coord(char *str);
+t_vec3d	parse_coord(char *str);
 void	*free_machine(char **array);
 bool	check_line(char *str);
 
@@ -151,10 +158,17 @@ double	calc_square(t_object *object, t_data *data);
 
 void	calc_fov(t_data *data);
 
-double	calc_distance_points(t_coord *pos1, t_coord *pos2);
+double	calc_distance_points(t_vec3d *pos1, t_vec3d *pos2);
 
-t_coord	normalize_coords(t_coord coord, t_data *data);
 
-t_coord normalize_vector(t_coord coord);
+// Vector functions
+t_vec3d	normalize_coords(t_vec3d coord, t_data *data);
+t_color	get_pixel(t_vec2ui pixel, t_data *data);
+
+// Vector utilities
+t_vec3d	vec_new(double x, double y, double z);
+t_vec3d	vec_add(t_vec3d vec1, t_vec3d vec2);
+t_vec3d vec_normalize(t_vec3d coord);
+double	vec_len(t_vec3d vec);
 
 # endif

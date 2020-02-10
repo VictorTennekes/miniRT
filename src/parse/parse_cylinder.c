@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/31 14:40:06 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/07 13:25:59 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/10 21:06:30 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	parse_cylinder(char **info, t_data *data)
 	object->size = parse_double(info[3]);
 	object->height = parse_double(info[4]);
 	object->color = parse_color(info[5]);
-	object->vector = normalize_vector(object->vector);
+	object->vector = vec_normalize(object->vector);
 	if (object->vector.x > 1 || object->vector.x < -1)
 		print_error("Wrong value given for cylinder vector x");
 	if (object->vector.y > 1 || object->vector.y < -1)

@@ -6,23 +6,23 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/02/07 14:28:39 by vtenneke      ########   odam.nl          #
+#    Updated: 2020/02/10 21:07:29 by victor        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	minirt
 SRCS			=	main.c\
 					error/error.c\
-					parsing/parser.c\
-					parsing/parse_resolution.c\
-					parsing/parse_ambient.c\
-					parsing/parse_camera.c\
-					parsing/parse_light.c\
-					parsing/parse_sphere.c\
-					parsing/parse_plane.c\
-					parsing/parse_square.c\
-					parsing/parse_cylinder.c\
-					parsing/parse_triangle.c\
+					parse/parser.c\
+					parse/parse_resolution.c\
+					parse/parse_ambient.c\
+					parse/parse_camera.c\
+					parse/parse_light.c\
+					parse/parse_sphere.c\
+					parse/parse_plane.c\
+					parse/parse_square.c\
+					parse/parse_cylinder.c\
+					parse/parse_triangle.c\
 					utilities/char_arrlen.c\
 					utilities/isdigit_str.c\
 					utilities/parse_double.c\
@@ -34,7 +34,7 @@ SRCS			=	main.c\
 					calc/calc_fov.c\
 					calc/calc_distance_points.c\
 					calc/normalize_coords.c\
-					calc/normalize_vector.c
+					calc/vec_normalize.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter -g

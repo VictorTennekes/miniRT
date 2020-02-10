@@ -2,6 +2,10 @@
 	"files.associations": {
 		"unistd.h": "c",
 		"libft.h": "c",
-		"minirt.h": "c"
+		"minirt.h": "c",
+		"__locale": "c",
+		"__string": "c",
+		"string": "c",
+		"string_view": "c"
 	}
 }

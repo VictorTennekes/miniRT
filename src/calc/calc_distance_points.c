@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/06 11:16:57 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/07 15:56:12 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/10 20:47:28 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdio.h>
 
-double	calc_distance_points(t_coord *pos1, t_coord *pos2)
+double	calc_distance_points(t_vec3d *pos1, t_vec3d *pos2)
 {
 	double	x;
 	double	y;

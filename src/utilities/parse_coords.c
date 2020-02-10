@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/30 11:14:15 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/06 13:28:47 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/02/10 20:47:28 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <libft.h>
 #include <stdio.h>
 
-t_coord		parse_coord(char *str)
+t_vec3d		parse_coord(char *str)
 {
-	t_coord	coord;
+	t_vec3d	coord;
 	char	**values;
 
 	values = ft_split(str, ',');
