@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/10 21:13:22 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/10 21:30:03 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,8 @@ t_color	get_pixel(t_vec2ui pixel, t_data *data);
 // Vector utilities
 t_vec3d	vec_new(double x, double y, double z);
 t_vec3d	vec_add(t_vec3d vec1, t_vec3d vec2);
+t_vec3d	vec_sub(t_vec3d vec1, t_vec3d vec2);
+t_vec3d	vec_a_to_b(t_vec3d a, t_vec3d b);
 t_vec3d vec_normalize(t_vec3d coord);
 double	vec_len(t_vec3d vec);
 
