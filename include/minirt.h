@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/10 21:30:03 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/10 22:07:22 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ typedef struct		s_ray
 	t_vec3d			origin;
 	t_vec3d			direction;
 }					t_ray;
+
+typedef struct		s_ray_res
+{
+	double			distance;
+	t_vec3d			position;
+	t_color			color;
+	t_object		*object;
+}					t_ray_res;
+
 
 // General stuff
 typedef enum		e_object_type
@@ -172,5 +181,9 @@ t_vec3d	vec_sub(t_vec3d vec1, t_vec3d vec2);
 t_vec3d	vec_a_to_b(t_vec3d a, t_vec3d b);
 t_vec3d vec_normalize(t_vec3d coord);
 double	vec_len(t_vec3d vec);
+
+// Rays
+t_color cast_ray(t_ray ray, t_data *data);
+t_ray_res	cast_ray_object(t_ray ray, t_data *data);
 
 # endif
