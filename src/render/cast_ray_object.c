@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/10 22:01:47 by victor         #+#    #+#                */
-/*   Updated: 2020/02/10 22:11:00 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/11 14:14:49 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,19 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data)
 	current_object = data->objects;
 	while (current_object)
 	{
-		// TODO calculate closest object and save
+		ray_res = obj_dist((t_object *)current_object, ray);
+		if (ray_res.distance < min_distance)
+		{
+			closest_object = (t_object *)current_object->content;
+			min_distance = ray_res.distance;
+			ray_res_closest = ray_res;
+			// TODO calculate closest object and save
+		}
+		current_object = current_object->next;
 	}
 	// TODO if no closest return ray casting into infity
-	// TODO else return closest ray
+	if (!closest_object)
+		return (ray_res_closest);
+		// return(/*infinite ray*/);
+	return (ray_res_closest);
 }

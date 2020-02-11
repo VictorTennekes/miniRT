@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/10 20:57:29 by victor         #+#    #+#                */
-/*   Updated: 2020/02/10 21:31:26 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/11 14:17:47 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ t_color		get_pixel(t_vec2ui pixel, t_data *data)
 	else
 		ray.origin.y *= data->window.y / (double)data->window.x;
 	ray.direction = vec_a_to_b(camera_pos, ray.origin);
-	return(/*cast ray*/);
+
+	return(cast_ray(ray, data));
 } 

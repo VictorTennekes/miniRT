@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/10 22:07:22 by victor        ########   odam.nl         */
+/*   Updated: 2020/02/11 14:19:47 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 # include <stdbool.h>
 # include <stddef.h>
 # include <liblist.h>
+# include <math.h>
+
+// Globally needed structs
+
+typedef struct		s_color
+{
+	double			r;
+	double			g;
+	double 		b;
+}					t_color;
 
 // Vectors and rays
 typedef struct		s_vec3d
@@ -38,16 +48,6 @@ typedef struct		s_ray
 	t_vec3d			direction;
 }					t_ray;
 
-typedef struct		s_ray_res
-{
-	double			distance;
-	t_vec3d			position;
-	t_color			color;
-	t_object		*object;
-}					t_ray_res;
-
-
-// General stuff
 typedef enum		e_object_type
 {
 	PL,
@@ -57,12 +57,27 @@ typedef enum		e_object_type
 	TR
 }					t_object_type;
 
-typedef struct		s_color
+typedef struct		s_object
 {
-	double			r;
-	double			g;
-	double 		b;
-}					t_color;
+	t_object_type	type;
+	t_vec3d			pos;
+	t_vec3d			pos2;
+	t_vec3d			pos3;
+	t_vec3d			vector;
+	t_color			color;
+	double			size;
+	double			height;
+}					t_object;
+
+typedef struct		s_ray_res
+{
+	double			distance;
+	t_vec3d			position;
+	t_color			color;
+	t_object		*object;
+}					t_ray_res;
+
+// General stuff
 
 typedef struct		s_mlx_data
 {
@@ -81,17 +96,6 @@ typedef struct		s_mlxinfo
 	t_mlx_data		mlx_data;
 }					t_mlxinfo;
 
-typedef struct		s_object
-{
-	t_object_type	type;
-	t_vec3d			pos;
-	t_vec3d			pos2;
-	t_vec3d			pos3;
-	t_vec3d			vector;
-	t_color			color;
-	double			size;
-	double			height;
-}					t_object;
 
 typedef struct		s_camera
 {
@@ -185,5 +189,8 @@ double	vec_len(t_vec3d vec);
 // Rays
 t_color cast_ray(t_ray ray, t_data *data);
 t_ray_res	cast_ray_object(t_ray ray, t_data *data);
+
+// Dist
+t_ray_res	obj_dist(t_object *obj, t_ray ray);
 
 # endif

@@ -6,35 +6,44 @@
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
-#    Updated: 2020/02/10 21:07:29 by victor        ########   odam.nl          #
+#    Updated: 2020/02/11 14:20:34 by victor        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	minirt
 SRCS			=	main.c\
-					error/error.c\
-					parse/parser.c\
-					parse/parse_resolution.c\
-					parse/parse_ambient.c\
-					parse/parse_camera.c\
-					parse/parse_light.c\
-					parse/parse_sphere.c\
-					parse/parse_plane.c\
-					parse/parse_square.c\
-					parse/parse_cylinder.c\
-					parse/parse_triangle.c\
-					utilities/char_arrlen.c\
-					utilities/isdigit_str.c\
-					utilities/parse_double.c\
-					utilities/parse_color.c\
-					utilities/parse_coords.c\
-					utilities/free_machine.c\
-					utilities/check_line.c\
 					calc/calc_square.c\
 					calc/calc_fov.c\
 					calc/calc_distance_points.c\
 					calc/normalize_coords.c\
-					calc/vec_normalize.c
+					dist/obj_dist.c\
+					error/error.c\
+					parse/parser.c\
+					parse/parse_ambient.c\
+					parse/parse_camera.c\
+					parse/parse_cylinder.c\
+					parse/parse_light.c\
+					parse/parse_plane.c\
+					parse/parse_resolution.c\
+					parse/parse_sphere.c\
+					parse/parse_square.c\
+					parse/parse_triangle.c\
+					render/cast_ray_object.c\
+					render/cast_ray.c\
+					utilities/char_arrlen.c\
+					utilities/check_line.c\
+					utilities/free_machine.c\
+					utilities/isdigit_str.c\
+					utilities/parse_color.c\
+					utilities/parse_coords.c\
+					utilities/parse_double.c\
+					vec/get_pixel.c\
+					vec/vec_a_to_b.c\
+					vec/vec_add.c\
+					vec/vec_len.c\
+					vec/vec_new.c\
+					vec/vec_normalize.c\
+					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
 CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter -g
