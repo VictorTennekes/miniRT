@@ -29,13 +29,13 @@ void	parse_square(char **info, t_data *data)
 	object->vector = parse_coord(info[2]);
 	object->size = parse_double(info[3]);
 	object->color = parse_color(info[4]);
-	object->vector = vec_normalize(object->vector);
 	if (object->vector.x > 1 || object->vector.x < -1)
 		print_error("Wrong value given for square vector x");
 	if (object->vector.y > 1 || object->vector.y < -1)
 		print_error("Wrong value given for square vector y");
 	if (object->vector.z > 1 || object->vector.z < -1)
 		print_error("Wrong value given for square vector z");
+	object->vector = vec_normalize(object->vector);
 	if (!lst_new_back(&(data->objects), object))
 		print_error("Allocation failed for square");	
 }
