@@ -32,7 +32,6 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data)
 			closest_object = (t_object *)current_object->content;
 			min_distance = ray_res.distance;
 			ray_res_closest = ray_res;
-			// TODO calculate closest object and save
 		}
 		current_object = current_object->next;
 	}
