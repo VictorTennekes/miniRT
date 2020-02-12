@@ -186,6 +186,7 @@ t_vec3d	vec_a_to_b(t_vec3d a, t_vec3d b);
 t_vec3d vec_normalize(t_vec3d coord);
 double	vec_len(t_vec3d vec);
 double	vec_dot_prod(t_vec3d vec1, t_vec3d vec2);
+t_vec3d	vec_multi(t_vec3d vec, double factor);
 
 // Rays
 t_color cast_ray(t_ray ray, t_data *data);
