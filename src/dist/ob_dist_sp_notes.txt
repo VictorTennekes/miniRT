@@ -23,3 +23,20 @@ d^2 + tca^2 L^2
 d = sqrt(pow(L, 2) - pow(tca, 2))
 if (d < 0)
 	return (false)
+
+
+
+
+
+CALC:
+
+tca = dotproduct(L, D);
+if (tca < 0)
+	return (false);
+d = sqrt(pow(L, 2) - pow(tca, 2));
+if (d < 0)
+	return (false);
+if (d > sphere_radius)
+	return (false);
+
+thc = sqrt(pow(sphere_radius, 2) - pow(d, 2));
