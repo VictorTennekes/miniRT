@@ -37,7 +37,6 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data)
 	}
 	// TODO if no closest return ray casting into infity
 	if (!closest_object)
-		return (ray_res_closest);
-		// return(/*infinite ray*/);
+		return (ray_res_inf());
 	return (ray_res_closest);
 }

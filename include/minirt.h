@@ -185,10 +185,17 @@ t_vec3d	vec_sub(t_vec3d vec1, t_vec3d vec2);
 t_vec3d	vec_a_to_b(t_vec3d a, t_vec3d b);
 t_vec3d vec_normalize(t_vec3d coord);
 double	vec_len(t_vec3d vec);
+double	vec_dot_prod(t_vec3d vec1, t_vec3d vec2);
 
 // Rays
 t_color cast_ray(t_ray ray, t_data *data);
 t_ray_res	cast_ray_object(t_ray ray, t_data *data);
+
+// Ray Res
+t_ray_res 	ray_res_new(t_object *object, t_vec3d vector, t_color color);
+t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector, t_color color, \
+	double distance);
+t_ray_res 	ray_res_inf(void);
 
 // Dist
 t_ray_res	obj_dist(t_object *obj, t_ray ray);
