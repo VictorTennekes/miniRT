@@ -1,0 +1,25 @@
+O = origin of ray
+D = Direction of ray
+t > 0 in front of ray origin
+t < 0 behind ray origin
+t = = on ray origin
+
+P = O + t0D
+P' = O + t1D
+
+L distance origin and point
+
+L and D is known
+
+dotproduct L and D gives tca (see sphere_inter.png)
+
+tca = dotproduct(L, D)
+if (tca < 0)
+	return (false);
+
+calc d
+d^2 + tca^2 L^2
+
+d = sqrt(pow(L, 2) - pow(tca, 2))
+if (d < 0)
+	return (false)
