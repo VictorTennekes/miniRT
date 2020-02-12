@@ -193,4 +193,8 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data);
 // Dist
 t_ray_res	obj_dist(t_object *obj, t_ray ray);
 
+// MLX
+bool	init_mlx(t_data *data);
+bool	init_mlx_img(t_data *data);
+
 # endif

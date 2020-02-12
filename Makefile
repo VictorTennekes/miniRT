@@ -18,6 +18,8 @@ SRCS			=	main.c\
 					calc/normalize_coords.c\
 					dist/obj_dist.c\
 					error/error.c\
+					mlx/init_mlx.c\
+					mlx/init_mlx_img.c\
 					parse/parser.c\
 					parse/parse_ambient.c\
 					parse/parse_camera.c\

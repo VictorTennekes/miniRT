@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   init_mlx.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/24 14:13:59 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/10 09:23:45 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/12 10:02:27 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/12 10:02:27 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <libft.h>
 #include <mlx.h>
 
-int main(int ac, char **av)
+bool	init_mlx(t_data *data)
 {
-	t_data	data;
-
-	if (ac != 2 && ac != 3)
-		print_error("Invalid amount of arguments");
-	ft_bzero(&data, sizeof(t_data));
-	if (ac == 3)
-	{
-		if (!(ft_strncmp(av[2], "--save", 6)))
-			data.mapinfo.save = true;
-		else
-			print_error("Invalid argument");
-	}
-	parse_file(av[1], &data);
-	if (init_mlx(&data))
-		print_error("Can't open window");
-	mlx_loop(data.mlx_info.mlx);
-	return (0);
+	data->mlx_info.mlx = mlx_init();
+	if (!data->mlx_info.mlx)
+		return (true);
+	data->mlx_info.mlx_win = mlx_new_window(data->mlx_info.mlx, data->window.x, \
+		data->window.y, "MiniRT");
+	if (!data->mlx_info.mlx_win)
+		return (true);
+	if (init_mlx_img(data))
+		return (true);
+	return (false);
 }
