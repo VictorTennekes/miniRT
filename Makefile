@@ -17,6 +17,7 @@ SRCS			=	main.c\
 					calc/calc_distance_points.c\
 					calc/normalize_coords.c\
 					dist/obj_dist.c\
+					dist/obj_dist_sp.c\
 					error/error.c\
 					mlx/init_mlx.c\
 					mlx/init_mlx_img.c\
@@ -39,16 +40,20 @@ SRCS			=	main.c\
 					utilities/parse_color.c\
 					utilities/parse_coords.c\
 					utilities/parse_double.c\
+					utilities/ray_res_inf.c\
+					utilities/ray_res_new.c\
 					vec/get_pixel.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
+					vec/vec_dot_prod.c\
 					vec/vec_len.c\
+					vec/vec_multi.c\
 					vec/vec_new.c\
 					vec/vec_normalize.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -Wno-unused-parameter -g
+CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
 					-I $(LIBFT_LOC)/include\

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   cast_ray.c                                         :+:    :+:            */
+/*   hook_frame.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/10 21:58:51 by victor         #+#    #+#                */
-/*   Updated: 2020/02/11 14:16:52 by victor        ########   odam.nl         */
+/*   Created: 2020/02/17 15:06:24 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/17 15:06:24 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <math.h>
+#include <mlx.h>
 
-t_color cast_ray(t_ray ray, t_data *data)
+int		hook_frame(t_data *data)
 {
-	t_ray_res ray_res;
+	uint16_t	i;
+	uint16_t	j;
 
-	ray_res = cast_ray_object(ray, data);
-	if (ray_res.distance == INFINITY)
-		return(parse_color("0,0,0"));
-	// return (/*color of hit object*/);
-	return(ray_res.color);
+	i = 0;
+	while (i < data->window.x)
+	{
+		j = 0;
+		while (j < data->window.y)
+		{
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

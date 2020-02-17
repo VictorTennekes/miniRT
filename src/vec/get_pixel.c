@@ -36,6 +36,5 @@ t_color		get_pixel(t_vec2ui pixel, t_data *data)
 	else
 		ORIGIN.y *= WINDOW.y / (double)WINDOW.x;
 	ray.direction = vec_a_to_b(camera_pos, ORIGIN);
-
 	return(cast_ray(ray, data));
 } 
