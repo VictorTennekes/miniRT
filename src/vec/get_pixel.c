@@ -24,7 +24,7 @@ t_color		get_pixel(t_vec2ui pixel, t_data *data)
 	double		fov_fact;
 
 	camera = data->cameras->content;
-	fov_fact = camera->fov / 2 * (M_PI / 180);
+	fov_fact = tan(camera->fov / 2 * (M_PI / 180));
 	camera_pos = camera->pos;
 	ORIGIN.x = (2 * ((pixel.x + 0.5) / WINDOW.x) - 1) * fov_fact;
 	ORIGIN.y = (1 - (2 * ((pixel.y + 0.5) / WINDOW.y))) * fov_fact;
@@ -35,6 +35,6 @@ t_color		get_pixel(t_vec2ui pixel, t_data *data)
 		ORIGIN.x *= WINDOW.x / (double)WINDOW.y;
 	else
 		ORIGIN.y *= WINDOW.y / (double)WINDOW.x;
-	ray.direction = vec_a_to_b(camera_pos, ORIGIN);
+	ray.direction = vec_a_to_b(ORIGIN, camera_pos);
 	return(cast_ray(ray, data));
 } 

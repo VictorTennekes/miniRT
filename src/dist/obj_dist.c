@@ -15,5 +15,7 @@
 
 t_ray_res	obj_dist(t_object *obj, t_ray ray)
 {
-	return(g_object_dist_parse[obj->type](obj, ray));
+	// if (obj->type == SP)
+	return (obj_dist_sp(obj, ray));
+	// return(g_object_dist_parse[obj->type](obj, ray));
 }

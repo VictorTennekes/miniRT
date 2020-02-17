@@ -18,8 +18,8 @@
 t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray);
 
 t_ray_res	(*g_object_dist_parse[])(t_object *, t_ray) = {
-	&obj_dist_sp,	//TODO sphere
 	NULL,	//TODO plane
+	&obj_dist_sp,	//TODO sphere
 	NULL,	//TODO square
 	NULL,	//TODO cylinder
 	NULL	//TODO  triangle

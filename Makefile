@@ -19,8 +19,10 @@ SRCS			=	main.c\
 					dist/obj_dist.c\
 					dist/obj_dist_sp.c\
 					error/error.c\
+					mlx/hook_frame.c\
 					mlx/init_mlx.c\
 					mlx/init_mlx_img.c\
+					mlx/pixel_put.c\
 					parse/parser.c\
 					parse/parse_ambient.c\
 					parse/parse_camera.c\
@@ -35,6 +37,7 @@ SRCS			=	main.c\
 					render/cast_ray.c\
 					utilities/char_arrlen.c\
 					utilities/check_line.c\
+					utilities/color_to_int.c\
 					utilities/free_machine.c\
 					utilities/isdigit_str.c\
 					utilities/parse_color.c\

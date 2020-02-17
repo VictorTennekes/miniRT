@@ -12,22 +12,25 @@
 
 #include <minirt.h>
 
+#define DIR ray.direction
+
 t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray)
 {
-	double	d;
 	double	t;
 	double	h;
-	t_vec3d p;
+	t_vec3d	l;
+	double	d;
 
-	t = vec_dot_prod(vec_sub(sphere->pos, ray.origin), ray.direction);
+	l = vec_a_to_b(ray.origin, sphere->pos);
+	t = vec_dot_prod(l, DIR);
 	if (t < 0)
 		return (ray_res_inf());
-	p = vec_add(ray.origin, vec_multi(ray.direction, t));
-	d = vec_len(vec_sub(sphere->pos, p));
-	if (d < 0)
-		return (ray_res_inf());
-	if (d < (sphere->size / 2))
+	d = sqrt(pow(sphere->size, 2) - pow(t, 2));
+	if (d > (sphere->size / 2) || d < 0)
 		return (ray_res_inf());
 	h = sqrt(pow(sphere->size / 2, 2) - pow(d, 2));
-	return (ray_res_dist_new(sphere, vec_sub(p, vec_multi(ray.direction, h)), sphere->color, t - h));
+	return (ray_res_dist_new(sphere, vec_sub(vec_add(ray.origin,
+		vec_multi(DIR, t)), vec_multi(DIR, h)),
+		sphere->color, t - h));
 }
+// t0 = t - h

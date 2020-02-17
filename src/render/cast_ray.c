@@ -21,5 +21,5 @@ t_color cast_ray(t_ray ray, t_data *data)
 	if (ray_res.distance == INFINITY)
 		return(parse_color("0,0,0"));
 	// return (/*color of hit object*/);
-	return(ray_res.color);
+	return(ray_res.object->color);
 }

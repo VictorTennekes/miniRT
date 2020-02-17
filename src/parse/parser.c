@@ -231,5 +231,5 @@ void	parse_file(char *file, t_data *data)
 		line = NULL;
 	}
 	close (fd);
-	loop_list_data(data);
+	// loop_list_data(data);
 }

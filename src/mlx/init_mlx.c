@@ -24,6 +24,6 @@ bool	init_mlx(t_data *data)
 		return (true);
 	if (init_mlx_img(data))
 		return (true);
-	mlx_loop_hook(MLX.mlx, &hook_frame, info);
+	mlx_loop_hook(data->mlx_info.mlx, &hook_frame, data);
 	return (false);
 }
