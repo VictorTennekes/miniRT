@@ -29,5 +29,5 @@ t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray)
 	if (d < (sphere->size / 2))
 		return (ray_res_inf());
 	h = sqrt(pow(sphere->size / 2, 2) - pow(d, 2));
-	return (ray_res_dist_new(sphere, vec_sub(p, /*stuff*/), sphere->color, t - h);
+	return (ray_res_dist_new(sphere, vec_sub(p, vec_multi(ray.direction, h)), sphere->color, t - h);
 }
