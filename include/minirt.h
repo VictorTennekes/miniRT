@@ -205,4 +205,6 @@ t_ray_res	obj_dist(t_object *obj, t_ray ray);
 bool	init_mlx(t_data *data);
 bool	init_mlx_img(t_data *data);
 
+int	color_to_int(t_color color);
+
 # endif

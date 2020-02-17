@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   shapes_main.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -27,7 +27,7 @@ void            my_mlx_pixel_put(t_data *data, int x, int y, int color)
     char    *dst;
 
     dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-    *(unsigned int*)dst = color;
+    *(unsigned int*)dst = color_to_int(color);
 }
 
 void			my_square(t_data img, int og_x, int og_y, int size, int color)
