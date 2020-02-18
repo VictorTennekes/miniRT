@@ -23,10 +23,10 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data)
 
 	min_distance = INFINITY;
 	closest_object = NULL;
-	current_object = data->objects->content;
+	current_object = data->objects;
 	while (current_object)
 	{
-		ray_res = obj_dist((t_object *)current_object, ray);
+		ray_res = obj_dist((t_object *)current_object->content, ray);
 		if (ray_res.distance < min_distance)
 		{
 			closest_object = (t_object *)current_object->content;
@@ -37,6 +37,5 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data)
 	}
 	if (!closest_object)
 		return (ray_res_inf());
-	ray_res_closest.color.r = (ray_res_closest.distance-0.2)/(0.7-0.2) * (255);
 	return (ray_res_closest);
 }

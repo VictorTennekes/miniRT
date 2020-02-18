@@ -69,30 +69,30 @@ void	loop_list_data(t_data *data)
 	t_camera	*camera;
 	t_light		*light;
 	t_object	*sphere;
-	t_object	*plane;
-	t_object	*square;
-	t_object	*cylinder;
-	t_object	*triangle;
+	// t_object	*plane;
+	// t_object	*square;
+	// t_object	*cylinder;
+	// t_object	*triangle;
 
 	camera = data->cameras->content;
 	light = data->lights->content;
 	sphere = data->objects->content;
 	
-	// * Plane
-	data->objects = data->objects->next;
-	plane = data->objects->content;
+	// // * Plane
+	// data->objects = data->objects->next;
+	// plane = data->objects->content;
 	
-	// * Square
-	data->objects = data->objects->next;
-	square = data->objects->content;
+	// // * Square
+	// data->objects = data->objects->next;
+	// square = data->objects->content;
 
-	// * Cylinder
-	data->objects = data->objects->next;
-	cylinder = data->objects->content;
+	// // * Cylinder
+	// data->objects = data->objects->next;
+	// cylinder = data->objects->content;
 
-	// * Triangle
-	data->objects = data->objects->next;
-	triangle = data->objects->content;
+	// // * Triangle
+	// data->objects = data->objects->next;
+	// triangle = data->objects->content;
 
 	printf("screen res_x:		%u\n", data->window.x);
 	printf("screen res_y:		%u\n", data->window.y);
@@ -143,66 +143,77 @@ void	loop_list_data(t_data *data)
 	printf("sphere color_b:		%f\n", sphere->color.b);
 	printf("\n");
 
-	printf("plane pos_x:		%f\n", plane->pos.x);
-	printf("plane pos_y:		%f\n", plane->pos.y);
-	printf("plane pos_z:		%f\n", plane->pos.z);
-	printf("plane vector_x:		%f\n", plane->vector.x);
-	printf("plane vector_y:		%f\n", plane->vector.y);
-	printf("plane vector_z:		%f\n", plane->vector.z);
-	printf("plane color_r:		%f\n", plane->color.r);
-	printf("plane color_g:		%f\n", plane->color.g);
-	printf("plane color_b:		%f\n", plane->color.b);
+	data->objects = data->objects->next;
+	sphere = data->objects->content;
+	printf("sphere_2 size:		%f\n", sphere->size);
+	printf("sphere_2 pos_x:		%f\n", sphere->pos.x);
+	printf("sphere_2 pos_y:		%f\n", sphere->pos.y);
+	printf("sphere_2 pos_z:		%f\n", sphere->pos.z);
+	printf("sphere_2 color_r:	%f\n", sphere->color.r);
+	printf("sphere_2 color_g:	%f\n", sphere->color.g);
+	printf("sphere_2 color_b:	%f\n", sphere->color.b);
 	printf("\n");
 
-	printf("square pos_x:		%f\n", square->pos.x);
-	printf("square pos_y:		%f\n", square->pos.y);
-	printf("square pos_z:		%f\n", square->pos.z);
-	printf("square vector_x:	%f\n", square->vector.x);
-	printf("square vector_y:	%f\n", square->vector.y);
-	printf("square vector_z:	%f\n", square->vector.z);
-	printf("square size:		%f\n", square->size);
-	printf("square color_r:		%f\n", square->color.r);
-	printf("square color_g:		%f\n", square->color.g);
-	printf("square color_b:		%f\n", square->color.b);
-	printf("square dis t p:		%f\n", calc_square(square, data));
-	printf("\n");
+	// printf("plane pos_x:		%f\n", plane->pos.x);
+	// printf("plane pos_y:		%f\n", plane->pos.y);
+	// printf("plane pos_z:		%f\n", plane->pos.z);
+	// printf("plane vector_x:		%f\n", plane->vector.x);
+	// printf("plane vector_y:		%f\n", plane->vector.y);
+	// printf("plane vector_z:		%f\n", plane->vector.z);
+	// printf("plane color_r:		%f\n", plane->color.r);
+	// printf("plane color_g:		%f\n", plane->color.g);
+	// printf("plane color_b:		%f\n", plane->color.b);
+	// printf("\n");
 
-	printf("cylinder pos_x:		%f\n", cylinder->pos.x);
-	printf("cylinder pos_y:		%f\n", cylinder->pos.y);
-	printf("cylinder pos_z:		%f\n", cylinder->pos.z);
-	printf("cylinder vector_x:	%f\n", cylinder->vector.x);
-	printf("cylinder vector_y:	%f\n", cylinder->vector.y);
-	printf("cylinder vector_z:	%f\n", cylinder->vector.z);
-	printf("cylinder size:		%f\n", cylinder->size);
-	printf("cylinder height:	%f\n", cylinder->height);
-	printf("cylinder color_r:	%f\n", cylinder->color.r);
-	printf("cylinder color_g:	%f\n", cylinder->color.g);
-	printf("cylinder color_b:	%f\n", cylinder->color.b);
-	printf("\n");
+	// printf("square pos_x:		%f\n", square->pos.x);
+	// printf("square pos_y:		%f\n", square->pos.y);
+	// printf("square pos_z:		%f\n", square->pos.z);
+	// printf("square vector_x:	%f\n", square->vector.x);
+	// printf("square vector_y:	%f\n", square->vector.y);
+	// printf("square vector_z:	%f\n", square->vector.z);
+	// printf("square size:		%f\n", square->size);
+	// printf("square color_r:		%f\n", square->color.r);
+	// printf("square color_g:		%f\n", square->color.g);
+	// printf("square color_b:		%f\n", square->color.b);
+	// printf("square dis t p:		%f\n", calc_square(square, data));
+	// printf("\n");
 
-	printf("triangle pos_x:		%f\n", triangle->pos.x);
-	printf("triangle pos_y:		%f\n", triangle->pos.y);
-	printf("triangle pos_z:		%f\n", triangle->pos.z);
-	printf("triangle pos2:		%f\n", triangle->pos2.x);
-	printf("triangle pos2:		%f\n", triangle->pos2.y);
-	printf("triangle pos2:		%f\n", triangle->pos2.z);
-	printf("triangle pos3:		%f\n", triangle->pos3.x);
-	printf("triangle pos3:		%f\n", triangle->pos3.y);
-	printf("triangle pos3:		%f\n", triangle->pos3.z);
-	printf("triangle color_r:	%f\n", triangle->color.r);
-	printf("triangle color_g:	%f\n", triangle->color.g);
-	printf("triangle color_b:	%f\n", triangle->color.b);
-	printf("\n");
+	// printf("cylinder pos_x:		%f\n", cylinder->pos.x);
+	// printf("cylinder pos_y:		%f\n", cylinder->pos.y);
+	// printf("cylinder pos_z:		%f\n", cylinder->pos.z);
+	// printf("cylinder vector_x:	%f\n", cylinder->vector.x);
+	// printf("cylinder vector_y:	%f\n", cylinder->vector.y);
+	// printf("cylinder vector_z:	%f\n", cylinder->vector.z);
+	// printf("cylinder size:		%f\n", cylinder->size);
+	// printf("cylinder height:	%f\n", cylinder->height);
+	// printf("cylinder color_r:	%f\n", cylinder->color.r);
+	// printf("cylinder color_g:	%f\n", cylinder->color.g);
+	// printf("cylinder color_b:	%f\n", cylinder->color.b);
+	// printf("\n");
 
-	printf("pointers:\n");
-	printf("pointer t_data:		%p\n", data);
-	printf("pointer t_camera:	%p\n", camera);
-	printf("pointer t_light:	%p\n", light);
-	printf("pointer t_sphere:	%p\n", sphere);
-	printf("pointer t_plane:	%p\n", plane);
-	printf("pointer t_square:	%p\n", square);
-	printf("pointer t_cylinder:	%p\n", cylinder);
-	printf("pointer t_triangle:	%p\n", triangle);
+	// printf("triangle pos_x:		%f\n", triangle->pos.x);
+	// printf("triangle pos_y:		%f\n", triangle->pos.y);
+	// printf("triangle pos_z:		%f\n", triangle->pos.z);
+	// printf("triangle pos2:		%f\n", triangle->pos2.x);
+	// printf("triangle pos2:		%f\n", triangle->pos2.y);
+	// printf("triangle pos2:		%f\n", triangle->pos2.z);
+	// printf("triangle pos3:		%f\n", triangle->pos3.x);
+	// printf("triangle pos3:		%f\n", triangle->pos3.y);
+	// printf("triangle pos3:		%f\n", triangle->pos3.z);
+	// printf("triangle color_r:	%f\n", triangle->color.r);
+	// printf("triangle color_g:	%f\n", triangle->color.g);
+	// printf("triangle color_b:	%f\n", triangle->color.b);
+	// printf("\n");
+
+	// printf("pointers:\n");
+	// printf("pointer t_data:		%p\n", data);
+	// printf("pointer t_camera:	%p\n", camera);
+	// printf("pointer t_light:	%p\n", light);
+	// printf("pointer t_sphere:	%p\n", sphere);
+	// printf("pointer t_plane:	%p\n", plane);
+	// printf("pointer t_square:	%p\n", square);
+	// printf("pointer t_cylinder:	%p\n", cylinder);
+	// printf("pointer t_triangle:	%p\n", triangle);
 }
 
 // Parsing the file so i can analyze the individual lines
