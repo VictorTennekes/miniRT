@@ -17,20 +17,18 @@
 t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray)
 {
 	double	t;
-	double	h;
-	t_vec3d	l;
-	double	d;
+	double	y;
+	double	x;
+	t_vec3d	p;
 
-	l = vec_a_to_b(ray.origin, sphere->pos);
-	t = vec_dot_prod(l, DIR);
+	t = vec_dot_prod(vec_sub(sphere->pos, ray.origin), DIR);
 	if (t < 0)
 		return (ray_res_inf());
-	d = sqrt(pow(sphere->size, 2) - pow(t, 2));
-	if (d > (sphere->size / 2) || d < 0)
+	p = vec_add(ray.origin, vec_multi(ray.direction, t));
+	y = vec_len(vec_sub(sphere->pos, p));
+	if (y > sphere->size / 2)
 		return (ray_res_inf());
-	h = sqrt(pow(sphere->size / 2, 2) - pow(d, 2));
-	return (ray_res_dist_new(sphere, vec_sub(vec_add(ray.origin,
-		vec_multi(DIR, t)), vec_multi(DIR, h)),
-		sphere->color, t - h));
+	x = sqrt(pow(sphere->size / 2, 2) - pow(y, 2));
+	return (ray_res_dist_new(sphere, p, sphere->color, t - x));
 }
 // t0 = t - h
