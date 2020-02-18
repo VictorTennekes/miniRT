@@ -13,17 +13,19 @@
 #include <minirt.h>
 #include <mlx.h>
 
+#define MLX data->mlx_info.mlx
+
 bool	init_mlx(t_data *data)
 {
-	data->mlx_info.mlx = mlx_init();
-	if (!data->mlx_info.mlx)
+	MLX = mlx_init();
+	if (!MLX)
 		return (true);
-	data->mlx_info.mlx_win = mlx_new_window(data->mlx_info.mlx, data->window.x, \
-		data->window.y, "MiniRT");
+	data->mlx_info.mlx_win = mlx_new_window(MLX,
+					data->window.x, data->window.y, "MiniRT");
 	if (!data->mlx_info.mlx_win)
 		return (true);
 	if (init_mlx_img(data))
 		return (true);
-	mlx_loop_hook(data->mlx_info.mlx, &hook_frame, data);
+	mlx_loop_hook(MLX, &hook_frame, data);
 	return (false);
 }

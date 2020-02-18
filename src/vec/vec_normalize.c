@@ -15,8 +15,7 @@
 
 t_vec3d vec_normalize(t_vec3d vec)
 {
-	double len;
-
-	len = vec_len(vec);
-	return (vec_new(vec.x / len, vec.y / len, vec.z / len));
+	return (vec_new(vec.x / vec_len(vec),
+					vec.y / vec_len(vec),
+					vec.z / vec_len(vec)));
 }

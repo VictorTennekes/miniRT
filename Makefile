@@ -13,6 +13,10 @@
 NAME			=	minirt
 SRCS			=	main.c\
 					calc/calc_distance_points.c\
+					color/color_mix.c\
+					color/color_multi.c\
+					color/color_mix_light.c\
+					color/color_new.c\
 					dist/obj_dist.c\
 					dist/obj_dist_sp.c\
 					error/error.c\
@@ -31,6 +35,7 @@ SRCS			=	main.c\
 					parse/parse_square.c\
 					parse/parse_triangle.c\
 					render/cast_ray_object.c\
+					render/light.c\
 					render/cast_ray.c\
 					utilities/char_arrlen.c\
 					utilities/check_line.c\
@@ -46,6 +51,7 @@ SRCS			=	main.c\
 					vec/get_pixel.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
+					vec/vec_dist.c\
 					vec/vec_dot_prod.c\
 					vec/vec_len.c\
 					vec/vec_multi.c\

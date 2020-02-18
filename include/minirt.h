@@ -183,6 +183,7 @@ t_color	get_pixel(t_vec2ui pixel, t_data *data);
 // Vector utilities
 t_vec3d	vec_new(double x, double y, double z);
 t_vec3d	vec_add(t_vec3d vec1, t_vec3d vec2);
+double	vec_dist(t_vec3d vec1, t_vec3d vec2);
 t_vec3d	vec_sub(t_vec3d vec1, t_vec3d vec2);
 t_vec3d	vec_a_to_b(t_vec3d a, t_vec3d b);
 t_vec3d vec_normalize(t_vec3d coord);
@@ -213,5 +214,13 @@ int		hook_frame(t_data *data);
 
 // Normalizing
 t_vec3d	norm_sp(t_vec3d point, t_vec3d center);
+
+t_color	light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data);
+
+// Color
+t_color	color_multi(t_color color, double fact);
+t_color	color_mix(t_color c1, t_color c2);
+t_color	color_mix_light(t_color color, t_color light);
+t_color	color_new(uint8_t r, uint8_t g, uint8_t b);
 
 # endif

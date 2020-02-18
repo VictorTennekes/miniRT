@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <math.h>
-
-#include <stdio.h>
 
 double	calc_distance_points(t_vec3d *pos1, t_vec3d *pos2)
 {

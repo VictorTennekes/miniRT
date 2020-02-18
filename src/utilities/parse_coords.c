@@ -16,13 +16,10 @@
 
 t_vec3d		parse_coord(char *str)
 {
-	t_vec3d	coord;
 	char	**values;
 
 	values = ft_split(str, ',');
-	coord.x = parse_double(values[0]);
-	coord.y = parse_double(values[1]);
-	coord.z = parse_double(values[2]);
 	free_machine(values);
-	return (coord);
+	return (vec_new(parse_double(values[0]), parse_double(values[1]),
+					parse_double(values[2])));
 }

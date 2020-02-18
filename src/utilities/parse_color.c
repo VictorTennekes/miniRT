@@ -16,7 +16,6 @@
 
 t_color		parse_color(char *str)
 {
-	t_color	color;
 	char	**rgb;
 	double		r;
 	double		g;
@@ -34,9 +33,6 @@ t_color		parse_color(char *str)
 		print_error("Invalid green color value");
 	if (b > 255 || b < 0)
 		print_error("Invalid blue color value");
-	color.r = r;
-	color.g = g;
-	color.b = b;
 	free_machine(rgb);
-	return (color);
+	return (color_new(r, g, b));
 }

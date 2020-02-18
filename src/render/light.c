@@ -12,11 +12,20 @@
 
 #include <minirt.h>
 
-t_color	light(t_ray_res *ray_res, t_data *data)
+t_color	light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 {
 	t_vec3d	norm;
-	t_vec3d v;
+	t_vec3d light_dir;
+	double	fac;
 
-	norm = norm_sp(ray_res->position, ray_res->object->pos);
-	v = vec_multi(/*direction to p*/, -1);
+	(void)data;
+	(void)ray;
+	light_dir = vec_a_to_b(ray_res.position, light->pos);
+	norm = norm_sp(ray_res.position, ray_res.object->pos);
+	fac = vec_dot_prod(light_dir, norm);
+	if (fac < 0)
+		return (parse_color("0,0,0"));
+	fac *= light->ratio;
+	fac /= 4 * M_PI * pow(vec_dist(light->pos, ray_res.position), 2);
+	return (color_multi(color_mix_light(light->color, ray_res.object->color), fmin(fac, 1)));
 }

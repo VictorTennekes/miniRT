@@ -19,6 +19,7 @@ t_color cast_ray(t_ray ray, t_data *data)
 
 	ray_res = cast_ray_object(ray, data);
 	if (ray_res.distance == INFINITY)
-		return(parse_color("41,44,51")); // TODO Change backe to black later
+		return(parse_color("41,44,51")); // TODO Change back to black later
+	// return (light(ray_res, ray, data->lights->content, data));
 	return(ray_res.object->color);
 }
