@@ -29,6 +29,9 @@ int main(int ac, char **av)
 			print_error("Invalid argument");
 	}
 	parse_file(av[1], &data);
+	if (!data.cameras->content)
+		print_error("No camera");
+	data.current_cam = data.cameras->content;
 	if (init_mlx(&data))
 		print_error("Can't open window");
 	mlx_loop(data.mlx_info.mlx);

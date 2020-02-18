@@ -13,7 +13,7 @@
 #include <minirt.h>
 #include "obj_dist.h"
 
-t_ray_res	obj_dist(t_object *obj, t_ray ray)
+t_ray_res	obj_dist(t_object *obj, t_ray ray, t_data *data)
 {
-	return(g_object_dist_parse[obj->type](obj, ray));
+	return(g_object_dist_parse[obj->type](obj, ray, data));
 }

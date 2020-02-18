@@ -14,17 +14,17 @@
 
 #define DIR ray.direction
 
-t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray)
+t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
 {
 	double	t;
 	double	y;
 	double	x;
 	t_vec3d	p;
 
-	t = vec_dot_prod(vec_sub(sphere->pos, ray.origin), DIR);
+	t = vec_dot_prod(vec_sub(sphere->pos, data->current_cam->pos), DIR);
 	if (t < 0)
 		return (ray_res_inf());
-	p = vec_add(ray.origin, vec_multi(ray.direction, t));
+	p = vec_add(data->current_cam->pos, vec_multi(ray.direction, t));
 	y = vec_len(vec_sub(sphere->pos, p));
 	if (y > sphere->size / 2)
 		return (ray_res_inf());

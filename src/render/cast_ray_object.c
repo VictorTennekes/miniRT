@@ -26,7 +26,7 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data)
 	current_object = data->objects;
 	while (current_object)
 	{
-		ray_res = obj_dist((t_object *)current_object->content, ray);
+		ray_res = obj_dist((t_object *)current_object->content, ray, data);
 		if (ray_res.distance < min_distance)
 		{
 			closest_object = (t_object *)current_object->content;

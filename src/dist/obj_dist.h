@@ -15,9 +15,9 @@
 
 # include <minirt.h>
 
-t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray);
+t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data);
 
-t_ray_res	(*g_object_dist_parse[])(t_object *, t_ray) = {
+t_ray_res	(*g_object_dist_parse[])(t_object *, t_ray, t_data *) = {
 	NULL,	//TODO plane
 	&obj_dist_sp,	//TODO sphere
 	NULL,	//TODO square

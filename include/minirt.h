@@ -133,6 +133,7 @@ typedef struct		s_data
 {
 	t_list			*objects;
 	t_list			*cameras;
+	t_camera		*current_cam;
 	t_list			*lights;
 	t_window		window;
 	t_map_info		mapinfo;
@@ -200,7 +201,7 @@ t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector, t_color color, \
 t_ray_res 	ray_res_inf(void);
 
 // Dist
-t_ray_res	obj_dist(t_object *obj, t_ray ray);
+t_ray_res	obj_dist(t_object *obj, t_ray ray, t_data *data);
 
 // MLX
 bool	init_mlx(t_data *data);

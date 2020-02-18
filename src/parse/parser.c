@@ -236,8 +236,6 @@ void	parse_file(char *file, t_data *data)
 			print_error("Can't retrieve line");
 		if (check_line(line) == false)
 			parse_line(line, data);
-		// 	break;	
-		// if (*line != '#')
 		free(line);
 		line = NULL;
 	}

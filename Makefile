@@ -12,10 +12,7 @@
 
 NAME			=	minirt
 SRCS			=	main.c\
-					calc/calc_square.c\
-					calc/calc_fov.c\
 					calc/calc_distance_points.c\
-					calc/normalize_coords.c\
 					dist/obj_dist.c\
 					dist/obj_dist_sp.c\
 					error/error.c\
@@ -56,7 +53,7 @@ SRCS			=	main.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g
+CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -O0
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
 					-I $(LIBFT_LOC)/include\
