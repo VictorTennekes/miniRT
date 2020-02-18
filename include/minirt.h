@@ -211,4 +211,7 @@ int	color_to_int(t_color color);
 void	pixel_put(t_mlx_data data, int x, int y, t_color color);
 int		hook_frame(t_data *data);
 
+// Normalizing
+t_vec3d	norm_sp(t_vec3d point, t_vec3d center);
+
 # endif
