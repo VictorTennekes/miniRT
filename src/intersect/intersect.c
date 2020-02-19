@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ray_res_inf.c                                      :+:    :+:            */
+/*   intersect.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
+/*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/12 13:10:57 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/12 13:10:57 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/19 18:34:46 by victor         #+#    #+#                */
+/*   Updated: 2020/02/19 18:34:46 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
+#include "intersec.h"
 
-t_ray_res ray_res_inf(void)
+bool	intersect(t_object *obj, t_ray ray, t_data *data)
 {
-	return(ray_res_dist_new(NULL, vec_new(0,0,0), color_new(0,0,0), \
-		INFINITY));
+	return(g_intersect[obj->type](obj, ray, data));
 }

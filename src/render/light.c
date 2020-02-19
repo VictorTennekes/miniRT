@@ -12,7 +12,21 @@
 
 #include <minirt.h>
 
-t_color	light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
+bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
+{
+	t_list *objects;
+
+	objects = data->objects;
+	while (objects)
+	{
+		if (objects->content != object && intersect((t_object *)objects->content, ray, data))
+			return (true);
+		objects = objects->next;
+	}
+	return (true);
+}
+
+t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 {
 	t_vec3d	norm;
 	t_vec3d light_dir;
@@ -28,4 +42,20 @@ t_color	light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 	fac *= light->ratio;
 	fac /= 4 * M_PI * pow(vec_dist(light->pos, ray_res.position), 2);
 	return (color_multi(color_mix_light(light->color, ray_res.object->color), fmin(fac, 1)));
+}
+
+t_color	cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data)
+{
+	t_color res;
+	t_list 	*lights;
+
+	res = color_multi(data->mapinfo.amb_color, data->mapinfo.amb_ratio);
+	res = color_mix_light(ray_res.object->color, res);
+	lights = data->lights;
+	while (lights)
+	{
+		res = color_add_light(res, cast_light(ray_res, ray, (t_light *)lights->content, data));
+		lights = lights->next;
+	}
+	return (res);
 }

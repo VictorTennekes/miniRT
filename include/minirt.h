@@ -215,12 +215,18 @@ int		hook_frame(t_data *data);
 // Normalizing
 t_vec3d	norm_sp(t_vec3d point, t_vec3d center);
 
-t_color	light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data);
+// Light
+t_color	cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data);
+t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data);
 
 // Color
 t_color	color_multi(t_color color, double fact);
 t_color	color_mix(t_color c1, t_color c2);
 t_color	color_mix_light(t_color color, t_color light);
 t_color	color_new(uint8_t r, uint8_t g, uint8_t b);
+t_color	color_add_light(t_color col1, t_color col2);
+
+// Intersect
+bool	intersect(t_object *obj, t_ray ray, t_data *data);
 
 # endif

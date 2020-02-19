@@ -28,7 +28,7 @@ void	parse_light(char **info, t_data *data)
 	light->pos	= parse_coord(info[1]);
 	light->ratio = parse_double(info[2]);
 	light->color = parse_color(info[3]);
-	if (light->ratio > 1 || light->ratio < 0)
+	if (/*light->ratio > 1 ||*/ light->ratio < 0)
 		print_error("Wrong value given for light ratio");
 	if (!lst_new_back(&(data->lights), light))
 		print_error("Allocation failed for light");

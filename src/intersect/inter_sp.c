@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ray_res_inf.c                                      :+:    :+:            */
+/*   inter_sp.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
+/*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/12 13:10:57 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/12 13:10:57 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/19 18:26:52 by victor         #+#    #+#                */
+/*   Updated: 2020/02/19 18:26:52 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-t_ray_res ray_res_inf(void)
+bool	intersect_sp(t_object *object, t_ray ray, t_data *data)
 {
-	return(ray_res_dist_new(NULL, vec_new(0,0,0), color_new(0,0,0), \
-		INFINITY));
+	(void)object;
+	(void)ray;
+	(void)data;
+	return (true); //Return if hit or not
 }
