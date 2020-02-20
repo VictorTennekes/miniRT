@@ -38,7 +38,7 @@ t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 	if (ray_obstructed(ray_res.object, ray_new(ray_res.position, vec_a_to_b(ray_res.position, light->pos)), data))
 		return (color_new(0, 0, 0));
 	light_dir = vec_a_to_b(ray_res.position, light->pos);
-	norm = norm_sp(ray_res.position, ray_res.object->pos); //tmp
+	norm = normal(ray_res, data); //tmp
 	fac = vec_dot_prod(light_dir, norm);
 	if (fac < 0)
 		return (color_new(0, 0, 0));

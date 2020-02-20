@@ -52,6 +52,7 @@ SRCS			=	main.c\
 					utilities/ray_res_inf.c\
 					utilities/ray_res_new.c\
 					vec/normal/norm_sp.c\
+					vec/normal/normal.c\
 					vec/get_pixel.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
