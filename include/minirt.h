@@ -26,7 +26,7 @@ typedef struct		s_color
 {
 	double			r;
 	double			g;
-	double 		b;
+	double 			b;
 }					t_color;
 
 // Vectors and rays

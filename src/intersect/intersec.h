@@ -14,10 +14,11 @@
 # define INTERSECT_H
 # include <minirt.h>
 
+bool	intersect_pl(t_object *plane, t_ray ray, t_data *data);
 bool	intersect_sp(t_object *object, t_ray ray, t_data *data);
 
 bool	(*g_intersect[])(t_object *, t_ray, t_data *) = {
-	NULL,
+	&intersect_pl,
 	&intersect_sp,
 	NULL,
 	NULL,

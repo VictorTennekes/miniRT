@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   normal.h                                           :+:    :+:            */
+/*   inter_pl.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/20 11:01:51 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/20 11:01:51 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/20 15:04:05 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/20 15:04:05 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NORMAL_H
-# define NORMAL_H
+#include <minirt.h>
 
-# include <minirt.h>
+bool	intersect_pl(t_object *plane, t_ray ray, t_data *data)
+{
+	double	t;
 
-t_vec3d	norm_pl(t_ray_res ray_res, t_data *data);
-t_vec3d	norm_sp(t_ray_res ray_res, t_data *data);
-
-t_vec3d	(*g_normal[])(t_ray_res, t_data *) = {
-	&norm_pl,	//TODO plane
-	&norm_sp,	//TODO sphere
-	NULL,	//TODO square
-	NULL,	//TODO cylinder
-	NULL	//TODO  triangle
-};
-
-#endif
+	(void)data;
+	t = (vec_dot_prod(vec_sub(plane->pos, ray.origin), plane->vector) /
+					vec_dot_prod(ray.direction, plane->vector));
+	if (t < 0)
+		return (false);
+	return (true);
+}

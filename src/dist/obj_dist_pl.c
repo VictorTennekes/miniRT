@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   normal.h                                           :+:    :+:            */
+/*   obj_dist_pl.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/20 11:01:51 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/20 11:01:51 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/20 14:25:08 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/20 14:25:08 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NORMAL_H
-# define NORMAL_H
+#include <minirt.h>
 
-# include <minirt.h>
+t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data)
+{
+	double	t;
 
-t_vec3d	norm_pl(t_ray_res ray_res, t_data *data);
-t_vec3d	norm_sp(t_ray_res ray_res, t_data *data);
-
-t_vec3d	(*g_normal[])(t_ray_res, t_data *) = {
-	&norm_pl,	//TODO plane
-	&norm_sp,	//TODO sphere
-	NULL,	//TODO square
-	NULL,	//TODO cylinder
-	NULL	//TODO  triangle
-};
-
-#endif
+	(void)data;
+	t = (vec_dot_prod(vec_sub(plane->pos, data->current_cam->pos), plane->vector) /
+					vec_dot_prod(ray.direction, plane->vector));
+	if (t < 0)
+		return (ray_res_inf());
+	return(ray_res_dist_new(plane, vec_add(ray.origin,
+					vec_multi(ray.direction, t)), plane->color, t));
+}

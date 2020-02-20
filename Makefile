@@ -17,11 +17,13 @@ SRCS			=	main.c\
 					color/color_multi.c\
 					color/color_mix_light.c\
 					color/color_new.c\
+					dist/obj_dist_pl.c\
 					dist/obj_dist.c\
 					dist/obj_dist_sp.c\
 					error/error.c\
 					free/free_data.c\
 					free/free_list.c\
+					intersect/inter_pl.c\
 					intersect/inter_sp.c\
 					intersect/intersect.c\
 					mlx/hook_frame.c\
@@ -52,6 +54,7 @@ SRCS			=	main.c\
 					utilities/parse_double.c\
 					utilities/ray_res_inf.c\
 					utilities/ray_res_new.c\
+					vec/normal/norm_pl.c\
 					vec/normal/norm_sp.c\
 					vec/normal/normal.c\
 					vec/get_pixel.c\
