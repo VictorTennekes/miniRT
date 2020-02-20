@@ -17,7 +17,7 @@ t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data)
 	double	t;
 
 	(void)data;
-	t = (vec_dot_prod(vec_sub(plane->pos, data->current_cam->pos), plane->vector) /
+	t = (vec_dot_prod(vec_sub(plane->pos, ray.origin), plane->vector) /
 					vec_dot_prod(ray.direction, plane->vector));
 	if (t < 0)
 		return (ray_res_inf());
