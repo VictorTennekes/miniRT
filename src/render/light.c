@@ -19,11 +19,12 @@ bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
 	objects = data->objects;
 	while (objects)
 	{
-		if (objects->content != object && intersect((t_object *)objects->content, ray, data))
+		if (objects->content != object &&
+				intersect((t_object *)objects->content, ray, data))
 			return (true);
 		objects = objects->next;
 	}
-	return (true);
+	return (false);
 }
 
 t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
@@ -34,11 +35,13 @@ t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 
 	(void)data;
 	(void)ray;
+	if (ray_obstructed(ray_res.object, ray_new(ray_res.position, vec_a_to_b(ray_res.position, light->pos)), data))
+		return (color_new(0, 0, 0));
 	light_dir = vec_a_to_b(ray_res.position, light->pos);
-	norm = norm_sp(ray_res.position, ray_res.object->pos);
+	norm = norm_sp(ray_res.position, ray_res.object->pos); //tmp
 	fac = vec_dot_prod(light_dir, norm);
 	if (fac < 0)
-		return (parse_color("0,0,0"));
+		return (color_new(0, 0, 0));
 	fac *= light->ratio;
 	fac /= 4 * M_PI * pow(vec_dist(light->pos, ray_res.position), 2);
 	return (color_multi(color_mix_light(light->color, ray_res.object->color), fmin(fac, 1)));

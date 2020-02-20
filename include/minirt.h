@@ -194,6 +194,7 @@ t_vec3d	vec_multi(t_vec3d vec, double factor);
 // Rays
 t_color cast_ray(t_ray ray, t_data *data);
 t_ray_res	cast_ray_object(t_ray ray, t_data *data);
+t_ray	ray_new(t_vec3d origin, t_vec3d direction);
 
 // Ray Res
 t_ray_res 	ray_res_new(t_object *object, t_vec3d vector, t_color color);
@@ -218,6 +219,7 @@ t_vec3d	norm_sp(t_vec3d point, t_vec3d center);
 // Light
 t_color	cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data);
 t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data);
+bool	ray_obstructed(t_object *object, t_ray ray, t_data *data);
 
 // Color
 t_color	color_multi(t_color color, double fact);

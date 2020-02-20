@@ -40,6 +40,7 @@ SRCS			=	main.c\
 					render/cast_ray_object.c\
 					render/light.c\
 					render/cast_ray.c\
+					render/ray_new.c\
 					utilities/char_arrlen.c\
 					utilities/check_line.c\
 					utilities/color_to_int.c\

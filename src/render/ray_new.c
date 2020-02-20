@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   cast_ray.c                                         :+:    :+:            */
+/*   ray_new.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/10 21:58:51 by victor         #+#    #+#                */
-/*   Updated: 2020/02/11 14:16:52 by victor        ########   odam.nl         */
+/*   Created: 2020/02/20 09:48:40 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/20 09:48:40 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <math.h>
 
-t_color cast_ray(t_ray ray, t_data *data)
+t_ray	ray_new(t_vec3d origin, t_vec3d direction)
 {
-	t_ray_res ray_res;
+	t_ray ray;
 
-	ray_res = cast_ray_object(ray, data);
-	if (ray_res.distance == INFINITY)
-		return(color_new(0,0,0));
-	return (cast_all_light(ray_res, ray, data));
+	ray.origin = origin;
+	ray.direction = direction;
+	return (ray);
 }
