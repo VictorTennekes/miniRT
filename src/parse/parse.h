@@ -17,7 +17,13 @@
 
 void	parse_resolution(char **info, t_data *data);
 void	parse_ambient(char **info, t_data *data);
-
+void	parse_camera(char **info, t_data *data);
+void	parse_light(char **info, t_data *data);
+void	parse_plane(char **info, t_data *data);
+void	parse_sphere(char **info, t_data *data);
+void	parse_square(char **info, t_data *data);
+void	parse_cylinder(char **info, t_data *data);
+void	parse_triangle(char **info, t_data * data);
 
 typedef struct	s_parse
 {

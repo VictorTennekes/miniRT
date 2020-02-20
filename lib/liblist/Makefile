@@ -21,7 +21,6 @@ SRCS			=	foreach\
 					reverse\
 					size
 
-
 CFILES			=	$(SRCS:%=lst_%.c)
 OFILES			=	$(SRCS:%=lst_%.o)
 

@@ -30,5 +30,6 @@ void	lst_remove(t_list *node, void (*free_func)(void *));
 void	lst_reverse(t_list **node);
 size_t	lst_size(t_list *node);
 void	lst_foreach(t_list *node, void (*func)(void *));
+void	lst_clear(t_list **lst, void (*del)(void *));
 
 #endif

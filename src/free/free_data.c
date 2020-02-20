@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear_bonus.c                                :+:    :+:            */
+/*   free_data.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/05 09:06:39 by vtenneke       #+#    #+#                */
-/*   Updated: 2019/11/08 14:42:12 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/20 12:59:49 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/20 12:59:49 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <minirt.h>
 #include <stdlib.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	free_data(t_data *data)
 {
-	t_list *link;
-	t_list *next_link;
-
-	if (!(*lst))
-		return ;
-	link = *lst;
-	while (link)
-	{
-		next_link = link->next;
-		del(link->content);
-		free(link);
-		link = next_link;
-	}
-	*lst = NULL;
+	if (data->objects)
+		free_list(data->objects, &free);
+	if (data->cameras)
+		free_list(data->cameras, &free);
+	if (data->lights)
+		free_list(data->lights, &free);
 }

@@ -39,7 +39,7 @@ void	parse_line(char *line, t_data *data)
 
 	info = ft_split(line, ' ');
 	if (info == NULL)
-		print_error("Memory allocation failed.");
+		print_error("Memory allocation failed.", data);
 	if (!info[0])
 	{
 		free_machine(info);
@@ -66,10 +66,10 @@ void	parse_file(char *file, t_data *data)
 	int		ret;
 
 	if (verify_filename(file))
-		print_error("Invalid file extention");
+		print_error("Invalid file extention", data);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		print_error("Can't open file");
+		print_error("Can't open file", data);
 	ret = 1;
 	while (get_next_line(fd, &line) == 1)
 	{
@@ -78,8 +78,8 @@ void	parse_file(char *file, t_data *data)
 		free (line);
 	}
 	if (!data->mapinfo.amb_set || !data->window.res_set)
-		print_error("Invalid file: resolution and ambient have to be set");
+		print_error("Invalid file: resolution and ambient have to be set", data);
 	if (!data->cameras || !data->lights)
-		print_error("At least one light and camera have to be set");
+		print_error("At least one light and camera have to be set", data);
 	close (fd);
 }

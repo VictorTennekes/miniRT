@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   calc_distance_points.c                             :+:    :+:            */
+/*   free_list.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/06 11:16:57 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/10 20:47:28 by victor        ########   odam.nl         */
+/*   Created: 2020/02/20 13:00:09 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/20 13:00:09 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
+#include <stdlib.h>
 
-double	calc_distance_points(t_vec3d *pos1, t_vec3d *pos2)
+void	free_list(t_list *list, void (*func)(void *))
 {
-	double	x;
-	double	y;
-	double	z;
-	double	distance;
+	t_list	*tmp;
 
-	x = pos1->x - pos2->x;
-	y = pos1->y - pos2->y;
-	z = pos1->z - pos2->z;
-	distance = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
-	return (distance);
+	while (list)
+	{
+		tmp = list->next;
+		func(list->content);
+		free(list);
+		list = tmp;
+	}
 }

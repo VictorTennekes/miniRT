@@ -141,7 +141,13 @@ typedef struct		s_data
 }					t_data;
 
 // error
-void 	print_error(char *error);
+void print_error(char *error, t_data *data);
+void	print_error_free(char *error, void *free, void (*func)(void *),
+				t_data *data);
+
+// free
+void	free_data(t_data *data);
+void	free_list(t_list *list, void (*func)(void *));
 
 // parsing
 void	parse_file(char *file, t_data *data);
@@ -152,7 +158,7 @@ int		verify_filename(char *filename);
 size_t	char_arrlen(char **array);
 int		isdigit_str(char *str);
 double	parse_double(char *str);
-t_color	parse_color(char *str);
+t_color		parse_color(char *str, t_data *data);
 t_vec3d	parse_coord(char *str);
 void	*free_machine(char **array);
 bool	check_line(char *str);
@@ -170,11 +176,7 @@ void	parse_triangle(char **info, t_data * data);
 
 // calculations
 double	calc_square(t_object *object, t_data *data);
-
 void	calc_fov(t_data *data);
-
-double	calc_distance_points(t_vec3d *pos1, t_vec3d *pos2);
-
 
 // Vector functions
 t_vec3d	normalize_coords(t_vec3d coord, t_data *data);
@@ -198,8 +200,8 @@ t_ray	ray_new(t_vec3d origin, t_vec3d direction);
 
 // Ray Res
 t_ray_res 	ray_res_new(t_object *object, t_vec3d vector, t_color color);
-t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector, t_color color, \
-	double distance);
+t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector, t_color color,
+				double distance);
 t_ray_res 	ray_res_inf(void);
 
 // Dist

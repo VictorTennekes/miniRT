@@ -21,15 +21,15 @@ void	parse_sphere(char **info, t_data *data)
 	t_object *object;
 
 	if (char_arrlen(info) != 4)
-		print_error("Wrong amount of values given for sphere");
+		print_error("Wrong amount of values given for sphere", data);
 	object = (t_object *)malloc(sizeof(t_object));
 	ft_bzero(object, sizeof(t_object));
 	if (!object)
-		print_error("Malloc failed for sphere");
+		print_error("Malloc failed for sphere", data);
 	object->type = SP;
 	object->pos = parse_coord(info[1]);
 	object->size = parse_double(info[2]);
-	object->color = parse_color(info[3]);
+	object->color = parse_color(info[3], data);
 	if (!lst_new_back(&(data->objects), object))
-		print_error("Allocation failed for sphere");
+		print_error("Allocation failed for sphere", data);
 }

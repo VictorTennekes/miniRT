@@ -19,7 +19,7 @@
 int		isdigit_str(char *str)
 {
 	if (!str)
-		print_error("Invalid value");
+		return (0);
 	while (*str)
 	{
 		if (!(ft_isdigit(*str)))

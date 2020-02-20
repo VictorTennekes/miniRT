@@ -12,7 +12,6 @@
 
 NAME			=	minirt
 SRCS			=	main.c\
-					calc/calc_distance_points.c\
 					color/color_add_light.c\
 					color/color_mix.c\
 					color/color_multi.c\
@@ -21,6 +20,8 @@ SRCS			=	main.c\
 					dist/obj_dist.c\
 					dist/obj_dist_sp.c\
 					error/error.c\
+					free/free_data.c\
+					free/free_list.c\
 					intersect/inter_sp.c\
 					intersect/intersect.c\
 					mlx/hook_frame.c\
