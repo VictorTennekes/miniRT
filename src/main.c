@@ -23,7 +23,7 @@ int main(int ac, char **av)
 	ft_bzero(&data, sizeof(t_data));
 	if (ac == 3)
 	{
-		if (!(ft_strncmp(av[2], "--save", 6)))
+		if (!(ft_strcmp(av[2], "--save")))
 			data.mapinfo.save = true;
 		else
 			print_error("Invalid argument");
