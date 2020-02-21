@@ -13,6 +13,8 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
+# define MOVE_SPEED 1
+
 # include <stdint.h>
 # include <stdbool.h>
 # include <stddef.h>
@@ -118,6 +120,7 @@ typedef struct		s_window
 	uint16_t		x;
 	uint16_t		y;
 	bool			res_set;
+	bool			rendered;
 }					t_window;
 
 typedef struct		s_map_info
@@ -141,9 +144,10 @@ typedef struct		s_data
 }					t_data;
 
 // error
-void print_error(char *error, t_data *data);
+void	print_error(char *error, t_data *data);
 void	print_error_free(char *error, void *free, void (*func)(void *),
 				t_data *data);
+void	exit_free(t_data *data);
 
 // free
 void	free_data(t_data *data);
@@ -233,5 +237,11 @@ t_color	color_add_light(t_color col1, t_color col2);
 
 // Intersect
 bool	intersect(t_object *obj, t_ray ray, t_data *data);
+
+// keys
+void	exit_mlx(int keycode, t_data *data);
+int		hook_key(int keycode, t_data *data);
+void	key(int keycode, t_data *data);
+void	cam_move(int keycode, t_data *data);
 
 # endif

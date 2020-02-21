@@ -26,6 +26,8 @@ SRCS			=	main.c\
 					intersect/inter_pl.c\
 					intersect/inter_sp.c\
 					intersect/intersect.c\
+					key/hook_key.c\
+					key/cam_move_xyz.c\
 					mlx/hook_frame.c\
 					mlx/init_mlx.c\
 					mlx/init_mlx_img.c\

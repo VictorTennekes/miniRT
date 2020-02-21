@@ -15,12 +15,6 @@
 
 #define MLX data->mlx_info.mlx
 
-// int             close(int keycode, t_data *data)
-// {
-// 	(void)keycode;
-//     mlx_destroy_window(MLX, data->mlx_info.mlx_win);
-// }
-
 bool	init_mlx(t_data *data)
 {
 	MLX = mlx_init();
@@ -32,7 +26,7 @@ bool	init_mlx(t_data *data)
 		return (true);
 	if (init_mlx_img(data))
 		return (true);
-	// mlx_key_hook(MLX, close, data);
+	mlx_key_hook(data->mlx_info.mlx_win, &hook_key, data);
 	mlx_loop_hook(MLX, &hook_frame, data);
 	return (false);
 }

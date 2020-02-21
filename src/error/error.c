@@ -15,6 +15,16 @@
 #include <liblist.h>
 #include <stdlib.h>
 
+void	print_error(char *error, t_data *data)
+{
+	ft_putstr_fd("Error: ", 1);
+	ft_putstr_fd(error, 1);
+	ft_putstr_fd("\n", 1);
+	if (data)
+		free_data(data);
+	exit(1);
+}
+
 void	print_error_free(char *error, void *free,
 				void (*func)(void *), t_data *data)
 {
@@ -22,12 +32,8 @@ void	print_error_free(char *error, void *free,
 	print_error(error, data);
 }
 
-void print_error(char *error, t_data *data)
+void	exit_free(t_data *data)
 {
-	ft_putstr_fd("Error: ", 1);
-	ft_putstr_fd(error, 1);
-	ft_putstr_fd("\n", 1);
-	if (data)
-		free_data(data);
+	free_data(data);
 	exit(1);
 }

@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   hook_frame.c                                       :+:    :+:            */
+/*   hook_key.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/17 15:06:24 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/17 15:06:24 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/02/20 17:29:35 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/02/20 17:29:35 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 #include <mlx.h>
-#include <stdio.h>
+#include "hook_key.h"
 
-int		hook_frame(t_data *data)
+void	exit_mlx(int keycode, t_data *data)
 {
-	uint16_t	i;
-	uint16_t	j;
-	t_vec2ui	pix;
+	(void)keycode;
+	mlx_destroy_window(data->mlx_info.mlx, data->mlx_info.mlx_win);
+	exit_free(data);
+}
 
-	if (data->window.rendered)
-		return (0);
-	data->window.rendered = true;
+int		hook_key(int keycode, t_data *data)
+{
+	(void)data;
+	printf("%d\n", keycode);
+	key(keycode, data);
+	return (0);
+}
+
+void	key(int keycode, t_data *data)
+{
+	uint8_t i;
+
 	i = 0;
-	while (i < data->window.x)
+	while(g_hook_key[i].func)
 	{
-		j = 0;
-		pix.x = i;
-		while (j < data->window.y)
+		if (g_hook_key[i].key == keycode)
 		{
-			pix.y = j;
-			pixel_put(data->mlx_info.mlx_data, i, j, get_pixel(pix, data));
-			j++;
+			g_hook_key[i].func(keycode, data);
+			return ;
 		}
 		i++;
 	}
-	mlx_put_image_to_window(data->mlx_info.mlx, data->mlx_info.mlx_win, data->mlx_info.mlx_data.img, 0, 0);
-	return (0);
+
 }
