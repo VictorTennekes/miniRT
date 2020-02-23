@@ -29,7 +29,7 @@ t_hook_key		g_hook_key[] = {
 	{KEY_A, &cam_move},
 	{KEY_D, &cam_move},
 	{KEY_W, &cam_move},
-	{KEY_W, &cam_move},
+	{KEY_S, &cam_move},
 	{0, NULL}
 };
 
