@@ -196,6 +196,7 @@ t_vec3d vec_normalize(t_vec3d coord);
 double	vec_len(t_vec3d vec);
 double	vec_dot_prod(t_vec3d vec1, t_vec3d vec2);
 t_vec3d	vec_multi(t_vec3d vec, double factor);
+t_vec3d	vec_rot_y(t_vec3d vec, double factor);
 
 // Rays
 t_color cast_ray(t_ray ray, t_data *data);
@@ -242,6 +243,6 @@ bool	intersect(t_object *obj, t_ray ray, t_data *data);
 void	exit_mlx(int keycode, t_data *data);
 int		hook_key(int keycode, t_data *data);
 void	key(int keycode, t_data *data);
-void	cam_move(int keycode, t_data *data);
+// void	cam_move(int keycode, t_data *data);
 
 # endif

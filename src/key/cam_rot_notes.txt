@@ -1,0 +1,50 @@
+public void walkForward(float distance)
+{
+    position.x -= distance * (float)Math.sin(Math.toRadians(yaw));
+    position.z += distance * (float)Math.cos(Math.toRadians(yaw));
+} 
+//moves the camera backward relative to its current rotation (yaw)
+public void walkBackwards(float distance)
+{
+    position.x += distance * (float)Math.sin(Math.toRadians(yaw));
+    position.z -= distance * (float)Math.cos(Math.toRadians(yaw));
+}
+//strafes the camera left relitive to its current rotation (yaw)
+public void strafeLeft(float distance)
+{
+    position.x -= distance * (float)Math.sin(Math.toRadians(yaw-90));
+    position.z += distance * (float)Math.cos(Math.toRadians(yaw-90));
+} 
+//strafes the camera right relitive to its current rotation (yaw)
+public void strafeRight(float distance)
+{
+    position.x -= distance * (float)Math.sin(Math.toRadians(yaw+90));
+    position.z += distance * (float)Math.cos(Math.toRadians(yaw+90));
+}
+
+// Rotate the move vector into world coordinates
+vx = ((m[0] * dir_x) + (m[4] * dir_y) + (m[8] * dir_z)) + m[12];
+vy = ((m[1] * dir_x) + (m[5] * dir_y) + (m[9] * dir_z)) + m[13];
+vz = ((m[2] * dir_x) + (m[6] * dir_y) + (m[10] * dir_z)) + m[14];
+
+// Add in the transformation
+new_x = old_x + vx;
+new_y = old_y + vy;
+new_z = old_z + vz;
+
+Rotation in 3D
+That works in 2D, while in 3D we need to take in to account the third axis. Rotating a vector around the origin (a point) in 2D simply means rotating it around the Z-axis (a line) in 3D; since we're rotating around Z-axis, its coordinate should be kept constant i.e. 0° (rotation happens on the XY plane in 3D). In 3D rotating around the Z-axis would be
+
+    |cos θ   −sin θ   0| |x|   |x cos θ − y sin θ|   |x'|
+    |sin θ    cos θ   0| |y| = |x sin θ + y cos θ| = |y'|
+    |  0       0      1| |z|   |        z        |   |z'|
+around the Y-axis would be
+
+    | cos θ    0   sin θ| |x|   | x cos θ + z sin θ|   |x'|
+    |   0      1       0| |y| = |         y        | = |y'|
+    |−sin θ    0   cos θ| |z|   |−x sin θ + z cos θ|   |z'|
+around the X-axis would be
+
+    |1     0           0| |x|   |        x        |   |x'|
+    |0   cos θ    −sin θ| |y| = |y cos θ − z sin θ| = |y'|
+    |0   sin θ     cos θ| |z|   |y sin θ + z cos θ|   |z'|

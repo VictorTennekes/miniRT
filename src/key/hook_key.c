@@ -12,6 +12,7 @@
 
 #include <minirt.h>
 #include <mlx.h>
+#include <libft.h>
 #include "hook_key.h"
 
 void	exit_mlx(int keycode, t_data *data)
@@ -25,6 +26,7 @@ int		hook_key(int keycode, t_data *data)
 {
 	(void)data;
 	printf("%d\n", keycode);
+	mlx_string_put(data->mlx_info.mlx, data->mlx_info.mlx_win, 405, 10, 0xFFFFFF, ft_itoa(keycode));
 	key(keycode, data);
 	return (0);
 }

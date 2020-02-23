@@ -68,6 +68,7 @@ SRCS			=	main.c\
 					vec/vec_multi.c\
 					vec/vec_new.c\
 					vec/vec_normalize.c\
+					vec/vec_rot.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
