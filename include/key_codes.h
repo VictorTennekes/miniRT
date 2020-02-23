@@ -30,6 +30,7 @@
 #  define KEY_CMD 259
 #  define KEY_ESC 53
 #  define KEY_SPACE 49
+#  define KEY_LSHIFT 257
 #  define KEY_W 13
 #  define KEY_A 0
 #  define KEY_S 1

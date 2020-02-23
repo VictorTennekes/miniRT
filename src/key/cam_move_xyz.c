@@ -26,6 +26,10 @@ void	cam_move(int keycode, t_data *data)
 		CAM->pos.z -= vec_len(vec_multi(CAM->vector, MOVE_SPEED));
 	else if (keycode == KEY_S)
 		CAM->pos.z += vec_len(vec_multi(CAM->vector, MOVE_SPEED));
+	else if (keycode == KEY_LSHIFT)
+		CAM->pos.y -= vec_len(vec_multi(CAM->vector, MOVE_SPEED));
+	else if (keycode == KEY_SPACE)
+		CAM->pos.y += vec_len(vec_multi(CAM->vector, MOVE_SPEED));
 	else
 		data->window.rendered = true;
 }
