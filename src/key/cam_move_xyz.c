@@ -44,7 +44,9 @@ void	cam_rotate(int keycode, t_data *data)
 {
 	data->window.rendered = false;
 	if (keycode == KEY_LEFT)
-		CAM->vector = vec_normalize(vec_rot_y(CAM->vector, MOVE_SPEED / 10.0 * M_PI));
+		CAM->vector = vec_rot_y(CAM->vector, (MOVE_SPEED * 5));
+	else if (keycode == KEY_RIGHT)
+		CAM->vector = vec_rot_y(CAM->vector, (-MOVE_SPEED * 5));
 	else
 		data->window.rendered = true;
 }

@@ -32,9 +32,10 @@ t_hook_key		g_hook_key[] = {
 	{KEY_D, &cam_move},
 	{KEY_W, &cam_move},
 	{KEY_S, &cam_move},
-	// {KEY_LSHIFT, &cam_move},
-	// {KEY_SPACE, &cam_move},
-	// {KEY_LEFT, &cam_rotate},
+	{KEY_LSHIFT, &cam_move},
+	{KEY_SPACE, &cam_move},
+	{KEY_LEFT, &cam_rotate},
+	{KEY_RIGHT, &cam_rotate},
 	{0, NULL}
 };
 

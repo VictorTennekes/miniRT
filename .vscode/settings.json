@@ -9,6 +9,7 @@
 		"string_view": "c",
 		"__functional_03": "cpp",
 		"functional": "cpp",
-		"key_codes.h": "c"
+		"key_codes.h": "c",
+		"*.png": "c"
 	}
 }
