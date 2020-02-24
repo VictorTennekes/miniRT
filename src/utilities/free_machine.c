@@ -20,8 +20,6 @@ void	*free_machine(char **array)
 	i = 0;
 	while (array[i])
 	{
-		// printf("stuff: [%s]\n", array[i]);
-		// printf("index: [%i]\n", i);
 		free(array[i]);
 		i++;
 	}
