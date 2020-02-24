@@ -62,6 +62,7 @@ SRCS			=	main.c\
 					vec/get_pixel.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
+					vec/vec_cross_prod.c\
 					vec/vec_dist.c\
 					vec/vec_dot_prod.c\
 					vec/vec_len.c\

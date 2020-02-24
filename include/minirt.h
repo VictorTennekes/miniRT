@@ -196,6 +196,7 @@ t_vec3d vec_normalize(t_vec3d coord);
 double	vec_len(t_vec3d vec);
 double	vec_dot_prod(t_vec3d vec1, t_vec3d vec2);
 t_vec3d	vec_multi(t_vec3d vec, double factor);
+t_vec3d	vec_cross_prod(t_vec3d  vec1, t_vec3d vec2);
 
 // Vector rotations
 t_vec3d	vec_rot_y(t_vec3d vec, double factor);

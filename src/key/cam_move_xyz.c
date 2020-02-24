@@ -21,9 +21,9 @@ void	cam_move(int keycode, t_data *data)
 	(void)data;
 	data->window.rendered = false;
 	if (keycode == KEY_A)
-		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, 90)), MOVE_SPEED));
-	else if (keycode == KEY_D)
 		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, -90)), MOVE_SPEED));
+	else if (keycode == KEY_D)
+		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, 90)), MOVE_SPEED));
 	else if (keycode == KEY_W)
 		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(CAM->vector), MOVE_SPEED));
 	else if (keycode == KEY_S)
