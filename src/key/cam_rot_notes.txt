@@ -33,7 +33,12 @@ new_y = old_y + vy;
 new_z = old_z + vz;
 
 Rotation in 3D
-That works in 2D, while in 3D we need to take in to account the third axis. Rotating a vector around the origin (a point) in 2D simply means rotating it around the Z-axis (a line) in 3D; since we're rotating around Z-axis, its coordinate should be kept constant i.e. 0° (rotation happens on the XY plane in 3D). In 3D rotating around the Z-axis would be
+That works in 2D, while in 3D we need to take in to account the third axis.
+Rotating a vector around the origin (a point) in 2D simply means rotating
+it around the Z-axis (a line) in 3D; since we're rotating around Z-axis,
+its coordinate should be kept constant i.e. 0°
+(rotation happens on the XY plane in 3D).
+In 3D rotating around the Z-axis would be
 
     |cos θ   −sin θ   0| |x|   |x cos θ − y sin θ|   |x'|
     |sin θ    cos θ   0| |y| = |x sin θ + y cos θ| = |y'|
