@@ -10,6 +10,7 @@
 		"__functional_03": "cpp",
 		"functional": "cpp",
 		"key_codes.h": "c",
-		"*.png": "c"
+		"*.png": "c",
+		"ios": "c"
 	}
 }

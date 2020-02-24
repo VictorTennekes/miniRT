@@ -24,7 +24,7 @@ t_vec3d		look_at(t_camera  *camera, t_vec3d ray)
 	forward = camera->vector;
 	right = vec_cross_prod(vec_normalize(vec_new(0, 1, 0)), forward);
 	up = vec_cross_prod(forward, right);
-	return (vec_new(right.x * ray.x + right.y *  ray.y + right.z * ray.z,
+	return(vec_new(right.x * ray.x + right.y *  ray.y + right.z * ray.z,
 					up.x * ray.x + up.y * ray.y + up.z * ray.z,
 					forward.x * ray.x + forward.y * ray.y + forward.z * ray.z));
 }

@@ -13,7 +13,7 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# define MOVE_SPEED 1
+# define MOVE_SPEED 0.6
 
 # include <stdint.h>
 # include <stdbool.h>
@@ -30,6 +30,7 @@ typedef struct		s_color
 	double			g;
 	double 			b;
 }					t_color;
+
 
 // Vectors and rays
 typedef struct		s_vec3d
@@ -50,6 +51,14 @@ typedef struct		s_ray
 	t_vec3d			origin;
 	t_vec3d			direction;
 }					t_ray;
+
+// Matrix
+typedef struct		s_matrix
+{
+	t_vec3d			forward;
+	t_vec3d			right;
+	t_vec3d			up;
+}					t_matrix;
 
 typedef enum		e_object_type
 {
@@ -103,6 +112,7 @@ typedef struct		s_camera
 {
 	t_vec3d			pos;
 	t_vec3d			vector;
+	t_matrix		matrix;
 	uint8_t			fov;
 	double			distance;
 }					t_camera;
@@ -183,6 +193,7 @@ void	calc_fov(t_data *data);
 
 // Vector functions
 t_vec3d	normalize_coords(t_vec3d coord, t_data *data);
+t_matrix	normal_matrix(t_matrix matrix);
 t_color	get_pixel(t_vec2ui pixel, t_data *data);
 
 // Vector utilities
