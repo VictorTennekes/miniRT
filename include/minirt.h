@@ -81,7 +81,6 @@ typedef struct		s_ray_res
 }					t_ray_res;
 
 // General stuff
-
 typedef struct		s_mlx_data
 {
 	void			*img;
@@ -145,8 +144,8 @@ typedef struct		s_data
 
 // error
 void	print_error(char *error, t_data *data);
-void	print_error_free(char *error, void *free, void (*func)(void *),
-				t_data *data);
+void	print_error_free(char *error, void *free,
+				void (*func)(void *), t_data *data);
 void	exit_free(t_data *data);
 
 // free

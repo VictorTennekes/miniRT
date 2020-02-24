@@ -17,17 +17,20 @@
 
 void	cam_move(int keycode, t_data *data)
 {
-	(void)keycode;
-	(void)data;
+	double angle;
+
+	angle = acos(vec_dot_prod(vec_normalize(CAM->vector), vec_new(0, 0, -1)));
+	angle *= 180/M_PI;
+	printf("angle: %f\n", angle);
 	data->window.rendered = false;
 	if (keycode == KEY_A)
-		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, -90)), MOVE_SPEED));
+		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, -90 - (angle*2))), MOVE_SPEED));
 	else if (keycode == KEY_D)
-		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, 90)), MOVE_SPEED));
+		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, 90 - (angle*2))), MOVE_SPEED));
 	else if (keycode == KEY_W)
-		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(CAM->vector), MOVE_SPEED));
+		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, 0 - (angle*2))), MOVE_SPEED));
 	else if (keycode == KEY_S)
-		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, 180)), MOVE_SPEED));
+		CAM->pos = vec_add(CAM->pos, vec_multi(vec_normalize(vec_rot_y(CAM->vector, 180 - (angle*2))), MOVE_SPEED));
 	else if (keycode == KEY_LSHIFT)
 		CAM->pos.y -= vec_len(vec_multi(CAM->vector, MOVE_SPEED));
 	else if (keycode == KEY_SPACE)
