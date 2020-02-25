@@ -45,9 +45,15 @@ void	cam_rotate(int keycode, t_data *data)
 {
 	data->window.rendered = false;
 	if (keycode == KEY_LEFT)
+	{
 		CAM->vector = vec_rot_y(CAM->vector, (MOVE_SPEED * 5));
+		CAM->matrix = matrix_new(CAM->vector);
+	}
 	else if (keycode == KEY_RIGHT)
+	{
 		CAM->vector = vec_rot_y(CAM->vector, (-MOVE_SPEED * 5));
+		CAM->matrix = matrix_new(CAM->vector);
+	}
 	else
 		data->window.rendered = true;
 }

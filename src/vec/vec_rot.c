@@ -24,3 +24,11 @@ t_vec3d	vec_rot_y(t_vec3d vec, double factor)
 					vec.y,
 					(-vec.x * sin(factor)) + (vec.z * cos(factor))));
 }
+
+t_vec3d	vec_rot_up(t_vec3d vec, double factor)
+{
+	factor *=  M_PI /180;
+	return(vec_new((vec.x * cos(factor)) + (vec.z * sin(factor)),
+					vec.y,
+					(-vec.x * sin(factor)) + (vec.z * cos(factor))));
+}
