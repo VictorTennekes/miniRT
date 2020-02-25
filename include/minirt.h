@@ -58,6 +58,7 @@ typedef struct		s_matrix
 	t_vec3d			forward;
 	t_vec3d			right;
 	t_vec3d			up;
+	t_vec3d			from;
 }					t_matrix;
 
 typedef enum		e_object_type
@@ -257,5 +258,7 @@ bool	intersect(t_object *obj, t_ray ray, t_data *data);
 void	exit_mlx(int keycode, t_data *data);
 int		hook_key(int keycode, t_data *data);
 void	key(int keycode, t_data *data);
+
+t_matrix	parse_cam_matrix(t_camera *camera);
 
 # endif

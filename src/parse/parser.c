@@ -81,5 +81,6 @@ void	parse_file(char *file, t_data *data)
 		print_error("Invalid file: resolution and ambient have to be set", data);
 	if (!data->cameras || !data->lights)
 		print_error("At least one light and camera have to be set", data);
+	data->current_cam = data->cameras->content;
 	close (fd);
 }

@@ -17,7 +17,6 @@
 
 void	cam_move(int keycode, t_data *data)
 {
-	// CAM->matrix = normal_matrix(CAM->matrix);
 	data->window.rendered = false;
 	if (keycode == KEY_A)
 		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.right, MOVE_SPEED));
@@ -33,6 +32,9 @@ void	cam_move(int keycode, t_data *data)
 		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.up, MOVE_SPEED));
 	else
 		data->window.rendered = true;
+	t_vec3d vec;
+	vec = vec_add(vec_new(1,0,0), vec_new(-1,0,-1));
+	printf("test vec\nx: %f\ny: %f\nz: %f\n\n", vec.x, vec.y, vec.z);
 	printf("CAM POS\nx:%f\ny:%f\nz:%f\n", CAM->pos.x, CAM->pos.y, CAM->pos.z);
 	printf("CAM MATRIX\nforward_x: %f\nforward_y: %f\nforward_z: %f\n", CAM->matrix.forward.x, CAM->matrix.forward.y, CAM->matrix.forward.z);
 	printf("right_x: %f\nright_y: %f\nright_z: %f\n", CAM->matrix.right.x, CAM->matrix.right.y, CAM->matrix.right.z);
