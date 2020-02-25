@@ -33,7 +33,7 @@ SRCS			=	main.c\
 					mlx/init_mlx_img.c\
 					mlx/pixel_put.c\
 					parse/parser.c\
-					parse/parse_ambient.c\
+					parse/parse_ambien.c\
 					parse/parse_camera.c\
 					parse/parse_cylinder.c\
 					parse/parse_light.c\
