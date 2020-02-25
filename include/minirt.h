@@ -261,4 +261,6 @@ void	key(int keycode, t_data *data);
 
 t_matrix	parse_cam_matrix(t_camera *camera);
 
+int render(t_data *data);
+
 # endif

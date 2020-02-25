@@ -16,15 +16,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-t_matrix	parse_cam_matrix(t_camera *camera)
+t_matrix matrix_new(t_vec3d f)
 {
-	t_matrix matrix;
+	t_matrix	matrix;
 
-	matrix.forward = camera->vector;
+	matrix.forward = vec_multi(f, -1);
 	matrix.right = vec_cross_prod(vec_normalize(vec_new(0, 1, 0)),
 					matrix.forward);
 	matrix.up = vec_cross_prod(matrix.forward, matrix.right);
-	return(matrix);
+	normal_matrix(matrix);
+	return (matrix);
 }
 
 void	parse_camera(char **info, t_data *data)
@@ -39,7 +40,7 @@ void	parse_camera(char **info, t_data *data)
 	camera->pos = parse_coord(info[1]);
 	camera->vector = parse_coord(info[2]);
 	camera->fov	= ft_atoi(info[3]);
-	camera->matrix = parse_cam_matrix(camera);
+	camera->matrix = matrix_new(camera->vector);
 	if (camera->fov < 0 || camera->fov > 180)
 		print_error("Invalid value given for FOV", data);
 	if (!lst_new_back(&(data->cameras), camera))

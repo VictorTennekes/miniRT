@@ -19,13 +19,13 @@ void	cam_move(int keycode, t_data *data)
 {
 	data->window.rendered = false;
 	if (keycode == KEY_A)
-		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.right, MOVE_SPEED));
-	else if (keycode == KEY_D)
 		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.right, MOVE_SPEED));
+	else if (keycode == KEY_D)
+		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.right, MOVE_SPEED));
 	else if (keycode == KEY_W)
-		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.forward, MOVE_SPEED));
-	else if (keycode == KEY_S)
 		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.forward, MOVE_SPEED));
+	else if (keycode == KEY_S)
+		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.forward, MOVE_SPEED));
 	else if (keycode == KEY_LSHIFT)
 		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.up, MOVE_SPEED));
 	else if (keycode == KEY_SPACE)

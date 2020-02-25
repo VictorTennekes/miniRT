@@ -33,7 +33,7 @@ SRCS			=	main.c\
 					mlx/init_mlx_img.c\
 					mlx/pixel_put.c\
 					parse/parser.c\
-					parse/parse_ambien.c\
+					parse/parse_ambient.c\
 					parse/parse_camera.c\
 					parse/parse_cylinder.c\
 					parse/parse_light.c\
@@ -74,7 +74,7 @@ SRCS			=	main.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -O0
+CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -Ofast
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
 					-I $(LIBFT_LOC)/include\

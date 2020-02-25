@@ -15,6 +15,15 @@
 
 #define WINDOW data->window
 
+t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix)
+{
+	t_vec3d new;
+	new.x = vec.x * matrix.right.x + vec.y * matrix.up.x + vec.z * matrix.forward.x;
+	new.y = vec.x * matrix.right.y + vec.y * matrix.up.y + vec.z * matrix.forward.y;
+	new.z = vec.x * matrix.right.z + vec.y * matrix.up.z + vec.z * matrix.forward.z;
+	return (new);
+}
+
 t_vec3d		look_at(t_camera  *camera, t_vec3d ray)
 {
 	t_vec3d forward;
@@ -24,9 +33,11 @@ t_vec3d		look_at(t_camera  *camera, t_vec3d ray)
 	forward = camera->vector;
 	right = vec_cross_prod(vec_normalize(vec_new(0, 1, 0)), forward);
 	up = vec_cross_prod(forward, right);
-	return(vec_new(right.x * ray.x + right.y *  ray.y + right.z * ray.z,
-					up.x * ray.x + up.y * ray.y + up.z * ray.z,
-					forward.x * ray.x + forward.y * ray.y + forward.z * ray.z));
+	t_matrix matrix;
+	matrix.forward = forward;
+	matrix.right = right;
+	matrix.up = up;
+	return(mult_vec_matrix(ray, matrix));
 }
 
 t_color		get_pixel(t_vec2ui pixel, t_data *data)
@@ -47,5 +58,6 @@ t_color		get_pixel(t_vec2ui pixel, t_data *data)
 	else
 		ray.origin.y *= WINDOW.y / (double)WINDOW.x;
 	ray.direction = vec_a_to_b(camera->pos, ray.origin);
+	// printf("RAY DIRECTION\nx: %f\ny: %f\nz: %f\n", ray.direction.x, ray.direction.y, ray.direction.z);
 	return(cast_ray(ray, data));
 } 
