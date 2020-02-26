@@ -260,5 +260,6 @@ int		hook_key(int keycode, t_data *data);
 void	key(int keycode, t_data *data);
 
 t_matrix matrix_new(t_vec3d f);
+t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix);
 
 # endif
