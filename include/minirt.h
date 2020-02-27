@@ -40,6 +40,15 @@ typedef struct		s_vec3d
 	double			z;
 }					t_vec3d;
 
+typedef struct		s_vec4d
+{
+	double			x;
+	double			y;
+	double			z;
+	double			rot;
+}					t_vec4d;
+
+
 typedef struct		s_vec2ui
 {
 	uint16_t		x;
@@ -58,8 +67,16 @@ typedef struct		s_matrix
 	t_vec3d			forward;
 	t_vec3d			right;
 	t_vec3d			up;
-	t_vec3d			from;
+	t_vec3d			rotation;
 }					t_matrix;
+
+typedef struct		s_matrix4d
+{
+	t_vec4d			forward;
+	t_vec4d			right;
+	t_vec4d			up;
+	t_vec4d		rotation;
+}					t_matrix4d;
 
 typedef enum		e_object_type
 {
@@ -208,6 +225,7 @@ double	vec_len(t_vec3d vec);
 double	vec_dot_prod(t_vec3d vec1, t_vec3d vec2);
 t_vec3d	vec_multi(t_vec3d vec, double factor);
 t_vec3d	vec_cross_prod(t_vec3d  vec1, t_vec3d vec2);
+t_vec3d	vec_prod(t_vec3d vec1, t_vec3d vec2);
 
 // Vector rotations
 t_vec3d	vec_rot_y(t_vec3d vec, double factor);
@@ -259,7 +277,11 @@ void	exit_mlx(int keycode, t_data *data);
 int		hook_key(int keycode, t_data *data);
 void	key(int keycode, t_data *data);
 
-t_matrix matrix_new(t_vec3d f);
+t_matrix 	matrix_new(t_vec3d f);
 t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix);
+t_matrix	vec_rot_arb_axis(t_vec3d vec, t_vec3d axis, double angle);
+
+t_matrix	matrix_rot_x(t_matrix og, double angle);
+t_matrix	matrix_rot_y(t_matrix og, double angle);
 
 # endif

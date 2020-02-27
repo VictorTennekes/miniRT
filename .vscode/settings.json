@@ -11,6 +11,7 @@
 		"functional": "cpp",
 		"key_codes.h": "c",
 		"*.png": "c",
-		"ios": "c"
+		"ios": "c",
+		"complex": "c"
 	}
 }

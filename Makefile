@@ -60,6 +60,7 @@ SRCS			=	main.c\
 					vec/normal/norm_sp.c\
 					vec/normal/normal_matrix.c\
 					vec/normal/normal.c\
+					vec/normal/vec_normalize.c\
 					vec/get_pixel.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
@@ -69,7 +70,8 @@ SRCS			=	main.c\
 					vec/vec_len.c\
 					vec/vec_multi.c\
 					vec/vec_new.c\
-					vec/vec_normalize.c\
+					vec/vec_prod.c\
+					vec/vec_rot_arb_axis.c\
 					vec/vec_rot.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
