@@ -47,10 +47,7 @@ void	cam_rotate(int keycode, t_data *data)
 	if (keycode == KEY_LEFT)
 	{
 		CAM->vector = rotate_camera(vec_add(CAM->pos, CAM->matrix.forward), CAM->matrix.forward, vec_add(CAM->pos, CAM->matrix.up), (MOVE_SPEED / 15));
-		if (vec_len(CAM->vector) > vec_len(CAM->pos))
-			CAM->vector = vec_sub(CAM->vector, CAM->pos);
-		else
-			CAM->vector = vec_sub(CAM->pos, CAM->vector);
+		CAM->vector = vec_sub(CAM->vector, CAM->pos);
 		CAM->vector = vec_normalize(CAM->vector);
 		CAM->matrix = matrix_new(CAM->vector);
 		printf("CAM MATRIX\nforward_x: %f\nforward_y: %f\nforward_z: %f\n", CAM->matrix.forward.x, CAM->matrix.forward.y, CAM->matrix.forward.z);
