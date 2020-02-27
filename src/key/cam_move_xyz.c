@@ -46,7 +46,7 @@ void	cam_rotate(int keycode, t_data *data)
 	data->window.rendered = false;
 	if (keycode == KEY_LEFT)
 	{
-		CAM->vector = rotate_camera(vec_add(CAM->pos, CAM->matrix.forward), CAM->matrix.forward, vec_add(CAM->pos, CAM->matrix.up), MOVE_SPEED / 15);
+		CAM->vector = rotate_camera(vec_add(CAM->pos, CAM->matrix.forward), CAM->matrix.forward, vec_add(CAM->pos, CAM->matrix.up), (MOVE_SPEED / 15));
 		if (vec_len(CAM->vector) > vec_len(CAM->pos))
 			CAM->vector = vec_sub(CAM->vector, CAM->pos);
 		else
