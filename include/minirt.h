@@ -40,6 +40,15 @@ typedef struct		s_vec3d
 	double			z;
 }					t_vec3d;
 
+typedef struct		s_vec4d
+{
+	double			x;
+	double			y;
+	double			z;
+	double			rot;
+}					t_vec4d;
+
+
 typedef struct		s_vec2ui
 {
 	uint16_t		x;
@@ -60,6 +69,14 @@ typedef struct		s_matrix
 	t_vec3d			up;
 	t_vec3d			translation;
 }					t_matrix;
+
+typedef struct		s_matrix4d
+{
+	t_vec4d			forward;
+	t_vec4d			right;
+	t_vec4d			up;
+	t_vec4d		rotation;
+}					t_matrix4d;
 
 typedef enum		e_object_type
 {
