@@ -279,8 +279,6 @@ void	key(int keycode, t_data *data);
 
 t_matrix 	matrix_new(t_vec3d f);
 t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix);
-t_matrix	vec_rot_arb_axis(t_vec3d vec, t_vec3d axis, double angle);
-
-t_matrix	matrix_rot_y(t_matrix og, double angle);
+t_vec3d rotate_camera(t_vec3d point, t_vec3d vector, t_vec3d axis, double angle);
 
 # endif
