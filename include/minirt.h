@@ -70,6 +70,14 @@ typedef struct		s_matrix
 	t_vec3d			translation;
 }					t_matrix;
 
+typedef struct		s_quat
+{
+	t_vec3d			w;
+	t_vec3d			x;
+	t_vec3d			y;
+	t_vec3d			z;
+}					t_quat;
+
 typedef struct		s_matrix4d
 {
 	t_vec4d			forward;
@@ -280,5 +288,6 @@ void	key(int keycode, t_data *data);
 t_matrix 	matrix_new(t_vec3d f);
 t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix);
 t_vec3d rotate_camera(t_vec3d point, t_vec3d vector, t_vec3d axis, double angle);
+t_vec3d	rotate_cam(t_vec3d p, t_vec3d v, t_vec3d ax, double an);
 
 # endif

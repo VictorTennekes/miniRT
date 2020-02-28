@@ -41,17 +41,30 @@ void	cam_move(int keycode, t_data *data)
 	printf("up_x: %f\nup_y: %f\nup_z: %f\n", CAM->matrix.up.x, CAM->matrix.up.y, CAM->matrix.up.z);
 }
 
+// t_matrix rot_right(t_matrix mat, double angle)
+// {
+// 	t_matrix res;
+
+// 	res.forward.x = mat.forward.x * cos(angle);
+// 	res.forward.y = mat.forward.y
+// 	res.forward.z = mat.forward.z * cos(angle);
+// }
+
+t_vec3d rot_vec_right(t_vec3d vec, double angle)
+{
+	t_vec3d res;
+
+	res.x = (vec.x * cos(angle)) + (vec.z * sin(angle));
+	res.y = vec.y;
+	res.z = (-1 * vec.x * sin(angle)) + (vec.z * cos(angle));
+	return (res);
+}
+
 void	cam_rotate(int keycode, t_data *data)
 {
 	data->window.rendered = false;
 	if (keycode == KEY_LEFT)
 	{
-		CAM->vector = rotate_camera(vec_add(CAM->pos, CAM->matrix.forward), CAM->matrix.forward, vec_add(CAM->pos, CAM->matrix.up), (MOVE_SPEED / 15));
-		CAM->vector = vec_sub(CAM->vector, CAM->pos);
-		CAM->vector = vec_normalize(CAM->vector);
-		CAM->matrix = matrix_new(CAM->vector);
-		printf("CAM MATRIX\nforward_x: %f\nforward_y: %f\nforward_z: %f\n", CAM->matrix.forward.x, CAM->matrix.forward.y, CAM->matrix.forward.z);
-		printf("CAM POS\nx:%f\ny:%f\nz:%f\n", CAM->pos.x, CAM->pos.y, CAM->pos.z);
 	}
 	else if (keycode == KEY_RIGHT)
 	{
