@@ -72,10 +72,10 @@ typedef struct		s_matrix
 
 typedef struct		s_quat
 {
-	t_vec3d			w;
-	t_vec3d			x;
-	t_vec3d			y;
-	t_vec3d			z;
+	double			w;
+	double			x;
+	double			y;
+	double			z;
 }					t_quat;
 
 typedef struct		s_matrix4d
@@ -141,6 +141,7 @@ typedef struct		s_camera
 	t_matrix		matrix;
 	uint8_t			fov;
 	double			distance;
+	t_quat			quat;
 }					t_camera;
 
 typedef struct		s_light
@@ -287,7 +288,16 @@ void	key(int keycode, t_data *data);
 
 t_matrix 	matrix_new(t_vec3d f);
 t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix);
-t_vec3d rotate_camera(t_vec3d point, t_vec3d vector, t_vec3d axis, double angle);
-t_vec3d	rotate_cam(t_vec3d p, t_vec3d v, t_vec3d ax, double an);
+t_vec3d 	rotate_camera(t_vec3d point, t_vec3d vector, t_vec3d axis, double angle);
+t_vec3d		rotate_cam(t_vec3d p, t_vec3d v, t_vec3d ax, double an);
+
+// Quaternions
+t_matrix	matrix_multi(t_matrix m, double d);
+t_quat	quat_norm(double w, double x, double y, double z);
+t_quat	quat_new(double w, double x, double y, double z);
+t_quat	quat_local_rot(t_vec3d axis, double angle);
+t_quat	quat_mult(t_quat q1, t_quat q2);
+t_matrix	quat_to_matrix(t_quat q);
+t_quat rotate_cam_right(t_vec3d vector, t_vec3d axis, double angle);
 
 # endif

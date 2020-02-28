@@ -41,6 +41,8 @@ void	parse_camera(char **info, t_data *data)
 	camera->vector = parse_coord(info[2]);
 	camera->vector = vec_normalize(camera->vector);
 	camera->fov	= ft_atoi(info[3]);
+	camera->quat = quat_new(1, 0, 0, 0);
+	// camera->matrix = quat_to_matrix(camera->quat);
 	camera->matrix = matrix_new(camera->vector);
 	if (camera->fov < 0 || camera->fov > 180)
 		print_error("Invalid value given for FOV", data);

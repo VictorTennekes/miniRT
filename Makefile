@@ -63,6 +63,7 @@ SRCS			=	main.c\
 					vec/normal/vec_normalize.c\
 					vec/cam_rotate.c\
 					vec/get_pixel.c\
+					vec/quaternions.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
 					vec/vec_cross_prod.c\
