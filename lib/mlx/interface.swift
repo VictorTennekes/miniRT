@@ -56,6 +56,7 @@ public func mlx_new_window_swift(_ mlxptr:UnsafeRawPointer, Width w:UInt32, Heig
 		let mlx:MlxMain = _mlx_bridge(ptr:mlxptr)
 		let mw = MlxWin(device: mlx.device, width: Int(w), height: Int(h), title: String(cString: t))
 		mw.setNotifs()
+		mw.initMetal()
 		mlx.addWinToList(mw)
 		return (_mlx_bridge_retained(obj:mw))
 }
@@ -233,6 +234,16 @@ public func mlx_destroy_image_swift(_ mlxptr:UnsafeRawPointer, _ imgptr:UnsafeRa
 	mlx.winList.forEach { $0.flushImages() }
 	while img.onGPU > 0 {}
 	mlx.imgList.removeAll(where: { $0 === img} )
+	return Int32(0)
+}
+
+
+@_cdecl("mlx_get_screen_size")
+public func mlx_get_screen_size_swift(_ mlxptr:UnsafeRawPointer, _ sizex:UnsafeMutablePointer<Int32>, _ sizey:UnsafeMutablePointer<Int32>) -> Int32
+{
+	/// let mlx:MlxMain = _mlx_bridge(ptr:mlxptr)
+	sizex.pointee = Int32(NSScreen.main!.frame.size.width)
+	sizey.pointee = Int32(NSScreen.main!.frame.size.height)
 	return Int32(0)
 }
 

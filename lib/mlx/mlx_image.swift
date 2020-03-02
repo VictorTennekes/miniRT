@@ -31,8 +31,11 @@ public class MlxImg
     	 textureDesc.width = texture_width
     	 textureDesc.height = texture_height
 	 textureDesc.usage = .shaderRead
-///	 if (target == 1)
-///	 { textureDesc.usage = .renderTarget }
+	 if (target == 1)
+	  {
+		textureDesc.usage = .renderTarget
+		textureDesc.storageMode = .private
+	  }
     	 textureDesc.pixelFormat = MTLPixelFormat.bgra8Unorm
     	 let texture_buff = device.makeBuffer(length: texture_sizeline * height)!
     	 texture = texture_buff.makeTexture(descriptor:textureDesc, offset:0, bytesPerRow:texture_sizeline)!	
