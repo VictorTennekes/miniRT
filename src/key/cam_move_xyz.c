@@ -56,13 +56,37 @@ void	cam_rotate(int keycode, t_data *data)
 	data->window.rendered = false;
 	if (keycode == KEY_LEFT)
 	{
-		CAM->quat = rotate_cam_right(CAM->matrix.forward, CAM->matrix.up, 10 * M_PI / 180);
+		CAM->quat = rotate_cam_right(CAM->matrix.forward, CAM->matrix.up, 5 * M_PI / 180);
 		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
+		CAM->vector = vec_multi(CAM->vector, -1);
 		CAM->matrix = matrix_new(CAM->vector);
+		CAM->matrix = normal_matrix(CAM->matrix);
 		printf("CAM MATRIX\nforward_x: %f\nforward_y: %f\nforward_z: %f\n", CAM->matrix.forward.x, CAM->matrix.forward.y, CAM->matrix.forward.z);
 	}
 	else if (keycode == KEY_RIGHT)
 	{
+		CAM->quat = rotate_cam_right(CAM->matrix.forward, CAM->matrix.up, -5 * M_PI / 180);
+		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
+		CAM->vector = vec_multi(CAM->vector, -1);
+		CAM->matrix = matrix_new(CAM->vector);
+		CAM->matrix = normal_matrix(CAM->matrix);
+		printf("CAM MATRIX\nforward_x: %f\nforward_y: %f\nforward_z: %f\n", CAM->matrix.forward.x, CAM->matrix.forward.y, CAM->matrix.forward.z);
+	}
+	else if (keycode == KEY_UP)
+	{
+		CAM->quat = rotate_cam_right(CAM->matrix.forward, CAM->matrix.right, 5 * M_PI / 180);
+		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
+		CAM->vector = vec_multi(CAM->vector, -1);
+		CAM->matrix = matrix_new(CAM->vector);
+		printf("CAM MATRIX\nforward_x: %f\nforward_y: %f\nforward_z: %f\n", CAM->matrix.forward.x, CAM->matrix.forward.y, CAM->matrix.forward.z);
+	}
+	else if (keycode == KEY_DOWN)
+	{
+		CAM->quat = rotate_cam_right(CAM->matrix.forward, CAM->matrix.right, -5 * M_PI / 180);
+		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
+		CAM->vector = vec_multi(CAM->vector, -1);
+		CAM->matrix = matrix_new(CAM->vector);
+		printf("CAM MATRIX\nforward_x: %f\nforward_y: %f\nforward_z: %f\n", CAM->matrix.forward.x, CAM->matrix.forward.y, CAM->matrix.forward.z);
 	}
 	else
 		data->window.rendered = true;

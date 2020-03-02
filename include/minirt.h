@@ -293,7 +293,7 @@ t_vec3d		rotate_cam(t_vec3d p, t_vec3d v, t_vec3d ax, double an);
 
 // Quaternions
 t_matrix	matrix_multi(t_matrix m, double d);
-t_quat	quat_norm(double w, double x, double y, double z);
+t_quat	quat_norm(t_quat q);
 t_quat	quat_new(double w, double x, double y, double z);
 t_quat	quat_local_rot(t_vec3d axis, double angle);
 t_quat	quat_mult(t_quat q1, t_quat q2);

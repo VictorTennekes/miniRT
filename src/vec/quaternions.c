@@ -6,7 +6,7 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/28 13:50:09 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/28 13:50:09 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/03/02 15:10:16 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,27 @@ t_matrix	matrix_prod(t_matrix a, t_matrix b)
 	return (new);
 }
 
-t_quat	quat_norm(double w, double x, double y, double z)
+t_quat quat_conj(t_quat q)
+{
+	t_quat new;
+
+	new.w = q.w;
+	new.x = -q.x;
+	new.y = -q.y;
+	new.z = -q.z;
+	return (new);
+}
+
+t_quat	quat_norm(t_quat q)
 {
 	t_quat new;
 	double	mag;
 
-	// w = (w/2) * M_PI / 180;
-	mag = sqrt(pow(w, 2) + pow(x, 2) + pow(y, 2) + pow(z, 2));
-	new.w = w / mag;
-	new.x = x / mag;
-	new.y = y / mag;
-	new.z = z / mag;
+	mag = sqrt(pow(q.w, 2) + pow(q.x, 2) + pow(q.y, 2) + pow(q.z, 2));
+	new.w = q.w / mag;
+	new.x = q.x / mag;
+	new.y = q.y / mag;
+	new.z = q.z / mag;
 	return (new);
 }
 
@@ -86,11 +96,9 @@ t_quat	quat_mult(t_quat q1, t_quat q2)
 	res.w = ((q1.w * q2.w) - (q1.x * q2.x) - (q1.y * q2.y) - (q1.z * q2.z));
 	res.x = ((q1.w * q2.x) + (q1.x * q2.w) + (q1.y * q2.z) - (q1.z * q2.y));
 	res.y = ((q1.w * q2.y) - (q1.x * q2.z) + (q1.y * q2.w) + (q1.z * q2.x));
-	res.z = ((q1.w * q2.z) + (q1.x * q2.y) + (q1.y * q2.x) + (q1.z * q2.w));
+	res.z = ((q1.w * q2.z) + (q1.x * q2.y) - (q1.y * q2.x) + (q1.z * q2.w));
 	return (res);
 }
-
-
 
 t_matrix	quat_to_matrix(t_quat q)
 {
@@ -104,7 +112,7 @@ t_matrix	quat_to_matrix(t_quat q)
 	res.up.z = 2 * q.y * q.z + 2 * q.w * q.x;
 	res.forward.x = 2 * q.x * q.z - 2 * q.w * q.y;
 	res.forward.y = 2 * q.y * q.z - 2 * q.w * q.x;
-	res.forward.z = pow(q.w, 2) - pow(q.x, 2) - pow(q.y, 2) + pow(q.z, 2);
+	res.forward.z = 1 - 2 * pow(q.x, 2) - 2 * pow(q.y, 2);
 
 	return (res);
 }
@@ -117,8 +125,11 @@ t_quat rotate_cam_right(t_vec3d vector, t_vec3d axis, double angle)
 	t_quat	r2;
 
 	p = quat_new(0, vector.x, vector.y, vector.z);
+	vector = vec_normalize(vector);
+	axis = vec_normalize(axis);
 	r = quat_local_rot(axis, angle);
-	r2 = quat_new(r.w, -r.x, -r.y, -r.z);
+	r2 = quat_conj(r);
 	p2 = quat_mult(quat_mult(r, p), r2);
 	return (p2);
 }
+

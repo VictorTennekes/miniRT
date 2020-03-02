@@ -13,6 +13,12 @@
 #include <minirt.h>
 #include <mlx.h>
 
+static int	exit_hook(t_data *data)
+{
+	exit_free(data);
+	return (1);
+}
+
 bool	init_mlx(t_data *data)
 {
 	data->mlx_info.mlx = mlx_init();
@@ -24,6 +30,7 @@ bool	init_mlx(t_data *data)
 		return (true);
 	if (init_mlx_img(data))
 		return (true);
+	mlx_hook(data->mlx_info.mlx_win, 17, 0L, &exit_hook, data);
 	mlx_key_hook(data->mlx_info.mlx_win, &hook_key, data);
 	mlx_loop_hook(data->mlx_info.mlx, &hook_frame, data);
 	return (false);
