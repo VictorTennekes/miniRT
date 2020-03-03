@@ -78,7 +78,7 @@ SRCS			=	main.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -O0
+CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -Og
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
 					-I $(LIBFT_LOC)/include\
