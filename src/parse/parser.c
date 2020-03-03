@@ -36,14 +36,13 @@ void	parse_line(char *line, t_data *data)
 {
 	char	**info;
 	int		i;
-	int		j;
 
-	j = 0;
-	while (line[j])
+	i = 0;
+	while (line[i])
 	{
-		if (line[j] == '\t')
-			line[j] = ' ';
-		j++;
+		if (line[i] == '\t')
+			line[i] = ' ';
+		i++;
 	}
 	info = ft_split(line, ' ');
 	if (info == NULL)
