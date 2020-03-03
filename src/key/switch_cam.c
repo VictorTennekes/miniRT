@@ -6,16 +6,39 @@
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/03 13:20:50 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/03/03 13:20:50 by vtenneke      ########   odam.nl         */
+/*   Updated: 2020/03/03 14:36:15 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <keycodes.h>
+#include <key_codes.h>
+#include <stdlib.h>
 
-t_camera switch_cam(t_camera *current_camera, t_data *data)
+void switch_cam(int keycode, t_data *data)
 {
-	t_camera new;
+	t_list		*cameras;
 
-	while (data->cameras)
+	data->window.rendered = false;
+	cameras = data->cameras;
+	while (cameras->next)
+	{
+		printf("loop");
+		if (cameras->content == data->current_cam)
+			break;
+		cameras = cameras->next;
+	}
+	if (keycode == KEY_P)
+	{
+		if  (cameras->next)
+			data->current_cam = cameras->next->content;
+
+	}
+	else if (keycode == KEY_O)
+	{
+		if (cameras->prev)
+			data->current_cam = cameras->prev->content;
+	}
+	else
+		data->window.rendered = true;
+	printf("pressed");
 }

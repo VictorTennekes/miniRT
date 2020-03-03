@@ -28,6 +28,7 @@ SRCS			=	main.c\
 					intersect/intersect.c\
 					key/hook_key.c\
 					key/cam_move_xyz.c\
+					key/switch_cam.c\
 					mlx/hook_frame.c\
 					mlx/init_mlx.c\
 					mlx/init_mlx_img.c\
@@ -77,7 +78,7 @@ SRCS			=	main.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -Ofast
+CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -O0
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
 					-I $(LIBFT_LOC)/include\
