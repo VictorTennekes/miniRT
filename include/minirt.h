@@ -31,7 +31,6 @@ typedef struct		s_color
 	double 			b;
 }					t_color;
 
-
 // Vectors and rays
 typedef struct		s_vec3d
 {
@@ -39,15 +38,6 @@ typedef struct		s_vec3d
 	double			y;
 	double			z;
 }					t_vec3d;
-
-typedef struct		s_vec4d
-{
-	double			x;
-	double			y;
-	double			z;
-	double			rot;
-}					t_vec4d;
-
 
 typedef struct		s_vec2ui
 {
@@ -77,14 +67,6 @@ typedef struct		s_quat
 	double			y;
 	double			z;
 }					t_quat;
-
-typedef struct		s_matrix4d
-{
-	t_vec4d			forward;
-	t_vec4d			right;
-	t_vec4d			up;
-	t_vec4d		rotation;
-}					t_matrix4d;
 
 typedef enum		e_object_type
 {
@@ -125,14 +107,12 @@ typedef struct		s_mlx_data
     int				endian;
 }					t_mlx_data;
 
-
 typedef struct		s_mlxinfo
 {
 	void			*mlx;
 	void			*mlx_win;
 	t_mlx_data		mlx_data;
 }					t_mlxinfo;
-
 
 typedef struct		s_camera
 {

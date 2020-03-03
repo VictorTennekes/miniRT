@@ -18,8 +18,8 @@ bool	intersect_pl(t_object *plane, t_ray ray, t_data *data);
 bool	intersect_sp(t_object *object, t_ray ray, t_data *data);
 
 bool	(*g_intersect[])(t_object *, t_ray, t_data *) = {
-	&intersect_pl,
-	&intersect_sp,
+	[PL] = &intersect_pl,
+	[SP] = &intersect_sp,
 	NULL,
 	NULL,
 	NULL
