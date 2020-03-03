@@ -22,7 +22,6 @@ void switch_cam(int keycode, t_data *data)
 	cameras = data->cameras;
 	while (cameras->next)
 	{
-		printf("loop");
 		if (cameras->content == data->current_cam)
 			break;
 		cameras = cameras->next;
@@ -51,5 +50,4 @@ void switch_cam(int keycode, t_data *data)
 	}
 	else
 		data->window.rendered = true;
-	printf("pressed");
 }

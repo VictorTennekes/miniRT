@@ -117,7 +117,7 @@ t_matrix	quat_to_matrix(t_quat q)
 	return (res);
 }
 
-t_quat rotate_cam_right(t_vec3d vector, t_vec3d axis, double angle)
+t_quat rotate_cam(t_vec3d vector, t_vec3d axis, double angle)
 {
 	t_quat	p;
 	t_quat	p2;
