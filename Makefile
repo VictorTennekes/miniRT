@@ -109,9 +109,9 @@ $(NAME): $(OFILES)
 	@echo "$(WHITE)/-----		Compiling mlx		-----\\ $(RESET)"
 	make -C $(MLX_LOC)
 	@echo "$(WHITE)/-----		Compiling libft		-----\\ $(RESET)"
-	make bonus -j4 -C $(LIBFT_LOC)
+	make bonus -j6 -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Compiling liblist	-----\\ $(RESET)"
-	make -j4 -C $(LIBLIST_LOC)
+	make -j6 -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Compiling miniRT	-----\\ $(RESET)"
 	$(CC) $(LIBS) $(FRAMEWORK) -o $(NAME) $(OFILES)
 
@@ -120,19 +120,19 @@ $(NAME): $(OFILES)
 	
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
-	make -j4 clean -C $(MLX_LOC)
+	make -j6 clean -C $(MLX_LOC)
 	@echo "$(WHITE)/-----		Cleaning libft		-----\\ $(RESET)"
-	make -j4 clean -C $(LIBFT_LOC)
+	make -j6 clean -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Cleaning liblist	-----\\ $(RESET)"
-	make -j4 clean -C $(LIBLIST_LOC)
+	make -j6 clean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Cleaning miniRT		-----\\ $(RESET)"
 	rm -f $(OFILES)
 
 fclean: clean
 	@echo "$(WHITE)/-----		Fcleaning libft		-----\\ $(RESET)"
-	make -j4 fclean -C $(LIBFT_LOC)
+	make -j6 fclean -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Fcleaning liblist	-----\\ $(RESET)"
-	make -j4 fclean -C $(LIBLIST_LOC)
+	make -j6 fclean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Fcleaning miniRT	-----\\ $(RESET)"
 	rm -f $(NAME)
 

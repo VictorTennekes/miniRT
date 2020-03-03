@@ -258,7 +258,7 @@ t_ray_res	obj_dist(t_object *obj, t_ray ray, t_data *data);
 bool	init_mlx(t_data *data);
 bool	init_mlx_img(t_data *data);
 
-int	color_to_int(t_color color);
+int		color_to_int(t_color color);
 void	pixel_put(t_mlx_data data, int x, int y, t_color color);
 int		hook_frame(t_data *data);
 
