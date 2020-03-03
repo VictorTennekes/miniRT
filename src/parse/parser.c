@@ -36,7 +36,15 @@ void	parse_line(char *line, t_data *data)
 {
 	char	**info;
 	int		i;
+	int		j;
 
+	j = 0;
+	while (line[j])
+	{
+		if (line[j] == '\t')
+			line[j] = ' ';
+		j++;
+	}
 	info = ft_split(line, ' ');
 	if (info == NULL)
 		print_error("Memory allocation failed.", data);
@@ -77,6 +85,7 @@ void	parse_file(char *file, t_data *data)
 			parse_line(line, data);
 		free (line);
 	}
+	free(line);
 	if (!data->mapinfo.amb_set || !data->window.res_set)
 		print_error("Invalid file: resolution and ambient have to be set", data);
 	if (!data->cameras || !data->lights)

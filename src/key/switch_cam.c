@@ -31,12 +31,23 @@ void switch_cam(int keycode, t_data *data)
 	{
 		if  (cameras->next)
 			data->current_cam = cameras->next->content;
-
+		else if (!cameras->next)
+		{
+			while (cameras->prev)
+				cameras = cameras->prev;
+			data->current_cam = cameras->content;
+		}
 	}
 	else if (keycode == KEY_O)
 	{
 		if (cameras->prev)
 			data->current_cam = cameras->prev->content;
+		else if (!cameras->prev)
+		{
+			while (cameras->next)
+				cameras = cameras->next;
+			data->current_cam = cameras->content;
+		}
 	}
 	else
 		data->window.rendered = true;
