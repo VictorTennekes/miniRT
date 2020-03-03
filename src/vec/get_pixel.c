@@ -57,6 +57,7 @@ t_color		get_pixel(t_vec2ui pixel, t_data *data)
 	else
 		ray.origin.y *= WINDOW.y / (double)WINDOW.x;
 	ray.direction = vec_normalize(ray.origin);
+	ray.origin = data->current_cam->pos;
 	// printf("RAY DIRECTION\nx: %f\ny: %f\nz: %f\n", ray.direction.x, ray.direction.y, ray.direction.z);
 	return(cast_ray(ray, data));
 } 

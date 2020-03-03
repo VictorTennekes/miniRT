@@ -29,6 +29,8 @@ void	cam_move_v2(int keycode, t_data *data);
 t_hook_key		g_hook_key[] = {
 	{KEY_ESC, &exit_mlx},
 	{KEY_Q, &exit_mlx},
+	// {KEY_O, &switch_cam},
+	// {KEY_P, &switch_cam},
 	{KEY_A, &cam_move},
 	{KEY_D, &cam_move},
 	{KEY_W, &cam_move},

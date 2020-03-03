@@ -23,10 +23,10 @@ t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
 	t_vec3d	p;
 
 	(void)data;
-	t = vec_dot_prod(vec_sub(sphere->pos, CAM->pos), DIR);
+	t = vec_dot_prod(vec_sub(sphere->pos, ray.origin), DIR);
 	if (t < 0)
 		return (ray_res_inf());
-	p = vec_add(CAM->pos, vec_multi(DIR, t));
+	p = vec_add(ray.origin, vec_multi(DIR, t));
 	y = vec_len(vec_sub(sphere->pos, p));
 	if (y > sphere->size / 2)
 		return (ray_res_inf());
