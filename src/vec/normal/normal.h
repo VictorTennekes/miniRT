@@ -17,12 +17,13 @@
 
 t_vec3d	norm_pl(t_ray_res ray_res, t_data *data);
 t_vec3d	norm_sp(t_ray_res ray_res, t_data *data);
+t_vec3d norm_cy(t_ray_res ray_res, t_data *data);
 
 t_vec3d	(*g_normal[])(t_ray_res, t_data *) = {
 	&norm_pl,	//TODO plane
 	&norm_sp,	//TODO sphere
 	NULL,	//TODO square
-	NULL,	//TODO cylinder
+	&norm_cy,	//TODO cylinder
 	NULL	//TODO  triangle
 };
 

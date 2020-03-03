@@ -12,6 +12,7 @@
 		"key_codes.h": "c",
 		"*.png": "c",
 		"ios": "c",
-		"complex": "c"
+		"complex": "c",
+		"iterator": "c"
 	}
 }
