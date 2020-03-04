@@ -10,14 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Making a RGB color by placing the values inside of a s_color struct.
+**
+**	@param	:	{uint8_t} red
+**	@param	:	{uint8_t} green
+**	@param	:	{uint8_t} blue
+**
+**	@return	:	{t_color}
+*/
+
 #include <minirt.h>
 
-t_color	color_new(uint8_t r, uint8_t g, uint8_t b)
+t_color	color_new(uint8_t red, uint8_t green, uint8_t blue)
 {
 	t_color	res;
 
-	res.r = r;
-	res.g = g;
-	res.b = b;
+	res.r = red;
+	res.g = green;
+	res.b = blue;
 	return (res);
 }

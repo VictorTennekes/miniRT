@@ -10,11 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Mix two colors by taking the avarage.
+**
+**	@param	:	{t_color} color_1
+**	@param	:	{t_color} color_2
+**
+**	@return	:	{t_color}
+*/
+
 #include <minirt.h>
 
-t_color	color_mix(t_color c1, t_color c2)
+t_color	color_mix(t_color color_1, t_color color_2)
 {
-	return (color_new((c1.r + c2.r) / 2,
-					(c1.g + c2.g) / 2,
-					(c1.b + c2.b) / 2));
+	return (color_new((color_1.r + color_2.r) / 2,
+					(color_1.g + color_2.g) / 2,
+					(color_1.b + color_2.b) / 2));
 }

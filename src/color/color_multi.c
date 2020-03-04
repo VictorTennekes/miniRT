@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate the color when multiplying a color with a certain factor.
+**	Values cap at 255.
+**
+**	@param	:	{t_color} color
+**	@param	:	{double} fact
+**
+**	@return	:	{t_color}
+*/
+
 #include <minirt.h>
 
 t_color	color_multi(t_color color, double fact)

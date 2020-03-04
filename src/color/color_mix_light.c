@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate the color a colored surface will reflect when a color of light
+**	falls on it.
+**
+**	@param	:	{t_color} color
+**	@param	:	{t_color} light
+**
+**	@return	:	{t_color}
+*/
+
 #include <minirt.h>
 
 t_color	color_mix_light(t_color color, t_color light)
