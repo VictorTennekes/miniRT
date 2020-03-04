@@ -10,10 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Utilizing the jumptable to calculate distance to appropriate object.
+**
+**	@param	:	{t_object} *object
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data} *data
+**
+**	@return	:	{t_ray_res}
+*/
+
 #include <minirt.h>
 #include "obj_dist.h"
 
-t_ray_res	obj_dist(t_object *obj, t_ray ray, t_data *data)
+t_ray_res	obj_dist(t_object *object, t_ray ray, t_data *data)
 {
-	return (g_object_dist_parse[obj->type](obj, ray, data));
+	return (g_object_dist_parse[object->type](object, ray, data));
 }

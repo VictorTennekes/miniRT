@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculating the distance between the ray origin and a plane.
+**
+**	@param	:	{t_object} *plane
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data} *data
+**
+**	@return	:	{t_ray_res}
+*/
+
 #include <minirt.h>
 
 t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data)

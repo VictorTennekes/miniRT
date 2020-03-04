@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Redirecting the object distance function for appropriate object.
+**
+**	@param	:	{t_object} *object
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data} *data
+**
+**	@return	:	{t_ray_res}
+*/
+
 #ifndef OBJ_DIST_H
 # define OBJ_DIST_H
 

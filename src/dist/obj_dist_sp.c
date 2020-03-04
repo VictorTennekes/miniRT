@@ -10,10 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minirt.h>
+/*
+**	Calculating the distance between the ray origin and a sphere.
+**
+**	@param	:	{t_object} *sphere
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data} *data
+**
+**	@return	:	{t_ray_res}
+*/
 
-#define DIR ray.direction
-#define CAM data->current_cam
+#include <minirt.h>
 
 t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
 {
@@ -23,10 +30,10 @@ t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
 	t_vec3d	p;
 
 	(void)data;
-	t = vec_dot_prod(vec_sub(sphere->pos, ray.origin), DIR);
+	t = vec_dot_prod(vec_sub(sphere->pos, ray.origin), ray.direction);
 	if (t < 0)
 		return (ray_res_inf());
-	p = vec_add(ray.origin, vec_multi(DIR, t));
+	p = vec_add(ray.origin, vec_multi(ray.direction, t));
 	y = vec_len(vec_sub(sphere->pos, p));
 	if (y > sphere->size / 2)
 		return (ray_res_inf());
