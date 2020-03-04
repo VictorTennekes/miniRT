@@ -27,5 +27,5 @@ size_t	char_arrlen(char **array)
 	res = 0;
 	while (array[res])
 		res++;
-	return (res);	
+	return (res);
 }

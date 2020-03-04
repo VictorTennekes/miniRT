@@ -51,12 +51,13 @@ bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
 t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 {
 	t_vec3d	norm;
-	t_vec3d light_dir;
+	t_vec3d	light_dir;
 	double	fac;
 
 	(void)data;
 	(void)ray;
-	if (ray_obstructed(ray_res.object, ray_new(ray_res.position, vec_a_to_b(ray_res.position, light->pos)), data))
+	if (ray_obstructed(ray_res.object, ray_new(ray_res.position,
+		vec_a_to_b(ray_res.position, light->pos)), data))
 		return (color_new(0, 0, 0));
 	light_dir = vec_a_to_b(ray_res.position, light->pos);
 	norm = normal(ray_res, data);
@@ -65,9 +66,9 @@ t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 		return (color_new(0, 0, 0));
 	fac *= light->ratio;
 	fac /= 4 * M_PI * pow(vec_dist(light->pos, ray_res.position), 2);
-	return (color_multi(color_mix_light(light->color, ray_res.object->color), fmin(fac, 1)));
+	return (color_multi(color_mix_light(light->color, ray_res.object->color),
+		fmin(fac, 1)));
 }
-
 
 /*
 **	Cycle through the light to calculate which light have an effect
@@ -83,14 +84,15 @@ t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 t_color	cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data)
 {
 	t_color res;
-	t_list 	*lights;
+	t_list	*lights;
 
 	res = color_multi(data->mapinfo.amb_color, data->mapinfo.amb_ratio);
 	res = color_mix_light(ray_res.object->color, res);
 	lights = data->lights;
 	while (lights)
 	{
-		res = color_add_light(res, cast_light(ray_res, ray, (t_light *)lights->content, data));
+		res = color_add_light(res, cast_light(ray_res, ray,
+			(t_light *)lights->content, data));
 		lights = lights->next;
 	}
 	return (res);

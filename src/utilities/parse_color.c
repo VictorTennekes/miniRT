@@ -25,9 +25,9 @@
 t_color		parse_color(char *str, t_data *data)
 {
 	char	**rgb;
-	double		r;
-	double		g;
-	double		b;
+	double	r;
+	double	g;
+	double	b;
 
 	rgb = ft_split(str, ',');
 	if (!isdigit_str(rgb[0]) || !isdigit_str(rgb[1]) || !isdigit_str(rgb[2]))

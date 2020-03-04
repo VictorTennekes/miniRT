@@ -30,7 +30,7 @@ static bool	verify_filename(char *filename)
 	i = 0;
 	while (filename[i])
 		i++;
-	if (filename[i-2] == '.' && filename[i-1] == 'r' && filename[i] == 't')
+	if (filename[i - 2] == '.' && filename[i - 1] == 'r' && filename[i] == 't')
 		return (false);
 	return (true);
 }
@@ -44,10 +44,9 @@ static bool	verify_filename(char *filename)
 **	@return	:	{void}
 */
 
-static void	parse_line(char *line, t_data *data)
+static char	*remove_tabs(char *line)
 {
-	char	**info;
-	int		i;
+	int i;
 
 	i = 0;
 	while (line[i])
@@ -56,6 +55,16 @@ static void	parse_line(char *line, t_data *data)
 			line[i] = ' ';
 		i++;
 	}
+	return (line);
+}
+
+static void	parse_line(char *line, t_data *data)
+{
+	char	**info;
+	int		i;
+
+	i = 0;
+	line = remove_tabs(line);
 	info = ft_split(line, ' ');
 	if (info == NULL)
 		print_error("Memory allocation failed.", data);
@@ -64,7 +73,6 @@ static void	parse_line(char *line, t_data *data)
 		free_machine(info);
 		return ;
 	}
-	i = 0;
 	while (g_parse[i].id)
 	{
 		if (!ft_strcmp(info[0], g_parse[i].id))
@@ -89,7 +97,7 @@ static void	parse_line(char *line, t_data *data)
 void		parse_file(char *file, t_data *data)
 {
 	int		fd;
-	char 	*line;
+	char	*line;
 	int		ret;
 
 	if (verify_filename(file) == false)
@@ -103,12 +111,14 @@ void		parse_file(char *file, t_data *data)
 		ret = get_next_line(fd, &line);
 		if (*line != '#')
 			parse_line(line, data);
-		free (line);
+		free(line);
 	}
 	if (!data->mapinfo.amb_set || !data->window.res_set)
-		print_error("Invalid file: resolution and ambient have to be set", data);
+		print_error("Invalid file: resolution and ambient have \
+			to be set", data);
 	if (!data->cameras || !data->lights)
-		print_error("Invalid file: at least one light and camera have to be set", data);
+		print_error("Invalid file: at least one light and camera \
+			have to be set", data);
 	data->current_cam = data->cameras->content;
-	close (fd);
+	close(fd);
 }

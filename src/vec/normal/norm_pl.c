@@ -24,5 +24,5 @@
 t_vec3d	norm_pl(t_ray_res ray_res, t_data *data)
 {
 	(void)data;
-	return(ray_res.object->vector);
+	return (ray_res.object->vector);
 }

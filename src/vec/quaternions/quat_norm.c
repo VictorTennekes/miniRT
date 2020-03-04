@@ -22,10 +22,11 @@
 
 t_quat	quat_norm(t_quat quat)
 {
-	t_quat new;
+	t_quat	new;
 	double	mag;
 
-	mag = sqrt(pow(quat.w, 2) + pow(quat.x, 2) + pow(quat.y, 2) + pow(quat.z, 2));
+	mag = sqrt(pow(quat.w, 2) + pow(quat.x, 2) + pow(quat.y, 2) +
+		pow(quat.z, 2));
 	new.w = quat.w / mag;
 	new.x = quat.x / mag;
 	new.y = quat.y / mag;

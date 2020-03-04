@@ -27,7 +27,8 @@ int		hook_key(int keycode, t_data *data)
 {
 	(void)data;
 	printf("\nkey: %d\n\n", keycode);
-	mlx_string_put(data->mlx_info.mlx, data->mlx_info.mlx_win, 390, 10, 0xFFFFFF, ft_itoa(keycode));
+	mlx_string_put(data->mlx_info.mlx, data->mlx_info.mlx_win,
+		390, 10, 0xFFFFFF, ft_itoa(keycode));
 	key(keycode, data);
 	return (0);
 }
@@ -37,7 +38,7 @@ void	key(int keycode, t_data *data)
 	uint8_t i;
 
 	i = 0;
-	while(g_hook_key[i].func)
+	while (g_hook_key[i].func)
 	{
 		if (g_hook_key[i].key == keycode)
 		{
@@ -46,5 +47,4 @@ void	key(int keycode, t_data *data)
 		}
 		i++;
 	}
-
 }

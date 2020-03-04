@@ -21,8 +21,8 @@
 
 #include <minirt.h>
 
-t_vec3d norm_cy(t_ray_res ray_res, t_data *data)
+t_vec3d	norm_cy(t_ray_res ray_res, t_data *data)
 {
 	(void)data;
-	return(ray_res.object->vector);
+	return (ray_res.object->vector);
 }

@@ -23,7 +23,7 @@
 
 #include <minirt.h>
 
-t_quat rotate_cam(t_vec3d vector, t_vec3d axis, double angle)
+t_quat	rotate_cam(t_vec3d vector, t_vec3d axis, double angle)
 {
 	t_quat	p;
 	t_quat	p2;

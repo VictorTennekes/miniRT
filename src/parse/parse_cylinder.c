@@ -44,5 +44,5 @@ void	parse_cylinder(char **info, t_data *data)
 		print_error("Invalid orientation vector given for cylinder", data);
 	object->vector = vec_normalize(object->vector);
 	if (!lst_new_back(&(data->objects), object))
-		print_error("Allocation failed for cylinder", data);	
+		print_error("Allocation failed for cylinder", data);
 }

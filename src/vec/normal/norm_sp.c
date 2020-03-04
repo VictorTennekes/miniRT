@@ -24,5 +24,5 @@
 t_vec3d	norm_sp(t_ray_res ray_res, t_data *data)
 {
 	(void)data;
-	return(vec_normalize(vec_sub(ray_res.position, ray_res.object->pos)));
+	return (vec_normalize(vec_sub(ray_res.position, ray_res.object->pos)));
 }

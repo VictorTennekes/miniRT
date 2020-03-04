@@ -23,7 +23,7 @@
 #include <minirt.h>
 #include <mlx.h>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data	data;
 

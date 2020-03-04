@@ -20,7 +20,7 @@
 
 #include <minirt.h>
 
-t_matrix matrix_new(t_vec3d vec)
+t_matrix	matrix_new(t_vec3d vec)
 {
 	t_matrix	matrix;
 

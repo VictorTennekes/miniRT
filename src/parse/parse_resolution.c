@@ -26,7 +26,7 @@ void	parse_resolution(char **info, t_data *data)
 {
 	int screen_x;
 	int screen_y;
-	
+
 	if (data->window.res_set == true)
 		print_error("Resolution can only be specified once", data);
 	if (char_arrlen(info) != 3)

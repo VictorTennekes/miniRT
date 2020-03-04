@@ -27,7 +27,7 @@ static int	exit_hook(t_data *data)
 	return (1);
 }
 
-bool	init_mlx(t_data *data)
+bool		init_mlx(t_data *data)
 {
 	data->mlx_info.mlx = mlx_init();
 	if (!data->mlx_info.mlx)

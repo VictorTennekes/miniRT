@@ -23,5 +23,5 @@
 
 t_vec3d	vec_multi(t_vec3d vec, double factor)
 {
-	return(vec_new(vec.x * factor, vec.y * factor, vec.z * factor));
+	return (vec_new(vec.x * factor, vec.y * factor, vec.z * factor));
 }

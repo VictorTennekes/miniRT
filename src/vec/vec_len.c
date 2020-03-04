@@ -22,5 +22,5 @@
 
 double	vec_len(t_vec3d vec)
 {
-	return(sqrt(pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2)));
+	return (sqrt(pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2)));
 }

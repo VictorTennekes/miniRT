@@ -46,5 +46,5 @@ double	parse_double(char *str)
 		count++;
 		str++;
 	}
-	return(res);
+	return (res);
 }

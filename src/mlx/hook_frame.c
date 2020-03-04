@@ -45,6 +45,7 @@ int		hook_frame(t_data *data)
 		}
 		i++;
 	}
-	mlx_put_image_to_window(data->mlx_info.mlx, data->mlx_info.mlx_win, data->mlx_info.mlx_data.img, 0, 0);
+	mlx_put_image_to_window(data->mlx_info.mlx,
+		data->mlx_info.mlx_win, data->mlx_info.mlx_data.img, 0, 0);
 	return (0);
 }

@@ -20,8 +20,8 @@
 
 #include <minirt.h>
 
-t_ray_res ray_res_inf(void)
+t_ray_res	ray_res_inf(void)
 {
-	return(ray_res_dist_new(NULL, vec_new(0,0,0), color_new(0,0,0), \
+	return (ray_res_dist_new(NULL, vec_new(0, 0, 0), color_new(0, 0, 0), \
 		INFINITY));
 }

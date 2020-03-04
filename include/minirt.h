@@ -23,16 +23,21 @@
 # include <math.h>
 # include <stdio.h>
 
-// Globally needed structs
+/*
+**	Color
+*/
 
 typedef struct		s_color
 {
 	double			r;
 	double			g;
-	double 			b;
+	double			b;
 }					t_color;
 
-// Vectors and rays
+/*
+**	Rays and vectors
+*/
+
 typedef struct		s_vec3d
 {
 	double			x;
@@ -52,7 +57,10 @@ typedef struct		s_ray
 	t_vec3d			direction;
 }					t_ray;
 
-// Matrix
+/*
+**	Matrices
+*/
+
 typedef struct		s_matrix
 {
 	t_vec3d			forward;
@@ -68,6 +76,10 @@ typedef struct		s_quat
 	double			y;
 	double			z;
 }					t_quat;
+
+/*
+**	Objects
+*/
 
 typedef enum		e_object_type
 {
@@ -90,6 +102,10 @@ typedef struct		s_object
 	double			height;
 }					t_object;
 
+/*
+**	Ray results
+*/
+
 typedef struct		s_ray_res
 {
 	double			distance;
@@ -98,14 +114,17 @@ typedef struct		s_ray_res
 	t_object		*object;
 }					t_ray_res;
 
-// General stuff
+/*
+**	General structs
+*/
+
 typedef struct		s_mlx_data
 {
 	void			*img;
-    char			*addr;
-    int				bits_per_pixel;
-    int				line_length;
-    int				endian;
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
 }					t_mlx_data;
 
 typedef struct		s_mlxinfo
@@ -160,125 +179,141 @@ typedef struct		s_data
 	t_mlxinfo		mlx_info;
 }					t_data;
 
-// error
-void	print_error(char *error, t_data *data);
-void	print_error_free(char *error, void *free,
-				void (*func)(void *), t_data *data);
-void	exit_free(t_data *data);
+/*
+**	Error functions
+*/
 
-// free
-void	free_data(t_data *data);
-void	free_list(t_list *list, void (*func)(void *));
+void				print_error(char *error, t_data *data);
+void				print_error_free(char *error, void *free,
+						void (*func)(void *), t_data *data);
+void				exit_free(t_data *data);
 
-// parsing
-void	parse_file(char *file, t_data *data);
+/*
+**	Free functions
+*/
 
-// utils
-size_t	char_arrlen(char **array);
-int		isdigit_str(char *str);
-double	parse_double(char *str);
-t_color		parse_color(char *str, t_data *data);
-t_vec3d	parse_coord(char *str);
-void	*free_machine(char **array);
-bool	check_line(char *str);
+void				free_data(t_data *data);
+void				free_list(t_list *list, void (*func)(void *));
 
-//  parsing
-void	parse_resolution(char **info, t_data *data);
-void	parse_ambient(char **info, t_data *data);
-void	parse_camera(char **info, t_data *data);
-void	parse_light(char **info, t_data *data);
-void	parse_sphere(char **info, t_data *data);
-void	parse_plane(char **info, t_data *data);
-void	parse_square(char **info, t_data *data);
-void	parse_cylinder(char **info, t_data *data);
-void	parse_triangle(char **info, t_data * data);
+/*
+**	Parse function
+*/
 
-// calculations
-double	calc_square(t_object *object, t_data *data);
-void	calc_fov(t_data *data);
+void				parse_file(char *file, t_data *data);
 
-// Vector functions
-t_vec3d	normalize_coords(t_vec3d coord, t_data *data);
-t_matrix	normal_matrix(t_matrix matrix);
-t_color	get_pixel(t_vec2ui pixel, t_data *data);
+/*
+**	Utility functions
+*/
 
-// Vector utilities
-t_vec3d	vec_new(double x, double y, double z);
-t_vec3d	vec_add(t_vec3d vec1, t_vec3d vec2);
-double	vec_dist(t_vec3d vec1, t_vec3d vec2);
-t_vec3d	vec_sub(t_vec3d vec1, t_vec3d vec2);
-t_vec3d	vec_a_to_b(t_vec3d a, t_vec3d b);
-t_vec3d vec_normalize(t_vec3d coord);
-double	vec_len(t_vec3d vec);
-double	vec_dot_prod(t_vec3d vec1, t_vec3d vec2);
-t_vec3d	vec_multi(t_vec3d vec, double factor);
-t_vec3d	vec_cross_prod(t_vec3d  vec1, t_vec3d vec2);
-t_vec3d	vec_prod(t_vec3d vec1, t_vec3d vec2);
+size_t				char_arrlen(char **array);
+int					isdigit_str(char *str);
+double				parse_double(char *str);
+t_color				parse_color(char *str, t_data *data);
+t_vec3d				parse_coord(char *str);
+void				*free_machine(char **array);
+bool				check_line(char *str);
+int					color_to_int(t_color color);
 
-// Vector rotations
-t_vec3d	vec_rot_y(t_vec3d vec, double factor);
-t_vec3d vec_rot_90(t_vec3d vec);
+/*
+**	Vector functions and utilities
+*/
 
-// Rays
-t_color cast_ray(t_ray ray, t_data *data);
-t_ray_res	cast_ray_object(t_ray ray, t_data *data);
-t_ray	ray_new(t_vec3d origin, t_vec3d direction);
+t_color				get_pixel(t_vec2ui pixel, t_data *data);
+t_vec3d				multi_vec_matrix(t_vec3d vec, t_matrix matrix);
+t_vec3d				vec_a_to_b(t_vec3d a, t_vec3d b);
+t_vec3d				vec_add(t_vec3d vec1, t_vec3d vec2);
+t_vec3d				normalize_coords(t_vec3d coord, t_data *data);
+t_vec3d				vec_new(double x, double y, double z);
+double				vec_dist(t_vec3d vec1, t_vec3d vec2);
+t_vec3d				vec_sub(t_vec3d vec1, t_vec3d vec2);
+t_vec3d				vec_normalize(t_vec3d coord);
+double				vec_len(t_vec3d vec);
+double				vec_dot_prod(t_vec3d vec1, t_vec3d vec2);
+t_vec3d				vec_multi(t_vec3d vec, double factor);
+t_vec3d				vec_cross_prod(t_vec3d vec1, t_vec3d vec2);
+t_vec3d				vec_prod(t_vec3d vec1, t_vec3d vec2);
 
-// Ray Res
-t_ray_res 	ray_res_new(t_object *object, t_vec3d vector, t_color color);
-t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector, t_color color,
-				double distance);
-t_ray_res 	ray_res_inf(void);
+/*
+**	Ray and ray_res functions
+*/
 
-// Dist
-t_ray_res	obj_dist(t_object *obj, t_ray ray, t_data *data);
+t_ray_res			ray_res_new(t_object *object, t_vec3d vector,
+						t_color color);
+t_ray_res			ray_res_dist_new(t_object *object, t_vec3d vector,
+						t_color color,
+						double distance);
+t_ray_res			ray_res_inf(void);
+t_color				cast_ray(t_ray ray, t_data *data);
+t_ray_res			cast_ray_object(t_ray ray, t_data *data);
+t_ray				ray_new(t_vec3d origin, t_vec3d direction);
+t_ray_res			obj_dist(t_object *obj, t_ray ray, t_data *data);
 
-// MLX
-bool	init_mlx(t_data *data);
-bool	init_mlx_img(t_data *data);
+/*
+**	MLX functions
+*/
 
-int		color_to_int(t_color color);
-void	pixel_put(t_mlx_data data, int x, int y, t_color color);
-int		hook_frame(t_data *data);
+void				exit_mlx(int keycode, t_data *data);
+int					hook_frame(t_data *data);
+bool				init_mlx_img(t_data *data);
+bool				init_mlx(t_data *data);
+void				pixel_put(t_mlx_data data, int x, int y, t_color color);
 
-// Normalizing
-t_vec3d normal(t_ray_res ray_res, t_data *data);
-t_vec3d	norm_sp(t_ray_res ray_res, t_data *data);
+/*
+**	Normalizing main function
+*/
 
-// Light
-t_color	cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data);
-t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data);
-bool	ray_obstructed(t_object *object, t_ray ray, t_data *data);
+t_vec3d				normal(t_ray_res ray_res, t_data *data);
 
-// Color
-t_color	color_multi(t_color color, double fact);
-t_color	color_mix(t_color c1, t_color c2);
-t_color	color_mix_light(t_color color, t_color light);
-t_color	color_new(uint8_t r, uint8_t g, uint8_t b);
-t_color	color_add_light(t_color col1, t_color col2);
+/*
+**	Light functions
+*/
 
-// Intersect
-bool	intersect(t_object *obj, t_ray ray, t_data *data);
+t_color				cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data);
+t_color				cast_light(t_ray_res ray_res, t_ray ray, t_light *light,
+						t_data *data);
+bool				ray_obstructed(t_object *object, t_ray ray, t_data *data);
 
-// keys
-void	exit_mlx(int keycode, t_data *data);
-int		hook_key(int keycode, t_data *data);
-void	key(int keycode, t_data *data);
+/*
+**	Color functions
+*/
 
-// Matrix
-t_matrix 	matrix_new(t_vec3d f);
-t_vec3d		multi_vec_matrix(t_vec3d vec, t_matrix matrix);
-t_matrix	matrix_multi(t_matrix m, double d);
+t_color				color_multi(t_color color, double fact);
+t_color				color_mix(t_color c1, t_color c2);
+t_color				color_mix_light(t_color color, t_color light);
+t_color				color_new(uint8_t r, uint8_t g, uint8_t b);
+t_color				color_add_light(t_color col1, t_color col2);
 
-// Quaternions
-t_quat quat_conj(t_quat q);
-t_quat	quat_norm(t_quat q);
-t_quat	quat_new(double w, double x, double y, double z);
-t_quat	quat_local_rot(t_vec3d axis, double angle);
-t_quat	quat_multi(t_quat q1, t_quat q2);
-t_matrix	quat_to_matrix(t_quat q);
+/*
+**	Intersections main function
+*/
 
-// Cam
-t_quat rotate_cam(t_vec3d vector, t_vec3d axis, double angle);
+bool				intersect(t_object *obj, t_ray ray, t_data *data);
 
-# endif
+/*
+**	Key main functions
+*/
+
+int					hook_key(int keycode, t_data *data);
+void				key(int keycode, t_data *data);
+
+/*
+**	Matrix and quaternion functions
+*/
+
+t_matrix			quat_to_matrix(t_quat q);
+t_matrix			matrix_new(t_vec3d f);
+t_matrix			matrix_multi(t_matrix m, double d);
+t_matrix			normal_matrix(t_matrix matrix);
+t_quat				quat_conj(t_quat q);
+t_quat				quat_norm(t_quat q);
+t_quat				quat_new(double w, double x, double y, double z);
+t_quat				quat_local_rot(t_vec3d axis, double angle);
+t_quat				quat_multi(t_quat q1, t_quat q2);
+
+/*
+**	Main camera fucntion
+*/
+
+t_quat				rotate_cam(t_vec3d vector, t_vec3d axis, double angle);
+
+#endif

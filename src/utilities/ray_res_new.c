@@ -22,7 +22,7 @@
 **	@return	:	{t_ray_res}
 */
 
-t_ray_res 	ray_res_new(t_object *object, t_vec3d vector, t_color color)
+t_ray_res	ray_res_new(t_object *object, t_vec3d vector, t_color color)
 {
 	t_ray_res new;
 

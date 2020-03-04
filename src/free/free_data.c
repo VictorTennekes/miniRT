@@ -13,11 +13,7 @@
 /*
 **	Function to free the data struct.
 **
-<<<<<<< HEAD
 **	@param	:	{t_data *} data
-=======
-**	@param	:	{t_data} *data
->>>>>>> 2185cb97de23d606afe9e4fd1d1a9e6754b446f1
 **
 **	@return	:	{void}
 */

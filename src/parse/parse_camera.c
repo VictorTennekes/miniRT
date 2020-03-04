@@ -26,7 +26,7 @@
 void	parse_camera(char **info, t_data *data)
 {
 	t_camera *camera;
-	
+
 	if (char_arrlen(info) != 4)
 		print_error("Invalid amount of values given for camera", data);
 	camera = (t_camera *)malloc(sizeof(t_camera));
@@ -39,7 +39,7 @@ void	parse_camera(char **info, t_data *data)
 		(camera->vector.z > 1 || camera->vector.z < -1))
 		print_error("Invalid orientation vector given for camera", data);
 	camera->vector = vec_normalize(camera->vector);
-	camera->fov	= ft_atoi(info[3]);
+	camera->fov = ft_atoi(info[3]);
 	camera->quat = quat_new(1, 0, 0, 0);
 	camera->matrix = matrix_new(camera->vector);
 	if (camera->fov < 0 || camera->fov > 180)

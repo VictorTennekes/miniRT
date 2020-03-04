@@ -31,6 +31,6 @@ t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data)
 					vec_dot_prod(ray.direction, plane->vector));
 	if (t < 0)
 		return (ray_res_inf());
-	return(ray_res_dist_new(plane, vec_add(ray.origin,
+	return (ray_res_dist_new(plane, vec_add(ray.origin,
 					vec_multi(ray.direction, t)), plane->color, t));
 }

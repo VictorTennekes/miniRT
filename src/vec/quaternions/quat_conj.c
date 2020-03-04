@@ -20,7 +20,7 @@
 
 #include <minirt.h>
 
-t_quat quat_conj(t_quat quat)
+t_quat	quat_conj(t_quat quat)
 {
 	t_quat new;
 

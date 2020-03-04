@@ -23,40 +23,48 @@
 #include <key_codes.h>
 #include <stdlib.h>
 
-void switch_cam(int keycode, t_data *data)
+void	switch_cam_next(int keycode, t_data *data)
 {
 	t_list		*cameras;
 
+	(void)keycode;
 	data->window.rendered = false;
 	cameras = data->cameras;
 	while (cameras->next)
 	{
 		if (cameras->content == data->current_cam)
-			break;
+			break ;
 		cameras = cameras->next;
 	}
-	if (keycode == KEY_P)
+	if (cameras->next)
+		data->current_cam = cameras->next->content;
+	else if (!cameras->next)
 	{
-		if  (cameras->next)
-			data->current_cam = cameras->next->content;
-		else if (!cameras->next)
-		{
-			while (cameras->prev)
-				cameras = cameras->prev;
-			data->current_cam = cameras->content;
-		}
+		while (cameras->prev)
+			cameras = cameras->prev;
+		data->current_cam = cameras->content;
 	}
-	else if (keycode == KEY_O)
+}
+
+void	switch_cam_prev(int keycode, t_data *data)
+{
+	t_list		*cameras;
+
+	(void)keycode;
+	data->window.rendered = false;
+	cameras = data->cameras;
+	while (cameras->next)
 	{
-		if (cameras->prev)
-			data->current_cam = cameras->prev->content;
-		else if (!cameras->prev)
-		{
-			while (cameras->next)
-				cameras = cameras->next;
-			data->current_cam = cameras->content;
-		}
+		if (cameras->content == data->current_cam)
+			break ;
+		cameras = cameras->next;
 	}
-	else
-		data->window.rendered = true;
+	if (cameras->prev)
+		data->current_cam = cameras->prev->content;
+	else if (!cameras->prev)
+	{
+		while (cameras->next)
+			cameras = cameras->next;
+		data->current_cam = cameras->content;
+	}
 }

@@ -23,7 +23,7 @@
 #include <liblist.h>
 #include <stdlib.h>
 
-void	parse_triangle(char **info, t_data * data)
+void	parse_triangle(char **info, t_data *data)
 {
 	t_object *object;
 

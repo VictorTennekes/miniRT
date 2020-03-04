@@ -24,8 +24,12 @@
 t_vec3d		multi_vec_matrix(t_vec3d vec, t_matrix matrix)
 {
 	t_vec3d new;
-	new.x = vec.x * matrix.right.x + vec.y * matrix.up.x + vec.z * matrix.forward.x;
-	new.y = vec.x * matrix.right.y + vec.y * matrix.up.y + vec.z * matrix.forward.y;
-	new.z = vec.x * matrix.right.z + vec.y * matrix.up.z + vec.z * matrix.forward.z;
+
+	new.x = vec.x * matrix.right.x + vec.y * matrix.up.x + vec.z *
+		matrix.forward.x;
+	new.y = vec.x * matrix.right.y + vec.y * matrix.up.y + vec.z *
+		matrix.forward.y;
+	new.z = vec.x * matrix.right.z + vec.y * matrix.up.z + vec.z *
+		matrix.forward.z;
 	return (new);
 }

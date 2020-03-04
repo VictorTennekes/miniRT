@@ -33,6 +33,5 @@ t_matrix	quat_to_matrix(t_quat q)
 	res.forward.x = 2 * q.x * q.z - 2 * q.w * q.y;
 	res.forward.y = 2 * q.y * q.z - 2 * q.w * q.x;
 	res.forward.z = 1 - 2 * pow(q.x, 2) - 2 * pow(q.y, 2);
-
 	return (res);
 }

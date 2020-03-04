@@ -32,25 +32,27 @@ typedef struct	s_hook_key
 	void		(*func)(int, t_data *);
 }				t_hook_key;
 
-void	cam_move(int keycode, t_data *data);
-void	cam_rotate(int keycode, t_data *data);
-void	switch_cam(int keycode, t_data *data);
+void			cam_move(int keycode, t_data *data);
+void			cam_rotate_lr(int keycode, t_data *data);
+void			cam_rotate_ud(int keycode, t_data *data);
+void			switch_cam_next(int keycode, t_data *data);
+void			switch_cam_prev(int keycode, t_data *data);
 
 t_hook_key		g_hook_key[] = {
 	{KEY_ESC, &exit_mlx},
 	{KEY_Q, &exit_mlx},
-	{KEY_O, &switch_cam},
-	{KEY_P, &switch_cam},
+	{KEY_P, &switch_cam_next},
+	{KEY_O, &switch_cam_prev},
 	{KEY_A, &cam_move},
 	{KEY_D, &cam_move},
 	{KEY_W, &cam_move},
 	{KEY_S, &cam_move},
 	{KEY_LSHIFT, &cam_move},
 	{KEY_SPACE, &cam_move},
-	{KEY_LEFT, &cam_rotate},
-	{KEY_RIGHT, &cam_rotate},
-	{KEY_UP, &cam_rotate},
-	{KEY_DOWN, &cam_rotate},
+	{KEY_LEFT, &cam_rotate_lr},
+	{KEY_RIGHT, &cam_rotate_lr},
+	{KEY_UP, &cam_rotate_ud},
+	{KEY_DOWN, &cam_rotate_ud},
 	{0, NULL}
 };
 

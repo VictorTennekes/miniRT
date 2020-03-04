@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   cam_move_xyz.c                                     :+:    :+:            */
+/*   cam_interact.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -23,59 +23,78 @@
 #include <minirt.h>
 #include "key_codes.h"
 
-#define CAM data->current_cam
-
 void	cam_move(int keycode, t_data *data)
 {
 	data->window.rendered = false;
 	if (keycode == KEY_A)
-		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.right, MOVE_SPEED));
+		data->current_cam->pos = vec_sub(data->current_cam->pos,
+		vec_multi(data->current_cam->matrix.right, MOVE_SPEED));
 	else if (keycode == KEY_D)
-		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.right, MOVE_SPEED));
+		data->current_cam->pos = vec_add(data->current_cam->pos,
+		vec_multi(data->current_cam->matrix.right, MOVE_SPEED));
 	else if (keycode == KEY_W)
-		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.forward, MOVE_SPEED));
+		data->current_cam->pos = vec_sub(data->current_cam->pos,
+		vec_multi(data->current_cam->matrix.forward, MOVE_SPEED));
 	else if (keycode == KEY_S)
-		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.forward, MOVE_SPEED));
+		data->current_cam->pos = vec_add(data->current_cam->pos,
+		vec_multi(data->current_cam->matrix.forward, MOVE_SPEED));
 	else if (keycode == KEY_LSHIFT)
-		CAM->pos = vec_sub(CAM->pos, vec_multi(CAM->matrix.up, MOVE_SPEED));
+		data->current_cam->pos = vec_sub(data->current_cam->pos,
+		vec_multi(data->current_cam->matrix.up, MOVE_SPEED));
 	else if (keycode == KEY_SPACE)
-		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.up, MOVE_SPEED));
+		data->current_cam->pos = vec_add(data->current_cam->pos,
+		vec_multi(data->current_cam->matrix.up, MOVE_SPEED));
 	else
 		data->window.rendered = true;
 }
 
-void	cam_rotate(int keycode, t_data *data)
+void	cam_rotate_lr(int keycode, t_data *data)
 {
 	data->window.rendered = false;
 	if (keycode == KEY_LEFT)
 	{
-		CAM->quat = rotate_cam(CAM->matrix.forward, CAM->matrix.up, 5 * M_PI / 180);
-		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
-		CAM->vector = vec_multi(CAM->vector, -1);
-		CAM->matrix = matrix_new(CAM->vector);
-		CAM->matrix = normal_matrix(CAM->matrix);
+		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
+			data->current_cam->matrix.up, 5 * M_PI / 180);
+		data->current_cam->vector = vec_new(data->current_cam->quat.x,
+			data->current_cam->quat.y, data->current_cam->quat.z);
+		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
+		data->current_cam->matrix = matrix_new(data->current_cam->vector);
+		data->current_cam->matrix = normal_matrix(data->current_cam->matrix);
 	}
 	else if (keycode == KEY_RIGHT)
 	{
-		CAM->quat = rotate_cam(CAM->matrix.forward, CAM->matrix.up, -5 * M_PI / 180);
-		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
-		CAM->vector = vec_multi(CAM->vector, -1);
-		CAM->matrix = matrix_new(CAM->vector);
-		CAM->matrix = normal_matrix(CAM->matrix);
+		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
+			data->current_cam->matrix.up, -5 * M_PI / 180);
+		data->current_cam->vector = vec_new(data->current_cam->quat.x,
+			data->current_cam->quat.y, data->current_cam->quat.z);
+		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
+		data->current_cam->matrix = matrix_new(data->current_cam->vector);
+		data->current_cam->matrix = normal_matrix(data->current_cam->matrix);
 	}
-	else if (keycode == KEY_UP)
+	else
+		data->window.rendered = true;
+}
+
+void	cam_rotate_ud(int keycode, t_data *data)
+{
+	data->window.rendered = false;
+	if (keycode == KEY_UP)
 	{
-		CAM->quat = rotate_cam(CAM->matrix.forward, CAM->matrix.right, 5 * M_PI / 180);
-		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
-		CAM->vector = vec_multi(CAM->vector, -1);
-		CAM->matrix = matrix_new(CAM->vector);
+		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
+			data->current_cam->matrix.right, 5 * M_PI / 180);
+		data->current_cam->vector = vec_new(data->current_cam->quat.x,
+			data->current_cam->quat.y, data->current_cam->quat.z);
+		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
+		data->current_cam->matrix = matrix_new(data->current_cam->vector);
 	}
 	else if (keycode == KEY_DOWN)
 	{
-		CAM->quat = rotate_cam(CAM->matrix.forward, CAM->matrix.right, -5 * M_PI / 180);
-		CAM->vector = vec_new(CAM->quat.x, CAM->quat.y, CAM->quat.z);
-		CAM->vector = vec_multi(CAM->vector, -1);
-		CAM->matrix = matrix_new(CAM->vector);
+		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
+			data->current_cam->matrix.right, -5 * M_PI / 180);
+		data->current_cam->vector = vec_new(data->current_cam->quat.x,
+			data->current_cam->quat.y, data->current_cam->quat.z);
+		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
+		data->current_cam->matrix = matrix_new(data->current_cam->vector);
 	}
 	else
 		data->window.rendered = true;

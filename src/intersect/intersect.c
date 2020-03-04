@@ -21,9 +21,9 @@
 */
 
 #include <minirt.h>
-#include "intersec.h"
+#include "intersect.h"
 
 bool	intersect(t_object *object, t_ray ray, t_data *data)
 {
-	return(g_intersect[object->type](object, ray, data));
+	return (g_intersect[object->type](object, ray, data));
 }
