@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculating the dot product of two vectors.
+**
+**	@param	:	{t_vec3d} vec1
+**	@param	:	{t_vec3d} vec2
+**
+**	@return	:	{double}
+*/
+
 #include <minirt.h>
 
 t_vec3d	vec_new(double x, double y, double z)
