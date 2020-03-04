@@ -10,9 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Collection of functions for printing errors
+**
+**	@param	:	{char *} error
+**	@param	:	{t_data} *data
+**	@param	:	{void *} func
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <libft.h>
-#include <liblist.h>
 #include <stdlib.h>
 
 void	print_error(char *error, t_data *data)
