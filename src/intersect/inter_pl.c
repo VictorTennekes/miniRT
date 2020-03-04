@@ -14,12 +14,17 @@
 
 bool	intersect_pl(t_object *plane, t_ray ray, t_data *data)
 {
+	double	denom;
 	double	t;
 
 	(void)data;
-	t = (vec_dot_prod(vec_sub(plane->pos, ray.origin), plane->vector) /
-					vec_dot_prod(ray.direction, plane->vector));
-	if (t < 0)
-		return (false);
-	return (true);
+	denom = vec_dot_prod(plane->vector, ray.direction);
+
+	if (denom < 1e-6)
+	{
+		t = vec_dot_prod(vec_sub(plane->pos, ray.origin), plane->vector) / denom;
+		if (t >= 0.0)
+			return (true);
+	}
+	return (false);
 }

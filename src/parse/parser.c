@@ -78,13 +78,14 @@ void	parse_file(char *file, t_data *data)
 	if (fd < 0)
 		print_error("Can't open file", data);
 	ret = 1;
-	while (get_next_line(fd, &line) == 1)
+	while (ret == 1)
 	{
+		ret = get_next_line(fd, &line);
 		if (*line != '#')
 			parse_line(line, data);
 		free (line);
 	}
-	free(line);
+	// free(line);
 	if (!data->mapinfo.amb_set || !data->window.res_set)
 		print_error("Invalid file: resolution and ambient have to be set", data);
 	if (!data->cameras || !data->lights)
