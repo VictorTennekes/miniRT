@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   free_data.c                                        :+:    :+:            */
+/*   quat_local_rot.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/20 12:59:49 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/20 12:59:49 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/03/04 13:43:32 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/03/04 13:43:32 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**	Function to free the data struct.
-**
-<<<<<<< HEAD
-**	@param	:	{t_data *} data
-=======
-**	@param	:	{t_data} *data
->>>>>>> 2185cb97de23d606afe9e4fd1d1a9e6754b446f1
-**
-**	@return	:	{void}
-*/
-
 #include <minirt.h>
-#include <stdlib.h>
 
-void	free_data(t_data *data)
+t_quat	quat_local_rot(t_vec3d axis, double angle)
 {
-	if (data->objects)
-		free_list(data->objects, &free);
-	if (data->cameras)
-		free_list(data->cameras, &free);
-	if (data->lights)
-		free_list(data->lights, &free);
+	t_quat	res;
+
+	axis = vec_normalize(axis);
+	res.w = cos(angle / 2);
+	res.x = axis.x * sin(angle / 2);
+	res.y = axis.y * sin(angle / 2);
+	res.z = axis.z * sin(angle / 2);
+	return (res);
 }

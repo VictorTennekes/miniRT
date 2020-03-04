@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   free_data.c                                        :+:    :+:            */
+/*   cam_rot.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/20 12:59:49 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/20 12:59:49 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/03/04 13:38:54 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/03/04 13:38:54 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**	Function to free the data struct.
-**
-<<<<<<< HEAD
-**	@param	:	{t_data *} data
-=======
-**	@param	:	{t_data} *data
->>>>>>> 2185cb97de23d606afe9e4fd1d1a9e6754b446f1
-**
-**	@return	:	{void}
-*/
-
 #include <minirt.h>
-#include <stdlib.h>
 
-void	free_data(t_data *data)
+t_quat rotate_cam(t_vec3d vector, t_vec3d axis, double angle)
 {
-	if (data->objects)
-		free_list(data->objects, &free);
-	if (data->cameras)
-		free_list(data->cameras, &free);
-	if (data->lights)
-		free_list(data->lights, &free);
+	t_quat	p;
+	t_quat	p2;
+	t_quat	r;
+	t_quat	r2;
+
+	p = quat_new(0, vector.x, vector.y, vector.z);
+	vector = vec_normalize(vector);
+	axis = vec_normalize(axis);
+	r = quat_local_rot(axis, angle);
+	r2 = quat_conj(r);
+	p2 = quat_multi(quat_multi(r, p), r2);
+	return (p2);
 }

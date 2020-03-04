@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   free_data.c                                        :+:    :+:            */
+/*   quat_norm.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/20 12:59:49 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/20 12:59:49 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/03/04 13:42:16 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/03/04 13:42:16 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**	Function to free the data struct.
-**
-<<<<<<< HEAD
-**	@param	:	{t_data *} data
-=======
-**	@param	:	{t_data} *data
->>>>>>> 2185cb97de23d606afe9e4fd1d1a9e6754b446f1
-**
-**	@return	:	{void}
-*/
-
 #include <minirt.h>
-#include <stdlib.h>
 
-void	free_data(t_data *data)
+t_quat	quat_norm(t_quat q)
 {
-	if (data->objects)
-		free_list(data->objects, &free);
-	if (data->cameras)
-		free_list(data->cameras, &free);
-	if (data->lights)
-		free_list(data->lights, &free);
+	t_quat new;
+	double	mag;
+
+	mag = sqrt(pow(q.w, 2) + pow(q.x, 2) + pow(q.y, 2) + pow(q.z, 2));
+	new.w = q.w / mag;
+	new.x = q.x / mag;
+	new.y = q.y / mag;
+	new.z = q.z / mag;
+	return (new);
 }
