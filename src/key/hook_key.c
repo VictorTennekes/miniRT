@@ -21,7 +21,6 @@
 
 #include <minirt.h>
 #include <mlx.h>
-#include <libft.h>
 #include "hook_key.h"
 
 int		hook_key(int keycode, t_data *data)

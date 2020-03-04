@@ -10,9 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parse info into the appropriate struct.
+**
+**	@param	:	{char **} infos
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
-#include <stdbool.h>
-#include <libft.h>
 #include <mlx.h>
 
 void	parse_resolution(char **info, t_data *data)

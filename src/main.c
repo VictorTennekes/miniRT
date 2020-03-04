@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <libft.h>
 #include <mlx.h>
 
 int main(int ac, char **av)

@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Redirecting the parse function for appropriate identifier.
+**
+**	@param	:	{char **} info
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #ifndef PARSE_H
 # define PARSE_H
 

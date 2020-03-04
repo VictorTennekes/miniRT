@@ -10,11 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parse info into the appropriate struct and linked list.
+**
+**	@param	:	{char **} infos
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
-#include <libft.h>
 #include <liblist.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 void	parse_light(char **info, t_data *data)
 {

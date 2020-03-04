@@ -59,13 +59,13 @@ SRCS			=	main.c\
 					utilities/ray_res_inf.c\
 					utilities/ray_res_new.c\
 					vec/matrix/matrix_multi.c\
+					vec/matrix/matrix_new.c\
 					vec/matrix/matrix_prod.c\
+					vec/matrix/normal_matrix.c\
 					vec/normal/norm_cy.c\
 					vec/normal/norm_pl.c\
 					vec/normal/norm_sp.c\
-					vec/normal/normal_matrix.c\
 					vec/normal/normal.c\
-					vec/normal/vec_normalize.c\
 					vec/quaternions/cam_rot.c\
 					vec/quaternions/quat_conj.c\
 					vec/quaternions/quat_local_rot.c\
@@ -82,6 +82,7 @@ SRCS			=	main.c\
 					vec/vec_len.c\
 					vec/vec_multi.c\
 					vec/vec_new.c\
+					vec/vec_normalize.c\
 					vec/vec_prod.c\
 					vec/vec_rot.c\
 					vec/vec_sub.c

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**	Parse info into the appropriate struct.
+**	Parse info into the appropriate struct and linked list.
 **
 **	@param	:	{char **} infos
 **	@param	:	{t_data *} data
@@ -20,21 +20,8 @@
 */
 
 #include <minirt.h>
-#include <libft.h>
 #include <liblist.h>
 #include <stdlib.h>
-
-t_matrix matrix_new(t_vec3d f)
-{
-	t_matrix	matrix;
-
-	matrix.forward = vec_multi(f, -1);
-	matrix.right = vec_cross_prod(vec_normalize(vec_new(0, 1, 0)),
-					matrix.forward);
-	matrix.up = vec_cross_prod(matrix.forward, matrix.right);
-	normal_matrix(matrix);
-	return (matrix);
-}
 
 void	parse_camera(char **info, t_data *data)
 {

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <libft.h>
 #include <stdio.h>
 
 t_vec3d		parse_coord(char *str)

@@ -15,10 +15,11 @@
 
 # define MOVE_SPEED 0.6
 
+# include <libft.h>
+# include <liblist.h>
 # include <stdint.h>
 # include <stdbool.h>
 # include <stddef.h>
-# include <liblist.h>
 # include <math.h>
 # include <stdio.h>
 
@@ -171,8 +172,6 @@ void	free_list(t_list *list, void (*func)(void *));
 
 // parsing
 void	parse_file(char *file, t_data *data);
-void	parse_line(char *line, t_data *data);
-int		verify_filename(char *filename);
 
 // utils
 size_t	char_arrlen(char **array);

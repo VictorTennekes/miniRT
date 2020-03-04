@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <libft.h>
 #include <math.h>
 #include <stdlib.h>
 

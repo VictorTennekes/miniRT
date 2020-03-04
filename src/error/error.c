@@ -21,7 +21,6 @@
 */
 
 #include <minirt.h>
-#include <libft.h>
 #include <stdlib.h>
 
 void	print_error(char *error, t_data *data)

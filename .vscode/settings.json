@@ -11,6 +11,9 @@
 		"*.png": "c",
 		"ios": "c",
 		"complex": "c",
-		"iterator": "c"
+		"iterator": "c",
+		"liblist.h": "c",
+		"stdlib.h": "c",
+		"stdbool.h": "c"
 	}
 }

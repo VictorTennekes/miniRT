@@ -20,7 +20,6 @@
 */
 
 #include <minirt.h>
-#include <libft.h>
 
 void	parse_ambient(char **info, t_data *data)
 {

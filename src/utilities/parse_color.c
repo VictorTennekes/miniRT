@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <minirt.h>
-#include <libft.h>
 #include <stdlib.h>
 
 t_color		parse_color(char *str, t_data *data)

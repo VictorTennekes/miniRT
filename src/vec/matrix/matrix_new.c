@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   check_line.c                                       :+:    :+:            */
+/*   matrix_new.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/03 16:12:12 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/03 16:19:17 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/03/04 13:56:02 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/03/04 13:56:02 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <stdbool.h>
+#include <minirt.h>
 
-bool	check_line(char *str)
+t_matrix matrix_new(t_vec3d f)
 {
-	while (*str != '\n')
-	{
-		if (ft_isascii(*str))
-			return (false);
-		str++;
-	}
-	return (true);
+	t_matrix	matrix;
+
+	matrix.forward = vec_multi(f, -1);
+	matrix.right = vec_cross_prod(vec_normalize(vec_new(0, 1, 0)),
+					matrix.forward);
+	matrix.up = vec_cross_prod(matrix.forward, matrix.right);
+	normal_matrix(matrix);
+	return (matrix);
 }
