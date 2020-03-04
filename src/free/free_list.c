@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Function to free a linked list using a given function.
+**
+**	@param	:	{t_list *} list
+**	@param	:	{void *} func
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 
