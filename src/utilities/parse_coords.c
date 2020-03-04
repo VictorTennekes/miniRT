@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parsing the coordinate values and returning a s_vec3d struct.
+**
+**	@param	:	{char *} str
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 #include <stdio.h>
 

@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Casting a ray onto an object to retrieve data and after apply the
+**	light funcions.
+**
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_color}
+*/
+
 #include <minirt.h>
 #include <math.h>
 

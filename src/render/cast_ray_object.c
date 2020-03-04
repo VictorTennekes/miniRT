@@ -10,6 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Checking if the cast ray actually hits an objects or shoots into
+**	infinite space. Closest object in the ray path is preserved for
+**	later calculations.
+**
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_ray_res}
+*/
+
 #include <minirt.h>
 #include <math.h>
 

@@ -12,6 +12,16 @@
 
 #include <minirt.h>
 
+/*
+**	Check if the ray from a light to a object is obstructed by other objects.
+**
+**	@param	:	{t_object *} object
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{bool}
+*/
+
 bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
 {
 	t_list *objects;
@@ -26,6 +36,17 @@ bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
 	}
 	return (false);
 }
+
+/*
+**	Calculate the effect of a light on the color of an object.
+**
+**	@param	:	{t_ray_res} ray_res
+**	@param	:	{t_ray} ray
+**	@param	:	{t_light *} light
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_color}
+*/
 
 t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 {
@@ -46,6 +67,18 @@ t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 	fac /= 4 * M_PI * pow(vec_dist(light->pos, ray_res.position), 2);
 	return (color_multi(color_mix_light(light->color, ray_res.object->color), fmin(fac, 1)));
 }
+
+
+/*
+**	Cycle through the light to calculate which light have an effect
+**	on the color of the object.
+**
+**	@param	:	{t_ray_res} ray_res
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_color}
+*/
 
 t_color	cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data)
 {

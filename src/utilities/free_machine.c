@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Function to free an array.
+**
+**	@param	:	{char **} array
+**
+**	@return	:	{void}
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 

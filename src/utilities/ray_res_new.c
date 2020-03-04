@@ -12,6 +12,16 @@
 
 #include <minirt.h>
 
+/*
+**	Creating a s_ray_res struct with given parameters.
+**
+**	@param	:	{t_object *} object
+**	@param	:	{t_vec3d} vector
+**	@param	:	{t_color} color
+**
+**	@return	:	{t_ray_res}
+*/
+
 t_ray_res 	ray_res_new(t_object *object, t_vec3d vector, t_color color)
 {
 	t_ray_res new;
@@ -21,6 +31,17 @@ t_ray_res 	ray_res_new(t_object *object, t_vec3d vector, t_color color)
 	new.color = color;
 	return (new);
 }
+
+/*
+**	Creating a s_ray_res struct with given parameters.
+**
+**	@param	:	{t_object *} object
+**	@param	:	{t_vec3d} vector
+**	@param	:	{t_color} color
+**	@param	:	{double} distance
+**
+**	@return	:	{t_ray_res}
+*/
 
 t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector, t_color color, \
 	double distance)

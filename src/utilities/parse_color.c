@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parsing the color values and returning a s_color struct.
+**
+**	@param	:	{char *} str
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_color}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 
@@ -26,12 +35,8 @@ t_color		parse_color(char *str, t_data *data)
 	r = parse_double(rgb[0]);
 	g = parse_double(rgb[1]);
 	b = parse_double(rgb[2]);
-	if (r > 255 || r < 0)
-		print_error("Invalid red color value", data);
-	if (g > 255 || g < 0)
-		print_error("Invalid green color value", data);
-	if (b > 255 || b < 0)
-		print_error("Invalid blue color value", data);
+	if ((r > 255 || r < 0) || (g > 255 || g < 0) || (b > 255 || b < 0))
+		print_error("Invalid color value", data);
 	free_machine(rgb);
 	return (color_new(r, g, b));
 }

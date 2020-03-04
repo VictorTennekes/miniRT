@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   arrlen.c                                           :+:    :+:            */
+/*   char_arrlen.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
@@ -10,9 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculating the size of a char array.
+**
+**	@param	:	{char **} array
+**
+**	@return	:	{size_t}
+*/
+
 #include <stddef.h>
 
-// Count amount of items in array
 size_t	char_arrlen(char **array)
 {
 	size_t	res;

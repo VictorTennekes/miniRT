@@ -10,10 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parsing a string into a double.
+**
+**	@param	:	{char *} str
+**
+**	@return	:	{double}
+*/
+
 #include <minirt.h>
 #include <math.h>
-#include <stdlib.h>
-
 
 double	parse_double(char *str)
 {

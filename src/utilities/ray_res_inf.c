@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Creating a s_ray_res struct that points to infinity.
+**
+**	@param	:	{void}
+**
+**	@return	:	{t_ray_res}
+*/
+
 #include <minirt.h>
 
 t_ray_res ray_res_inf(void)

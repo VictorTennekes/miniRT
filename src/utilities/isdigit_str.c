@@ -10,10 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minirt.h>
+/*
+**	Calculating if a string contains only digits.
+**
+**	@param	:	{char *} str
+**
+**	@return	:	{int}
+*/
 
-#include <stdio.h>
-#include <errno.h>
+#include <minirt.h>
 
 int		isdigit_str(char *str)
 {
