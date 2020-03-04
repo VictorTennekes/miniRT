@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Multiplying quaternion with another quaternion.
+**
+**	@param	:	{t_quat} q1
+**	@param	:	{t_quat} q2
+**
+**	@return	:	{t_quat}
+*/
+
 #include <minirt.h>
 
 t_quat	quat_multi(t_quat q1, t_quat q2)

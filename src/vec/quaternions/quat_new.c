@@ -10,6 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Creating a new quaternion from given parameters.
+**
+**	@param	:	{double} w
+**	@param	:	{double} x
+**	@param	:	{double} y
+**	@param	:	{double} z
+**
+**	@return	:	{t_quat}
+*/
+
 #include <minirt.h>
 
 t_quat	quat_new(double w, double x, double y, double z)

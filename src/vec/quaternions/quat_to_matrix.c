@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Converting a quaternion to a matrix.
+**
+**	@param	:	{t_quat} q
+**
+**	@return	:	{t_matrix}
+*/
+
 #include <minirt.h>
 
 t_matrix	quat_to_matrix(t_quat q)

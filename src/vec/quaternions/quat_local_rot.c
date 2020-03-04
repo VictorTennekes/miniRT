@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculating the local rotation of a quaternion around a arbitrary axis
+**	compared to its previous state.
+**
+**	@param	:	{t_vec3d} axis
+**	@param	:	{double} angle
+**
+**	@return	:	{t_quat}
+*/
+
 #include <minirt.h>
 
 t_quat	quat_local_rot(t_vec3d axis, double angle)

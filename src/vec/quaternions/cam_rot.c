@@ -10,6 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Rotating a quaternion around a arbitrary axis by applying a couple
+**	of calculations.
+**
+**	@param	:	{t_vec3d} vector
+**	@param	:	{t_vec3d} axis
+**	@param	:	{double} angle
+**
+**	@return	:	{t_quat}
+*/
+
 #include <minirt.h>
 
 t_quat rotate_cam(t_vec3d vector, t_vec3d axis, double angle)

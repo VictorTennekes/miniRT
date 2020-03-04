@@ -10,17 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Normalizing a quaternion.
+**
+**	@param	:	{t_quat} quat
+**
+**	@return	:	{t_quat}
+*/
+
 #include <minirt.h>
 
-t_quat	quat_norm(t_quat q)
+t_quat	quat_norm(t_quat quat)
 {
 	t_quat new;
 	double	mag;
 
-	mag = sqrt(pow(q.w, 2) + pow(q.x, 2) + pow(q.y, 2) + pow(q.z, 2));
-	new.w = q.w / mag;
-	new.x = q.x / mag;
-	new.y = q.y / mag;
-	new.z = q.z / mag;
+	mag = sqrt(pow(quat.w, 2) + pow(quat.x, 2) + pow(quat.y, 2) + pow(quat.z, 2));
+	new.w = quat.w / mag;
+	new.x = quat.x / mag;
+	new.y = quat.y / mag;
+	new.z = quat.z / mag;
 	return (new);
 }

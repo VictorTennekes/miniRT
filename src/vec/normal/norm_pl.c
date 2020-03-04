@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Returning the normal of the plane retrieved from the s_ray_res struct.
+**
+**	@param	:	{t_ray_res} ray_res
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 
 t_vec3d	norm_pl(t_ray_res ray_res, t_data *data)

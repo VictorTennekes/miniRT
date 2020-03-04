@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Utilize the jumptable to return the normal of a object retrieved
+**	from ray_res.
+**
+**	@param	:	{t_ray_res} ray_res
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 #include "normal.h"
 

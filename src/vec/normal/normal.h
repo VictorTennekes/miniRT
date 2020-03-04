@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Redirecting the ray_res normal function for appropriate object.
+**
+**	@param	:	{t_ray_res} ray_res
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_vec3d}
+*/
+
 #ifndef NORMAL_H
 # define NORMAL_H
 

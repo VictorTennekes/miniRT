@@ -10,14 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Multiplying a matrix with a factor.
+**
+**	@param	:	{t_matrix} matrix
+**	@param	:	{double} factor
+**
+**	@return	:	{t_matrix}
+*/
+
 #include <minirt.h>
 
-t_matrix	matrix_multi(t_matrix m, double d)
+t_matrix	matrix_multi(t_matrix matrix, double factor)
 {
 	t_matrix res;
 
-	res.forward = vec_multi(m.forward, d);
-	res.up = vec_multi(m.up, d);
-	res.right = vec_multi(m.right, d);
+	res.forward = vec_multi(matrix.forward, factor);
+	res.up = vec_multi(matrix.up, factor);
+	res.right = vec_multi(matrix.right, factor);
 	return (res);
 }

@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Multiplying a matrix with another matrix.
+**
+**	@param	:	{t_matrix} a
+**	@param	:	{t_matrix} b
+**
+**	@return	:	{t_matrix}
+*/
+
 #include <minirt.h>
 
 t_matrix	matrix_prod(t_matrix a, t_matrix b)
