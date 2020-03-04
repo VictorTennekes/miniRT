@@ -21,15 +21,16 @@ void	parse_light(char **info, t_data *data)
 	t_light	*light;
 
 	if (char_arrlen(info) != 4)
-		print_error("Wrong amount of values given for light", data);
+		print_error("Invalid amount of values given for light", data);
 	light = (t_light *)malloc(sizeof(t_light));
 	if (!light)
 		print_error("Malloc failed for light", data);
 	light->pos	= parse_coord(info[1]);
 	light->ratio = parse_double(info[2]);
 	light->color = parse_color(info[3], data);
-	if (/*light->ratio > 1 ||*/ light->ratio < 0)
-		print_error("Wrong value given for light ratio", data);
+	if (light->ratio > 1 || light->ratio < 0)
+		print_error("Invalid value given for light ratio", data);
+	light->ratio *= 100;
 	if (!lst_new_back(&(data->lights), light))
 		print_error("Allocation failed for light", data);
 }

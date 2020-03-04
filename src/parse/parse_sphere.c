@@ -21,7 +21,7 @@ void	parse_sphere(char **info, t_data *data)
 	t_object *object;
 
 	if (char_arrlen(info) != 4)
-		print_error("Wrong amount of values given for sphere", data);
+		print_error("Invalid amount of values given for sphere", data);
 	object = (t_object *)malloc(sizeof(t_object));
 	ft_bzero(object, sizeof(t_object));
 	if (!object)
