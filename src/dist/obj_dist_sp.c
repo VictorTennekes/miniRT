@@ -13,9 +13,9 @@
 /*
 **	Calculating the distance between the ray origin and a sphere.
 **
-**	@param	:	{t_object} *sphere
+**	@param	:	{t_object *} sphere
 **	@param	:	{t_ray} ray
-**	@param	:	{t_data} *data
+**	@param	:	{t_data *} data
 **
 **	@return	:	{t_ray_res}
 */

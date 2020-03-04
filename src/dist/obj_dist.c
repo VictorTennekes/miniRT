@@ -13,9 +13,9 @@
 /*
 **	Utilizing the jumptable to calculate distance to appropriate object.
 **
-**	@param	:	{t_object} *object
+**	@param	:	{t_object *} object
 **	@param	:	{t_ray} ray
-**	@param	:	{t_data} *data
+**	@param	:	{t_data *} data
 **
 **	@return	:	{t_ray_res}
 */
