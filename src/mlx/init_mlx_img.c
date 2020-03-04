@@ -10,20 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Initiate the mlx image by assigning the data from the data struct.
+**
+**	@param	:	{t_data *} data
+**
+**	@return	:	{bool}
+*/
+
 #include <minirt.h>
 #include <mlx.h>
 
-#define IMG data->mlx_info.mlx_data
-
 bool	init_mlx_img(t_data *data)
 {
-	IMG.img = mlx_new_image(data->mlx_info.mlx,
+	data->mlx_info.mlx_data.img = mlx_new_image(data->mlx_info.mlx,
 					data->window.x, data->window.y);
-	if (!IMG.img)
+	if (!data->mlx_info.mlx_data.img)
 		return (true);
-	IMG.addr = mlx_get_data_addr(IMG.img, &IMG.bits_per_pixel,
-					&IMG.line_length, &IMG.endian);
-	if (!IMG.addr)
+	data->mlx_info.mlx_data.addr =
+					mlx_get_data_addr(data->mlx_info.mlx_data.img,
+					&data->mlx_info.mlx_data.bits_per_pixel,
+					&data->mlx_info.mlx_data.line_length,
+					&data->mlx_info.mlx_data.endian);
+	if (!data->mlx_info.mlx_data.addr)
 		return (true);
 	return (false);
 }

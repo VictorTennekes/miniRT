@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Switch between camera's accessing previous or next nodes.
+**
+**	@param	:	{int} keycode
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <key_codes.h>
 #include <stdlib.h>

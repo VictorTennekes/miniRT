@@ -10,17 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Redirect key input to the associated functions.
+**
+**	@param	:	{int} keycode
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <mlx.h>
 #include <libft.h>
 #include "hook_key.h"
-
-void	exit_mlx(int keycode, t_data *data)
-{
-	(void)keycode;
-	mlx_destroy_window(data->mlx_info.mlx, data->mlx_info.mlx_win);
-	exit_free(data);
-}
 
 int		hook_key(int keycode, t_data *data)
 {

@@ -10,11 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parse info into the appropriate struct.
+**
+**	@param	:	{char **} infos
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <libft.h>
 #include <liblist.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 t_matrix matrix_new(t_vec3d f)
 {

@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Redirecting the key hook function to the function according to the
+**	appropriate keycode.
+**
+**	@param	:	{int} keycode
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #ifndef HOOK_KEY_H
 # define HOOK_KEY_H
 

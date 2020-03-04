@@ -10,10 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parse info into the appropriate struct.
+**
+**	@param	:	{char **} infos
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <libft.h>
-
-#include <stdio.h>
 
 void	parse_ambient(char **info, t_data *data)
 {

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**	Calculating the distance between the ray origin and a plane.
+**	Calculate the distance between the ray origin and a plane.
 **
 **	@param	:	{t_object *} plane
 **	@param	:	{t_ray} ray

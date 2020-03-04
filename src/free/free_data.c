@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Function to free the data struct.
+**
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 

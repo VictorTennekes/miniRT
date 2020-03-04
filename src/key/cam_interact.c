@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate the new position of the camera position or calculate the
+**	direction of the orientation vector.
+**
+**	@param	:	{int} keycode
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include "key_codes.h"
 
@@ -32,16 +42,6 @@ void	cam_move(int keycode, t_data *data)
 		CAM->pos = vec_add(CAM->pos, vec_multi(CAM->matrix.up, MOVE_SPEED));
 	else
 		data->window.rendered = true;
-}
-
-t_vec3d rot_vec_right(t_vec3d vec, double angle)
-{
-	t_vec3d res;
-
-	res.x = (vec.x * cos(angle)) + (vec.z * sin(angle));
-	res.y = vec.y;
-	res.z = (-1 * vec.x * sin(angle)) + (vec.z * cos(angle));
-	return (res);
 }
 
 void	cam_rotate(int keycode, t_data *data)

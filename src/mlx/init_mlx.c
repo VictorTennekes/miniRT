@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Initiate all the separate mlx components.
+**
+**	@param	:	{t_data *} data
+**
+**	@return	:	{bool}
+*/
+
 #include <minirt.h>
 #include <mlx.h>
 

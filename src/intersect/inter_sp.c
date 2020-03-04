@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate if a ray and a sphere intersect
+**
+**	@param	:	{t_object *} sphere
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{bool}
+*/
+
 #include <minirt.h>
 
 bool	intersect_sp(t_object *sphere, t_ray ray, t_data *data)

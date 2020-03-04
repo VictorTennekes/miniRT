@@ -10,10 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Utilize the jumptable to calculate if a ray and object intersect.
+**
+**	@param	:	{t_object *} object
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{bool}
+*/
+
 #include <minirt.h>
 #include "intersec.h"
 
-bool	intersect(t_object *obj, t_ray ray, t_data *data)
+bool	intersect(t_object *object, t_ray ray, t_data *data)
 {
-	return(g_intersect[obj->type](obj, ray, data));
+	return(g_intersect[object->type](object, ray, data));
 }

@@ -27,8 +27,9 @@ SRCS			=	main.c\
 					intersect/inter_sp.c\
 					intersect/intersect.c\
 					key/hook_key.c\
-					key/cam_move_xyz.c\
+					key/cam_interact.c\
 					key/switch_cam.c\
+					mlx/exit_mlx.c\
 					mlx/hook_frame.c\
 					mlx/init_mlx.c\
 					mlx/init_mlx_img.c\
@@ -57,14 +58,22 @@ SRCS			=	main.c\
 					utilities/parse_double.c\
 					utilities/ray_res_inf.c\
 					utilities/ray_res_new.c\
+					vec/matrix/matrix_multi.c\
+					vec/matrix/matrix_prod.c\
 					vec/normal/norm_cy.c\
 					vec/normal/norm_pl.c\
 					vec/normal/norm_sp.c\
 					vec/normal/normal_matrix.c\
 					vec/normal/normal.c\
 					vec/normal/vec_normalize.c\
+					vec/quaternions/cam_rot.c\
+					vec/quaternions/quat_conj.c\
+					vec/quaternions/quat_local_rot.c\
+					vec/quaternions/quat_multi.c\
+					vec/quaternions/quat_new.c\
+					vec/quaternions/quat_norm.c\
+					vec/quaternions/quat_to_matrix.c\
 					vec/get_pixel.c\
-					vec/quaternions.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
 					vec/vec_cross_prod.c\

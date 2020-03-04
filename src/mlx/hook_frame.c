@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Loop over the window to make sure everything is rendered and is
+**	re-rendered when updates take place.
+**
+**	@param	:	{t_data *} data
+**
+**	@return	:	{int}
+*/
+
 #include <minirt.h>
 #include <mlx.h>
 #include <stdio.h>

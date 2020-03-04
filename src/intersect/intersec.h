@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Redirecting the object intersection function for appropriate object.
+**
+**	@param	:	{t_object *} object
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{bool}
+*/
+
 #ifndef INTERSECT_H
 # define INTERSECT_H
 # include <minirt.h>

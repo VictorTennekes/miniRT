@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pixel_put.c                                        :+:    :+:            */
+/*   exit_mlx.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/17 15:13:13 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/17 15:13:13 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/03/04 13:20:45 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/03/04 13:20:45 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-**	Put a pixel into the mlx image on specific x y coordinates.
+**	Exit mlx by destroying the window and freeing the data struct.
 **
-**	@param	:	{t_mlx_data} data
-**	@param	:	{int} x
-**	@param	:	{int} y
-**	@param	:	{t_color} color
+**	@param	:	{int} keycode
+**	@param	:	{t_data *} data
 **
 **	@return	:	{void}
 */
 
 #include <minirt.h>
 #include <mlx.h>
-#include <stdio.h>
 
-void	pixel_put(t_mlx_data data, int x, int y, t_color color)
+void	exit_mlx(int keycode, t_data *data)
 {
-	char *dst;
-	dst = data.addr + (y * data.line_length + x * (data.bits_per_pixel / 8));
-	*(unsigned int*)dst = color_to_int(color);
+	(void)keycode;
+	mlx_destroy_window(data->mlx_info.mlx, data->mlx_info.mlx_win);
+	exit_free(data);
 }

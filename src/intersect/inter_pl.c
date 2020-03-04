@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate if a ray and a plane intersect
+**
+**	@param	:	{t_object *} plane
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{bool}
+*/
+
 #include <minirt.h>
 
 bool	intersect_pl(t_object *plane, t_ray ray, t_data *data)
