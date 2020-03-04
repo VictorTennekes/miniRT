@@ -15,14 +15,14 @@
 
 #define WINDOW data->window
 
-t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix)
-{
-	t_vec3d new;
-	new.x = vec.x * matrix.right.x + vec.y * matrix.up.x + vec.z * matrix.forward.x;
-	new.y = vec.x * matrix.right.y + vec.y * matrix.up.y + vec.z * matrix.forward.y;
-	new.z = vec.x * matrix.right.z + vec.y * matrix.up.z + vec.z * matrix.forward.z;
-	return (new);
-}
+/*
+**	Rotating the orientation of the screen according to the orientation
+**	vector of the used camera.
+**
+**	@param	:	{t_quat} quat
+**
+**	@return	:	{t_quat}
+*/
 
 t_vec3d		look_at(t_camera  *camera, t_vec3d ray)
 {
@@ -37,8 +37,18 @@ t_vec3d		look_at(t_camera  *camera, t_vec3d ray)
 	matrix.forward = forward;
 	matrix.right = right;
 	matrix.up = up;
-	return(mult_vec_matrix(ray, matrix));
+	return(multi_vec_matrix(ray, matrix));
 }
+
+/*
+**	Retrieving the location of a pixel on the screen according to the
+**	resolution and the field of view. And passing to the cast ray function.
+**
+**	@param	:	{t_vec2ui} pixel
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_color}
+*/
 
 t_color		get_pixel(t_vec2ui pixel, t_data *data)
 {

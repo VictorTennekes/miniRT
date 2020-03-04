@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	The main function of the program, checks the arguments and links to
+**	needed functions.
+**
+**	@param	:	{int} ac
+**	@param	:	{char **} av
+**
+**	@return	:	{int}
+*/
+
 #include <minirt.h>
 #include <mlx.h>
 

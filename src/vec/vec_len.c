@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculating the length of a vector.
+**
+**	@param	:	{t_vec3d} vec
+**
+**	@return	:	{double}
+*/
+
 #include <minirt.h>
 
 double	vec_len(t_vec3d vec)

@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Subtracting two vectors.
+**
+**	@param	:	{t_vec3d} vec1
+**	@param	:	{t_vec3d} vec2
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 
 t_vec3d	vec_sub(t_vec3d vec1, t_vec3d vec2)

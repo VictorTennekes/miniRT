@@ -267,7 +267,7 @@ void	key(int keycode, t_data *data);
 
 // Matrix
 t_matrix 	matrix_new(t_vec3d f);
-t_vec3d		mult_vec_matrix(t_vec3d vec, t_matrix matrix);
+t_vec3d		multi_vec_matrix(t_vec3d vec, t_matrix matrix);
 t_matrix	matrix_multi(t_matrix m, double d);
 
 // Quaternions

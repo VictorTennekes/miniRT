@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculating the cross product of two vectors.
+**
+**	@param	:	{t_vec3d} a
+**	@param	:	{t_vec3d} b
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 
 t_vec3d	vec_cross_prod(t_vec3d  vec1, t_vec3d vec2)

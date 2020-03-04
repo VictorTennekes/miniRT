@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculating the distance between two vectors.
+**
+**	@param	:	{t_vec3d} vec1
+**	@param	:	{t_vec3d} vec2
+**
+**	@return	:	{double}
+*/
+
 #include <minirt.h>
 
 double	vec_dist(t_vec3d vec1, t_vec3d vec2)

@@ -73,6 +73,7 @@ SRCS			=	main.c\
 					vec/quaternions/quat_norm.c\
 					vec/quaternions/quat_to_matrix.c\
 					vec/get_pixel.c\
+					vec/multi_vec_matrix.c\
 					vec/vec_a_to_b.c\
 					vec/vec_add.c\
 					vec/vec_cross_prod.c\
@@ -83,7 +84,6 @@ SRCS			=	main.c\
 					vec/vec_new.c\
 					vec/vec_normalize.c\
 					vec/vec_prod.c\
-					vec/vec_rot.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)

@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Normalizing a vector.
+**
+**	@param	:	{t_vec3d} vec
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 #include <math.h>
 
