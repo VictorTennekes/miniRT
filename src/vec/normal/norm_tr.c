@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   normal.h                                           :+:    :+:            */
+/*   norm_tr.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/20 11:01:51 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/02/20 11:01:51 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/03/05 10:57:02 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/03/05 10:57:02 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-**	Redirecting the ray_res normal function for appropriate object.
+**	Computating the normal of the triangle plane by taking the cross product
+**	of 2 lines between points of the triangle.
 **
 **	@param	:	{t_ray_res} ray_res
 **	@param	:	{t_data *} data
@@ -19,22 +20,15 @@
 **	@return	:	{t_vec3d}
 */
 
-#ifndef NORMAL_H
-# define NORMAL_H
+#include <minirt.h>
 
-# include <minirt.h>
+t_vec3d	norm_tr(t_ray_res ray_res, t_data *data)
+{
+	t_vec3d	vec_a;
+	t_vec3d	vec_b;
 
-t_vec3d	norm_pl(t_ray_res ray_res, t_data *data);
-t_vec3d	norm_sp(t_ray_res ray_res, t_data *data);
-t_vec3d	norm_tr(t_ray_res ray_res, t_data *data);
-t_vec3d norm_cy(t_ray_res ray_res, t_data *data);
-
-t_vec3d	(*g_normal[])(t_ray_res, t_data *) = {
-	&norm_pl,	//TODO plane
-	&norm_sp,	//TODO sphere
-	NULL,	//TODO square
-	&norm_cy,
-	&norm_tr
-};
-
-#endif
+	(void)data;
+	vec_a = vec_a_to_b(ray_res.object->pos2, ray_res.object->pos);
+	vec_b = vec_a_to_b(ray_res.object->pos3, ray_res.object->pos);
+	return (vec_normalize(vec_cross_prod(vec_a, vec_b)));
+}

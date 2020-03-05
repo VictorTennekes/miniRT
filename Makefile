@@ -18,13 +18,15 @@ SRCS			=	main.c\
 					color/color_mix_light.c\
 					color/color_new.c\
 					dist/obj_dist_pl.c\
-					dist/obj_dist.c\
 					dist/obj_dist_sp.c\
+					dist/obj_dist_tr.c\
+					dist/obj_dist.c\
 					error/error.c\
 					free/free_data.c\
 					free/free_list.c\
 					intersect/inter_pl.c\
 					intersect/inter_sp.c\
+					intersect/inter_tr.c\
 					intersect/intersect.c\
 					key/hook_key.c\
 					key/cam_interact.c\
@@ -64,6 +66,7 @@ SRCS			=	main.c\
 					vec/normal/norm_cy.c\
 					vec/normal/norm_pl.c\
 					vec/normal/norm_sp.c\
+					vec/normal/norm_tr.c\
 					vec/normal/normal.c\
 					vec/quaternions/cam_rot.c\
 					vec/quaternions/quat_conj.c\

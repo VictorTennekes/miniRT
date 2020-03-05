@@ -25,14 +25,15 @@
 # include <minirt.h>
 
 bool	intersect_pl(t_object *plane, t_ray ray, t_data *data);
-bool	intersect_sp(t_object *object, t_ray ray, t_data *data);
+bool	intersect_sp(t_object *sphere, t_ray ray, t_data *data);
+bool	intersect_tr(t_object *triangle, t_ray ray, t_data *data);
 
 bool	(*g_intersect[])(t_object *, t_ray, t_data *) = {
 	[PL] = &intersect_pl,
 	[SP] = &intersect_sp,
 	NULL,
 	NULL,
-	NULL
+	[TR] = &intersect_tr
 };
 
 #endif

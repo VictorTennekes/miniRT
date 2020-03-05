@@ -24,11 +24,13 @@
 
 t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data)
 {
+	double	denom;
 	double	t;
 
 	(void)data;
+	denom = vec_dot_prod(plane->vector, ray.direction);
 	t = (vec_dot_prod(vec_sub(plane->pos, ray.origin), plane->vector) /
-					vec_dot_prod(ray.direction, plane->vector));
+		denom);
 	if (t < 0)
 		return (ray_res_inf());
 	return (ray_res_dist_new(plane, vec_add(ray.origin,

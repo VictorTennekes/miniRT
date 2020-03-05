@@ -311,7 +311,7 @@ t_quat				quat_local_rot(t_vec3d axis, double angle);
 t_quat				quat_multi(t_quat q1, t_quat q2);
 
 /*
-**	Main camera fucntion
+**	Main camera function
 */
 
 t_quat				rotate_cam(t_vec3d vector, t_vec3d axis, double angle);
