@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  <minirt.h>
+#include <minirt.h>
+#include <stdlib.h>
 
-t_ray_res	obj_dist_tr(t_object *triangle, t_ray ray, t_data *data)
+t_ray_res		obj_dist_tr(t_object *triangle, t_ray ray, t_data *data)
 {
-	double	t;
-	double	d;
-	double	area;
+	t_ray_res	tr_plane;
+	t_object	plane;
 
-	(void)data;
-	triangle->vector = vec_cross_prod(vec_sub(triangle->pos2,
-		triangle->pos), vec_sub(triangle->pos3,
-		triangle->pos));
-	area = vec_len(triangle->vector);
-	if (fabs(vec_dot_prod(triangle->vector, ray.origin)) < EPSILON)
+	plane.type = PL;
+	plane.pos = triangle->pos;
+	plane.vector = normal(ray_res_new(triangle, vec_new(0, 0, 0), color_new(0, 0, 0)), data);
+	if (vec_dot_prod(plane.vector, ray.direction) <= EPSILON)
 		return (ray_res_inf());
-	d = vec_dot_prod(triangle->vector, triangle->pos);
-	t = (vec_dot_prod(ray.origin, triangle->vector) + d) / vec_dot_prod(triangle->vector, ray.origin);
-	if (t < 0)
+	plane.vector = plane.vector;
+	tr_plane = obj_dist(&plane, ray, data);
+	if (tr_plane.distance == INFINITY)
 		return (ray_res_inf());
-	return (ray_res_dist_new(triangle, vec_add(ray.origin,
-					vec_multi(ray.direction, t)), triangle->color, t));
+	if (!check_edge_tr(triangle, plane.vector, tr_plane.position))
+		return (ray_res_inf());
+	return (ray_res_dist_new(triangle, tr_plane.position, triangle->color,
+		vec_dist(ray.origin, tr_plane.position)));
 }

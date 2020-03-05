@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tr_in_out.c                                        :+:    :+:            */
+/*   check_edge_tr.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,21 +12,21 @@
 
 #include <minirt.h>
 
-bool	check_edge_tr(t_object *triangle, t_vec3d p)
+bool	check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p)
 {
-	t_vec3d c;
+	t_vec3d edge[3];
+	t_vec3d c[3];
 
-	c = (vec_cross_prod(vec_sub(triangle->pos2, triangle->pos),
-		vec_sub(p, triangle->pos)));
-	if (vec_dot_prod(triangle->vector, c) < 0)
+	edge[0] = vec_sub(triangle->pos2, triangle->pos);
+	edge[1] = vec_sub(triangle->pos3, triangle->pos2);
+	edge[2] = vec_sub(triangle->pos, triangle->pos3);
+	c[0] = vec_sub(p, triangle->pos);
+	c[1] = vec_sub(p, triangle->pos2);
+	c[2] = vec_sub(p, triangle->pos3);
+	if (vec_dot_prod(normal, vec_cross_prod(edge[0], c[0])) > 0 &&
+		vec_dot_prod(normal, vec_cross_prod(edge[1], c[1])) > 0 &&
+		vec_dot_prod(normal, vec_cross_prod(edge[2], c[2])) > 0)
+		return (true);
+	else
 		return (false);
-	c = (vec_cross_prod(vec_sub(triangle->pos3, triangle->pos2),
-		vec_sub(p, triangle->pos2)));
-	if (vec_dot_prod(triangle->vector, c) < 0)
-		return (false);
-	c = (vec_cross_prod(vec_sub(triangle->pos, triangle->pos3),
-		vec_sub(p, triangle->pos3)));
-	if (vec_dot_prod(triangle->vector, c) < 0)
-		return (false);
-	return (true);
 }

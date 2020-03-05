@@ -11,29 +11,21 @@
 /* ************************************************************************** */
 
 #include <minirt.h>
+#include <stdlib.h>
 
 bool	intersect_tr(t_object *triangle, t_ray ray, t_data *data)
 {
-	double	t;
-	double	d;
-	double	area;
-	t_vec3d	p;
+	t_ray_res	tr_plane;
+	t_object	plane;
 
-	(void)data;
-	triangle->vector = vec_cross_prod(vec_sub(triangle->pos2,
-		triangle->pos), vec_sub(triangle->pos3,
-		triangle->pos));
-	area = vec_len(triangle->vector);
-	printf("myes? %f\n", vec_dot_prod(triangle->vector, ray.origin));
-	if (vec_dot_prod(triangle->vector, ray.origin) < EPSILON)
+	(void) data;
+	plane.type = PL;
+	plane.pos = triangle->pos;
+	plane.vector = triangle->vector;
+	if (vec_dot_prod(plane.vector, ray.direction) <= EPSILON)
 		return (false);
-	d = vec_dot_prod(triangle->vector, triangle->pos);
-	t = (vec_dot_prod(ray.origin, triangle->vector) + d) /
-		vec_dot_prod(triangle->vector, ray.origin);
-	if (t < 0)
+	tr_plane = obj_dist(&plane, ray, data);
+	if (tr_plane.distance == INFINITY)
 		return (false);
-	p = vec_add(ray.origin, vec_multi(ray.direction, t));
-	if (check_edge_tr(triangle, p) == false)
-		return (false);
-	return (true);
+	return (check_edge_tr(triangle, plane.vector, tr_plane.position));
 }
