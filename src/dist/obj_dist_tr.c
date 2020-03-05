@@ -23,7 +23,7 @@ t_ray_res	obj_dist_tr(t_object *triangle, t_ray ray, t_data *data)
 		triangle->pos), vec_sub(triangle->pos3,
 		triangle->pos));
 	area = vec_len(triangle->vector);
-	if (fabs(vec_dot_prod(triangle->vector, ray.origin)) < 1e-6)
+	if (fabs(vec_dot_prod(triangle->vector, ray.origin)) < EPSILON)
 		return (ray_res_inf());
 	d = vec_dot_prod(triangle->vector, triangle->pos);
 	t = (vec_dot_prod(ray.origin, triangle->vector) + d) / vec_dot_prod(triangle->vector, ray.origin);

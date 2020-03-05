@@ -19,7 +19,6 @@
 */
 
 #include <minirt.h>
-#include <math.h>
 
 double	parse_double(char *str)
 {

@@ -17,6 +17,7 @@
 		"stdbool.h": "c",
 		"intersect.h": "c",
 		"array": "c",
-		"vector": "c"
+		"vector": "c",
+		"stddef.h": "c"
 	}
 }

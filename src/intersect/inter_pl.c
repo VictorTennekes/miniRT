@@ -29,7 +29,7 @@ bool	intersect_pl(t_object *plane, t_ray ray, t_data *data)
 
 	(void)data;
 	denom = vec_dot_prod(plane->vector, ray.direction);
-	if (denom < 1e-6)
+	if (denom < EPSILON)
 	{
 		t = vec_dot_prod(vec_sub(plane->pos, ray.origin),
 			plane->vector) / denom;

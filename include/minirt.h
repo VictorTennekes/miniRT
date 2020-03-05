@@ -14,6 +14,7 @@
 # define MINIRT_H
 
 # define MOVE_SPEED 0.6
+# define EPSILON 1e-6
 
 # include <libft.h>
 # include <liblist.h>
@@ -213,6 +214,8 @@ t_vec3d				parse_coord(char *str);
 void				*free_machine(char **array);
 bool				check_line(char *str);
 int					color_to_int(t_color color);
+bool				double_compare(double a, double b);
+bool				check_edge_tr(t_object *triangle, t_vec3d p);
 
 /*
 **	Vector functions and utilities
