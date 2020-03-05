@@ -22,7 +22,7 @@ bool	intersect_tr(t_object *triangle, t_ray ray, t_data *data)
 	plane.type = PL;
 	plane.pos = triangle->pos;
 	plane.vector = triangle->vector;
-	if (vec_dot_prod(plane.vector, ray.direction) <= EPSILON)
+	if (vec_dot_prod(plane.vector, ray.direction) == EPSILON)
 		return (false);
 	tr_plane = obj_dist(&plane, ray, data);
 	if (tr_plane.distance == INFINITY)
