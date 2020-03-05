@@ -26,6 +26,8 @@ bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
 {
 	t_list *objects;
 
+	// (void)*object;
+	// (void)ray;
 	objects = data->objects;
 	while (objects)
 	{
