@@ -18,6 +18,7 @@
 		"intersect.h": "c",
 		"array": "c",
 		"vector": "c",
-		"stddef.h": "c"
+		"stddef.h": "c",
+		"__config": "c"
 	}
 }

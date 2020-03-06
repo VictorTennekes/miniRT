@@ -19,5 +19,5 @@ bool	double_compare(double a, double b)
 	res = a - b;
 	if (res < 0)
 		res *= -1;
-	return (res < EPSILON);
+	return (res < 0);
 }

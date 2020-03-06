@@ -24,12 +24,9 @@
 
 t_quat	quat_local_rot(t_vec3d axis, double angle)
 {
-	t_quat	res;
-
 	axis = vec_normalize(axis);
-	res.w = cos(angle / 2);
-	res.x = axis.x * sin(angle / 2);
-	res.y = axis.y * sin(angle / 2);
-	res.z = axis.z * sin(angle / 2);
-	return (res);
+	return (quat_new(cos(angle / 2),
+			axis.x * sin(angle / 2),
+			axis.y * sin(angle / 2),
+			axis.z * sin(angle / 2)));
 }

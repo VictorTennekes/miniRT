@@ -23,13 +23,7 @@
 
 #include <minirt.h>
 
-t_quat	quat_new(double w, double x, double y, double z)
+inline t_quat	quat_new(double w, double x, double y, double z)
 {
-	t_quat new;
-
-	new.w = w;
-	new.x = x;
-	new.y = y;
-	new.z = z;
-	return (new);
+	return ((t_quat){.w = w, .x = x, .y = y, .z = z});
 }

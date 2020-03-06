@@ -21,12 +21,7 @@
 
 #include <minirt.h>
 
-t_vec3d	vec_new(double x, double y, double z)
+inline t_vec3d	vec_new(double x, double y, double z)
 {
-	t_vec3d vec;
-
-	vec.x = x;
-	vec.y = y;
-	vec.z = z;
-	return (vec);
+	return ((t_vec3d){.x = x, .y = y, .z = z});
 }

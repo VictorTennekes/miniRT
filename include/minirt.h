@@ -14,7 +14,6 @@
 # define MINIRT_H
 
 # define MOVE_SPEED 0.6
-# define EPSILON 1e-6
 
 # include <libft.h>
 # include <liblist.h>

@@ -21,9 +21,8 @@ t_ray_res		obj_dist_tr(t_object *triangle, t_ray ray, t_data *data)
 	plane.type = PL;
 	plane.pos = triangle->pos;
 	plane.vector = normal(ray_res_new(triangle, vec_new(0, 0, 0), color_new(0, 0, 0)), data);
-	if (vec_dot_prod(plane.vector, ray.direction) == EPSILON)
+	if (vec_dot_prod(plane.vector, ray.direction) == 0)
 		return (ray_res_inf());
-	plane.vector = plane.vector;
 	tr_plane = obj_dist(&plane, ray, data);
 	if (tr_plane.distance == INFINITY)
 		return (ray_res_inf());

@@ -20,13 +20,7 @@
 
 #include <minirt.h>
 
-t_quat	quat_conj(t_quat quat)
+inline t_quat	quat_conj(t_quat quat)
 {
-	t_quat new;
-
-	new.w = quat.w;
-	new.x = -quat.x;
-	new.y = -quat.y;
-	new.z = -quat.z;
-	return (new);
+	return (quat_new(quat.w, -quat.x, -quat.y, -quat.z));
 }

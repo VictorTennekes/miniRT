@@ -28,14 +28,10 @@ double	intersect_pl(t_object *plane, t_ray ray, t_data *data)
 	double	t;
 
 	(void)data;
-	t = INFINITY;
 	denom = vec_dot_prod(plane->vector, ray.direction);
-	if (denom < EPSILON)
-	{
-		t = vec_dot_prod(vec_sub(plane->pos, ray.origin),
-			plane->vector) / denom;
-		if (t >= 0.0)
-			return (INFINITY);
-	}
+	t = vec_dot_prod(vec_sub(plane->pos, ray.origin),
+		plane->vector) / denom;
+	if (t < 0 || double_compare(vec_dot_prod(ray.direction, plane->vector), 0))
+		return (INFINITY);
 	return (t);
 }

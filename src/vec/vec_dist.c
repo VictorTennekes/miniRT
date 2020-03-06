@@ -21,7 +21,7 @@
 
 #include <minirt.h>
 
-double	vec_dist(t_vec3d vec1, t_vec3d vec2)
+inline double	vec_dist(t_vec3d vec1, t_vec3d vec2)
 {
 	return (sqrt(pow(vec2.x - vec1.x, 2) +
 					pow(vec2.y - vec1.y, 2) +

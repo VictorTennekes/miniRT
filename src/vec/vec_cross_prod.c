@@ -21,7 +21,7 @@
 
 #include <minirt.h>
 
-t_vec3d	vec_cross_prod(t_vec3d vec1, t_vec3d vec2)
+inline t_vec3d	vec_cross_prod(t_vec3d vec1, t_vec3d vec2)
 {
 	return (vec_new((vec1.y * vec2.z) - (vec1.z * vec2.y),
 					(vec1.z * vec2.x) - (vec1.x * vec2.z),

@@ -21,7 +21,7 @@
 #include <minirt.h>
 #include <math.h>
 
-t_vec3d	vec_normalize(t_vec3d vec)
+inline t_vec3d	vec_normalize(t_vec3d vec)
 {
 	return (vec_new(vec.x / vec_len(vec),
 					vec.y / vec_len(vec),

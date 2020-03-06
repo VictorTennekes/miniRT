@@ -30,5 +30,7 @@ t_vec3d	norm_tr(t_ray_res ray_res, t_data *data)
 	(void)data;
 	vec_a = vec_sub(ray_res.object->pos2, ray_res.object->pos);
 	vec_b = vec_sub(ray_res.object->pos3, ray_res.object->pos);
+	vec_a = vec_normalize(vec_a);
+	vec_b = vec_normalize(vec_b);
 	return (vec_cross_prod(vec_a, vec_b));
 }
