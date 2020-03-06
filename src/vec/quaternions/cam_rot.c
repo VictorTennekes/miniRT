@@ -31,7 +31,6 @@ t_quat	rotate_cam(t_vec3d vector, t_vec3d axis, double angle)
 	t_quat	r2;
 
 	p = quat_new(0, vector.x, vector.y, vector.z);
-	vector = vec_normalize(vector);
 	axis = vec_normalize(axis);
 	r = quat_local_rot(axis, angle);
 	r2 = quat_conj(r);
