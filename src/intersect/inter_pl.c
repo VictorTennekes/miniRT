@@ -17,24 +17,25 @@
 **	@param	:	{t_ray} ray
 **	@param	:	{t_data *} data
 **
-**	@return	:	{bool}
+**	@return	:	{double}
 */
 
 #include <minirt.h>
 
-bool	intersect_pl(t_object *plane, t_ray ray, t_data *data)
+double	intersect_pl(t_object *plane, t_ray ray, t_data *data)
 {
 	double	denom;
 	double	t;
 
 	(void)data;
+	t = INFINITY;
 	denom = vec_dot_prod(plane->vector, ray.direction);
 	if (denom < EPSILON)
 	{
 		t = vec_dot_prod(vec_sub(plane->pos, ray.origin),
 			plane->vector) / denom;
 		if (t >= 0.0)
-			return (true);
+			return (INFINITY);
 	}
-	return (false);
+	return (t);
 }

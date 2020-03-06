@@ -13,7 +13,7 @@
 #include <minirt.h>
 #include <stdlib.h>
 
-bool	intersect_tr(t_object *triangle, t_ray ray, t_data *data)
+double	intersect_tr(t_object *triangle, t_ray ray, t_data *data)
 {
 	t_ray_res	tr_plane;
 	t_object	plane;
@@ -22,10 +22,11 @@ bool	intersect_tr(t_object *triangle, t_ray ray, t_data *data)
 	plane.type = PL;
 	plane.pos = triangle->pos;
 	plane.vector = triangle->vector;
-	if (vec_dot_prod(plane.vector, ray.direction) == EPSILON)
-		return (false);
+	plane.vector = vec_multi(triangle->vector, -1);
+	if (vec_dot_prod(plane.vector, ray.direction) > EPSILON)
+		return (INFINITY);
 	tr_plane = obj_dist(&plane, ray, data);
-	if (tr_plane.distance == INFINITY)
-		return (false);
-	return (check_edge_tr(triangle, plane.vector, tr_plane.position));
+	if (!check_edge_tr(triangle, plane.vector, tr_plane.position))
+		return (INFINITY);
+	return (tr_plane.distance);
 }

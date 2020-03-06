@@ -17,13 +17,13 @@
 **	@param	:	{t_ray} ray
 **	@param	:	{t_data *} data
 **
-**	@return	:	{bool}
+**	@return	:	{double}
 */
 
 #include <minirt.h>
 #include "intersect.h"
 
-bool	intersect(t_object *object, t_ray ray, t_data *data)
+double	intersect(t_object *object, t_ray ray, t_data *data)
 {
 	return (g_intersect[object->type](object, ray, data));
 }

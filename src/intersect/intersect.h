@@ -17,18 +17,18 @@
 **	@param	:	{t_ray} ray
 **	@param	:	{t_data *} data
 **
-**	@return	:	{bool}
+**	@return	:	{double}
 */
 
 #ifndef INTERSECT_H
 # define INTERSECT_H
 # include <minirt.h>
 
-bool	intersect_pl(t_object *plane, t_ray ray, t_data *data);
-bool	intersect_sp(t_object *sphere, t_ray ray, t_data *data);
-bool	intersect_tr(t_object *triangle, t_ray ray, t_data *data);
+double	intersect_pl(t_object *plane, t_ray ray, t_data *data);
+double	intersect_sp(t_object *sphere, t_ray ray, t_data *data);
+double	intersect_tr(t_object *triangle, t_ray ray, t_data *data);
 
-bool	(*g_intersect[])(t_object *, t_ray, t_data *) = {
+double	(*g_intersect[])(t_object *, t_ray, t_data *) = {
 	[PL] = &intersect_pl,
 	[SP] = &intersect_sp,
 	NULL,

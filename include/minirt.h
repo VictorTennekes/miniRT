@@ -271,9 +271,9 @@ t_vec3d				normal(t_ray_res ray_res, t_data *data);
 */
 
 t_color				cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data);
-t_color				cast_light(t_ray_res ray_res, t_ray ray, t_light *light,
-						t_data *data);
-bool				ray_obstructed(t_object *object, t_ray ray, t_data *data);
+// t_color				cast_light(t_ray_res ray_res, t_ray ray, t_light *light,
+						// t_data *data);
+// bool				ray_obstructed(t_object *object, t_ray ray, t_data *data);
 
 /*
 **	Color functions
@@ -289,7 +289,7 @@ t_color				color_add_light(t_color col1, t_color col2);
 **	Intersections main function
 */
 
-bool				intersect(t_object *obj, t_ray ray, t_data *data);
+double				intersect(t_object *obj, t_ray ray, t_data *data);
 
 /*
 **	Key main functions
@@ -320,6 +320,6 @@ t_quat				rotate_cam(t_vec3d vector, t_vec3d axis, double angle);
 
 // STUFF
 bool		triangle_inside(t_object *tr, t_vec3d tr_normal, t_vec3d p);
-bool	check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p);
+double		check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p);
 
 #endif

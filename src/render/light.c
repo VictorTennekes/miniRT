@@ -22,17 +22,19 @@
 **	@return	:	{bool}
 */
 
-bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
+static bool	ray_obstructed(t_object *object, t_light *light, t_ray ray, t_data *data)
 {
-	t_list *objects;
+	t_list	*objects;
+	double	dist;
 
 	// (void)*object;
 	// (void)ray;
 	objects = data->objects;
+	dist = vec_dist(ray.origin, light->pos);
 	while (objects)
 	{
 		if (objects->content != object &&
-				intersect((t_object *)objects->content, ray, data))
+				intersect((t_object *)objects->content, ray, data) < dist)
 			return (true);
 		objects = objects->next;
 	}
@@ -50,7 +52,7 @@ bool	ray_obstructed(t_object *object, t_ray ray, t_data *data)
 **	@return	:	{t_color}
 */
 
-t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
+static t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 {
 	t_vec3d	norm;
 	t_vec3d	light_dir;
@@ -58,7 +60,7 @@ t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 
 	(void)data;
 	(void)ray;
-	if (ray_obstructed(ray_res.object, ray_new(ray_res.position,
+	if (ray_obstructed(ray_res.object, light, ray_new(ray_res.position,
 		vec_a_to_b(ray_res.position, light->pos)), data))
 		return (color_new(0, 0, 0));
 	light_dir = vec_a_to_b(ray_res.position, light->pos);
