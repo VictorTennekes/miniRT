@@ -35,14 +35,14 @@ void	parse_cylinder(char **info, t_data *data)
 	object->type = CY;
 	object->pos = parse_coord(info[1]);
 	object->vector = parse_coord(info[2]);
-	object->size = parse_double(info[3]);
-	object->height = parse_double(info[4]);
-	object->color = parse_color(info[5], data);
 	if ((object->vector.x > 1 || object->vector.x < -1) ||
 		(object->vector.y > 1 || object->vector.y < -1) ||
 		(object->vector.z > 1 || object->vector.z < -1))
 		print_error("Invalid orientation vector given for cylinder", data);
 	object->vector = vec_normalize(object->vector);
+	object->size = parse_double(info[3]);
+	object->height = parse_double(info[4]);
+	object->color = parse_color(info[5], data);
 	if (!lst_new_back(&(data->objects), object))
 		print_error("Allocation failed for cylinder", data);
 }

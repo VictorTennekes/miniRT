@@ -28,8 +28,8 @@ void	parse_triangle(char **info, t_data *data)
 	t_object *object;
 
 	if (char_arrlen(info) != 5)
-		print_error("Wrong amount of values given for cylinder", data);
-	object = (t_object *)malloc(sizeof(t_object) + 1);
+		print_error("Invalid amount of values given for cylinder", data);
+	object = (t_object *)malloc(sizeof(t_object));
 	if (!object)
 		print_error("Malloc failed for triangle", data);
 	object->type = TR;
