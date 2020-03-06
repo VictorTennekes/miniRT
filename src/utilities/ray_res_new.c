@@ -24,12 +24,7 @@
 
 t_ray_res	ray_res_new(t_object *object, t_vec3d vector, t_color color)
 {
-	t_ray_res new;
-
-	new.object = object;
-	new.position = vector;
-	new.color = color;
-	return (new);
+	return ((t_ray_res){.object = object, .position = vector, .color = color});
 }
 
 /*
@@ -43,14 +38,9 @@ t_ray_res	ray_res_new(t_object *object, t_vec3d vector, t_color color)
 **	@return	:	{t_ray_res}
 */
 
-t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector, t_color color, \
-	double distance)
+t_ray_res	ray_res_dist_new(t_object *object, t_vec3d vector,
+	t_color color, double distance)
 {
-	t_ray_res new;
-
-	new.object = object;
-	new.position = vector;
-	new.color = color;
-	new.distance = distance;
-	return (new);
+	return ((t_ray_res){.object = object, .position = vector,
+		.color = color, .distance = distance});
 }

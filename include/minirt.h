@@ -108,10 +108,10 @@ typedef struct		s_object
 
 typedef struct		s_ray_res
 {
-	double			distance;
+	t_object		*object;
 	t_vec3d			position;
 	t_color			color;
-	t_object		*object;
+	double			distance;
 }					t_ray_res;
 
 /*

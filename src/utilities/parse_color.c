@@ -25,18 +25,18 @@
 t_color		parse_color(char *str, t_data *data)
 {
 	char	**rgb;
-	double	r;
-	double	g;
-	double	b;
+	double	c[3];
 
 	rgb = ft_split(str, ',');
+	if (char_arrlen(rgb) != 3)
+		print_error("Invalid amount of color values", data);
 	if (!isdigit_str(rgb[0]) || !isdigit_str(rgb[1]) || !isdigit_str(rgb[2]))
 		print_error("Invalid color value", data);
-	r = parse_double(rgb[0]);
-	g = parse_double(rgb[1]);
-	b = parse_double(rgb[2]);
-	if ((r > 255 || r < 0) || (g > 255 || g < 0) || (b > 255 || b < 0))
+	c[0] = parse_double(rgb[0]);
+	c[1] = parse_double(rgb[1]);
+	c[2] = parse_double(rgb[2]);
+	if ((c[0] > 255 || c[0] < 0) || (c[1] > 255 || c[1] < 0) || (c[2] > 255 || c[2] < 0))
 		print_error("Invalid color value", data);
 	free_machine(rgb);
-	return (color_new(r, g, b));
+	return (color_new(c[0], c[1], c[2]));
 }

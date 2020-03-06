@@ -28,9 +28,9 @@ t_ray_res	cast_ray_object(t_ray ray, t_data *data)
 {
 	t_list		*current_object;
 	t_object	*closest_object;
-	double		min_distance;
 	t_ray_res	ray_res;
 	t_ray_res	ray_res_closest;
+	double		min_distance;
 
 	min_distance = INFINITY;
 	closest_object = NULL;

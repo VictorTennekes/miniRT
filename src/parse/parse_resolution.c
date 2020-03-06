@@ -24,8 +24,7 @@
 
 void	parse_resolution(char **info, t_data *data)
 {
-	int screen_x;
-	int screen_y;
+	int screen[2];
 
 	if (data->window.res_set == true)
 		print_error("Resolution can only be specified once", data);
@@ -35,10 +34,10 @@ void	parse_resolution(char **info, t_data *data)
 		print_error("Invalid value given for resolution", data);
 	data->window.x = ft_atoi(info[1]);
 	data->window.y = ft_atoi(info[2]);
-	mlx_get_screen_size(data->mlx_info.mlx, &screen_x, &screen_y);
-	if (data->window.x > screen_x)
-		data->window.x = screen_x;
-	if (data->window.y > screen_y)
-		data->window.y = screen_y;
+	mlx_get_screen_size(data->mlx_info.mlx, &screen[0], &screen[1]);
+	if (data->window.x > screen[0] && data->mapinfo.save != true)
+		data->window.x = screen[0];
+	if (data->window.y > screen[1] && data->mapinfo.save != true)
+		data->window.y = screen[1];
 	data->window.res_set = true;
 }

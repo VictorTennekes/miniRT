@@ -25,25 +25,24 @@
 
 int		hook_frame(t_data *data)
 {
-	uint16_t	i;
-	uint16_t	j;
+	uint16_t	c[2];
 	t_vec2ui	pix;
 
 	if (data->window.rendered)
 		return (0);
 	data->window.rendered = true;
-	i = 0;
-	while (i < data->window.x)
+	c[0] = 0;
+	while (c[0] < data->window.x)
 	{
-		j = 0;
-		pix.x = i;
-		while (j < data->window.y)
+		c[1] = 0;
+		pix.x = c[0];
+		while (c[1] < data->window.y)
 		{
-			pix.y = j;
-			pixel_put(data->mlx_info.mlx_data, i, j, get_pixel(pix, data));
-			j++;
+			pix.y = c[1];
+			pixel_put(data->mlx_info.mlx_data, c[0], c[1], get_pixel(pix, data));
+			c[1]++;
 		}
-		i++;
+		c[0]++;
 	}
 	mlx_put_image_to_window(data->mlx_info.mlx,
 		data->mlx_info.mlx_win, data->mlx_info.mlx_data.img, 0, 0);

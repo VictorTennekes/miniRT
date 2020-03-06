@@ -24,10 +24,5 @@
 
 t_color	color_new(uint8_t red, uint8_t green, uint8_t blue)
 {
-	t_color	res;
-
-	res.r = red;
-	res.g = green;
-	res.b = blue;
-	return (res);
+	return ((t_color){.r = red, .g = green, .b = blue});
 }

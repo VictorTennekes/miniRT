@@ -19,6 +19,7 @@
 		"array": "c",
 		"vector": "c",
 		"stddef.h": "c",
-		"__config": "c"
+		"__config": "c",
+		"__node_handle": "c"
 	}
 }

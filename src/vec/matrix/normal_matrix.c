@@ -22,8 +22,7 @@
 
 t_matrix	normal_matrix(t_matrix matrix)
 {
-	matrix.forward = vec_normalize(matrix.forward);
-	matrix.right = vec_normalize(matrix.right);
-	matrix.up = vec_normalize(matrix.up);
-	return (matrix);
+	return ((t_matrix){.forward = vec_normalize(matrix.forward),
+						.right = vec_normalize(matrix.right),
+						.up = vec_normalize(matrix.up)});
 }
