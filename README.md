@@ -21,7 +21,7 @@ Files have to meet the following requirements:
 * one or more definition(s) for camera(s) and light(s).
 * any amount of objects.
 
-###Definitions
+### Definitions
 
 *Resolution*:	`R {width} {height}`
 * x render size.
