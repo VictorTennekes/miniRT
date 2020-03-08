@@ -6,7 +6,7 @@ This project is an introduction to the beautiful world of ray-tracing.
 Once completed it will be able to render simple Computer-Generated-Images.
 
 # Installation
-Run 'make' to compile all the libraries together into the executable.
+Run `make` to compile all the libraries together into the executable.
 
 # Usage
 The executable can be ran with a file: './minirt file.rt'.
