@@ -8,7 +8,7 @@ Once completed it will be able to render simple Computer-Generated-Images.
 ## Index
 * [Installation](#Installation)
 * [Usage](#Usage)
- * [Defenitions](#Defenitions)
+ * [Defenitions](##Defenitions)
 
 ## Installation
 Run `make` to compile the executable.
