@@ -62,9 +62,11 @@ Triangle:	`tr {first point} {second point} {third point} {color}`
 There are a number of useful keybindings that are listed below.
 
 **Exiting the application.**
+
 To exit the application press `q` or `esc`. You can also click the red `x` in the top right of the window.
 
 **Camera**
+
 To move the camera you can use the `WASD` keys.
 To rotate the camera you can use the `↑←↓→` keys.
 To switch camera's you can use the `o`(previous) and `p`(next) keys.
