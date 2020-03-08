@@ -1,14 +1,19 @@
-## miniRT
+# miniRT
 
 > :warning: **This project is a work in progress**
 
 This project is an introduction to the beautiful world of ray-tracing.
 Once completed it will be able to render simple Computer-Generated-Images.
 
-# Installation
+## Index
+* [Installation](#Installation)
+* [Usage](#Usage)
+ * [Defenitions](#Defenitions)
+
+## Installation
 Run `make` to compile the executable.
 
-# Usage
+## Usage
 The executable can be ran with a file: './minirt file.rt'.
 
 Files have to meet the following requirements:
@@ -16,7 +21,7 @@ Files have to meet the following requirements:
 * one or more definition(s) for camera(s) and light(s).
 * any amount of objects.
 
-**Definitions**
+###Definitions
 
 *Resolution*:	`R {width} {height}`
 * x render size.
