@@ -25,8 +25,8 @@ Files have to meet the following requirements:
 ### Definitions
 
 Resolution:	`R {width} {height}`
-* x render size.
-* y render size.
+* X render size.
+* Y render size.
 
 Ambient lighting:	`A {ratio} {color}`
 * Ambient lighting ratio in range [0.0,1.0].
@@ -53,9 +53,9 @@ Plane:	`pl {position} {orientation} {color}`
 * R,G,B colors in range [0-255]
 
 Triangle:	`tr {first point} {second point} {third point} {color}`
-* x,y,z coordinates.
-* x,y,z coordinates.
-* x,y,z coordinates.
+* X,y,z coordinates.
+* X,y,z coordinates.
+* X,y,z coordinates.
 * R,G,B colors in range [0-255].
 
 ### Keybindings
