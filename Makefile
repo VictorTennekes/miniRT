@@ -64,6 +64,7 @@ SRCS			=	main.c\
 					utilities/parse_double.c\
 					utilities/ray_res_inf.c\
 					utilities/ray_res_new.c\
+					utilities/swap_double.c\
 					vec/matrix/matrix_multi.c\
 					vec/matrix/matrix_new.c\
 					vec/matrix/matrix_prod.c\

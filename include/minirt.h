@@ -214,6 +214,7 @@ bool				check_line(char *str);
 int					color_to_int(t_color color);
 bool				double_compare(double a, double b);
 double				check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p);
+void				swap_double(double *d1, double *d2);
 
 /*
 **	Vector functions and utilities

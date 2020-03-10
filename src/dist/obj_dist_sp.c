@@ -22,15 +22,6 @@
 
 #include <minirt.h>
 
-static inline void	swap(double *d1, double *d2)
-{
-	double tmp;
-
-	tmp = *d1;
-	*d1 = *d2;
-	*d2 = tmp;
-}
-
 t_ray_res obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
 {
 	double	t[3];
@@ -48,7 +39,7 @@ t_ray_res obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
 	t[0] = tc[0] - tc[1];
 	t[1] = tc[0] + tc[1];
 	if (t[0] > t[1])
-		swap(&t[0], &t[1]);
+		swap_double(&t[0], &t[1]);
 	if (t[0] < 0)
 	{
 		t[0] = t[1];
