@@ -17,6 +17,7 @@ SRCS			=	main.c\
 					color/color_multi.c\
 					color/color_mix_light.c\
 					color/color_new.c\
+					dist/obj_dist_ds.c\
 					dist/obj_dist_pl.c\
 					dist/obj_dist_sp.c\
 					dist/obj_dist_tr.c\
@@ -24,6 +25,7 @@ SRCS			=	main.c\
 					error/error.c\
 					free/free_data.c\
 					free/free_list.c\
+					intersect/inter_ds.c\
 					intersect/inter_pl.c\
 					intersect/inter_sp.c\
 					intersect/inter_tr.c\
@@ -40,6 +42,7 @@ SRCS			=	main.c\
 					parse/parse_ambient.c\
 					parse/parse_camera.c\
 					parse/parse_cylinder.c\
+					parse/parse_disk.c\
 					parse/parse_light.c\
 					parse/parse_plane.c\
 					parse/parse_resolution.c\
@@ -66,6 +69,7 @@ SRCS			=	main.c\
 					vec/matrix/matrix_prod.c\
 					vec/matrix/normal_matrix.c\
 					vec/normal/norm_cy.c\
+					vec/normal/norm_ds.c\
 					vec/normal/norm_pl.c\
 					vec/normal/norm_sp.c\
 					vec/normal/norm_tr.c\

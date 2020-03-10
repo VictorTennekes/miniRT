@@ -33,6 +33,7 @@ void			parse_sphere(char **info, t_data *data);
 void			parse_square(char **info, t_data *data);
 void			parse_cylinder(char **info, t_data *data);
 void			parse_triangle(char **info, t_data *data);
+void			parse_disk(char **info, t_data *data);
 
 typedef struct	s_parse
 {
@@ -49,7 +50,8 @@ t_parse			g_parse[] = {
 	{"sp", &parse_sphere},
 	{"sq", &parse_square},
 	{"cy", &parse_cylinder},
-	{"tr", &parse_triangle}
+	{"tr", &parse_triangle},
+	{"ds", &parse_disk}
 };
 
 #endif

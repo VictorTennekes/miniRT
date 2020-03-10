@@ -65,7 +65,7 @@ static double	vec_angle(t_vec3d vec1, t_vec3d vec2)
 static void		fix_normal(t_object_type obj_type, t_ray ray, t_vec3d *norm)
 {
 	if ((obj_type == TR ||
-			obj_type == PL)
+			obj_type == PL || obj_type == DS)
 			&& vec_angle(*norm, ray.direction) < M_PI / 2)
 		*norm = vec_multi(*norm, -1);
 }

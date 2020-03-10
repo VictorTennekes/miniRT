@@ -28,13 +28,15 @@ t_vec3d	norm_pl(t_ray_res ray_res, t_data *data);
 t_vec3d	norm_sp(t_ray_res ray_res, t_data *data);
 t_vec3d	norm_tr(t_ray_res ray_res, t_data *data);
 t_vec3d norm_cy(t_ray_res ray_res, t_data *data);
+t_vec3d norm_ds(t_ray_res ray_res, t_data  *data);
 
 t_vec3d	(*g_normal[])(t_ray_res, t_data *) = {
-	&norm_pl,	//TODO plane
-	&norm_sp,	//TODO sphere
+	&norm_pl,
+	&norm_sp,
 	NULL,	//TODO square
 	&norm_cy,
-	&norm_tr
+	&norm_tr,
+	&norm_ds
 };
 
 #endif

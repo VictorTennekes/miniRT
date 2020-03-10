@@ -26,9 +26,9 @@
 int		hook_key(int keycode, t_data *data)
 {
 	(void)data;
-	printf("\nkey: %d\n\n", keycode);
+	// printf("\nkey: %d\n\n", keycode);
 	mlx_string_put(data->mlx_info.mlx, data->mlx_info.mlx_win,
-		390, 10, 0xFFFFFF, ft_itoa(keycode));
+		(data->window.x / 2) - 10, 20, 0xFFFFFF, ft_itoa(keycode));
 	key(keycode, data);
 	return (0);
 }

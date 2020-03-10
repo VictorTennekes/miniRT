@@ -87,7 +87,8 @@ typedef enum		e_object_type
 	SP,
 	SQ,
 	CY,
-	TR
+	TR,
+	DS
 }					t_object_type;
 
 typedef struct		s_object
@@ -212,6 +213,7 @@ void				*free_machine(char **array);
 bool				check_line(char *str);
 int					color_to_int(t_color color);
 bool				double_compare(double a, double b);
+double				check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p);
 
 /*
 **	Vector functions and utilities
@@ -314,9 +316,5 @@ t_quat				quat_multi(t_quat q1, t_quat q2);
 */
 
 t_quat				rotate_cam(t_vec3d vector, t_vec3d axis, double angle);
-
-// STUFF
-bool		triangle_inside(t_object *tr, t_vec3d tr_normal, t_vec3d p);
-double		check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p);
 
 #endif

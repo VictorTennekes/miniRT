@@ -28,13 +28,15 @@
 t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data);
 t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data);
 t_ray_res	obj_dist_tr(t_object *triangle, t_ray ray, t_data *data);
+t_ray_res	obj_dist_ds(t_object *disk, t_ray ray, t_data *data);
 
 t_ray_res	(*g_object_dist_parse[])(t_object *, t_ray, t_data *) = {
 	[PL] = &obj_dist_pl,
 	[SP] = &obj_dist_sp,
 	NULL,	//TODO square
 	NULL,	//TODO cylinder
-	[TR] = &obj_dist_tr
+	[TR] = &obj_dist_tr,
+	[DS] = &obj_dist_ds
 };
 
 #endif
