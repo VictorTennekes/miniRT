@@ -34,7 +34,7 @@ void	parse_sphere(char **info, t_data *data)
 	if (!object)
 		print_error("Malloc failed for sphere", data);
 	object->type = SP;
-	object->pos = parse_coord(info[1]);
+	object->pos[0] = parse_coord(info[1]);
 	object->size = parse_double(info[2]);
 	object->color = parse_color(info[3], data);
 	if (!lst_new_back(&(data->objects), object))

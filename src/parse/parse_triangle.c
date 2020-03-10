@@ -33,9 +33,9 @@ void	parse_triangle(char **info, t_data *data)
 	if (!object)
 		print_error("Malloc failed for triangle", data);
 	object->type = TR;
-	object->pos = parse_coord(info[1]);
-	object->pos2 = parse_coord(info[2]);
-	object->pos3 = parse_coord(info[3]);
+	object->pos[0] = parse_coord(info[1]);
+	object->pos[1] = parse_coord(info[2]);
+	object->pos[2] = parse_coord(info[3]);
 	object->color = parse_color(info[4], data);
 	if (!lst_new_back(&(data->objects), object))
 		print_error("Allocation failed for triangle", data);

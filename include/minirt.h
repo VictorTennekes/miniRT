@@ -93,9 +93,7 @@ typedef enum		e_object_type
 typedef struct		s_object
 {
 	t_object_type	type;
-	t_vec3d			pos;
-	t_vec3d			pos2;
-	t_vec3d			pos3;
+	t_vec3d			pos[3];
 	t_vec3d			vector;
 	t_color			color;
 	double			size;

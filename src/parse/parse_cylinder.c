@@ -33,7 +33,7 @@ void	parse_cylinder(char **info, t_data *data)
 	if (!object)
 		print_error("Malloc failed for cylinder", data);
 	object->type = CY;
-	object->pos = parse_coord(info[1]);
+	object->pos[0] = parse_coord(info[1]);
 	object->vector = parse_coord(info[2]);
 	if ((object->vector.x > 1 || object->vector.x < -1) ||
 		(object->vector.y > 1 || object->vector.y < -1) ||

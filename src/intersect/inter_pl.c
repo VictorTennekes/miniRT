@@ -29,7 +29,7 @@ double	intersect_pl(t_object *plane, t_ray ray, t_data *data)
 
 	(void)data;
 	denom = vec_dot_prod(plane->vector, ray.direction);
-	t = vec_dot_prod(vec_sub(plane->pos, ray.origin),
+	t = vec_dot_prod(vec_sub(plane->pos[0], ray.origin),
 		plane->vector) / denom;
 	if (t < 0 || double_compare(vec_dot_prod(ray.direction, plane->vector), 0))
 		return (INFINITY);

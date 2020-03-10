@@ -19,7 +19,7 @@ double	intersect_tr(t_object *triangle, t_ray ray, t_data *data)
 	t_object	plane;
 
 	plane.type = PL;
-	plane.pos = triangle->pos;
+	plane.pos[0] = triangle->pos[0];
 	plane.vector = normal(ray_res_new(triangle, vec_new(0, 0, 0), triangle->color), data);
 	if (vec_dot_prod(plane.vector, ray.direction) <= 0)
 		plane.vector = vec_multi(plane.vector, -1);

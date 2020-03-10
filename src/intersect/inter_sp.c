@@ -28,11 +28,11 @@ double	intersect_sp(t_object *sphere, t_ray ray, t_data *data)
 	t_vec3d	p;
 
 	(void)data;
-	t = vec_dot_prod(vec_sub(sphere->pos, ray.origin), ray.direction);
+	t = vec_dot_prod(vec_sub(sphere->pos[0], ray.origin), ray.direction);
 	if (t < 0)
 		return (INFINITY);
 	p = vec_add(ray.origin, vec_multi(ray.direction, t));
-	if (vec_len(vec_sub(sphere->pos, p)) > sphere->size / 2)
+	if (vec_len(vec_sub(sphere->pos[0], p)) > sphere->size / 2)
 		return (INFINITY);
 	return (t);
 }
