@@ -96,13 +96,8 @@ To rotate the camera you can use the `↑←↓→` keys.
 To switch camera's you can use the `o`(previous) and `p`(next) keys.
 
 ### Images
-<img src="images/plane.png" width="450">
-<img src="images/spheres.png" width="450">
-<img src="images/h2o.png" width="450">
+![plane](images/plane.png) ![spheres](images/spheres.png) ![h2o](images/h2o.png)
 
-<!-- ![plane](images/plane.png)
-![spheres](images/spheres.png)
-![h2o](images/h2o.png) -->
 ## License
 
 MIT © [Victor Tennekes](https://www.github.com/victortennekes)
