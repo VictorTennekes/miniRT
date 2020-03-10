@@ -97,7 +97,7 @@ To switch camera's you can use the `o`(previous) and `p`(next) keys.
 
 ### Images
 
-![example](images/plane.png)
+![example](images/readme.png)
 
 ## License
 
