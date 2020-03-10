@@ -10,6 +10,7 @@ Once completed it will be able to render simple Computer-Generated-Images.
 * [Usage](#usage)
   * [Definitions](#definitions)
   * [Keybindings](#keybindings)
+* [Images](#images)
 
 ## Installation
 Run `make` to compile the executable.
@@ -48,15 +49,38 @@ Sphere:	`sp {position} {size} {color}`
 * R,G,B colors in range [0-255].
 
 Plane:	`pl {position} {orientation} {color}`
-* x,y,z coordinates.
+* X,y,z coordinates.
 * A vector withe the x,y,z axis in the range [-1,1].
-* R,G,B colors in range [0-255]
+* R,G,B colors in range [0-255].
 
 Triangle:	`tr {first point} {second point} {third point} {color}`
 * X,y,z coordinates.
 * X,y,z coordinates.
 * X,y,z coordinates.
 * R,G,B colors in range [0-255].
+
+Disk:   `ds {position} {orientation} {size} {color}`
+* X,y,z coordinates.
+* A vector withe the x,y,z axis in the range [-1,1].
+* The disk diameter.
+* R,G,B colors in range [0-255].
+
+Example scene.rt file:
+```
+R   420	420
+A   0.2		255,255,255
+
+l   0,2,0 0.3 255,101,0
+
+c   -0.8,1.5,1  0.3,-0.5,-1 70
+c   0,1,0       0,0,-1      70
+c   0,5,5       0,-1,-1     70
+
+sp	0,0,-2	2   255,0,255
+tr	0,0,0	1,1,-1	-1,1,-1 255,255,0
+pl	0,0,0	0,1,0   255,255,255
+ds	1,0,-1	1,1,1	3	0,255,255
+```
 
 ### Keybindings
 There are a number of useful keybindings that are listed below.
@@ -71,6 +95,10 @@ To move the camera you can use the `WASD` keys.
 To rotate the camera you can use the `↑←↓→` keys.
 To switch camera's you can use the `o`(previous) and `p`(next) keys.
 
+### Images
+![plane](images/plane.png)
+![spheres](images/spheres.png)
+![h2o](images/h2o.png)
 ## License
 
 MIT © [Victor Tennekes](https://www.github.com/victortennekes)
