@@ -263,7 +263,8 @@ void				pixel_put(t_mlx_data data, int x, int y, t_color color);
 **	Normalizing main function
 */
 
-t_vec3d				normal(t_ray_res ray_res, t_data *data);
+t_vec3d				normal(t_ray_res ray_res, t_ray ray, t_data *data);
+t_vec3d				adjust_normal(t_vec3d ray_dir, t_vec3d norm);
 
 /*
 **	Light functions

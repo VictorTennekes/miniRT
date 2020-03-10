@@ -22,23 +22,39 @@
 
 #include <minirt.h>
 
-t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
+static inline void	swap(double *d1, double *d2)
 {
-	double	t;
-	double	y;
-	double	x;
+	double tmp;
+
+	tmp = *d1;
+	*d1 = *d2;
+	*d2 = tmp;
+}
+
+t_ray_res obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
+{
+	double	t[3];
+	double	tc[2];
+	double	d2;
 	t_vec3d	p;
 
 	(void)data;
-	t = vec_dot_prod(vec_sub(sphere->pos[0], ray.origin), ray.direction);
-	if (t < 0)
+	p = vec_sub(sphere->pos[0], ray.origin);
+	tc[0] = vec_dot_prod(p, ray.direction);
+	d2 = vec_dot_prod(p, p) - pow(tc[0], 2);
+	if (d2 > sphere->size / 2)
 		return (ray_res_inf());
-	p = vec_add(ray.origin, vec_multi(ray.direction, t));
-	y = vec_len(vec_sub(sphere->pos[0], p));
-	if (y > sphere->size / 2)
-		return (ray_res_inf());
-	x = sqrt(pow(sphere->size / 2, 2) - pow(y, 2));
-	return (ray_res_dist_new(sphere,
-					vec_sub(p, vec_multi(ray.direction, x)),
-					sphere->color, t - x));
+	tc[1] = sqrt(sphere->size / 2 - d2);
+	t[0] = tc[0] - tc[1];
+	t[1] = tc[0] + tc[1];
+	if (t[0] > t[1])
+		swap(&t[0], &t[1]);
+	if (t[0] < 0)
+	{
+		t[0] = t[1];
+		if (t[0] < 0)
+			return (ray_res_inf());
+	}
+	return (ray_res_dist_new(sphere, vec_add(ray.origin,
+		vec_multi(ray.direction, t[0])), sphere->color, t[0]));
 }

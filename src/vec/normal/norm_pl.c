@@ -21,8 +21,8 @@
 
 #include <minirt.h>
 
-t_vec3d	norm_pl(t_ray_res ray_res, t_data *data)
+t_vec3d	norm_pl(t_ray_res ray_res, t_ray ray, t_data *data)
 {
 	(void)data;
-	return (ray_res.object->vector);
+	return (adjust_normal(ray.direction, ray_res.object->vector));
 }

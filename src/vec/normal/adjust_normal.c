@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   norm_cy.c                                          :+:    :+:            */
+/*   adjust_normal.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/03 10:41:45 by vtenneke       #+#    #+#                */
-/*   Updated: 2020/03/03 10:41:45 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/03/10 16:30:25 by vtenneke       #+#    #+#                */
+/*   Updated: 2020/03/10 16:30:25 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**	Returning the normal of the cylinder retrieved from the s_ray_res struct.
-**
-**	@param	:	{t_ray_res} ray_res
-**	@param	:	{t_data *} data
-**
-**	@return	:	{t_vec3d}
-*/
-
 #include <minirt.h>
 
-t_vec3d	norm_cy(t_ray_res ray_res, t_ray ray, t_data *data)
+static double	vec_angle(t_vec3d vec1, t_vec3d vec2)
 {
-	(void)ray;
-	(void)data;
-	return (ray_res.object->vector);
+	double	res;
+	
+	res = vec_dot_prod(vec1, vec2);
+	res /= vec_len(vec1) * vec_len(vec2);
+	res = acos(res);
+	return (res);
+}
+
+inline t_vec3d	adjust_normal(t_vec3d ray_dir, t_vec3d norm)
+{
+	if (vec_angle(norm, ray_dir) < M_PI_2)
+		return (vec_multi(norm, -1));
+	return (norm);
 }

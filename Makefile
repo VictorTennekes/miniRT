@@ -68,6 +68,7 @@ SRCS			=	main.c\
 					vec/matrix/matrix_new.c\
 					vec/matrix/matrix_prod.c\
 					vec/matrix/normal_matrix.c\
+					vec/normal/adjust_normal.c\
 					vec/normal/norm_cy.c\
 					vec/normal/norm_ds.c\
 					vec/normal/norm_pl.c\

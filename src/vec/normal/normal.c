@@ -23,7 +23,7 @@
 #include <minirt.h>
 #include "normal.h"
 
-t_vec3d	normal(t_ray_res ray_res, t_data *data)
+t_vec3d	normal(t_ray_res ray_res, t_ray ray, t_data *data)
 {
-	return (g_normal[ray_res.object->type](ray_res, data));
+	return (g_normal[ray_res.object->type](ray_res, ray, data));
 }

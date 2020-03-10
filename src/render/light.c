@@ -52,24 +52,6 @@ static bool	ray_obstructed(t_object *object, t_light *light, t_ray ray, t_data *
 **	@return	:	{t_color}
 */
 
-static double	vec_angle(t_vec3d vec1, t_vec3d vec2)
-{
-	double	res;
-	
-	res = vec_dot_prod(vec1, vec2);
-	res /= vec_len(vec1) * vec_len(vec2);
-	res = acos(res);
-	return (res);
-}
-
-static void		fix_normal(t_object_type obj_type, t_ray ray, t_vec3d *norm)
-{
-	if ((obj_type == TR ||
-			obj_type == PL || obj_type == DS)
-			&& vec_angle(*norm, ray.direction) < M_PI / 2)
-		*norm = vec_multi(*norm, -1);
-}
-
 static t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *data)
 {
 	t_vec3d	norm;
@@ -84,8 +66,7 @@ static t_color	cast_light(t_ray_res ray_res, t_ray ray, t_light *light, t_data *
 		vec_a_to_b(ray_res.position, light->pos)), data))
 		return (color_new(0, 0, 0));
 	light_dir = vec_a_to_b(ray_res.position, light->pos);
-	norm = normal(ray_res, data);
-	fix_normal(ray_res.object->type, ray, &norm);
+	norm = normal(ray_res, ray, data);
 	fac = vec_dot_prod(light_dir, norm);
 	if (fac < 0)
 		return (color_new(0, 0, 0));

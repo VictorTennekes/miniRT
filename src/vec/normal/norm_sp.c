@@ -21,8 +21,8 @@
 
 #include <minirt.h>
 
-t_vec3d	norm_sp(t_ray_res ray_res, t_data *data)
+t_vec3d	norm_sp(t_ray_res ray_res, t_ray ray, t_data *data)
 {
 	(void)data;
-	return (vec_normalize(vec_sub(ray_res.position, ray_res.object->pos[0])));
+	return (adjust_normal(ray.direction, vec_a_to_b(ray_res.object->pos[0], ray_res.position)));
 }

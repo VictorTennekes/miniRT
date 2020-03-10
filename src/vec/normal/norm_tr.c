@@ -22,14 +22,13 @@
 
 #include <minirt.h>
 
-t_vec3d	norm_tr(t_ray_res ray_res, t_data *data)
+t_vec3d	norm_tr(t_ray_res ray_res, t_ray ray, t_data *data)
 {
-	t_vec3d	vec[2];
+	t_vec3d	vec[3];
 
 	(void)data;
 	vec[0] = vec_sub(ray_res.object->pos[1], ray_res.object->pos[0]);
 	vec[1] = vec_sub(ray_res.object->pos[2], ray_res.object->pos[0]);
-	vec[0] = vec_normalize(vec[0]);
-	vec[1] = vec_normalize(vec[1]);
-	return (vec_cross_prod(vec[0], vec[1]));
+	vec[2] = vec_cross_prod(vec[0], vec[1]);
+	return (adjust_normal(ray.direction, vec_normalize(vec[2])));
 }
