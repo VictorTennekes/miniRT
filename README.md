@@ -98,7 +98,7 @@ To switch camera's you can use the `o`(previous) and `p`(next) keys.
 ### Images
 
 <img src = "images/plane.png">
-<img src = "images/h2o.png" width="300"> <img src = "images/spheres.png" width="300"">
+<img src = "images/h2o.png" width="300"> <img src = "images/spheres.png" width="300" align="right">
 
 ## License
 
