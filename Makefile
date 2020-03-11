@@ -55,6 +55,7 @@ SRCS			=	main.c\
 					render/ray_new.c\
 					utilities/char_arrlen.c\
 					utilities/check_edge_tr.c\
+					utilities/children_square.c\
 					utilities/color_to_int.c\
 					utilities/double_compare.c\
 					utilities/free_machine.c\

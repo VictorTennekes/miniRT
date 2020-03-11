@@ -42,6 +42,7 @@ void	parse_square(char **info, t_data *data)
 		(object->vector.z > 1 || object->vector.z < -1))
 		print_error("Invalid orientation vector given for square", data);
 	object->vector = vec_normalize(object->vector);
-	if (!lst_new_back(&(data->objects), object))
-		print_error("Allocation failed for square", data);
+	init_sq_children(object, data);
+	// if (!lst_new_back(&(data->objects), object))
+	// 	print_error("Allocation failed for square", data);
 }

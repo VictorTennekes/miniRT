@@ -6,6 +6,7 @@ This project is an introduction to the beautiful world of ray-tracing.
 Once completed it will be able to render simple Computer-Generated-Images.
 
 ## Index
+
 * [Installation](#installation)
 * [Usage](#usage)
   * [Definitions](#definitions)
