@@ -23,7 +23,7 @@ double	check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p)
 	c[0] = vec_sub(p, triangle->pos[0]);
 	c[1] = vec_sub(p, triangle->pos[1]);
 	c[2] = vec_sub(p, triangle->pos[2]);
-	return (vec_dot_prod(normal, vec_cross_prod(edge[0], c[0])) >= -0.0001 &&
-		vec_dot_prod(normal, vec_cross_prod(edge[1], c[1])) >= -0.0001 &&
-		vec_dot_prod(normal, vec_cross_prod(edge[2], c[2])) >= -0.0001);
+	return (vec_dot_prod(normal, vec_cross_prod(edge[0], c[0])) >= 0 &&
+		vec_dot_prod(normal, vec_cross_prod(edge[1], c[1])) >= 0 &&
+		vec_dot_prod(normal, vec_cross_prod(edge[2], c[2])) >= 0);
 }
