@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/24 14:13:59 by vtenneke       #+#    #+#                */
+/*   Created: 2020/01/24 14:13:59 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/10 09:23:45 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -41,6 +41,11 @@ int	main(int ac, char **av)
 	if (!data.cameras->content)
 		print_error("No camera", &data);
 	data.current_cam = data.cameras->content;
+	if (data.mapinfo.save == true)
+	{
+		save_bmp(&data);
+		exit_free(&data);
+	}
 	if (init_mlx(&data))
 		print_error("Can't open window", &data);
 	mlx_loop(data.mlx_info.mlx);

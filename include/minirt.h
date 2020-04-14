@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/24 16:59:52 by vtenneke       #+#    #+#                */
+/*   Created: 2020/01/24 16:59:52 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/11 14:19:47 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -273,9 +273,6 @@ t_vec3d				adjust_normal(t_vec3d ray_dir, t_vec3d norm);
 */
 
 t_color				cast_all_light(t_ray_res ray_res, t_ray ray, t_data *data);
-// t_color				cast_light(t_ray_res ray_res, t_ray ray, t_light *light,
-						// t_data *data);
-// bool				ray_obstructed(t_object *object, t_ray ray, t_data *data);
 
 /*
 **	Color functions
@@ -319,5 +316,11 @@ t_quat				quat_multi(t_quat q1, t_quat q2);
 */
 
 t_quat				rotate_cam(t_vec3d vector, t_vec3d axis, double angle);
+
+/*
+** Bmp function
+*/
+
+void				save_bmp(t_data *data);
 
 #endif

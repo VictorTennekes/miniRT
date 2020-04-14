@@ -5,7 +5,7 @@
 #                                                      +:+                     #
 #    By: vtenneke <vtenneke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/01/23 11:18:15 by vtenneke       #+#    #+#                 #
+#    Created: 2020/01/23 11:18:15 by vtenneke      #+#    #+#                  #
 #    Updated: 2020/02/11 14:20:34 by victor        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
@@ -53,6 +53,7 @@ SRCS			=	main.c\
 					render/light.c\
 					render/cast_ray.c\
 					render/ray_new.c\
+					render/save_bmp.c\
 					utilities/char_arrlen.c\
 					utilities/check_edge_tr.c\
 					utilities/children_square.c\
@@ -150,6 +151,7 @@ clean:
 	@echo "$(WHITE)/-----		Cleaning liblist	-----\\ $(RESET)"
 	make -j6 clean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Cleaning miniRT		-----\\ $(RESET)"
+	rm -f scene.bmp
 	rm -f $(OFILES)
 
 fclean: clean
