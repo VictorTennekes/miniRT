@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/19 18:29:40 by victor         #+#    #+#                */
+/*   Created: 2020/02/19 18:29:40 by victor        #+#    #+#                 */
 /*   Updated: 2020/02/19 18:29:40 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -28,12 +28,13 @@ double	intersect_pl(t_object *plane, t_ray ray, t_data *data);
 double	intersect_sp(t_object *sphere, t_ray ray, t_data *data);
 double	intersect_tr(t_object *triangle, t_ray ray, t_data *data);
 double	intersect_ds(t_object *disk, t_ray ray, t_data *data);
+double	intersect_cy(t_object *cylinder, t_ray ray, t_data *data);
 
 double	(*g_intersect[])(t_object *, t_ray, t_data *) = {
 	[PL] = &intersect_pl,
 	[SP] = &intersect_sp,
 	NULL,
-	NULL,
+	[CY] = &intersect_cy,
 	[TR] = &intersect_tr,
 	[DS] = &intersect_ds
 };

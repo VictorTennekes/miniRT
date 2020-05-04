@@ -17,6 +17,7 @@ SRCS			=	main.c\
 					color/color_multi.c\
 					color/color_mix_light.c\
 					color/color_new.c\
+					dist/obj_dist_cy.c\
 					dist/obj_dist_ds.c\
 					dist/obj_dist_pl.c\
 					dist/obj_dist_sp.c\
@@ -25,6 +26,7 @@ SRCS			=	main.c\
 					error/error.c\
 					free/free_data.c\
 					free/free_list.c\
+					intersect/inter_cy.c\
 					intersect/inter_ds.c\
 					intersect/inter_pl.c\
 					intersect/inter_sp.c\
@@ -97,6 +99,7 @@ SRCS			=	main.c\
 					vec/vec_new.c\
 					vec/vec_normalize.c\
 					vec/vec_prod.c\
+					vec/vec_sqr.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
@@ -131,7 +134,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 	@echo "$(WHITE)/-----		Compiling mlx		-----\\ $(RESET)"
 	make -C $(MLX_LOC)
-	@cp $(MLX_LOC)/libmlx.dylib .
+	cp $(MLX_LOC)/libmlx.dylib .
 	@echo "$(WHITE)/-----		Compiling libft		-----\\ $(RESET)"
 	make bonus -j6 -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Compiling liblist	-----\\ $(RESET)"
