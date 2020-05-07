@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/27 10:07:26 by vtenneke       #+#    #+#                */
+/*   Created: 2019/11/27 10:07:26 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/03 14:36:02 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -35,7 +35,7 @@ int		get_line(char **res, char **line, int c)
 {
 	char	*tmp;
 
-	*line = ft_substr(*res, 0, ft_strchr_gnl(*res, c) + ((c == '\0') ? 1 : -1));
+	*line = ft_gnl_substr(*res, 0, ft_strchr_gnl(*res, c) + ((c == '\0') ? 1 : -1));
 	if (!*line)
 		return (-1);
 	if (c == '\0')
@@ -44,7 +44,7 @@ int		get_line(char **res, char **line, int c)
 		*res = NULL;
 		return (0);
 	}
-	tmp = ft_substr(*res, ft_strchr_gnl(*res, c),
+	tmp = ft_gnl_substr(*res, ft_strchr_gnl(*res, c),
 		ft_strrchr_gnl(*res, '\0') - ft_strchr_gnl(*res, c));
 	if (!tmp)
 		return (-1);

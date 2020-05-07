@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/27 10:07:39 by vtenneke       #+#    #+#                */
+/*   Created: 2019/11/27 10:07:39 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/01/24 16:07:21 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -50,7 +50,7 @@ int		ft_strchr_gnl(const char *s, int c)
 	return (0);
 }
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_gnl_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*res;
 	size_t	i;
@@ -69,29 +69,3 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	ft_strlcpy(res, s + start, ((i - start < len) ? i - start : len) + 1);
 	return (res);
 }
-
-// char	*ft_strdup(const char *s1)
-// {
-// 	int		len;
-// 	int		i;
-// 	char	*str;
-
-// 	len = 0;
-// 	i = 0;
-// 	while (s1[len])
-// 		len++;
-// 	str = (char*)malloc(len + 1);
-// 	if (!(str))
-// 		ENOMEM;
-// 	else
-// 	{
-// 		while (s1[i])
-// 		{
-// 			str[i] = s1[i];
-// 			i++;
-// 		}
-// 		str[i] = '\0';
-// 		return (str);
-// 	}
-// 	return (0);
-// }

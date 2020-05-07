@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/27 10:07:54 by vtenneke       #+#    #+#                */
+/*   Created: 2019/11/27 10:07:54 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/01/24 14:42:13 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -29,7 +29,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char				*ft_strjoin(char *s1, char *s2);
 int					ft_strrchr_gnl(const char *s, int c);
 int					ft_strchr_gnl(const char *s, int c);
-char				*ft_substr(const char *s, unsigned int start, size_t len);
+char				*ft_gnl_substr(const char *s, unsigned int start, size_t len);
 char				*ft_strdup(const char *s1);
 
 #endif

@@ -17,7 +17,9 @@ Once completed it will be able to render simple Computer-Generated-Images.
 Run `make` to compile the executable.
 
 ## Usage
-The executable can be ran with a file: './minirt file.rt'.
+To use the interactive interface run the executable with just a file as follows: `./minirt file.rt`.
+
+If you wish to save an image of a scene run the command like this: `./minirt file.rt —save`.
 
 Files have to meet the following requirements:
 * one definition of both resolution and ambient lighting.
