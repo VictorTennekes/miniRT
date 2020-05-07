@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/11 10:29:39 by vtenneke       #+#    #+#                */
+/*   Created: 2020/03/11 10:29:39 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/03/11 10:29:39 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -13,26 +13,14 @@
 #include <minirt.h>
 #include <stdlib.h>
 
-void		printvec(t_vec3d vec, char *s)
-{
-	printf("%s\n", s);
-	printf("%f, %f, %f\n", vec.x, vec.y, vec.z);
-}
-
 static void	init_sq_corners(t_object *square, t_vec3d *corners)
 {
 	t_matrix	sq_matrix;
 	t_vec3d		corner_vec[2];
 
 	sq_matrix = matrix_new(square->vector);
-	printf("matrix[up]	x:%f	y:%f	z:%f\n", sq_matrix.up.x, sq_matrix.up.y, sq_matrix.up.z);
-	printf("matrix[right]	x:%f	y:%f	z:%f\n", sq_matrix.right.x, sq_matrix.right.y, sq_matrix.right.z);
-	printf("matrix[forward]	x:%f	y:%f	z:%f\n", sq_matrix.forward.x, sq_matrix.forward.y, sq_matrix.forward.z);
-	printf("square->pos[0]: x:%f y:%f  z:%f\n", square->pos[0].x, square->pos[0].y, square->pos[0].z);
 	corner_vec[0] = vec_multi(sq_matrix.up, 0.5 * square->size);
 	corner_vec[1] = vec_multi(sq_matrix.right, 0.5 * square->size);
-	printvec(corner_vec[0], "vec0");
-	printvec(corner_vec[1], "vec1");
 	corners[0] = vec_add(square->pos[0], vec_add(corner_vec[0], corner_vec[1]));
 	corners[1] = vec_add(square->pos[0], vec_sub(corner_vec[0], corner_vec[1]));
 	corners[2] = vec_sub(square->pos[0], vec_sub(corner_vec[0], corner_vec[1]));
@@ -60,10 +48,6 @@ void		init_sq_children(t_object *square, t_data *data)
 	triangle[1]->pos[1] = corners[2];
 	triangle[1]->pos[2] = corners[3];
 	triangle[1]->color = square->color;
-	printf("corner[0]	x:%f	y:%f	z:%f\n", corners[0].x, corners[0].y, corners[0].z);
-	printf("corner[1]	x:%f	y:%f	z:%f\n", corners[1].x, corners[1].y, corners[1].z);
-	printf("corner[2]	x:%f	y:%f	z:%f\n", corners[2].x, corners[2].y, corners[2].z);
-	printf("corner[3]	x:%f	y:%f	z:%f\n", corners[3].x, corners[3].y, corners[3].z);
 	if (!lst_new_back(&(data->objects), triangle[0]) || !lst_new_back(&(data->objects), triangle[1]))
 		print_error("Allocation failed for square children", data);
 }

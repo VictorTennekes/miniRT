@@ -54,23 +54,23 @@ t_ray_res		obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data)
 		vec_multi(cylinder->vector, cylinder->height / 2.0));
 	p[1] = vec_add(cylinder->pos[0],
 		vec_multi(cylinder->vector, cylinder->height / 2.0));
-	res = -1;
+	res = -1.0;
 	if (init_cylinder_vars(cylinder, ray, t) == 1)
 	{
 		q = vec_add(ray.origin, vec_multi(ray.direction, t[0]));
-		if (t[0] > EPS && vec_dot_prod(cylinder->vector, vec_sub(q, p[0])) > 0
-			&& vec_dot_prod(cylinder->vector, vec_sub(q, p[1])) < 0)
+		if (t[0] > EPS && vec_dot_prod(cylinder->vector, vec_sub(q, p[0])) > 0.0
+			&& vec_dot_prod(cylinder->vector, vec_sub(q, p[1])) < 0.0)
 			res = t[0];
 		q = vec_add(ray.origin, vec_multi(ray.direction, t[1]));
-		if (t[1] > EPS && vec_dot_prod(cylinder->vector, vec_sub(q, p[0])) > 0
-			&& vec_dot_prod(cylinder->vector, vec_sub(q, p[1])) < 0)
+		if (t[1] > EPS && vec_dot_prod(cylinder->vector, vec_sub(q, p[0])) > 0.0
+			&& vec_dot_prod(cylinder->vector, vec_sub(q, p[1])) < 0.0)
 		{
-			if (res != -1)
+			if (res != -1.0)
 				res = fmin(t[0], t[1]);
 			else
 				res = t[1];
 		}
-		if (res > EPS)
+		if (res > 0.0)
 			return (ray_res_dist_new(cylinder, vec_add(ray.origin,
 			vec_multi(ray.direction, res)), cylinder->color, res));
 	}

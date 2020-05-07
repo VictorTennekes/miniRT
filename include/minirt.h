@@ -100,6 +100,7 @@ typedef struct		s_object
 	t_color			color;
 	double			size;
 	double			height;
+	double			distance;
 }					t_object;
 
 /*

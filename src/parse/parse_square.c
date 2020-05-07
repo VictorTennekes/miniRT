@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/31 11:55:39 by vtenneke       #+#    #+#                */
+/*   Created: 2020/01/31 11:55:39 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/10 21:06:30 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -43,6 +43,4 @@ void	parse_square(char **info, t_data *data)
 		print_error("Invalid orientation vector given for square", data);
 	object->vector = vec_normalize(object->vector);
 	init_sq_children(object, data);
-	// if (!lst_new_back(&(data->objects), object))
-	// 	print_error("Allocation failed for square", data);
 }

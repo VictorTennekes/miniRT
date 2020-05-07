@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/03 10:41:45 by vtenneke       #+#    #+#                */
+/*   Created: 2020/03/03 10:41:45 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/03/03 10:41:45 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -25,5 +25,6 @@ t_vec3d	norm_cy(t_ray_res ray_res, t_ray ray, t_data *data)
 {
 	(void)ray;
 	(void)data;
+	(void)ray_res;
 	return (ray_res.object->vector);
 }
