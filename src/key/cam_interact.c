@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/21 11:56:02 by vtenneke       #+#    #+#                */
+/*   Created: 2020/02/21 11:56:02 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/21 11:56:02 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -50,21 +50,15 @@ void	cam_move(int keycode, t_data *data)
 
 void	cam_rotate_lr(int keycode, t_data *data)
 {
+	int	ratio;
+
+	ratio = 0;
 	data->window.rendered = false;
-	if (keycode == KEY_LEFT)
+	if (keycode == KEY_LEFT || keycode == KEY_RIGHT)
 	{
+		ratio = keycode == KEY_LEFT ? 5 : -5;
 		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
-			data->current_cam->matrix.up, 5 * M_PI / 180);
-		data->current_cam->vector = vec_new(data->current_cam->quat.x,
-			data->current_cam->quat.y, data->current_cam->quat.z);
-		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
-		data->current_cam->matrix = matrix_new(data->current_cam->vector);
-		data->current_cam->matrix = normal_matrix(data->current_cam->matrix);
-	}
-	else if (keycode == KEY_RIGHT)
-	{
-		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
-			data->current_cam->matrix.up, -5 * M_PI / 180);
+			data->current_cam->matrix.up, ratio * M_PI / 180);		
 		data->current_cam->vector = vec_new(data->current_cam->quat.x,
 			data->current_cam->quat.y, data->current_cam->quat.z);
 		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
@@ -77,24 +71,21 @@ void	cam_rotate_lr(int keycode, t_data *data)
 
 void	cam_rotate_ud(int keycode, t_data *data)
 {
+	int ratio;
+
+	ratio = 0;
 	data->window.rendered = false;
-	if (keycode == KEY_UP)
+	if (keycode == KEY_UP || keycode == KEY_DOWN)
 	{
+		ratio = keycode == KEY_UP ? 5 : -5;
 		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
-			data->current_cam->matrix.right, 5 * M_PI / 180);
+			data->current_cam->matrix.right, ratio * M_PI / 180);
+		data->current_cam->quat = quat_norm(data->current_cam->quat);
 		data->current_cam->vector = vec_new(data->current_cam->quat.x,
 			data->current_cam->quat.y, data->current_cam->quat.z);
 		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
 		data->current_cam->matrix = matrix_new(data->current_cam->vector);
-	}
-	else if (keycode == KEY_DOWN)
-	{
-		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
-			data->current_cam->matrix.right, -5 * M_PI / 180);
-		data->current_cam->vector = vec_new(data->current_cam->quat.x,
-			data->current_cam->quat.y, data->current_cam->quat.z);
-		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);
-		data->current_cam->matrix = matrix_new(data->current_cam->vector);
+		data->current_cam->matrix = normal_matrix(data->current_cam->matrix);
 	}
 	else
 		data->window.rendered = true;
