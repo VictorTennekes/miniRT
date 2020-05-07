@@ -36,7 +36,7 @@ Ambient lighting:	`A {ratio} {color}`
 
 Camera:	`c {position} {orientation} {FOV}`
 * X,y,z coordinates of the view point.
-* A vector withe the x,y,z axis in the range [-1,1].
+* A vector with the the x,y,z axis in the range [-1,1].
 * Horizontal field of view in degrees in range [0,180].
 
 Light:	`l {position} {ratio} {color}`
@@ -51,7 +51,20 @@ Sphere:	`sp {position} {size} {color}`
 
 Plane:	`pl {position} {orientation} {color}`
 * X,y,z coordinates.
-* A vector withe the x,y,z axis in the range [-1,1].
+* A vector with the the x,y,z axis in the range [-1,1].
+* R,G,B colors in range [0-255].
+
+Square:	`sq {position} {orientation} {side size} {color}`
+* X,y,z coordinates of the square center.
+* A vector with the the x,y,z axis in the range [-1,1].
+* The square size side.
+* R,G,B colors in range [0-255].
+
+Cylinder:	`cy {position} {orientation} {diameter} {height} {color}`
+* X,y,z coordinates for the cylinder center.
+* A vector with the the x,y,z axis in the range [-1,1].
+* The cylinder diameter.
+* The cylinder height.
 * R,G,B colors in range [0-255].
 
 Triangle:	`tr {first point} {second point} {third point} {color}`
@@ -60,9 +73,9 @@ Triangle:	`tr {first point} {second point} {third point} {color}`
 * X,y,z coordinates.
 * R,G,B colors in range [0-255].
 
-Disk:   `ds {position} {orientation} {size} {color}`
+Disk:	`ds {position} {orientation} {size} {color}`
 * X,y,z coordinates.
-* A vector withe the x,y,z axis in the range [-1,1].
+* A vector with the the x,y,z axis in the range [-1,1].
 * The disk diameter.
 * R,G,B colors in range [0-255].
 
@@ -99,6 +112,7 @@ To switch camera's you can use the `o`(previous) and `p`(next) keys.
 ### Images
 
 ![example](images/readme.png)
+[More images](images/)
 
 ## License
 
