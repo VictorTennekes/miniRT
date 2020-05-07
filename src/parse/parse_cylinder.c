@@ -43,6 +43,7 @@ void	parse_cylinder(char **info, t_data *data)
 	object->size = parse_double(info[3]);
 	object->height = parse_double(info[4]);
 	object->color = parse_color(info[5], data);
+	init_cy_children(object, data);
 	if (!lst_new_back(&(data->objects), object))
 		print_error("Allocation failed for cylinder", data);
 }

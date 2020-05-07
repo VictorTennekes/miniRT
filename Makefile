@@ -58,6 +58,7 @@ SRCS			=	main.c\
 					render/save_bmp.c\
 					utilities/char_arrlen.c\
 					utilities/check_edge_tr.c\
+					utilities/children_cylinder.c\
 					utilities/children_square.c\
 					utilities/color_to_int.c\
 					utilities/double_compare.c\
