@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/05 11:29:27 by vtenneke       #+#    #+#                */
+/*   Created: 2020/03/05 11:29:27 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/03/05 11:29:27 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -20,7 +20,8 @@ t_ray_res		obj_dist_tr(t_object *triangle, t_ray ray, t_data *data)
 
 	plane.type = PL;
 	plane.pos[0] = triangle->pos[0];
-	plane.vector = normal(ray_res_new(triangle, vec_new(0, 0, 0), color_new(0, 0, 0)), ray, data);
+	plane.vector = normal(ray_res_new(triangle, vec_new(0, 0, 0),
+		color_new(0, 0, 0)), ray, data);
 	if (vec_dot_prod(plane.vector, ray.direction) == 0)
 		return (ray_res_inf());
 	tr_plane = obj_dist(&plane, ray, data);

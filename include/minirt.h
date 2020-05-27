@@ -89,7 +89,8 @@ typedef enum		e_object_type
 	SQ,
 	CY,
 	TR,
-	DS
+	DS,
+	PY
 }					t_object_type;
 
 typedef struct		s_object
@@ -217,8 +218,10 @@ int					color_to_int(t_color color);
 bool				double_compare(double a, double b);
 double				check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p);
 void				swap_double(double *d1, double *d2);
-void				init_sq_children(t_object *square, t_data *data);
 void				init_cy_children(t_object *cylinder, t_data *data);
+void				init_sq_children(t_object *square, t_data *data);
+void				init_py_children(t_object *pyramid, t_data *data);
+void				init_sq_corners(t_object *square, t_vec3d *corners);
 
 /*
 **	Vector functions and utilities
@@ -239,6 +242,7 @@ t_vec3d				vec_multi(t_vec3d vec, double factor);
 t_vec3d				vec_cross_prod(t_vec3d vec1, t_vec3d vec2);
 t_vec3d				vec_prod(t_vec3d vec1, t_vec3d vec2);
 double				vec_sqr(t_vec3d vec);
+t_vec3d				vec_div_scalar(t_vec3d vec, double scalar);
 
 
 /*

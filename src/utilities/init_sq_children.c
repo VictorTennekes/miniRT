@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   children_square.c                                  :+:    :+:            */
+/*   init_sq_children.c                                 :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
+/*   By: victor <victor@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/11 10:29:39 by vtenneke      #+#    #+#                 */
-/*   Updated: 2020/03/11 10:29:39 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/05/27 22:28:02 by victor        #+#    #+#                 */
+/*   Updated: 2020/05/27 22:28:02 by victor        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 #include <stdlib.h>
-
-static void	init_sq_corners(t_object *square, t_vec3d *corners)
-{
-	t_matrix	sq_matrix;
-	t_vec3d		corner_vec[2];
-
-	sq_matrix = matrix_new(square->vector);
-	corner_vec[0] = vec_multi(sq_matrix.up, 0.5 * square->size);
-	corner_vec[1] = vec_multi(sq_matrix.right, 0.5 * square->size);
-	corners[0] = vec_add(square->pos[0], vec_add(corner_vec[0], corner_vec[1]));
-	corners[1] = vec_add(square->pos[0], vec_sub(corner_vec[0], corner_vec[1]));
-	corners[2] = vec_sub(square->pos[0], vec_sub(corner_vec[0], corner_vec[1]));
-	corners[3] = vec_sub(square->pos[0], vec_add(corner_vec[0], corner_vec[1]));
-}
+#include <liblist.h>
 
 void		init_sq_children(t_object *square, t_data *data)
 {

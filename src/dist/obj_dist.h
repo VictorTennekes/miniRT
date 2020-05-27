@@ -34,7 +34,7 @@ t_ray_res 	obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data);
 t_ray_res	(*g_object_dist_parse[])(t_object *, t_ray, t_data *) = {
 	[PL] = &obj_dist_pl,
 	[SP] = &obj_dist_sp,
-	NULL,	//TODO square
+	NULL,
 	[CY] = &obj_dist_cy,
 	[TR] = &obj_dist_tr,
 	[DS] = &obj_dist_ds

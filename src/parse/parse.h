@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/20 11:53:49 by vtenneke       #+#    #+#                */
+/*   Created: 2020/02/20 11:53:49 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/20 11:53:49 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -34,6 +34,7 @@ void			parse_square(char **info, t_data *data);
 void			parse_cylinder(char **info, t_data *data);
 void			parse_triangle(char **info, t_data *data);
 void			parse_disk(char **info, t_data *data);
+void			parse_pyramid(char **info, t_data *data);
 
 typedef struct	s_parse
 {
@@ -51,7 +52,8 @@ t_parse			g_parse[] = {
 	{"sq", &parse_square},
 	{"cy", &parse_cylinder},
 	{"tr", &parse_triangle},
-	{"ds", &parse_disk}
+	{"ds", &parse_disk},
+	{"py", &parse_pyramid}
 };
 
 #endif

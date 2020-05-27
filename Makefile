@@ -47,6 +47,7 @@ SRCS			=	main.c\
 					parse/parse_disk.c\
 					parse/parse_light.c\
 					parse/parse_plane.c\
+					parse/parse_pyramid.c\
 					parse/parse_resolution.c\
 					parse/parse_sphere.c\
 					parse/parse_square.c\
@@ -59,10 +60,12 @@ SRCS			=	main.c\
 					utilities/char_arrlen.c\
 					utilities/check_edge_tr.c\
 					utilities/children_cylinder.c\
-					utilities/children_square.c\
+					utilities/children_pyramid.c\
 					utilities/color_to_int.c\
 					utilities/double_compare.c\
 					utilities/free_machine.c\
+					utilities/init_sq_children.c\
+					utilities/init_sq_corners.c\
 					utilities/isdigit_str.c\
 					utilities/parse_color.c\
 					utilities/parse_coords.c\
@@ -94,6 +97,7 @@ SRCS			=	main.c\
 					vec/vec_add.c\
 					vec/vec_cross_prod.c\
 					vec/vec_dist.c\
+					vec/vec_div_scalar.c\
 					vec/vec_dot_prod.c\
 					vec/vec_len.c\
 					vec/vec_multi.c\
