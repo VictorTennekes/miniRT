@@ -19,7 +19,7 @@ Run `make` to compile the executable.
 ## Usage
 To use the interactive interface run the executable with just a file as follows: `./minirt file.rt`.
 
-If you wish to save an image of a scene run the command like this: `./minirt file.rt —save`.
+If you wish to save an image of a scene run the command like this: `./minirt file.rt —save`. The saved image will be the rendered image from the first camera defined.
 
 Files have to meet the following requirements:
 * one definition of both resolution and ambient lighting.
@@ -79,6 +79,13 @@ Disk:	`ds {position} {orientation} {size} {color}`
 * X,y,z coordinates.
 * A vector with the the x,y,z axis in the range [-1,1].
 * The disk diameter.
+* R,G,B colors in range [0-255].
+
+Pyramid:	`py {position} {orientation} {foundation_size} {height} {color}`
+* X,y,z coordinates.
+* A vector with the the x,y,z axis in the range [-1,1].
+* The pyramid foundation square size.
+* The pyramid height.
 * R,G,B colors in range [0-255].
 
 Example scene.rt file:
