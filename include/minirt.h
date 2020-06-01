@@ -24,6 +24,10 @@
 # include <math.h>
 # include <stdio.h>
 
+# ifndef GREY
+#  define GREY false
+# endif
+
 /*
 **	Color
 */

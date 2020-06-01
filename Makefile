@@ -108,7 +108,7 @@ SRCS			=	main.c\
 					vec/vec_sub.c
 CFILES			=	$(SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
-CFLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -Og
+FLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -Og
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
 					-I $(LIBFT_LOC)/include\
@@ -122,6 +122,11 @@ FRAMEWORK		=	-framework OpenGl\
 MLX_LOC			=	lib/mlx
 LIBFT_LOC		=	lib/libft
 LIBLIST_LOC		=	lib/liblist
+
+# DEFINES
+ifdef GREY
+FLAGS += -D GREY=true
+endif
 
 # COLORS
 WHITE   = \x1b[37;01m
@@ -145,10 +150,10 @@ $(NAME): $(OFILES)
 	@echo "$(WHITE)/-----		Compiling liblist	-----\\ $(RESET)"
 	make -j6 -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Compiling miniRT	-----\\ $(RESET)"
-	$(CC) $(LIBS) $(FRAMEWORK) -o $(NAME) $(OFILES)
+	$(CC) $(LIBS) $(FRAMEWORK) -o $@ $^
 
 %.o: %.c
-	gcc $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) -c $(FLAGS) $(INCLUDES) -o $@ $<
 	
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
@@ -170,6 +175,11 @@ fclean: clean
 	@echo "$(WHITE)/-----		Fcleaning miniRT	-----\\ $(RESET)"
 	rm -f $(NAME)
 
-re: fclean all
+bonus: re
+	@echo "$(WHITE)/-----		Linking bonus		-----\\ $(RESET)"
+
+re:
+	$(MAKE) fclean
+	$(MAKE) all
 
 .PHONY: all clean fclean re

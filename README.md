@@ -14,7 +14,10 @@ Once completed it will be able to render simple Computer-Generated-Images.
 * [Images](#images)
 
 ## Installation
-Run `make` to compile the executable.
+Run `make` to compile the basic executable.
+
+by using `make bonus {option}` it is possible to compile with extra options. As of yet the following options are available:
+* Greyscale filter `GREY=true`
 
 ## Usage
 To use the interactive interface run the executable with just a file as follows: `./minirt file.rt`.

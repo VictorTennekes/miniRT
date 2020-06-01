@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/17 15:18:38 by vtenneke       #+#    #+#                */
+/*   Created: 2020/02/17 15:18:38 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/17 15:18:38 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -23,5 +23,8 @@
 
 int	color_to_int(t_color color)
 {
-	return ((int)color.r << 16 | (int)color.g << 8 | (int)color.b);
+	if (GREY == true)
+		return((int)((color.r + color.g + color.b) / 3) << 16 | (int)((color.r + color.g + color.b) / 3) << 8 | (int)((color.r + color.g + color.b) / 3));
+	else
+		return ((int)color.r << 16 | (int)color.g << 8 | (int)color.b);
 }
