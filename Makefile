@@ -132,12 +132,15 @@ LIBLIST_LOC		=	lib/liblist
 
 TARGETS = $(OFILES)
 
-# DEFINES
+
+ifeq ($(BONUS),1)
+
+# GREYSCALE
 ifdef GREY
 FLAGS += -DGREY=true
 endif
 
-ifeq ($(BONUS),1)
+# MULTITHREADING
 FLAGS += -DNCORES=$(shell sysctl -n hw.ncpu) -DBONUS
 TARGETS += $(BONUS_OFILES)
 endif
