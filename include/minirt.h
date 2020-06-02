@@ -186,6 +186,16 @@ typedef struct		s_data
 }					t_data;
 
 /*
+** Multi threading
+*/
+
+typedef struct	s_thread_data {
+	t_color			*color;
+	t_data			*data;
+	uint32_t		start;
+}				t_thread_data;
+
+/*
 **	Error functions
 */
 
@@ -273,6 +283,8 @@ int					hook_frame(t_data *data);
 bool				init_mlx_img(t_data *data);
 bool				init_mlx(t_data *data);
 void				pixel_put(t_mlx_data data, int x, int y, t_color color);
+t_thread_data		*thread_new(t_data *data, t_color *color, uint32_t start);
+void				*render_thread(void *param);
 
 /*
 **	Normalizing main function

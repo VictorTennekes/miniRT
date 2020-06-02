@@ -11,6 +11,9 @@
 # **************************************************************************** #
 
 NAME			=	minirt
+
+all: $(NAME)
+
 SRCS			=	main.c\
 					color/color_add_light.c\
 					color/color_mix.c\
@@ -106,8 +109,12 @@ SRCS			=	main.c\
 					vec/vec_prod.c\
 					vec/vec_sqr.c\
 					vec/vec_sub.c
+BONUS_SRCS		=	mlx/render_thread.c\
+					mlx/thread_new.c
 CFILES			=	$(SRCS:%=src/%)
+BONUS_CFILES	=	$(BONUS_SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
+BONUS_OFILES	=	$(BONUS_CFILES:.c=.o)
 FLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -Og
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
@@ -123,10 +130,18 @@ MLX_LOC			=	lib/mlx
 LIBFT_LOC		=	lib/libft
 LIBLIST_LOC		=	lib/liblist
 
+TARGETS = $(OFILES)
+
 # DEFINES
 ifdef GREY
-FLAGS += -D GREY=true
+FLAGS += -DGREY=true
 endif
+
+ifeq ($(BONUS),1)
+FLAGS += -DNCORES=$(shell sysctl -n hw.ncpu) -DBONUS
+TARGETS += $(BONUS_OFILES)
+endif
+
 
 # COLORS
 WHITE   = \x1b[37;01m
@@ -139,9 +154,7 @@ RED     = \x1b[31;01m
 BLACK   = \x1b[30;01m
 RESET   = \x1b[0m
 
-all: $(NAME)
-
-$(NAME): $(OFILES)
+$(NAME): $(TARGETS)
 	@echo "$(WHITE)/-----		Compiling mlx		-----\\ $(RESET)"
 	make -C $(MLX_LOC)
 	cp $(MLX_LOC)/libmlx.dylib .
@@ -165,7 +178,7 @@ clean:
 	make -j6 clean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Cleaning miniRT		-----\\ $(RESET)"
 	rm -f scene.bmp
-	rm -f $(OFILES)
+	rm -f $(TARGETS)
 
 fclean: clean
 	@echo "$(WHITE)/-----		Fcleaning libft		-----\\ $(RESET)"
@@ -174,9 +187,15 @@ fclean: clean
 	make -j6 fclean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Fcleaning miniRT	-----\\ $(RESET)"
 	rm -f $(NAME)
+	rm -f bonus
 
-bonus: re
+bonus:
+	rm -f $(NAME)
 	@echo "$(WHITE)/-----		Linking bonus		-----\\ $(RESET)"
+	@BONUS=1 make $(NAME)
+	@touch bonus
+
+bonusre: fclean bonus
 
 re:
 	$(MAKE) fclean
