@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   cast_ray_object.c                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/10 22:01:47 by victor         #+#    #+#                */
-/*   Updated: 2020/02/11 14:14:49 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:16:10 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:16:10 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

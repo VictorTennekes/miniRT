@@ -3,13 +3,12 @@
 /*                                                        ::::::::            */
 /*   render_thread.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/06/02 17:47:36 by victor        #+#    #+#                 */
-/*   Updated: 2020/06/02 17:47:36 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:15:21 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:15:21 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <minirt.h>
 #include <pthread.h>

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   children_cylinder.c                                :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/07 13:39:55 by victor        #+#    #+#                 */
-/*   Updated: 2020/05/07 13:39:55 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:16:52 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:16:52 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   color_add_light.c                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/19 18:12:57 by victor         #+#    #+#                */
-/*   Updated: 2020/02/19 18:12:57 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:13:13 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:13:13 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   get_pixel.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/10 20:57:29 by victor         #+#    #+#                */
-/*   Updated: 2020/02/11 14:17:47 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:18:45 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:18:45 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

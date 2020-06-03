@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   obj_dist_cy.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/04/28 12:33:24 by victor        #+#    #+#                 */
-/*   Updated: 2020/04/28 12:33:24 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:13:59 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:13:59 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

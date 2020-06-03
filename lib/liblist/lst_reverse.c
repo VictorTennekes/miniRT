@@ -5,19 +5,12 @@
 /*                                                     +:+                    */
 /*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/05 13:53:09 by vtenneke       #+#    #+#                */
+/*   Created: 2020/02/05 13:53:09 by vtenneke      #+#    #+#                 */
 /*   Updated: 2020/02/05 13:53:11 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblist.h"
-
-/*
-**	Reverse a linked list.
-**
-**	@param {t_list **} node - a pointer to the start of the list. The pointer
-**		to the new beginning of the list will be stored here.
-*/
 
 void	lst_reverse(t_list **node)
 {

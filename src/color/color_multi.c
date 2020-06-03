@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   color_multi.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/18 22:21:55 by victor         #+#    #+#                */
-/*   Updated: 2020/02/18 22:21:55 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:13:44 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:13:44 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

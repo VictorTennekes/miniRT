@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   vec_a_to_b.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/10 21:29:46 by victor         #+#    #+#                */
-/*   Updated: 2020/02/10 21:29:48 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:18:53 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:18:53 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

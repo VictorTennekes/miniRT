@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   isdigit_str.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/28 12:24:50 by victor         #+#    #+#                */
-/*   Updated: 2020/02/03 17:47:04 by vtenneke      ########   odam.nl         */
+/*   Created: 2020/06/03 13:17:48 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:17:48 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

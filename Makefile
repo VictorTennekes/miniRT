@@ -192,6 +192,8 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f bonus
 
+sanic:
+	make bonusre
 bonus:
 	rm -f $(NAME)
 	@echo "$(WHITE)/-----		Linking bonus		-----\\ $(RESET)"

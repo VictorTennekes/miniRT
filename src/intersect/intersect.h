@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   intersect.h                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: victor <victor@student.codam.nl>             +#+                     */
+/*   By: vtenneke <vtenneke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/19 18:29:40 by victor        #+#    #+#                 */
-/*   Updated: 2020/02/19 18:29:40 by victor        ########   odam.nl         */
+/*   Created: 2020/06/03 13:15:01 by vtenneke      #+#    #+#                 */
+/*   Updated: 2020/06/03 13:15:01 by vtenneke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
