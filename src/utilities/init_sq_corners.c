@@ -27,7 +27,9 @@ void	init_sq_corners(t_object *square, t_vec3d *corners)
 	t_matrix	sq_matrix;
 	t_vec3d		corner_vec[2];
 
-	if (square->vector.x == 0 && (square->vector.y == 1 || square->vector.y == -1) && square->vector.z == 0)
+	if (square->vector.x == 0 &&
+		(square->vector.y == 1 || square->vector.y == -1)
+		&& square->vector.z == 0)
 	{
 		sq_matrix.forward = vec_new(0, square->vector.y == 1 ? 1 : -1, 0);
 		sq_matrix.right = vec_new(1, 0, 0);

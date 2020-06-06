@@ -22,5 +22,5 @@
 
 inline double	vec_sqr(t_vec3d vec)
 {
-	return(pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2));
+	return (pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2));
 }

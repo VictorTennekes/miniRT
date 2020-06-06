@@ -22,7 +22,7 @@
 
 #include <minirt.h>
 
-t_ray_res obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
+t_ray_res	obj_dist_sp(t_object *sphere, t_ray ray, t_data *data)
 {
 	double	t[3];
 	double	tc[2];

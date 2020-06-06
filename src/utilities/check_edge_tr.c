@@ -26,7 +26,7 @@ double	check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p)
 {
 	t_vec3d edge[3];
 	t_vec3d c[3];
-	
+
 	edge[0] = vec_sub(triangle->pos[1], triangle->pos[0]);
 	edge[1] = vec_sub(triangle->pos[2], triangle->pos[1]);
 	edge[2] = vec_sub(triangle->pos[0], triangle->pos[2]);

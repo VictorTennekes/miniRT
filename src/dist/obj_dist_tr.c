@@ -38,7 +38,8 @@ t_ray_res		obj_dist_tr(t_object *triangle, t_ray ray, t_data *data)
 	if (tr_plane.distance == INFINITY)
 		return (ray_res_inf());
 	if (!check_edge_tr(triangle, plane.vector, tr_plane.position) &&
-		!check_edge_tr(triangle, vec_multi(plane.vector, -1), tr_plane.position))
+		!check_edge_tr(triangle, vec_multi(plane.vector, -1),
+		tr_plane.position))
 		return (ray_res_inf());
 	return (ray_res_dist_new(triangle, tr_plane.position, triangle->color,
 		vec_dist(ray.origin, tr_plane.position)));

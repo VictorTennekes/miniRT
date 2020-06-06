@@ -44,6 +44,7 @@ void		init_sq_children(t_object *square, t_data *data)
 	triangle[1]->pos[1] = corners[2];
 	triangle[1]->pos[2] = corners[3];
 	triangle[1]->color = square->color;
-	if (!lst_new_back(&(data->objects), triangle[0]) || !lst_new_back(&(data->objects), triangle[1]))
+	if (!lst_new_back(&(data->objects), triangle[0]) ||
+		!lst_new_back(&(data->objects), triangle[1]))
 		print_error("Allocation failed for square children", data);
 }

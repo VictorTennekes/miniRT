@@ -58,7 +58,7 @@ void	cam_rotate_lr(int keycode, t_data *data)
 	{
 		ratio = keycode == KEY_LEFT ? 5 : -5;
 		data->current_cam->quat = rotate_cam(data->current_cam->matrix.forward,
-			data->current_cam->matrix.up, ratio * M_PI / 180);		
+			data->current_cam->matrix.up, ratio * M_PI / 180);
 		data->current_cam->vector = vec_new(data->current_cam->quat.x,
 			data->current_cam->quat.y, data->current_cam->quat.z);
 		data->current_cam->vector = vec_multi(data->current_cam->vector, -1);

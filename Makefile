@@ -170,14 +170,14 @@ $(NAME): $(TARGETS)
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
 	make -j6 clean -C $(MLX_LOC)
-	rm libmlx.dylib
+	@-rm libmlx.dylib
 	@echo "$(WHITE)/-----		Cleaning libft		-----\\ $(RESET)"
 	make -j6 clean -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Cleaning liblist	-----\\ $(RESET)"
 	make -j6 clean -C $(LIBLIST_LOC)
 	@echo "$(WHITE)/-----		Cleaning miniRT		-----\\ $(RESET)"
 	rm -f scene.bmp
-	rm -f $(TARGETS)
+	rm -f $(BONUS_OFILES) $(OFILES)
 
 fclean: clean
 	@echo "$(WHITE)/-----		Fcleaning libft		-----\\ $(RESET)"
@@ -190,6 +190,7 @@ fclean: clean
 
 sanic:
 	make bonusre
+
 bonus:
 	rm -f $(NAME)
 	@echo "$(WHITE)/-----		Linking bonus		-----\\ $(RESET)"

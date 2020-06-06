@@ -33,7 +33,6 @@ double	intersect_cy(t_object *cylinder, t_ray ray, t_data *data);
 double	(*g_intersect[])(t_object *, t_ray, t_data *) = {
 	[PL] = &intersect_pl,
 	[SP] = &intersect_sp,
-	NULL,
 	[CY] = &intersect_cy,
 	[TR] = &intersect_tr,
 	[DS] = &intersect_ds

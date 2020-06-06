@@ -20,7 +20,7 @@
 static double	vec_angle(t_vec3d vec1, t_vec3d vec2)
 {
 	double	res;
-	
+
 	res = vec_dot_prod(vec1, vec2);
 	res /= vec_len(vec1) * vec_len(vec2);
 	res = acos(res);

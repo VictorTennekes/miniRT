@@ -52,6 +52,14 @@ static int	init_cylinder_vars(t_object *cylinder, t_ray ray, double *t)
 	return (1);
 }
 
+static void	init_values_cy(t_object *cylinder, t_vec3d *p)
+{
+	p[0] = vec_sub(cylinder->pos[0],
+		vec_multi(cylinder->vector, cylinder->height / 2.0));
+	p[1] = vec_add(cylinder->pos[0],
+		vec_multi(cylinder->vector, cylinder->height / 2.0));
+}
+
 /*
 **	Calculate the distance between the ray origin and a cylinder.
 **
@@ -62,7 +70,7 @@ static int	init_cylinder_vars(t_object *cylinder, t_ray ray, double *t)
 **	@return	:	{t_ray_res}
 */
 
-t_ray_res		obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data)
+t_ray_res	obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data)
 {
 	t_vec3d p[2];
 	t_vec3d	q;
@@ -70,10 +78,7 @@ t_ray_res		obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data)
 	double	res;
 
 	(void)data;
-	p[0] = vec_sub(cylinder->pos[0],
-		vec_multi(cylinder->vector, cylinder->height / 2.0));
-	p[1] = vec_add(cylinder->pos[0],
-		vec_multi(cylinder->vector, cylinder->height / 2.0));
+	init_values_cy(cylinder, p);
 	res = -1.0;
 	if (init_cylinder_vars(cylinder, ray, t) == 1)
 	{
@@ -84,12 +89,7 @@ t_ray_res		obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data)
 		q = vec_add(ray.origin, vec_multi(ray.direction, t[1]));
 		if (t[1] > EPS && vec_dot_prod(cylinder->vector, vec_sub(q, p[0])) > 0.0
 			&& vec_dot_prod(cylinder->vector, vec_sub(q, p[1])) < 0.0)
-		{
-			if (res != -1.0)
-				res = fmin(t[0], t[1]);
-			else
-				res = t[1];
-		}
+			res = (res != -1.0) ? fmin(t[0], t[1]) : t[1];
 		if (res > 0.0)
 			return (ray_res_dist_new(cylinder, vec_add(ray.origin,
 			vec_multi(ray.direction, res)), cylinder->color, res));

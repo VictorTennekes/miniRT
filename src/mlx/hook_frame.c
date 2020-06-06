@@ -42,7 +42,8 @@ t_color	*get_frame(t_data *data)
 		c[1] = 0;
 		while (c[1] < data->window.y)
 		{
-			res[c[0] * data->window.y + c[1]] = get_pixel((t_vec2ui){c[0], c[1]}, data);
+			res[c[0] * data->window.y + c[1]] =
+				get_pixel((t_vec2ui){c[0], c[1]}, data);
 			c[1]++;
 		}
 		c[0]++;
@@ -82,7 +83,6 @@ t_color	*get_frame(t_data *data)
 
 #endif
 
-
 int		hook_frame(t_data *data)
 {
 	t_color		*frame;
@@ -98,7 +98,8 @@ int		hook_frame(t_data *data)
 		c[1] = 0;
 		while (c[1] < data->window.y)
 		{
-			pixel_put(data->mlx_info.mlx_data, c[0], c[1], frame[c[0] * data->window.y + c[1]]);
+			pixel_put(data->mlx_info.mlx_data, c[0], c[1],
+				frame[c[0] * data->window.y + c[1]]);
 			c[1]++;
 		}
 		c[0]++;

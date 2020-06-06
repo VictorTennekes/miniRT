@@ -22,7 +22,7 @@
 
 #include <minirt.h>
 
-double intersect_sp(t_object *sphere, t_ray ray, t_data *data)
+double	intersect_sp(t_object *sphere, t_ray ray, t_data *data)
 {
 	t_vec3d	p;
 	double	t[3];
