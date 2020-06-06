@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Checking if a ray p hits the plane within the dimensions of the triangle.
+**
+**	@param	:	{t_object *} triangle
+**	@param	:	{t_vec3d} normal
+**	@param	:	{t_vec3d} p
+**
+**	@return	:	{double}
+*/
+
 #include <minirt.h>
 
 double	check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p)

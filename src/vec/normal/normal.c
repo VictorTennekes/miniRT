@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**	Utilize the jumptable to return the normal of a object retrieved
+**	Utilize the dispatcher to return the normal of a object retrieved
 **	from ray_res.
 **
 **	@param	:	{t_ray_res} ray_res

@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate the distance between the ray origin and a triange.
+**
+**	@param	:	{t_object *} triangle
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_ray_res}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**	Utilize the jumptable to calculate if a ray and object intersect.
+**	Utilize the dispatcher to calculate if a ray and object intersect.
 **
 **	@param	:	{t_object *} object
 **	@param	:	{t_ray} ray

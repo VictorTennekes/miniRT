@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate if the ray and the disk intersect.
+**
+**	@param	:	{t_object *} disk
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{double}
+*/
+
 #include <minirt.h>
 
 double	intersect_ds(t_object *disk, t_ray ray, t_data *data)
@@ -21,8 +31,6 @@ double	intersect_ds(t_object *disk, t_ray ray, t_data *data)
 	plane.type = PL;
 	plane.pos[0] = disk->pos[0];
 	plane.vector = disk->vector;
-	// if (vec_dot_prod(plane.vector, ray.direction) <= 0)
-	// 	plane.vector = vec_multi(plane.vector, -1);
 	t = intersect(&plane, ray, data);
 	if (t == INFINITY)
 		return (INFINITY);

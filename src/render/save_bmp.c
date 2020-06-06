@@ -10,6 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	A collection of functions to fill a buffer with the correct data for a
+**	bitmap image.
+**
+**	source: https://bit.ly/2UgVX5o
+*/
+
 #include <minirt.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -23,7 +30,6 @@ static size_t	bmp_size(t_data *data)
 	res += 40;
 	res += 3 * (data->window.x * data->window.y);
 	return (res);
-
 }
 
 static void		bmp_file_header(char *buf, size_t file_size)
@@ -42,7 +48,7 @@ static void		bmp_info_header(char *buf, t_data *data)
 	*((uint8_t *)&buf[0x1C]) = (uint8_t)24;
 }
 
-static void			bmp_write_image(char *buf, t_data *data)
+static void		bmp_write_image(char *buf, t_data *data)
 {
 	uint32_t	index;
 	t_color		color;

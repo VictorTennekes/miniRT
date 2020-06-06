@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Initialize all the values needed to check if the ray is hitting the object
+**
+**	@param	:	{t_object *} cylinder
+**	@param	:	{t_ray} ray
+**	@param	:	{double *} t
+**
+**	@return	:	{int}
+*/
+
 #include <minirt.h>
 #include <math.h>
 
@@ -41,6 +51,16 @@ static int	init_cylinder_vars(t_object *cylinder, t_ray ray, double *t)
 	}
 	return (1);
 }
+
+/*
+**	Calculate the distance between the ray origin and a cylinder.
+**
+**	@param	:	{t_object *} cylinder
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_ray_res}
+*/
 
 t_ray_res		obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data)
 {

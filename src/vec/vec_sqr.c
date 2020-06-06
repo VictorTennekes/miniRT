@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Get the square root of a vector
+**
+**	@param	:	{t_vec3d} vec
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 
 inline double	vec_sqr(t_vec3d vec)

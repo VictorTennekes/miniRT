@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**	Redirecting the key hook function to the function according to the
+**	Dispatching the key hook function to the function according to the
 **	appropriate keycode.
 **
 **	@param	:	{int} keycode

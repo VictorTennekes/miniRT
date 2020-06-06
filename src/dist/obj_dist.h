@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**	Redirecting the object distance function for appropriate object.
+**	Dispatching the object distance function for appropriate object.
 **
 **	@param	:	{t_object *} object
 **	@param	:	{t_ray} ray

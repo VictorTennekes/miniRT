@@ -11,9 +11,6 @@
 # **************************************************************************** #
 
 NAME			=	minirt
-
-all: $(NAME)
-
 SRCS			=	main.c\
 					color/color_add_light.c\
 					color/color_mix.c\
@@ -132,9 +129,7 @@ LIBLIST_LOC		=	lib/liblist
 
 TARGETS = $(OFILES)
 
-
 ifeq ($(BONUS),1)
-
 # GREYSCALE
 ifdef GREY
 FLAGS += -DGREY=true
@@ -144,7 +139,6 @@ endif
 FLAGS += -DTHREADS=$(shell sysctl -n hw.ncpu) -DBONUS
 TARGETS += $(BONUS_OFILES)
 endif
-
 
 # COLORS
 WHITE   = \x1b[37;01m
@@ -156,6 +150,8 @@ GREEN   = \x1b[32;01m
 RED     = \x1b[31;01m
 BLACK   = \x1b[30;01m
 RESET   = \x1b[0m
+
+all: $(NAME)
 
 $(NAME): $(TARGETS)
 	@echo "$(WHITE)/-----		Compiling mlx		-----\\ $(RESET)"
@@ -174,7 +170,7 @@ $(NAME): $(TARGETS)
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
 	make -j6 clean -C $(MLX_LOC)
-	@-rm libmlx.dylib
+	rm libmlx.dylib
 	@echo "$(WHITE)/-----		Cleaning libft		-----\\ $(RESET)"
 	make -j6 clean -C $(LIBFT_LOC)
 	@echo "$(WHITE)/-----		Cleaning liblist	-----\\ $(RESET)"

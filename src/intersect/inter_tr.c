@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate if the ray and a triangle intersect.
+**
+**	@param	:	{t_object *} triangle
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{double}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 

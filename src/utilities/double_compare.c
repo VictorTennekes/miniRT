@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Comparing two doubles.
+**
+**	@param	:	{double} a
+**	@param	:	{double} b
+**
+**	@return	:	{bool}
+*/
+
 #include <minirt.h>
 
 bool	double_compare(double a, double b)

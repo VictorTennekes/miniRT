@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Swapping two doubles.
+**
+**	@param	:	{double *} d1
+**	@param	:	{double *} d2
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 
 inline void	swap_double(double *d1, double *d2)

@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculate the distance between the ray origin and a disk.
+**
+**	@param	:	{t_object *} disk
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_ray_res}
+*/
+
 #include <minirt.h>
 
 t_ray_res	obj_dist_ds(t_object *disk, t_ray ray, t_data *data)

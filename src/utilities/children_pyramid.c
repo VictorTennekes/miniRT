@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Splitting a pyramid into its respective objects: 1 square and 4 triangles.
+**
+**	@param	:	{t_object *} pyramid
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
+
 #include <minirt.h>
 #include <stdlib.h>
 

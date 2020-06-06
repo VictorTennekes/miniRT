@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Parse info into the appropriate struct and linked list.
+**
+**	@param	:	{char **} info
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <liblist.h>
 #include <stdlib.h>

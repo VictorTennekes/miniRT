@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Adding the cylinder caps (disks) to the linked list of objects.
+**
+**	@param	:	{t_object *} cylinder
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 

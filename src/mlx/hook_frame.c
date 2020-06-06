@@ -12,7 +12,8 @@
 
 /*
 **	Loop over the window to make sure everything is rendered and is
-**	re-rendered when updates take place.
+**	re-rendered when updates take place. When multithreaded the frame is
+**	rendered by multiple threads at the same time
 **
 **	@param	:	{t_data *} data
 **

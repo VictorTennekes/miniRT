@@ -10,6 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Creating a new thread struct with the main struct, array for colors and
+**	the threads starting point so the thread know where to be in the image
+**	buffer.
+**
+**	@param	:	{t_data *} data
+**	@param	:	{t_color *} color
+**	@param	:	{uint32_t} start
+**
+**	@return	:	{t_thread_data}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 

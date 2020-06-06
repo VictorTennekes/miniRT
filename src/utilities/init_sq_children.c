@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Initializing the children of a square and adding them to the linked list.
+**
+**	@param	:	{t_object *} square
+**	@param	:	{t_data *} data
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 #include <liblist.h>

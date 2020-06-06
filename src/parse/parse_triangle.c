@@ -13,7 +13,7 @@
 /*
 **	Parse info into the appropriate struct and linked list.
 **
-**	@param	:	{char **} infos
+**	@param	:	{char **} info
 **	@param	:	{t_data *} data
 **
 **	@return	:	{void}

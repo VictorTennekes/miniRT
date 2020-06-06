@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Using the threads to render the pixels in the image buffer.
+**
+**	@param	:	{void *} param
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <pthread.h>
 #include <stdlib.h>

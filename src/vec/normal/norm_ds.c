@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Adjust the normal of a disk so lighting works correctly
+**
+**	@param	:	{t_ray_res} ray_res
+**	@param	:	{t_ray} ray
+**	@param	:	{t_data *} data
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 
 t_vec3d norm_ds(t_ray_res ray_res, t_ray ray, t_data  *data)

@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Collection of functions to adjust a normal according to the ray direction
+**	to fix weird lighting on both sides of an object.
+*/
+
 #include <minirt.h>
 
 static double	vec_angle(t_vec3d vec1, t_vec3d vec2)

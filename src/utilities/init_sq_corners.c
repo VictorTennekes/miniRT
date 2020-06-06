@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Calculatijng all the corners of a square
+**
+**	@param	:	{t_object *} square
+**	@param	:	{t_vec3d *} corners
+**
+**	@return	:	{void}
+*/
+
 #include <minirt.h>
 #include <stdlib.h>
 

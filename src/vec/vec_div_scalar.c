@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Divide a vector by a scalar.
+**
+**	@param	:	{t_vec3d} vec
+**	@param	:	{double} scalar
+**
+**	@return	:	{t_vec3d}
+*/
+
 #include <minirt.h>
 
 inline t_vec3d	vec_div_scalar(t_vec3d vec, double scalar)

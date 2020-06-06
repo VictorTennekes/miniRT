@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-**	Redirecting the ray_res normal function for appropriate object.
+**	Dispatching the ray_res normal function for appropriate object.
 **
 **	@param	:	{t_ray_res} ray_res
 **	@param	:	{t_data *} data
