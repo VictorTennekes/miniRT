@@ -141,7 +141,7 @@ FLAGS += -DGREY=true
 endif
 
 # MULTITHREADING
-FLAGS += -DNCORES=$(shell sysctl -n hw.ncpu) -DBONUS
+FLAGS += -DTHREADS=$(shell sysctl -n hw.ncpu) -DBONUS
 TARGETS += $(BONUS_OFILES)
 endif
 

@@ -54,15 +54,15 @@ t_color	*get_frame(t_data *data)
 t_color	*get_frame(t_data *data)
 {
 	t_color			*color;
-	pthread_t		threads[NCORES];
+	pthread_t		threads[THREADS];
 	int32_t			i;
-	t_thread_data	*thread_data[NCORES];
+	t_thread_data	*thread_data[THREADS];
 
 	color = malloc(sizeof(t_color) * (data->window.x * data->window.y));
 	if (!color)
 		print_error("Malloc failed for get_frame", data);
 	i = 0;
-	while (i < NCORES)
+	while (i < THREADS)
 	{
 		thread_data[i] = thread_new(data, color, i);
 		if (pthread_create(&threads[i], NULL, render_thread, thread_data[i]))

@@ -26,7 +26,7 @@ void	*render_thread(void *param)
 		thread_data->color[i] =
 			get_pixel((t_vec2ui){i / thread_data->data->window.y,
 			i % thread_data->data->window.y}, thread_data->data);
-		i += NCORES;
+		i += THREADS;
 	}
 	free(param);
 	pthread_exit(NULL);
