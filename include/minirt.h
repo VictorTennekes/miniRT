@@ -189,11 +189,11 @@ typedef struct		s_data
 ** Multi threading
 */
 
-typedef struct	s_thread_data {
+typedef struct		s_thread_data {
 	t_color			*color;
 	t_data			*data;
 	uint32_t		start;
-}				t_thread_data;
+}					t_thread_data;
 
 /*
 **	Error functions
@@ -230,7 +230,8 @@ void				*free_machine(char **array);
 bool				check_line(char *str);
 int					color_to_int(t_color color);
 bool				double_compare(double a, double b);
-double				check_edge_tr(t_object *triangle, t_vec3d normal, t_vec3d p);
+double				check_edge_tr(t_object *triangle,
+						t_vec3d normal, t_vec3d p);
 void				swap_double(double *d1, double *d2);
 void				init_cy_children(t_object *cylinder, t_data *data);
 void				init_sq_children(t_object *square, t_data *data);
@@ -257,7 +258,6 @@ t_vec3d				vec_cross_prod(t_vec3d vec1, t_vec3d vec2);
 t_vec3d				vec_prod(t_vec3d vec1, t_vec3d vec2);
 double				vec_sqr(t_vec3d vec);
 t_vec3d				vec_div_scalar(t_vec3d vec, double scalar);
-
 
 /*
 **	Ray and ray_res functions

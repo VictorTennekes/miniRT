@@ -23,7 +23,20 @@
 #include <minirt.h>
 #include "intersect.h"
 
-double	intersect(t_object *object, t_ray ray, t_data *data)
+static t_inter_func	obj_inter_dispatch(int type)
 {
-	return (g_intersect[object->type](object, ray, data));
+	static const	t_inter_func	inter_functions[] = {
+		[PL] = &intersect_pl,
+		[SP] = &intersect_sp,
+		[CY] = &intersect_cy,
+		[TR] = &intersect_tr,
+		[DS] = &intersect_ds
+	};
+
+	return (inter_functions[type]);
+}
+
+double				intersect(t_object *object, t_ray ray, t_data *data)
+{
+	return (obj_inter_dispatch(object->type)(object, ray, data));
 }

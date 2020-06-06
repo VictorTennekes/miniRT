@@ -23,7 +23,20 @@
 #include <minirt.h>
 #include "obj_dist.h"
 
-t_ray_res	obj_dist(t_object *object, t_ray ray, t_data *data)
+static t_dist_func	obj_dist_dispatch(int type)
 {
-	return (g_object_dist_parse[object->type](object, ray, data));
+	static const	t_dist_func	dist_functions[] = {
+		[PL] = &obj_dist_pl,
+		[SP] = &obj_dist_sp,
+		[CY] = &obj_dist_cy,
+		[TR] = &obj_dist_tr,
+		[DS] = &obj_dist_ds
+	};
+
+	return (dist_functions[type]);
+}
+
+t_ray_res			obj_dist(t_object *object, t_ray ray, t_data *data)
+{
+	return (obj_dist_dispatch(object->type)(object, ray, data));
 }

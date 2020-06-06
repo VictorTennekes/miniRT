@@ -31,12 +31,6 @@ t_ray_res	obj_dist_tr(t_object *triangle, t_ray ray, t_data *data);
 t_ray_res	obj_dist_ds(t_object *disk, t_ray ray, t_data *data);
 t_ray_res	obj_dist_cy(t_object *cylinder, t_ray ray, t_data *data);
 
-t_ray_res	(*g_object_dist_parse[])(t_object *, t_ray, t_data *) = {
-	[PL] = &obj_dist_pl,
-	[SP] = &obj_dist_sp,
-	[CY] = &obj_dist_cy,
-	[TR] = &obj_dist_tr,
-	[DS] = &obj_dist_ds
-};
+typedef t_ray_res	(*t_dist_func)(t_object *obj, t_ray ray, t_data *data);
 
 #endif

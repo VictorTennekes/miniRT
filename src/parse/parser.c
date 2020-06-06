@@ -83,6 +83,7 @@ static void	parse_line(char *line, t_data *data)
 		}
 		i++;
 	}
+	print_error("Unknown identifier", data);
 }
 
 /*

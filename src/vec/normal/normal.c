@@ -23,7 +23,20 @@
 #include <minirt.h>
 #include "normal.h"
 
-t_vec3d	normal(t_ray_res ray_res, t_ray ray, t_data *data)
+static t_normal_func	normal_dispatch(int type)
 {
-	return (g_normal[ray_res.object->type](ray_res, ray, data));
+	static const	t_normal_func	normal_functions[] = {
+		[PL] = &norm_pl,
+		[SP] = &norm_sp,
+		[CY] = &norm_cy,
+		[TR] = &norm_tr,
+		[DS] = &norm_ds
+	};
+
+	return (normal_functions[type]);
+}
+
+t_vec3d					normal(t_ray_res ray_res, t_ray ray, t_data *data)
+{
+	return (normal_dispatch(ray_res.object->type)(ray_res, ray, data));
 }
