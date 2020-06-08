@@ -12,17 +12,21 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <stddef.h>
 
 # ifndef NOLIST
+
 typedef struct		s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
 # endif
 
 # ifndef NOLIST
+
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void*));

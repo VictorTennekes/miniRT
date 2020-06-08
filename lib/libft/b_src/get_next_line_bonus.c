@@ -35,7 +35,8 @@ int		get_line(char **res, char **line, int c)
 {
 	char	*tmp;
 
-	*line = ft_gnl_substr(*res, 0, ft_strchr_gnl(*res, c) + ((c == '\0') ? 1 : -1));
+	*line = ft_gnl_substr(*res, 0, ft_strchr_gnl(*res, c) +
+		((c == '\0') ? 1 : -1));
 	if (!*line)
 		return (-1);
 	if (c == '\0')

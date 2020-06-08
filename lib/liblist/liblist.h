@@ -12,11 +12,11 @@
 
 #ifndef LIBLIST_H
 # define LIBLIST_H
-#include <stddef.h>
+# include <stddef.h>
 
 typedef struct s_list	t_list;
 
-struct					s_list
+struct	s_list
 {
 	void	*content;
 	t_list	*next;

@@ -35,7 +35,8 @@ $(NAME): $(OFILES)
 %.o: %.c
 	$(CC) -o $@ -c $< $(FLAGS)
 
-clean: clean
+clean:
+	rm -f $(OFILES)
 
 fclean: clean
 	rm -f $(NAME)

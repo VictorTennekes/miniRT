@@ -29,7 +29,8 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char				*ft_strjoin(char *s1, char *s2);
 int					ft_strrchr_gnl(const char *s, int c);
 int					ft_strchr_gnl(const char *s, int c);
-char				*ft_gnl_substr(const char *s, unsigned int start, size_t len);
+char				*ft_gnl_substr(const char *s,
+						unsigned int start, size_t len);
 char				*ft_strdup(const char *s1);
 
 #endif
