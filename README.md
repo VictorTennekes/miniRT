@@ -113,7 +113,7 @@ There are a number of useful keybindings that are listed below.
 
 **Exiting the application.**
 
-To exit the application press `q` or `esc`. You can also click the red `x` in the top right of the window.
+To exit the application press `q` or `esc`. You can also click the red `x` in the top left of the window.
 
 **Camera**
 
