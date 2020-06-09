@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	minirt
+NAME			=	miniRT
 SRCS			=	main.c\
 					color/color_add_light.c\
 					color/color_mix.c\

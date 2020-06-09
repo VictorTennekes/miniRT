@@ -34,6 +34,8 @@ void	parse_resolution(char **info, t_data *data)
 		print_error("Invalid value given for resolution", data);
 	data->window.x = ft_atoi(info[1]);
 	data->window.y = ft_atoi(info[2]);
+	if (data->window.x <= 0 || data->window.y <= 0)
+		print_error("Invalid value gived for resolution", data);
 	mlx_get_screen_size(data->mlx_info.mlx, &screen[0], &screen[1]);
 	if (data->window.x > screen[0] && data->mapinfo.save != true)
 		data->window.x = screen[0];

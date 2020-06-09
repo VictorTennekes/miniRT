@@ -28,11 +28,11 @@ static bool	verify_filename(char *filename)
 	int i;
 
 	i = 0;
-	while (filename[i])
+	while (filename[i + 1])
 		i++;
-	if (filename[i - 2] == '.' && filename[i - 1] == 'r' && filename[i] == 't')
-		return (false);
-	return (true);
+	if (filename[i] == 't' && filename[i - 1] == 'r' && filename[i - 2] == '.')
+		return (true);
+	return (false);
 }
 
 /*
