@@ -21,12 +21,14 @@
 #include <minirt.h>
 #include <stdio.h>
 
-t_vec3d		parse_coord(char *str)
+t_vec3d		parse_coord(char *str, t_data *data)
 {
 	t_vec3d	coord;
 	char	**values;
 
 	values = ft_split(str, ',');
+	if (char_arrlen(values) != 3)
+		print_error("wrong amont of arguments given for xyz", data);
 	coord.x = parse_double(values[0]);
 	coord.y = parse_double(values[1]);
 	coord.z = parse_double(values[2]);

@@ -32,8 +32,8 @@ void	parse_camera(char **info, t_data *data)
 	camera = (t_camera *)malloc(sizeof(t_camera));
 	if (!camera)
 		print_error("Malloc failed for camera", data);
-	camera->pos = parse_coord(info[1]);
-	camera->vector = parse_coord(info[2]);
+	camera->pos = parse_coord(info[1], data);
+	camera->vector = parse_coord(info[2], data);
 	if ((camera->vector.x > 1 || camera->vector.x < -1) ||
 		(camera->vector.y > 1 || camera->vector.y < -1) ||
 		(camera->vector.z > 1 || camera->vector.z < -1))

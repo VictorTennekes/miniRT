@@ -225,7 +225,7 @@ size_t				char_arrlen(char **array);
 int					isdigit_str(char *str);
 double				parse_double(char *str);
 t_color				parse_color(char *str, t_data *data);
-t_vec3d				parse_coord(char *str);
+t_vec3d				parse_coord(char *str, t_data *data);
 void				*free_machine(char **array);
 bool				check_line(char *str);
 int					color_to_int(t_color color);

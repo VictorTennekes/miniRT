@@ -33,8 +33,8 @@ void	parse_square(char **info, t_data *data)
 	if (!object)
 		print_error("Malloc failed for square", data);
 	object->type = SQ;
-	object->pos[0] = parse_coord(info[1]);
-	object->vector = parse_coord(info[2]);
+	object->pos[0] = parse_coord(info[1], data);
+	object->vector = parse_coord(info[2], data);
 	object->size = parse_double(info[3]);
 	object->color = parse_color(info[4], data);
 	if ((object->vector.x > 1 || object->vector.x < -1) ||

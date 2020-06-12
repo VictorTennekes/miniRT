@@ -32,7 +32,7 @@ void	parse_light(char **info, t_data *data)
 	light = (t_light *)malloc(sizeof(t_light));
 	if (!light)
 		print_error("Malloc failed for light", data);
-	light->pos = parse_coord(info[1]);
+	light->pos = parse_coord(info[1], data);
 	light->ratio = parse_double(info[2]);
 	light->color = parse_color(info[3], data);
 	if (light->ratio > 1 || light->ratio < 0)
