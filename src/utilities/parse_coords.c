@@ -19,7 +19,6 @@
 */
 
 #include <minirt.h>
-#include <stdio.h>
 
 t_vec3d		parse_coord(char *str, t_data *data)
 {

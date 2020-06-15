@@ -19,7 +19,6 @@
 */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 void	*free_machine(char **array)
 {

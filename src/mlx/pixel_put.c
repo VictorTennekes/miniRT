@@ -23,7 +23,6 @@
 
 #include <minirt.h>
 #include <mlx.h>
-#include <stdio.h>
 
 void	pixel_put(t_mlx_data data, int x, int y, t_color color)
 {
