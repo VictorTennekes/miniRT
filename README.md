@@ -122,7 +122,7 @@ To switch camera's you can use the `o`(previous) and `p`(next) keys.
 
 **Color**
 
-To switch from rgb colors to greysscale you can use the `G` key.
+To switch from rgb colors to greyscale you can use the `G` key.
 
 ### Images
 
