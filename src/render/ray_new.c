@@ -23,5 +23,9 @@
 
 t_ray	ray_new(t_vec3d origin, t_vec3d direction)
 {
-	return ((t_ray){.origin = origin, .direction = direction});
+	t_ray res;
+
+	res.origin = origin;
+	res.direction = direction;
+	return (res);
 }

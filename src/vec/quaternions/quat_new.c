@@ -25,5 +25,11 @@
 
 inline t_quat	quat_new(double w, double x, double y, double z)
 {
-	return ((t_quat){.w = w, .x = x, .y = y, .z = z});
+	t_quat res;
+
+	res.w = w;
+	res.x = x;
+	res.y = y;
+	res.z = z;
+	return (res);
 }

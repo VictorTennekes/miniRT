@@ -23,5 +23,10 @@
 
 inline t_vec3d	vec_new(double x, double y, double z)
 {
-	return ((t_vec3d){.x = x, .y = y, .z = z});
+	t_vec3d res;
+
+	res.x = x;
+	res.y = y;
+	res.z = z;
+	return (res);
 }
