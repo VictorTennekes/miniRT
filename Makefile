@@ -193,7 +193,7 @@ sanic:
 
 bonus:
 	rm -f $(NAME)
-	@echo "$(WHITE)/-----		Linking bonus		-----\\ $(RESET)"
+	@echo "$(WHITE)/-----		Compiling bonus		-----\\ $(RESET)"
 	@BONUS=1 make $(NAME)
 	@touch bonus
 
