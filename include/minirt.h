@@ -23,10 +23,6 @@
 # include <stddef.h>
 # include <math.h>
 
-# ifndef GREY
-#  define GREY false
-# endif
-
 /*
 **	Color
 */

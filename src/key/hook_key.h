@@ -37,6 +37,7 @@ void			cam_rotate_lr(int keycode, t_data *data);
 void			cam_rotate_ud(int keycode, t_data *data);
 void			switch_cam_next(int keycode, t_data *data);
 void			switch_cam_prev(int keycode, t_data *data);
+void			switch_color(int keycode, t_data *data);
 
 t_hook_key		g_hook_key[] = {
 	{KEY_ESC, &exit_mlx},
@@ -53,6 +54,7 @@ t_hook_key		g_hook_key[] = {
 	{KEY_RIGHT, &cam_rotate_lr},
 	{KEY_UP, &cam_rotate_ud},
 	{KEY_DOWN, &cam_rotate_ud},
+	{KEY_G, &switch_color},
 	{0, NULL}
 };
 

@@ -20,10 +20,13 @@
 */
 
 #include <minirt.h>
+#include <stdbool.h>
+
+bool g_grey = false;
 
 int	color_to_int(t_color color)
 {
-	if (GREY == true)
+	if (g_grey == true)
 		return ((int)((color.r + color.g + color.b) / 3) << 16 |
 		(int)((color.r + color.g + color.b) / 3) << 8 |
 		(int)((color.r + color.g + color.b) / 3));

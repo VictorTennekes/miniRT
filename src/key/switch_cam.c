@@ -19,9 +19,13 @@
 **	@return	:	{void}
 */
 
+
 #include <minirt.h>
 #include <key_codes.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+extern bool g_grey;
 
 void	switch_cam_next(int keycode, t_data *data)
 {
@@ -67,4 +71,14 @@ void	switch_cam_prev(int keycode, t_data *data)
 			cameras = cameras->next;
 		data->current_cam = cameras->content;
 	}
+}
+
+void	switch_color(int keycode, t_data *data)
+{
+	(void)keycode;
+	data->window.rendered = false;
+	if (g_grey == true)
+		g_grey = false;
+	else if (g_grey == false)
+		g_grey = true;
 }

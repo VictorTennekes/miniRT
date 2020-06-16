@@ -23,6 +23,7 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_O 31
+# define KEY_G 5
 # define KEY_P 35
 # define KEY_H 4
 # define KEY_J 38
