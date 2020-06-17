@@ -36,7 +36,8 @@ double	intersect_tr(t_object *triangle, t_ray ray, t_data *data)
 		plane.vector = vec_multi(plane.vector, -1);
 	tr_plane = obj_dist(&plane, ray, data);
 	if (!check_edge_tr(triangle, plane.vector, tr_plane.position) &&
-		!check_edge_tr(triangle, vec_multi(plane.vector, -1), tr_plane.position))
+		!check_edge_tr(triangle, vec_multi(plane.vector, -1),
+		tr_plane.position))
 		return (INFINITY);
 	return (tr_plane.distance);
 }

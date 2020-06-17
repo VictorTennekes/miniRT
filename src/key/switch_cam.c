@@ -19,7 +19,6 @@
 **	@return	:	{void}
 */
 
-
 #include <minirt.h>
 #include <key_codes.h>
 #include <stdlib.h>
