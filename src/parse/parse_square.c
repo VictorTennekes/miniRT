@@ -43,4 +43,5 @@ void	parse_square(char **info, t_data *data)
 		print_error("Invalid orientation vector given for square", data);
 	object->vector = vec_normalize(object->vector);
 	init_sq_children(object, data);
+	free(object);
 }

@@ -27,9 +27,9 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
+	ft_bzero(&data, sizeof(t_data));
 	if (ac != 2 && ac != 3)
 		print_error("Invalid amount of arguments", &data);
-	ft_bzero(&data, sizeof(t_data));
 	if (ac == 3)
 	{
 		if (!(ft_strcmp(av[2], "--save")))
