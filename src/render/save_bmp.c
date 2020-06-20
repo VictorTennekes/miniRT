@@ -24,11 +24,12 @@
 
 static size_t	bmp_size(t_data *data)
 {
-	size_t res;
+	size_t	res;
 
 	res = 14;
 	res += 40;
 	res += 3 * (data->window.x * data->window.y);
+	// res += ((data->window.x * 3) % 4) ? data->window.y * (4 - ((data->window.x * 3) % 4)) : 0;
 	return (res);
 }
 
@@ -52,17 +53,19 @@ static void		bmp_write_image(char *buf, t_data *data)
 {
 	uint32_t	index;
 	t_color		color;
+	t_color		*frame;
 	uint32_t	x;
 	uint32_t	y;
 
 	index = 0x36;
+	frame = get_frame(data);
 	y = data->window.y - 1;
 	while (y > 0)
 	{
 		x = 0;
 		while (x < data->window.x)
 		{
-			color = get_pixel((t_vec2ui) {x, y}, data);
+			color = frame[x * data->window.y + y];
 			buf[index + 0] = color.b;
 			buf[index + 1] = color.g;
 			buf[index + 2] = color.r;
@@ -77,16 +80,21 @@ void			save_bmp(t_data *data)
 {
 	char	*buf;
 	int		fd;
+	int		tmp;
 	size_t	file_size;
 
 	fd = open("scene.bmp", O_WRONLY | O_CREAT, 0777);
 	if (fd < 0)
 		print_error("Failed to open/create the bmp file", data);
+	tmp = data->window.x;
+	if ((data->window.x * 3) % 4 != 0)
+		data->window.x = data->window.x + ((data->window.x * 3) % 4);
 	file_size = bmp_size(data);
 	buf = malloc(file_size);
 	bmp_file_header(buf, file_size);
 	bmp_info_header(buf, data);
 	bmp_write_image(buf, data);
+	data->window.x = tmp;
 	if (write(fd, buf, file_size) < 0)
 		print_error("Failed to write to bmp file", data);
 	if (close(fd) < 0)

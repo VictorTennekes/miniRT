@@ -275,6 +275,7 @@ t_ray_res			obj_dist(t_object *obj, t_ray ray, t_data *data);
 
 void				exit_mlx(int keycode, t_data *data);
 int					hook_frame(t_data *data);
+t_color				*get_frame(t_data *data);
 bool				init_mlx_img(t_data *data);
 bool				init_mlx(t_data *data);
 void				pixel_put(t_mlx_data data, int x, int y, t_color color);
