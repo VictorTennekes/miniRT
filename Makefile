@@ -112,7 +112,7 @@ CFILES			=	$(SRCS:%=src/%)
 BONUS_CFILES	=	$(BONUS_SRCS:%=src/%)
 OFILES			=	$(CFILES:.c=.o)
 BONUS_OFILES	=	$(BONUS_CFILES:.c=.o)
-FLAGS			=	-Wall -Wextra -Werror -DNOLIST -g -Og
+FLAGS			=	-Wall -Wextra -Werror -DNOLIST
 INCLUDES		=	-I include\
 					-I $(MLX_LOC)\
 					-I $(LIBFT_LOC)/include\
