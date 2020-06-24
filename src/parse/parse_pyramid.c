@@ -44,4 +44,5 @@ void	parse_pyramid(char **info, t_data *data)
 		print_error("Invalid orientation vector given for pyramid", data);
 	object->vector = vec_normalize(object->vector);
 	init_py_children(object, data);
+	free(object);
 }
