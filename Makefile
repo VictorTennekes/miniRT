@@ -26,12 +26,6 @@ SRCS			=	main.c\
 					error/error.c\
 					free/free_data.c\
 					free/free_list.c\
-					intersect/inter_cy.c\
-					intersect/inter_ds.c\
-					intersect/inter_pl.c\
-					intersect/inter_sp.c\
-					intersect/inter_tr.c\
-					intersect/intersect.c\
 					key/hook_key.c\
 					key/cam_interact.c\
 					key/switch_cam.c\
