@@ -166,7 +166,7 @@ $(NAME): $(TARGETS)
 
 %.o: %.c
 	$(CC) -c $(FLAGS) $(INCLUDES) -o $@ $<
-	
+
 clean:
 	@echo "$(WHITE)/-----		Cleaning mlx		-----\\ $(RESET)"
 	make -j6 clean -C $(MLX_LOC)

@@ -26,15 +26,19 @@ static bool		ray_obstructed(t_object *object, t_light *light,
 	t_ray ray, t_data *data)
 {
 	t_list	*objects;
+	t_ray_res res;
 	double	dist;
 
 	objects = data->objects;
 	dist = vec_dist(ray.origin, light->pos);
 	while (objects)
 	{
-		if (objects->content != object &&
-				intersect((t_object *)objects->content, ray, data) < dist)
-			return (true);
+		if (objects->content != object)
+		{
+			res = obj_dist((t_object *)objects->content, ray, data);
+			if (res.distance < dist)
+				return (true);
+		}
 		objects = objects->next;
 	}
 	return (false);

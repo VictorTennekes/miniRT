@@ -65,7 +65,7 @@ void		init_py_children(t_object *pyramid, t_data *data)
 	square->type = SQ;
 	init_sq_children(square, data);
 	init_sq_corners(square, corners);
-	free (square);
+	free(square);
 	top_point = vec_add(pyramid->pos[0],
 		vec_multi(pyramid->vector, pyramid->height));
 	setup_triangles(triangle, corners, top_point, pyramid->color);

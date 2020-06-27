@@ -22,12 +22,17 @@
 #include <minirt.h>
 #include <mlx.h>
 #include "hook_key.h"
+#include <stdlib.h>
 
 int		hook_key(int keycode, t_data *data)
 {
+	char	*keystring;
+
 	(void)data;
+	keystring = ft_itoa(keycode);
 	mlx_string_put(data->mlx_info.mlx, data->mlx_info.mlx_win,
-		(data->window.x / 2) - 10, 20, 0xFFFFFF, ft_itoa(keycode));
+		(data->window.x / 2) - 10, 20, 0xFFFFFF, keystring);
+	free(keystring);
 	key(keycode, data);
 	return (0);
 }
