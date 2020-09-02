@@ -1,9 +1,9 @@
 # miniRT
 
-> :warning: **This project is a work in progress**
+> :warning:	**This project isn't perfect**
 
 This project is an introduction to the beautiful world of ray-tracing.
-Once completed it will be able to render simple Computer-Generated-Images.
+It is able to render simple Computer-Generated-Images.
 
 ## Index
 
