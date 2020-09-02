@@ -1,7 +1,5 @@
 # miniRT
 
-> :warning:	**This project isn't perfect**
-
 This project is an introduction to the beautiful world of ray-tracing.
 It is able to render simple Computer-Generated-Images.
 
